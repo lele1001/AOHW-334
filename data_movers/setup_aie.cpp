@@ -5,7 +5,7 @@
 #include "../common/common.h"
 
 extern "C" {
-	void setup_aie(int num_clusters, int num_points, int* input, hls::stream<int32_t>& s)
+	void setup_aie(int num_clusters, int num_points, int* input, hls::stream<int>& s)
 	{
 		// PRAGMA for stream
 		#pragma HLS interface axis port = s
