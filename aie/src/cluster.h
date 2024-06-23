@@ -5,7 +5,7 @@
 
 class Cluster {
     public:
-        Cluster(int x, int y) {
+        Cluster(int32_t x, int32_t y) {
             this->x = x;
             this->y = y;
             this->numPoints = 0;
@@ -27,26 +27,28 @@ class Cluster {
             this->numPoints++;
         }
 
-        int getX() {
+        int32_t getX()
+        {
             return this->x;
         }
 
-        int getY() {
+        int32_t getY()
+        {
             return this->y;
         }
 
         void updateCoordinates() {
-            this->x = (int) this->x_accum / this->numPoints;
-            this->y = (int) this->y_accum / this->numPoints;
+            this->x = (int32_t) this->x_accum / this->numPoints;
+            this->y = (int32_t) this->y_accum / this->numPoints;
         }
 
     private:
         // cluster coordinates
-        int x, y;
+        int32_t x, y;
         // number of points in cluster
-        int numPoints;
+        int32_t numPoints;
         // points coordinates sum
-        int x_accum, y_accum;
+        int32_t x_accum, y_accum;
 };
 
 #endif

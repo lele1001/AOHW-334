@@ -11,9 +11,9 @@
 #define NUM_CLUSTERS 2
 #define NUM_POINTS 10
 
-void read_from_stream(int *buffer, hls::stream<int> &stream, size_t size) 
+void read_from_stream(int32_t *buffer, hls::stream<int32_t> &stream, size_t size)
 {
-    for (int i = 0; i < size; i++) 
+    for (int32_t i = 0; i < size; i++)
     {
         buffer[i] = stream.read();
     }
@@ -21,13 +21,13 @@ void read_from_stream(int *buffer, hls::stream<int> &stream, size_t size)
 
 int main(int argc, char* argv[]) 
 {
-    hls::stream<int> s;
+    hls::stream<ap_int<sizeof(int32_t) * 8 * 4> s;
     std::srand(time(nullptr));
 
     // size := points coordinates (x,y) + clusters coordinates (x,y)
-    int size = NUM_CLUSTERS * 2 + NUM_POINTS * 2;
-    int *input = new int[size];
-    int i, j, random;
+    int32_t size = NUM_CLUSTERS * 2 + NUM_POINTS * 2;
+    int32_t *input = new int32_t[size];
+    int32_t i, j, random;
 
     for (i = 0; i < size; i++) 
     {
@@ -43,14 +43,19 @@ int main(int argc, char* argv[])
     
     if (file.is_open()) 
     {
-        file << size / 4 << std::endl;
-        file << NUM_CLUSTERS << std::endl;
-        file << NUM_POINTS << std::endl;
+        ap_int<sizeof(int32_t) * 8 * 4> tmp;
 
-        for (i = 0; i < size; i++) 
+        for (i = 0; i < (size / 4) + 3; i++) 
         {
-            file << input[i] << std::endl;
-        }
+            tmp = s.read();
+
+            for (j = 0; j < 4; j++) 
+            {
+                int32_t x = tmp.range(j * 32 + 31, j * 32);
+                file << x << std::endl;
+                std::cout << x << std::endl;
+            }
+        }        
 
         file.close();
     } 

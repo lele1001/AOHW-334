@@ -3,42 +3,43 @@
 
 class Point
 {
-    public:
-        Point(int x, int y)
-        {
-            this->x = x;
-            this->y = y;
-            this->clusterId = -1;
-        }
+public:
+    Point(int32_t x, int32_t y)
+    {
+        this->x = x;
+        this->y = y;
+        this->clusterId = -1;
+    }
 
-        Point() {
-            this->x = 0;
-            this->y = 0;
-            this->clusterId = -1;
-        }
+    Point()
+    {
+        this->x = 0;
+        this->y = 0;
+        this->clusterId = -1;
+    }
 
-        int getCluster()
-        {
-            return clusterId;
-        }
+    int32_t getCluster()
+    {
+        return clusterId;
+    }
 
-        void setCluster(int id)
-        {
-            this->clusterId = id;
-        }
+    void setCluster(int32_t id)
+    {
+        this->clusterId = id;
+    }
 
-        int getX()
-        {
-            return x;
-        }
+    int32_t getX()
+    {
+        return x;
+    }
 
-        int getY()
-        {
-            return y;
-        }
+    int32_t getY()
+    {
+        return y;
+    }
 
-    private:
-        int clusterId, x, y;
+private:
+    int32_t clusterId, x, y;
 };
 
 #endif

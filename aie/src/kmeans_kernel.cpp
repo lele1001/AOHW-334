@@ -10,57 +10,64 @@
 #define NUM_POINTS 100
 #define NUM_CLUSTERS 4
 
-aie::vector<int, 4> euclidean_distance(Cluster *clusters, int num_clusters, Point point);
-int assignment_function(aie::vector<int, 4> distances, Point point, Cluster *clusters, int num_clusters);
+aie::vector<int32_t, 4> euclidean_distance(Cluster *clusters, int32_t num_clusters, Point point);
+int32_t assignment_function(aie::vector<int32_t, 4> distances, Point point, Cluster *clusters, int32_t num_clusters);
 
-void kmeans_function(input_stream<int32> *restrict input, output_stream<int32> *restrict output)
+void kmeans_function(input_stream<int32_t> *restrict input, output_stream<int32_t> *restrict output)
 {
+    int32_t loops, num_clusters, num_points;
+    aie::vector<int32_t, 4> val_in;
+
     // Read the number of loops, clusters and points
-    int loops = readincr(input);
-    int num_clusters = readincr(input);
-    int num_points = readincr(input);
+    val_in = readincr_v<4>(input);
+    loops = val_in[0];
+
+    val_in = readincr_v<4>(input);
+    num_clusters = val_in[0];
+
+    val_in = readincr_v<4>(input);
+    num_points = val_in[0];
 
     if (num_points > NUM_POINTS)
     {
-        std::cout << "Number of points exceeds the maximum limit" << std::endl;
+        // std::cout << "Number of points exceeds the maximum limit" << std::endl;
         return;
     }
     else if (num_clusters > NUM_CLUSTERS)
     {
-        std::cout << "Number of clusters exceeds the maximum limit" << std::endl;
+        // std::cout << "Number of clusters exceeds the maximum limit" << std::endl;
         return;
     }
 
     Cluster clusters[NUM_CLUSTERS];
     Point points[NUM_POINTS];
-
-    int i, j = 0, k = 0;
-    aie::vector<int, 4> coords;
+    int32_t i, j = 0, k = 0;
+    aie::vector<int32_t, 4> coords;
 
     // Read the coordinates of the points and clusters
     for (i = 0; i < loops; i++)
     {
         coords = readincr_v<4>(input);
-        std::cout << "Coords: " << coords[0] << ", " << coords[1] << ", " << coords[2] << ", " << coords[3] << std::endl;
+        // std::cout << "Coords: " << coords[0] << ", " << coords[1] << ", " << coords[2] << ", " << coords[3] << std::endl;
 
         if (i < num_points / 2)
         {
             points[j] = Point(coords[0], coords[1]);
             points[j + 1] = Point(coords[2], coords[3]);
-            std::cout << "Point " << j << " coordinates are (" << points[j].getX() << ", " << points[j].getY() << ")" << std::endl;
+            // std::cout << "Point " << j << " coordinates are (" << points[j].getX() << ", " << points[j].getY() << ")" << std::endl;
             j += 2;
         }
-        else 
+        else
         {
             clusters[k] = Cluster(coords[0], coords[1]);
             clusters[k + 1] = Cluster(coords[2], coords[3]);
-            std::cout << "Cluster " << k << " coordinates are (" << clusters[k].getX() << ", " << clusters[k].getY() << ")" << std::endl;
+            // std::cout << "Cluster " << k << " coordinates are (" << clusters[k].getX() << ", " << clusters[k].getY() << ")" << std::endl;
             k += 2;
         }
     }
 
-    aie::vector<int, 4> distances;
-    int cluster_index = -1;
+    aie::vector<int32_t, 4> distances;
+    int32_t cluster_index = -1;
 
     for (i = 0; i < num_points; i++)
     {
@@ -71,34 +78,34 @@ void kmeans_function(input_stream<int32> *restrict input, output_stream<int32> *
         cluster_index = assignment_function(distances, points[i], clusters, num_clusters);
         points[i].setCluster(cluster_index);
         clusters[cluster_index].addPoint(points[i]);
-        std::cout << "Point (" << points[i].getX() << ", " << points[i].getY() << ") assigned to cluster " << cluster_index << std::endl;
+        // std::cout << "Point (" << points[i].getX() << ", " << points[i].getY() << ") assigned to cluster " << cluster_index << std::endl;
 
         // Update the cluster coordinates
         clusters[cluster_index].updateCoordinates();
-        std::cout << "Cluster " << cluster_index << " coordinates updated to (" << clusters[cluster_index].getX() << ", " << clusters[cluster_index].getY() << ")" << std::endl;
+        // std::cout << "Cluster " << cluster_index << " coordinates updated to (" << clusters[cluster_index].getX() << ", " << clusters[cluster_index].getY() << ")" << std::endl;
     }
 
     // Write the coordinates of the clusters in the output stream
-    aie::vector<int, 4> result;
+    aie::vector<int32_t, 4> result;
 
     for (i = 0; i < num_clusters; i++)
     {
-        result[0] = clusters[i].getX();
-        result[1] = clusters[i].getY();
+        result[i * 2] = clusters[i].getX();
+        result[i * 2 + 1] = clusters[i].getY();
     }
 
     writeincr(output, result);
 }
 
 // Compute the euclidean distance between a point and all the clusters
-aie::vector<int, 4> euclidean_distance(Cluster *clusters, int num_clusters, Point point)
+aie::vector<int32_t, 4> euclidean_distance(Cluster *clusters, int32_t num_clusters, Point point)
 {
-    aie::vector<int, 4> clusters_coords;
-    aie::vector<int, 4> diff;
+    aie::vector<int32_t, 4> clusters_coords;
+    aie::vector<int32_t, 4> diff;
 
     aie::accum<acc64, 4> dist_x;
     aie::accum<acc64, 4> dist_y;
-    int i;
+    int32_t i;
 
     for (i = 0; i < num_clusters; i++)
     {
@@ -116,28 +123,28 @@ aie::vector<int, 4> euclidean_distance(Cluster *clusters, int num_clusters, Poin
     diff = aie::sub(clusters_coords, point.getY());
     dist_y = aie::mul(diff, diff);
 
-    aie::vector<int, 4> distances = aie::add(dist_x.to_vector<int>(), dist_y.to_vector<int>());
+    aie::vector<int32_t, 4> distances = aie::add(dist_x.to_vector<int32_t>(), dist_y.to_vector<int32_t>());
     return distances;
 }
 
 // Assign the point to the closest cluster
-int assignment_function(aie::vector<int, 4> distances, Point point, Cluster *clusters, int num_clusters)
+int32_t assignment_function(aie::vector<int32_t, 4> distances, Point point, Cluster *clusters, int32_t num_clusters)
 {
-    int i;
-    
+    int32_t i;
+
     for (i = num_clusters; i < 4; i++)
     {
         distances[i] = __INT32_MAX__;
     }
 
-    int min_dist = aie::reduce_min(distances);
-    std::cout << "Min distance: " << min_dist << std::endl;
+    int32_t min_dist = aie::reduce_min(distances);
+    // std::cout << "Min distance: " << min_dist << std::endl;
 
-    for (int i = 0; i < num_clusters; i++)
+    for (i = 0; i < num_clusters; i++)
     {
         if (distances[i] == min_dist)
         {
-            std::cout << "Distance between point (" << point.getX() << ", " << point.getY() << ") and cluster (" << clusters[i].getX() << ", " << clusters[i].getY() << ") is " << min_dist << std::endl;
+            // std::cout << "Distance between point (" << point.getX() << ", " << point.getY() << ") and cluster (" << clusters[i].getX() << ", " << clusters[i].getY() << ") is " << min_dist << std::endl;
             return i;
         }
     }
