@@ -23,25 +23,12 @@ extern "C"
 		// Create a temporary variable to store the data (4 integers at a time)
 		ap_int<sizeof(int32_t) * 8 * 4> tmp;
 
-		// Write the size of the input data
+		// Write the size of the input data, the number of clusters and the number of points
 		int32_t size = num_clusters * 2 + num_points * 2;
 		int32_t size_loop = (int32_t) size / 4;
 		tmp.range(31, 0) = size_loop;
-		tmp.range(63, 32) = 0;
-		tmp.range(95, 64) = 0;
-		tmp.range(127, 96) = 0;
-		s.write(tmp);
-
-		// Write the number of clusters and points
-		tmp.range(31, 0) = num_points;
-		tmp.range(63, 32) = 0;
-		tmp.range(95, 64) = 0;
-		tmp.range(127, 96) = 0;
-		s.write(tmp);
-
-		tmp.range(31, 0) = num_points;
-		tmp.range(63, 32) = 0;
-		tmp.range(95, 64) = 0;
+		tmp.range(63, 32) = num_clusters;
+		tmp.range(95, 64) = num_points;
 		tmp.range(127, 96) = 0;
 		s.write(tmp);
 

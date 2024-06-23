@@ -21,12 +21,8 @@ void kmeans_function(input_stream<int32_t> *restrict input, output_stream<int32_
     // Read the number of loops, clusters and points
     val_in = readincr_v<4>(input);
     loops = val_in[0];
-
-    val_in = readincr_v<4>(input);
-    num_clusters = val_in[0];
-
-    val_in = readincr_v<4>(input);
-    num_points = val_in[0];
+    num_clusters = val_in[1];
+    num_points = val_in[2];
 
     if (num_points > NUM_POINTS)
     {
