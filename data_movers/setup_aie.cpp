@@ -6,7 +6,7 @@
 
 extern "C"
 {
-	void setup_aie(int32_t num_clusters, int32_t num_points, int32_t *input, hls::stream<int32_t> &s)
+	void setup_aie(int32_t num_clusters, int32_t num_points, int32_t *input, hls::stream<ap_int<sizeof(int32_t) * 8 * 4>> &s)
 	{
 		// PRAGMA for stream
 		#pragma HLS interface axis port = s
@@ -26,6 +26,7 @@ extern "C"
 		// Write the size of the input data, the number of clusters and the number of points
 		int32_t size = num_clusters * 2 + num_points * 2;
 		int32_t size_loop = (int32_t) size / 4;
+		
 		tmp.range(31, 0) = size_loop;
 		tmp.range(63, 32) = num_clusters;
 		tmp.range(95, 64) = num_points;

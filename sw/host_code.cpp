@@ -8,9 +8,6 @@
 #include "experimental/xrt_uuid.h"
 #include "../common/common.h"
 #include "math.h"
-#include "../aie/src/point.h"
-#include "../aie/src/cluster.h"
-
 
 // For hw emulation, run in sw directory: source ./setup_emu.sh -s on
 #define DEVICE_ID 0

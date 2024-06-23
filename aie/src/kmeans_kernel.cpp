@@ -38,25 +38,23 @@ void kmeans_function(input_stream<int32_t> *restrict input, output_stream<int32_
     Cluster clusters[NUM_CLUSTERS];
     Point points[NUM_POINTS];
     int32_t i, j = 0, k = 0;
-    aie::vector<int32_t, 4> coords;
 
     // Read the coordinates of the points and clusters
     for (i = 0; i < loops; i++)
     {
-        coords = readincr_v<4>(input);
-        // std::cout << "Coords: " << coords[0] << ", " << coords[1] << ", " << coords[2] << ", " << coords[3] << std::endl;
+        val_in = readincr_v<4>(input);
 
         if (i < num_points / 2)
         {
-            points[j] = Point(coords[0], coords[1]);
-            points[j + 1] = Point(coords[2], coords[3]);
+            points[j] = Point(val_in[0], val_in[1]);
+            points[j + 1] = Point(val_in[2], val_in[3]);
             // std::cout << "Point " << j << " coordinates are (" << points[j].getX() << ", " << points[j].getY() << ")" << std::endl;
             j += 2;
         }
         else
         {
-            clusters[k] = Cluster(coords[0], coords[1]);
-            clusters[k + 1] = Cluster(coords[2], coords[3]);
+            clusters[k] = Cluster(val_in[0], val_in[1]);
+            clusters[k + 1] = Cluster(val_in[2], val_in[3]);
             // std::cout << "Cluster " << k << " coordinates are (" << clusters[k].getX() << ", " << clusters[k].getY() << ")" << std::endl;
             k += 2;
         }
