@@ -35,7 +35,7 @@ _make compile TARGET=HW/HW_EMU_: it compiles all your kernel, skipping the ones 
 _make run_testbench_setup_aie_ : compiles and execute the testbench for the kernel setup_aie.  
 _make run_testbench_sink_from_aie_ : compiles and execute the testbench for the kernel setup_aie.  
 
-### Hw
+### HW
 
 Contains the cfg file required to link the components. For the Versal case, you have also to link the AI Engine.
 
@@ -44,13 +44,13 @@ Contains the cfg file required to link the components. For the Versal case, you 
 _make all TARGET=HW/HW_EMU_ : it builds the hardware or the hardware emu linking your componentsEMU TARGET=HW/HW_EMU
 make clean: it removes all files.
 
-### Sw
+### SW
 
 Once you have devised your accelerator, you need to create the host code for using it. Notice that the presented example is a minimal host code, which may be improved using all the capabilities of C++ code ( classes, abstraction and so on).
 
 **Main Commands**
-_make build_sw_ : it compiles the sw
 
+_make build_sw_ : it compiles the sw
 _./setup_emu.sh -s on_ : enables the hardware emulation
 
 i.e.: make build_sw && ./setup_emu.sh && ./host_overlay.exe : this will compile, prepare the emulation, and run it.
