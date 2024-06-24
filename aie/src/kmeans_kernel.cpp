@@ -87,7 +87,7 @@ void kmeans_function(input_stream<int32_t> *restrict input, output_stream<int32_
         for (j = 0; j < 2; j++)
         {
             result[j] = clusters[i * 2 + j].getX();
-            result[j + 2] = clusters[i * 2 + j].getY();
+            result[j + 1] = clusters[i * 2 + j].getY();
         }
 
         writeincr(output, result);
