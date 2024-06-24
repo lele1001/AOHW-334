@@ -80,7 +80,7 @@ void kmeans_function(input_stream<int32_t> *restrict input, output_stream<int32_
     }
 
     // Write the coordinates of the clusters in the output stream
-    aie::vector<int32_t, 16> result = aie::zeros<int32_t, 16>();
+    aie::vector<int32_t, 8> result = aie::zeros<int32_t, 8>();
 
     for (i = 0; i < num_clusters; i++)
     {
