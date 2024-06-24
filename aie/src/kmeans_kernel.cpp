@@ -80,18 +80,15 @@ void kmeans_function(input_stream<int32_t> *restrict input, output_stream<int32_
     }
 
     // Write the coordinates of the clusters in the output stream
-    aie::vector<int32_t, 4> result = aie::zeros<int32_t, 4>();
+    aie::vector<int32_t, 16> result = aie::zeros<int32_t, 16>();
 
-    for (i = 0; i < num_clusters / 2; i++)
+    for (i = 0; i < num_clusters; i++)
     {
-        for (j = 0; j < 2; j++)
-        {
-            result[j] = clusters[i * 2 + j].getX();
-            result[j + 1] = clusters[i * 2 + j].getY();
-        }
-
-        writeincr(output, result);
+        result[i * 2] = clusters[i].getX();
+        result[i * 2 + 1] = clusters[i].getY();
     }
+
+    writeincr(output, result);
 }
 
 // Compute the euclidean distance between a point and all the clusters
