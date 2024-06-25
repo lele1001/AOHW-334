@@ -26,7 +26,7 @@
 
 // define the number of points and clusters
 #define NUM_CLUSTERS 2
-#define NUM_POINTS 10
+#define NUM_POINTS 200
 
 bool get_xclbin_path(std::string &xclbin_file);
 std::ostream &bold_on(std::ostream &os);
@@ -225,8 +225,8 @@ int main(int argc, char *argv[])
 
     auto start_time = std::chrono::high_resolution_clock::now();
     // run the kernel
-    for (i = 0; i < 25; i++)
-    {
+    //for (i = 0; i < 25; i++)
+    // {
         // std::cout << "Iteration " << i << std::endl;
         run_sink_from_aie.start();
         run_setup_aie.start();
@@ -234,7 +234,7 @@ int main(int argc, char *argv[])
         // wait for the kernel to finish
         run_setup_aie.wait();
         run_sink_from_aie.wait();
-    }
+    // }
 
     auto end_time = std::chrono::high_resolution_clock::now();
     auto exec_time = end_time - start_time;

@@ -29,7 +29,7 @@ void kmeans_function(input_stream<int32_t> *restrict input, output_stream<int32_
         // std::cout << "Number of points exceeds the maximum limit" << std::endl;
         return;
     }
-    else if (num_clusters > NUM_CLUSTERS || num_clusters % 2 != 0)
+    else if (num_clusters > NUM_CLUSTERS)
     {
         // std::cout << "Number of clusters exceeds the maximum limit" << std::endl;
         return;
