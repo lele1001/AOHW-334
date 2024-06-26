@@ -25,8 +25,8 @@
 #define arg_sink_from_aie_size 2
 
 // define the number of points and clusters
-#define NUM_CLUSTERS 2
-#define NUM_POINTS 200
+#define NUM_CLUSTERS 4
+#define NUM_POINTS 20
 
 bool get_xclbin_path(std::string &xclbin_file);
 std::ostream &bold_on(std::ostream &os);
@@ -89,7 +89,7 @@ int32_t checkResult(int32_t *input, int32_t *output)
             x_diff = clusters[c_idx] - points[p_idx];
             y_diff = clusters[c_idx + 1] - points[p_idx + 1];
 
-            distances[j] = x_diff * x_diff + y_diff * y_diff;
+            distances[j] = (int32_t) (x_diff * x_diff) + (int32_t) (y_diff * y_diff);
             // std::cout << "Distance between point (" << points[p_idx] << ", " << points[p_idx + 1] << ") and cluster (" << clusters[c_idx] << ", " << clusters[c_idx + 1] << ") is " << distances[j] << std::endl;
         }
 
@@ -116,8 +116,8 @@ int32_t checkResult(int32_t *input, int32_t *output)
 
         if (cluster_points[cluster_index] > 0)
         {
-            clusters[cluster_index] = clusters_accum[cluster_index] / cluster_points[cluster_num];
-            clusters[cluster_index + 1] = clusters_accum[cluster_index + 1] / cluster_points[cluster_num];
+            clusters[cluster_index] = (int32_t) clusters_accum[cluster_index] / cluster_points[cluster_num];
+            clusters[cluster_index + 1] = (int32_t) clusters_accum[cluster_index + 1] / cluster_points[cluster_num];
             // std::cout << "Cluster " << cluster_num << " coordinates updated to (" << clusters[cluster_index] << ", " << clusters[cluster_index + 1] << ")" << std::endl;
         }
 
@@ -141,8 +141,38 @@ int32_t checkResult(int32_t *input, int32_t *output)
     return EXIT_SUCCESS;
 }
 
+bool checkConstraints()
+{
+    if (NUM_CLUSTERS % 2 != 0)
+    {
+        std::cout << "Error: The number of clusters must be even" << std::endl;
+        return false;
+    }
+
+    if (NUM_CLUSTERS > 4)
+    {
+        std::cout << "Error: The number of clusters must be less than or equal to 4" << std::endl;
+        return false;
+    }
+
+    if (NUM_POINTS > 200)
+    {
+        std::cout << "Error: The number of points must be less than or equal to 200" << std::endl;
+        return false;
+    }
+
+    return true;
+}
+
 int main(int argc, char *argv[])
 {
+    int num_points = 0, num_clusters = 0;
+
+    if (!checkConstraints())
+    {
+        return EXIT_FAILURE;
+    }
+
     int32_t input_size = (NUM_CLUSTERS + NUM_POINTS) * 2;
     int32_t output_size = NUM_CLUSTERS * 2;
 
@@ -159,7 +189,6 @@ int main(int argc, char *argv[])
         random_num = std::rand() % 20 - 10;
         input_buffer[i] = random_num;
 
-        /*
         if (i % 2 == 0)
         {
             if (i < NUM_POINTS * 2)
@@ -175,7 +204,6 @@ int main(int argc, char *argv[])
         {
             std::cout << random_num << ") ";
         }
-        */
     }
 
     std::cout << std::endl;
