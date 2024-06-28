@@ -9,6 +9,8 @@
 #include "experimental/xrt_kernel.h"
 #include "experimental/xrt_uuid.h"
 #include "../common/common.h"
+#include "../common/cluster.h"
+#include "../common/point.h"
 #include "math.h"
 
 // For hw emulation, run in sw directory: source ./setup_emu.sh -s on
@@ -25,8 +27,8 @@
 #define arg_sink_from_aie_size 2
 
 // define the number of points and clusters
-#define NUM_CLUSTERS 4
-#define NUM_POINTS 20
+#define NUM_CLUSTERS 2
+#define NUM_POINTS 10
 
 bool get_xclbin_path(std::string &xclbin_file);
 std::ostream &bold_on(std::ostream &os);
@@ -52,49 +54,79 @@ void printOutput(int32_t *output)
     std::cout << std::endl;
 }
 
-// Check the results
-int32_t checkResult(int32_t *input, int32_t *output)
+// Print the output
+void printCluster(Cluster *output)
 {
-    int32_t points[NUM_POINTS * 2] = {0};
-    int32_t clusters[NUM_CLUSTERS * 2] = {0};
-    int32_t clusters_accum[NUM_CLUSTERS * 2] = {0};
-    int32_t cluster_points[NUM_CLUSTERS] = {0};
-
-    int32_t i = 0, j = 0, p_idx = 0, c_idx = 0;
-    int32_t x_diff = 0, y_diff = 0, cluster_num = 0, cluster_index = 0;
-    int32_t min_distance = 0;
-
-    // Initialize points and clusters
-    for (i = 0; i < NUM_POINTS * 2; i++)
-    {
-        points[i] = input[i];
-    }
+    int32_t i = 0;
 
     for (i = 0; i < NUM_CLUSTERS * 2; i++)
     {
-        c_idx = NUM_POINTS * 2 + i;
-        clusters[i] = input[c_idx];
+        if (i % 2 == 0)
+        {
+            std::cout << "Cluster (" << output[i].getX() << ", ";
+        }
+        else
+        {
+            std::cout << output[i].getY() << ") ";
+        }
+    }
+
+    std::cout << std::endl;
+}
+
+// Check the results
+int32_t checkResult(int32_t *sw_output, int32_t *output)
+{
+    for (int i = 0; i < NUM_CLUSTERS * 2; i++)
+    {
+        if (sw_output[i] != output[i])
+        {
+            std::cout << "Error in cluster " << i / 2 << ": " << sw_output[i] << " != " << output[i] << std::endl;
+            return EXIT_FAILURE;
+        }
+    }
+
+    std::cout << "Test passed!" << std::endl;
+    return EXIT_SUCCESS;
+}
+
+void k_means(int32_t input[], int32_t result[])
+{
+    Point points[NUM_POINTS];
+    Cluster clusters[NUM_CLUSTERS];
+
+    int32_t i = 0, j = 0, c_idx = 0;
+    int32_t x_diff = 0, y_diff = 0;
+    int32_t min_distance = 0;
+
+    // Initialize points and clusters
+    for (i = 0; i < NUM_POINTS; i++)
+    {
+        points[i] = Point(input[i * 2], input[i * 2 + 1]);
+    }
+
+    for (i = 0; i < NUM_CLUSTERS; i++)
+    {
+        c_idx = NUM_POINTS * 2 + i * 2;
+        clusters[i] = Cluster(input[c_idx], input[c_idx + 1]);
     }
 
     // K-Means algorithm
     for (i = 0; i < NUM_POINTS; i++)
     {
         int32_t distances[NUM_CLUSTERS] = {0};
-        p_idx = i * 2;
 
         // Calculate the distance between the point and each cluster
         for (j = 0; j < NUM_CLUSTERS; j++)
         {
-            c_idx = j * 2;
-            x_diff = clusters[c_idx] - points[p_idx];
-            y_diff = clusters[c_idx + 1] - points[p_idx + 1];
+            x_diff = clusters[j].getX() - points[i].getX();
+            y_diff = clusters[j].getY() - points[i].getY();
 
-            distances[j] = (int32_t) (x_diff * x_diff) + (int32_t) (y_diff * y_diff);
-            // std::cout << "Distance between point (" << points[p_idx] << ", " << points[p_idx + 1] << ") and cluster (" << clusters[c_idx] << ", " << clusters[c_idx + 1] << ") is " << distances[j] << std::endl;
+            distances[j] = x_diff * x_diff + y_diff * y_diff;
         }
 
         // Assign the point to the nearest cluster
-        cluster_num = -1;
+        c_idx = -1;
         min_distance = INT32_MAX;
 
         for (j = 0; j < NUM_CLUSTERS; j++)
@@ -102,43 +134,24 @@ int32_t checkResult(int32_t *input, int32_t *output)
             if (distances[j] < min_distance)
             {
                 min_distance = distances[j];
-                cluster_num = j;
+                c_idx = j;
             }
         }
 
-        cluster_index = cluster_num * 2;
-
         // Update the cluster coordinates
-        cluster_points[cluster_num]++;
-        clusters_accum[cluster_index] += points[p_idx];
-        clusters_accum[cluster_index + 1] += points[p_idx + 1];
+        points[i].setCluster(c_idx);
+        clusters[c_idx].addPoint(points[i]);
         // std::cout << "Accumulated coordinates for cluster " << cluster_num << " are (" << clusters_accum[cluster_index] << ", " << clusters_accum[cluster_index + 1] << ") with " << cluster_points[cluster_num] << " points" << std::endl;
 
-        if (cluster_points[cluster_index] > 0)
-        {
-            clusters[cluster_index] = (int32_t) clusters_accum[cluster_index] / cluster_points[cluster_num];
-            clusters[cluster_index + 1] = (int32_t) clusters_accum[cluster_index + 1] / cluster_points[cluster_num];
-            // std::cout << "Cluster " << cluster_num << " coordinates updated to (" << clusters[cluster_index] << ", " << clusters[cluster_index + 1] << ")" << std::endl;
-        }
-
+        clusters[c_idx].updateCoordinates();
         // std::cout << std::endl;
     }
 
-    std::cout << "Expected results: ";
-    printOutput(clusters);
-
-    // Compare the expected results with the output
-    for (i = 0; i < NUM_CLUSTERS * 2; i++)
+    for (i = 0; i < NUM_CLUSTERS; i++)
     {
-        if (clusters[i] != output[i])
-        {
-            std::cout << "Error at index " << i << ": " << clusters[i] << " != " << output[i] << std::endl;
-            return EXIT_FAILURE;
-        }
+        result[i * 2] = clusters[i].getX();
+        result[i * 2 + 1] = clusters[i].getY();
     }
-
-    std::cout << "Test passed!" << std::endl;
-    return EXIT_SUCCESS;
 }
 
 bool checkConstraints()
@@ -149,9 +162,9 @@ bool checkConstraints()
         return false;
     }
 
-    if (NUM_CLUSTERS > 4)
+    if (NUM_CLUSTERS > 8)
     {
-        std::cout << "Error: The number of clusters must be less than or equal to 4" << std::endl;
+        std::cout << "Error: The number of clusters must be less than or equal to 8" << std::endl;
         return false;
     }
 
@@ -178,6 +191,7 @@ int main(int argc, char *argv[])
 
     int32_t input_buffer[input_size] = {0};
     int32_t output_buffer[output_size] = {0};
+    int32_t sw_result[output_size] = {0};
 
     std::srand(time(nullptr));
 
@@ -229,6 +243,7 @@ int main(int argc, char *argv[])
     // get memory bank groups for device buffer - required for axi master input/ouput
     xrtMemoryGroup bank_output = krnl_sink_from_aie.group_id(arg_sink_from_aie_output);
     xrtMemoryGroup bank_input = krnl_setup_aie.group_id(arg_setup_aie_input);
+    std::cout << "Done" << std::endl;
 
     // create device buffers - if you have to load some data, here they are
     xrt::bo buffer_setup_aie = xrt::bo(device, input_size * sizeof(int32_t), xrt::bo::flags::normal, bank_input);
@@ -237,6 +252,7 @@ int main(int argc, char *argv[])
     // create runner instances
     xrt::run run_setup_aie = xrt::run(krnl_setup_aie);
     xrt::run run_sink_from_aie = xrt::run(krnl_sink_from_aie);
+    std::cout << "Done" << std::endl;
 
     // set setup_aie kernel arguments
     run_setup_aie.set_arg(arg_setup_aie_num_clusters, NUM_CLUSTERS);
@@ -246,15 +262,16 @@ int main(int argc, char *argv[])
     // set sink_from_aie kernel arguments
     run_sink_from_aie.set_arg(arg_sink_from_aie_output, buffer_sink_from_aie);
     run_sink_from_aie.set_arg(arg_sink_from_aie_size, output_size);
+    std::cout << "Done" << std::endl;
 
     // write data into the input buffer
     buffer_setup_aie.write(input_buffer);
     buffer_setup_aie.sync(XCL_BO_SYNC_BO_TO_DEVICE);
 
-    auto start_time = std::chrono::high_resolution_clock::now();
+    auto hw_start = std::chrono::high_resolution_clock::now();
     // run the kernel
-    //for (i = 0; i < 25; i++)
-    // {
+    for (i = 0; i < 25; i++)
+    {
         // std::cout << "Iteration " << i << std::endl;
         run_sink_from_aie.start();
         run_setup_aie.start();
@@ -262,26 +279,40 @@ int main(int argc, char *argv[])
         // wait for the kernel to finish
         run_setup_aie.wait();
         run_sink_from_aie.wait();
-    // }
+    }
 
-    auto end_time = std::chrono::high_resolution_clock::now();
-    auto exec_time = end_time - start_time;
-    auto exec_time_ms = exec_time / std::chrono::microseconds(1);
-
-    std::cout << "Execution took " << exec_time_ms << " microseconds." << std::endl;
+    auto hw_end = std::chrono::high_resolution_clock::now();
+    auto hw_exec = hw_end - hw_start;
+    auto hw_exec_ms = hw_exec / std::chrono::microseconds(1);
+    std::cout << "Hardware execution took " << hw_exec_ms << " microseconds." << std::endl;
 
     // read the output buffer
     buffer_sink_from_aie.sync(XCL_BO_SYNC_BO_FROM_DEVICE);
     buffer_sink_from_aie.read(output_buffer);
 
     // print the output
-    std::cout << "Output: ";
+    std::cout << "Hardware output: ";
     printOutput(output_buffer);
+    std::cout << std::endl;
 
+    auto sw_start = std::chrono::high_resolution_clock::now();
+    // run the kernel
+    for (i = 0; i < 25; i++)
+    {
+        k_means(input_buffer, sw_result);
+    }
+
+    auto sw_end = std::chrono::high_resolution_clock::now();
+    auto sw_exec = sw_end - sw_start;
+    auto sw_exec_ms = sw_exec / std::chrono::microseconds(1);
+    std::cout << "Software execution took " << sw_exec_ms << " microseconds." << std::endl;
+
+    std::cout << "Expected results: ";
+    printOutput(sw_result);
     std::cout << std::endl;
 
     // ------------------------------------------------CHECKING THE RESULTS------------------------------------------
-    return checkResult(input_buffer, output_buffer);
+    return checkResult(sw_result, output_buffer);
 }
 
 bool get_xclbin_path(std::string &xclbin_file)
