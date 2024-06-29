@@ -27,8 +27,8 @@
 #define arg_sink_from_aie_size 2
 
 // define the number of points and clusters
-#define NUM_CLUSTERS 2
-#define NUM_POINTS 50
+#define MAX_CLUSTERS 8
+#define MAX_POINTS 200
 
 bool get_xclbin_path(std::string &xclbin_file);
 std::ostream &bold_on(std::ostream &os);
@@ -39,7 +39,7 @@ void printOutput(int32_t *output)
 {
     int32_t i = 0;
 
-    for (i = 0; i < NUM_CLUSTERS * 2; i++)
+    for (i = 0; i < output * 2; i++)
     {
         if (i % 2 == 0)
         {
@@ -154,21 +154,21 @@ void k_means(int32_t input[], int32_t result[])
     }
 }
 
-bool checkConstraints()
+bool checkConstraints(int num_clusters, int num_points)
 {
-    if (NUM_CLUSTERS % 2 != 0)
+    if (num_clusters % 2 != 0)
     {
         std::cout << "Error: The number of clusters must be even" << std::endl;
         return false;
     }
 
-    if (NUM_CLUSTERS > 8)
+    if (num_clusters > MAX_CLUSTERS)
     {
         std::cout << "Error: The number of clusters must be less than or equal to 8" << std::endl;
         return false;
     }
 
-    if (NUM_POINTS > 200)
+    if (num_points > MAX_POINTS)
     {
         std::cout << "Error: The number of points must be less than or equal to 200" << std::endl;
         return false;
@@ -181,13 +181,19 @@ int main(int argc, char *argv[])
 {
     int num_points = 0, num_clusters = 0;
 
-    if (!checkConstraints())
+    std::cout << "Enter the number of points: ";
+    std::cin >> num_points;
+
+    std::cout << "Enter the number of clusters: ";
+    std::cin >> num_clusters;
+
+    if (!checkConstraints(num_points, num_clusters))
     {
         return EXIT_FAILURE;
     }
 
-    int32_t input_size = (NUM_CLUSTERS + NUM_POINTS) * 2;
-    int32_t output_size = NUM_CLUSTERS * 2;
+    int32_t input_size = num_points * 2 + num_clusters * 2;
+    int32_t output_size = num_clusters * 2;
 
     int32_t input_buffer[input_size] = {0};
     int32_t output_buffer[output_size] = {0};
@@ -206,7 +212,7 @@ int main(int argc, char *argv[])
         /*
         if (i % 2 == 0)
         {
-            if (i < NUM_POINTS * 2)
+            if (i < num_points * 2)
             {
                 std::cout << "Point (" << random_num << ", ";
             }
@@ -289,11 +295,10 @@ int main(int argc, char *argv[])
     buffer_sink_from_aie.sync(XCL_BO_SYNC_BO_FROM_DEVICE);
     buffer_sink_from_aie.read(output_buffer);
 
-    /* print the output
+    // print the output
     std::cout << "Hardware output: ";
     printOutput(output_buffer);
     std::cout << std::endl;
-    */
 
     auto sw_start = std::chrono::high_resolution_clock::now();
     // run the kernel
@@ -306,11 +311,12 @@ int main(int argc, char *argv[])
     auto sw_exec = sw_end - sw_start;
     auto sw_exec_ms = sw_exec / std::chrono::microseconds(1);
     std::cout << "Software execution took " << sw_exec_ms << " microseconds." << std::endl;
-    /*
+
+    // print the output
     std::cout << "Expected results: ";
     printOutput(sw_result);
     std::cout << std::endl;
-    */
+    
     // ------------------------------------------------CHECKING THE RESULTS------------------------------------------
     return checkResult(sw_result, output_buffer);
 }
