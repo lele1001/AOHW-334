@@ -3,21 +3,52 @@
 ## Info & Description
 This repository contains the source code of the Project "Versal System Exploration: Benchmark suite for AI Engine". 
 
-**Supervisor**: Prof. Davide Conficconi
+|| Information |
+|----------------------|-----|
+| **Team number**          | AOHW-334 |
+| **Project name**         | Versal System Exploration: Benchmark suite for AI Engine |
+| **YouTube's video**      | https://youtu.be/DQ7PJQzX1jk |
+| **Project's repository** | https://github.com/lele1001/AOHW-334 |
+| **University name**      | Politecnico di Milano |
+| **Participant (email**)  | Eleonora Cabai (eleonora.cabai@mail.polimi.it) |
+| **Supervisor name**      | DavidemConficconi |
+| **Supervisor email**     | davide.conficconi@polimi.it |
+| **Board used**           | AMD-Xilinx Versal VCK5000 |
+| **Software version**     | 2024.1 |
 
 ## Main Structure
+The archive is structured as follows:
+```
+├─ aie/                # AIE kernel for transfomation
+|  └─ src/             # Contains the code
+├─ data_movers/        # PL kernels for setting up the AIE and for fetching
+├─ mutual_info/        # PL Kernel for computing mutual information
+├─ common/             # Common codes and variables
+├─ hw/                 # System integration
+├─ sw/                 # Host application and dataset
+└─ Makefile/           # Top-level Makefile to build and run  
+```
+## Instructions to build and test project
 
-**aie** - contains the code for AI Engine kernels.  
-**data_movers** - contains the PL component.  
-**common** - contains some useful included constants and headers.  
-**hw** - contains the cfg file requiered to connect your components.  
-**sw** - contains the software for your application.  
+### Step 1 - Clone the repository
+Open a terminal, then clone the repository by running the following command
+```shell
+git clone https://github.com/github.com/lele1001/AOHW-334.git
+```
+Then, move into the repository with 
+```shell
+cd AOHW-334
+```
 
-### aie
-data - contains the input source for your simulation.  
-src - contains the code.  
+### Step 2 - Setup the environment
+Before building and/or running the framework, run the following script. Notice that this will source Vitis 2022.1, xrt and devtoolset-7
+```shell
+source ./setup_all.sh
+```
 
 **Main Commands**
+
+### aie
 
 _make aie_compile_x86_ : compile your code for x86 architecture.  
 _make aie_simulate_x86_ : simulate your x86 architecture.  
@@ -27,36 +58,24 @@ _make clean_ : removes all the output file created by the commands listed above.
 
 ### data_movers
 
-testbench : it contains a testbench for each kernel
-
-**Main Commands**
-
-_make compile TARGET=HW/HW_EMU_: it compiles all your kernel, skipping the ones already compiled.  
+_make compile TARGET=HW/HW_EMU_: compiles all your kernel, skipping the ones already compiled.  
 _make run_testbench_setup_aie_ : compiles and execute the testbench for the kernel setup_aie.  
 _make run_testbench_sink_from_aie_ : compiles and execute the testbench for the kernel setup_aie.  
 
 ### HW
 
-Contains the cfg file required to link the components. For the Versal case, you have also to link the AI Engine.
-
-**Main Commands**
-
-_make all TARGET=HW/HW_EMU_ : it builds the hardware or the hardware emu linking your componentsEMU TARGET=HW/HW_EMU
-make clean: it removes all files.
+_make all TARGET=HW_ : builds the hardware linking your components
+_make all TARGET=HW_EMU_ : builds the hardware emu linking your components
+_make clean_: removes all files.
 
 ### SW
 
-Once you have devised your accelerator, you need to create the host code for using it. Notice that the presented example is a minimal host code, which may be improved using all the capabilities of C++ code ( classes, abstraction and so on).
-
-**Main Commands**
-
-_make build_sw_ : it compiles the sw
+_make build_sw_ : compiles the sw
 _./setup_emu.sh -s on_ : enables the hardware emulation
-
-i.e.: make build_sw && ./setup_emu.sh && ./host_overlay.exe : this will compile, prepare the emulation, and run it.
-
+_./host_overlay.exe_ : runs the emulation
 
 ## General useful commands:
+
 If you need to move your bitstream and executable on the target machine, you may want it prepared in a single folder that contains all the required stuff to be moved. In this case, you can use the
 
 _make build_and_pack TARGET=hw/hw_emu_ :  it allows you to pack our build in a single folder. Notice that the hw_emu does not have to be moved on the device, it must be executed on the development machine.
