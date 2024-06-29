@@ -209,7 +209,6 @@ int main(int argc, char *argv[])
         random_num = std::rand() % 20 - 10;
         input_buffer[i] = random_num;
 
-        /*
         if (i % 2 == 0)
         {
             if (i < num_points * 2)
@@ -223,9 +222,8 @@ int main(int argc, char *argv[])
         }
         else
         {
-            std::cout << random_num << ") ";
+            std::cout << random_num << ") \t";
         }
-        */
     }
 
     std::cout << std::endl;
