@@ -11,7 +11,7 @@ This repository contains the source code of the Project "Versal System Explorati
 | **Project's repository** | https://github.com/lele1001/AOHW-334 |
 | **University name**      | Politecnico di Milano |
 | **Participant (email**)  | Eleonora Cabai (eleonora.cabai@mail.polimi.it) |
-| **Supervisor name**      | DavidemConficconi |
+| **Supervisor name**      | Davide Conficconi |
 | **Supervisor email**     | davide.conficconi@polimi.it |
 | **Board used**           | AMD-Xilinx Versal VCK5000 |
 | **Software version**     | 2024.1 |
