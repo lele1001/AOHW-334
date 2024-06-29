@@ -1,9 +1,9 @@
-# HPPS Project - Benchmark for Xilinx AIE
+# Benchmark for Xilinx AI Engine 
 
 ## Info & Description
-This repository contains the source code of the Final Project for the "High Performance Processors and Systems" class of the Master Degree in Computer Science Engineering at Politecnico di Milano.
+This repository contains the source code of the Project "Versal System Exploration: Benchmark suite for AI Engine"
 
-**Teacher**: Marco Domenico Santambrogio
+**Supervisor**: Prof. Davide Conficconi
 
 ## Main Structure
 
