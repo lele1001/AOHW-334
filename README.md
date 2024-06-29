@@ -1,7 +1,7 @@
 # Benchmark for Xilinx AI Engine 
 
 ## Info & Description
-This repository contains the source code of the Project "Versal System Exploration: Benchmark suite for AI Engine"
+This repository contains the source code of the Project "Versal System Exploration: Benchmark suite for AI Engine". 
 
 **Supervisor**: Prof. Davide Conficconi
 
