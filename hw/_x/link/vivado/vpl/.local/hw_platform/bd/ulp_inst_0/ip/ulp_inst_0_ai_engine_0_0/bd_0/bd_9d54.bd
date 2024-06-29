@@ -1,0 +1,269 @@
+{
+  "design": {
+    "design_info": {
+      "boundary_crc": "0xD788A49610AADDB8",
+      "design_src": "SBD",
+      "device": "xcvc1902-vsvd1760-2MP-e-S",
+      "name": "bd_9d54",
+      "rev_ctrl_bd_flag": "RevCtrlBdOff",
+      "scoped": "true",
+      "synth_flow_mode": "None",
+      "tool_version": "2022.2",
+      "validated": "true"
+    },
+    "design_tree": {
+      "noc_ai_mm_0": ""
+    },
+    "interface_ports": {
+      "S00_AXI": {
+        "mode": "Slave",
+        "vlnv_bus_definition": "xilinx.com:interface:aximm:1.0",
+        "vlnv": "xilinx.com:interface:aximm_rtl:1.0",
+        "parameters": {
+          "ADDR_WIDTH": {
+            "value": "42"
+          },
+          "ARUSER_WIDTH": {
+            "value": "0",
+            "value_src": "default_prop"
+          },
+          "AWUSER_WIDTH": {
+            "value": "0",
+            "value_src": "default_prop"
+          },
+          "BUSER_WIDTH": {
+            "value": "0",
+            "value_src": "default_prop"
+          },
+          "CATEGORY": {
+            "value": "NOC"
+          },
+          "CLK_DOMAIN": {
+            "value": "bd_9d54_noc_ai_mm_0_0_s_axi_aclk",
+            "value_src": "default_prop"
+          },
+          "DATA_WIDTH": {
+            "value": "128",
+            "value_src": "auto"
+          },
+          "FREQ_HZ": {
+            "value": "1250000000"
+          },
+          "HAS_BRESP": {
+            "value": "1",
+            "value_src": "constant"
+          },
+          "HAS_BURST": {
+            "value": "1",
+            "value_src": "constant"
+          },
+          "HAS_CACHE": {
+            "value": "1",
+            "value_src": "constant"
+          },
+          "HAS_LOCK": {
+            "value": "1",
+            "value_src": "constant"
+          },
+          "HAS_PROT": {
+            "value": "1",
+            "value_src": "constant"
+          },
+          "HAS_QOS": {
+            "value": "1",
+            "value_src": "constant"
+          },
+          "HAS_REGION": {
+            "value": "1",
+            "value_src": "constant"
+          },
+          "HAS_RRESP": {
+            "value": "1",
+            "value_src": "constant"
+          },
+          "HAS_WSTRB": {
+            "value": "1",
+            "value_src": "constant"
+          },
+          "ID_WIDTH": {
+            "value": "16",
+            "value_src": "ip"
+          },
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "MAX_BURST_LENGTH": {
+            "value": "256",
+            "value_src": "default"
+          },
+          "MY_CATEGORY": {
+            "value": "AIE",
+            "value_src": "constant"
+          },
+          "NUM_READ_OUTSTANDING": {
+            "value": "32",
+            "value_src": "default_prop"
+          },
+          "NUM_READ_THREADS": {
+            "value": "4",
+            "value_src": "default_prop"
+          },
+          "NUM_WRITE_OUTSTANDING": {
+            "value": "32",
+            "value_src": "default_prop"
+          },
+          "NUM_WRITE_THREADS": {
+            "value": "4",
+            "value_src": "default_prop"
+          },
+          "PHASE": {
+            "value": "0.0",
+            "value_src": "default"
+          },
+          "PHYSICAL_CHANNEL": {
+            "value": "NOC_NSU_TO_AIE",
+            "value_src": "constant"
+          },
+          "PROTOCOL": {
+            "value": "AXI4",
+            "value_src": "constant"
+          },
+          "READ_WRITE_MODE": {
+            "value": "READ_WRITE",
+            "value_src": "constant"
+          },
+          "RUSER_BITS_PER_BYTE": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "RUSER_WIDTH": {
+            "value": "17",
+            "value_src": "default_prop"
+          },
+          "SUPPORTS_NARROW_BURST": {
+            "value": "1",
+            "value_src": "ip"
+          },
+          "WUSER_BITS_PER_BYTE": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "WUSER_WIDTH": {
+            "value": "17",
+            "value_src": "default_prop"
+          }
+        },
+        "address_space_ref": "S00_AXI",
+        "base_address": {
+          "minimum": "0x00000000",
+          "maximum": "0x03FFFFFFFFFF",
+          "width": "42"
+        }
+      }
+    },
+    "ports": {
+      "s00_axi_aclk": {
+        "type": "clk",
+        "direction": "O",
+        "parameters": {
+          "ASSOCIATED_BUSIF": {
+            "value": "S00_AXI"
+          },
+          "CLK_DOMAIN": {
+            "value": "bd_9d54_noc_ai_mm_0_0_s_axi_aclk",
+            "value_src": "default_prop"
+          },
+          "FREQ_HZ": {
+            "value": "1250000000"
+          },
+          "FREQ_TOLERANCE_HZ": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "PHASE": {
+            "value": "0.0",
+            "value_src": "default"
+          },
+          "PHYSICAL_CHANNEL": {
+            "value": "AIE_TO_NOC_NSU",
+            "value_src": "constant"
+          }
+        }
+      }
+    },
+    "components": {
+      "noc_ai_mm_0": {
+        "vlnv": "xilinx.com:ip:ai_noc:1.0",
+        "xci_name": "bd_9d54_noc_ai_mm_0_0",
+        "xci_path": "ip/ip_0/bd_9d54_noc_ai_mm_0_0.xci",
+        "inst_hier_path": "noc_ai_mm_0",
+        "parameters": {
+          "C_NOC_FREQMHZ": {
+            "value": "1250"
+          },
+          "C_NOC_INTF_MODE": {
+            "value": "SLAVE"
+          },
+          "C_NOC_INTF_TYPE": {
+            "value": "AXI4"
+          },
+          "C_S_AXI_ID_WIDTH": {
+            "value": "16"
+          }
+        }
+      }
+    },
+    "interface_nets": {
+      "S00_AXI_1": {
+        "interface_ports": [
+          "S00_AXI",
+          "noc_ai_mm_0/S_AXI"
+        ]
+      }
+    },
+    "nets": {
+      "noc_ai_mm_0_s_axi_aclk": {
+        "ports": [
+          "noc_ai_mm_0/s_axi_aclk",
+          "s00_axi_aclk"
+        ]
+      }
+    },
+    "addressing": {
+      "/": {
+        "address_spaces": {
+          "S00_AXI": {
+            "range": "4T",
+            "width": "42",
+            "local_memory_map": {
+              "name": "S00_AXI",
+              "description": "Address Space Segments",
+              "address_blocks": {
+                ":S00_AXI:AIE_ARRAY_0": {
+                  "name": ":S00_AXI:AIE_ARRAY_0",
+                  "display_name": "AIE_ARRAY_0",
+                  "base_address": "0x020000000000",
+                  "range": "4G",
+                  "width": "42",
+                  "usage": "memory"
+                }
+              }
+            },
+            "segments": {
+              "AIE_ARRAY_0": {
+                "address_block": "/noc_ai_mm_0/S_AXI/Reg",
+                "offset": "0x20000000000",
+                "range": "4G"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

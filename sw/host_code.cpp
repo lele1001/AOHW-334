@@ -28,7 +28,7 @@
 
 // define the number of points and clusters
 #define NUM_CLUSTERS 2
-#define NUM_POINTS 10
+#define NUM_POINTS 50
 
 bool get_xclbin_path(std::string &xclbin_file);
 std::ostream &bold_on(std::ostream &os);
@@ -203,6 +203,7 @@ int main(int argc, char *argv[])
         random_num = std::rand() % 20 - 10;
         input_buffer[i] = random_num;
 
+        /*
         if (i % 2 == 0)
         {
             if (i < NUM_POINTS * 2)
@@ -218,6 +219,7 @@ int main(int argc, char *argv[])
         {
             std::cout << random_num << ") ";
         }
+        */
     }
 
     std::cout << std::endl;
@@ -243,7 +245,6 @@ int main(int argc, char *argv[])
     // get memory bank groups for device buffer - required for axi master input/ouput
     xrtMemoryGroup bank_output = krnl_sink_from_aie.group_id(arg_sink_from_aie_output);
     xrtMemoryGroup bank_input = krnl_setup_aie.group_id(arg_setup_aie_input);
-    std::cout << "Done" << std::endl;
 
     // create device buffers - if you have to load some data, here they are
     xrt::bo buffer_setup_aie = xrt::bo(device, input_size * sizeof(int32_t), xrt::bo::flags::normal, bank_input);
@@ -252,7 +253,6 @@ int main(int argc, char *argv[])
     // create runner instances
     xrt::run run_setup_aie = xrt::run(krnl_setup_aie);
     xrt::run run_sink_from_aie = xrt::run(krnl_sink_from_aie);
-    std::cout << "Done" << std::endl;
 
     // set setup_aie kernel arguments
     run_setup_aie.set_arg(arg_setup_aie_num_clusters, NUM_CLUSTERS);
@@ -262,7 +262,6 @@ int main(int argc, char *argv[])
     // set sink_from_aie kernel arguments
     run_sink_from_aie.set_arg(arg_sink_from_aie_output, buffer_sink_from_aie);
     run_sink_from_aie.set_arg(arg_sink_from_aie_size, output_size);
-    std::cout << "Done" << std::endl;
 
     // write data into the input buffer
     buffer_setup_aie.write(input_buffer);
@@ -290,10 +289,11 @@ int main(int argc, char *argv[])
     buffer_sink_from_aie.sync(XCL_BO_SYNC_BO_FROM_DEVICE);
     buffer_sink_from_aie.read(output_buffer);
 
-    // print the output
+    /* print the output
     std::cout << "Hardware output: ";
     printOutput(output_buffer);
     std::cout << std::endl;
+    */
 
     auto sw_start = std::chrono::high_resolution_clock::now();
     // run the kernel
@@ -306,11 +306,11 @@ int main(int argc, char *argv[])
     auto sw_exec = sw_end - sw_start;
     auto sw_exec_ms = sw_exec / std::chrono::microseconds(1);
     std::cout << "Software execution took " << sw_exec_ms << " microseconds." << std::endl;
-
+    /*
     std::cout << "Expected results: ";
     printOutput(sw_result);
     std::cout << std::endl;
-
+    */
     // ------------------------------------------------CHECKING THE RESULTS------------------------------------------
     return checkResult(sw_result, output_buffer);
 }

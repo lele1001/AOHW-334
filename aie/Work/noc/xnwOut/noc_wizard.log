@@ -1,0 +1,8 @@
+INFO: [PlanAhead 12-7162] Loading device xcvc1902-vsvd1760-2MP-e-S
+Reading model: /home/xilinx/software/Vivado/2022.2/data/parts/xilinx/devint/vault/versal/data/device_misc/xcvc1902/xcvc1902.nocme.v10.model
+Writing model file: xnwOut/xnwOut__device.model
+****** Running Versal NOC Wizard
+****** versal_noc_wizard v2022.2.2 (64-bit)
+**** SW Build (by xbuild) on 2023-02-17-07:01:26
+** Copyright 1986-2023 Xilinx, Inc. All Rights Reserved.
+INFO: [PlanAhead 12-6926] Generating Logical NOC

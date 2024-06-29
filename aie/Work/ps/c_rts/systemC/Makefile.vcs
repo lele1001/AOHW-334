@@ -1,0 +1,24 @@
+#VCS_HOME=/tools/installs/synopsys/vcs-mx/2019.06-SP1-1/linux64
+#VCS_GCC_HOME=/tools/installs/synopsys/vg_gnu/2019.06/amd64/gcc-6.2.0
+GCC=${VCS_GCC_HOME}/bin/g++
+VCS_INCLUDES=-I${VCS_HOME}/include/systemc231
+
+.PHONY: all clean
+.NOTPARALLEL:
+all: clean link
+
+genwrapper_for_ps_i3: init
+	(${GCC} -c -DVCSSYSTEMC=1  -fPIC -fpermissive -std=c++17 -D__AIEARCH__=10 -DAIE_OPTION_SCALAR_FLOAT_ON_VECTOR -Wno-deprecated-declarations -DSC_INCLUDE_DYNAMIC_PROCESSES -D__AIESIM__ -D__PS_INIT_AIE__ -DXAIE_DEBUG -Og -flto -D main\(...\)=ps_main\(...\) $(VCS_INCLUDES) -I$((XILINX_VITIS)_AIETOOLS)/include -I$((XILINX_VITIS)_AIETOOLS)/include/drivers/aiengine -I${XILINX_HLS}/include -I$((XILINX_VITIS)_AIETOOLS)/tps/lnx64/gcc/include/c++/8.3.0 -I$((XILINX_VITIS)_AIETOOLS)/tps/lnx64/gcc/include/c++/8.3.0/backward -I$((XILINX_VITIS)_AIETOOLS)/tps/lnx64/gcc/include/c++/8.3.0/x86_64-pc-linux-gnu -I$((XILINX_VITIS)_AIETOOLS)/tps/boost_1_72_0 -I. -I$((XILINX_VITIS)_AIETOOLS)/include/xtlm/include -I$((XILINX_VITIS)_AIETOOLS)/include/common_cpp/common_cpp_v1_0/include -I ../../../../ -I src -I ../common -o vcs.dir/generated-objects/genwrapper_for_ps_i3.o ./generated-source/genwrapper_for_ps_i3.cpp)
+
+link: genwrapper_for_ps_i3
+	(${GCC} -o vcs.dir/generated-objectsps_i3.so vcs.dir/generated-objects/genwrapper_for_ps_i3.o -shared -Wl,--as-needed -lxaiengine -lxioutils -ladf_api -flto -L $(XILINX_VITIS_AIETOOLS)/lib/lnx64.o)
+
+init:
+ifneq ($(wildcard vcs.dir),)
+	@echo ""
+else
+	mkdir -p vcs.dir/generated-objects
+endif
+
+clean:
+	(rm -rf vcs.dir)

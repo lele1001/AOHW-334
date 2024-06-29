@@ -1,0 +1,67 @@
+version 2.0
+marker 0x64 "AIE_METADATA"
+marker 0 "Xilinx ASCII NPI Deviceimage"
+marker 0x1 "Created by Deviceimage 2022.2.2 SW Build 3788238 on Tue Feb 21 19:59:23 MST 2023"
+marker 0x2 "top_wrapper"
+marker 0x3 "versalaicore"
+marker 0x4 "xcvc1902-vsvd1760-2MP-e-S"
+marker 0x5 "0"
+marker 0x6 "Fri Jun 28 12:56:44 2024"
+marker 0x65 "AIE_METADATA"
+marker 0x64 "AIE_INIT"
+# pwr_aie init_start
+pm_init_node 0x421c005 0
+# pwr_aie scan_clear
+pm_init_node 0x421c005 0x2
+marker 0x65 "AIE_INIT"
+marker 0x64 "AIE_PRE"
+marker 0x65 "AIE_PRE"
+marker 0x64 "AIE_DATA"
+# MPLL INIT
+# Helper data. Values are to be looked up in a table from Data Sheet
+mask_write 0xf70a0104 0xfe7fedef 0x7e5dcc6c
+# UPDATE FB_DIV
+# PLL Basic Control
+mask_write 0xf70a0100 0x73ff00 0x14800
+# BY PASS PLL
+# PLL Basic Control
+mask_write 0xf70a0100 0x8 0x8
+# ASSERT RESET
+# PLL Basic Control
+mask_write 0xf70a0100 0x1 0x1
+# CLEAR ERROR STATUS AFTER RESET
+# PMC Error Status Register. If any of the bits in this register is 1, it could generate any of the following events: (1) ERROR_OUT pin assertion, (2) POR, (3) IRQ to PPU1 MB, (4) SRST. Writing a 1 to any bit will clear the request. The register is only reset by the External Power-on Reset and maintains its state through a System Reset or Internal Power-on Reset.
+write 0xf1130000 0x20000
+# DEASSERT RESET
+# PLL Basic Control
+mask_write 0xf70a0100 0x1 0
+# CHECK PLL STATUS
+mask_poll 0xf70a010c 0x1 0x1 0x1000
+# REMOVE PLL BY PASS
+# PLL Basic Control
+mask_write 0xf70a0100 0x8 0
+# ME CLOCK CONTROL REGISTER
+# This register controls this reference clock
+mask_write 0xf70a0138 0x203ff00 0x2000100
+# This register controls this reference clock
+mask_write 0xf70a0140 0x203ff00 0x2000c00
+# This register controls this reference clock
+mask_write 0xf70a013c 0x203ff00 0x2000c00
+marker 0x65 "AIE_DATA"
+marker 0x64 "AIE_POST"
+marker 0x65 "AIE_POST"
+marker 0x64 "AIE_BISR"
+# pwr_aie bisr
+pm_init_node 0x421c005 0x3
+# pwr_aie mbist_clear
+pm_init_node 0x421c005 0x6
+# pwr_aie mem_init
+pm_init_node 0x421c005 0x5
+marker 0x65 "AIE_BISR"
+marker 0x64 "AIE_EM"
+marker 0x65 "AIE_EM"
+marker 0x64 "AIE_FINISH"
+# pwr_aie init_finish
+pm_init_node 0x421c005 0x1
+marker 0x65 "AIE_FINISH"
+# End of AIE CDO

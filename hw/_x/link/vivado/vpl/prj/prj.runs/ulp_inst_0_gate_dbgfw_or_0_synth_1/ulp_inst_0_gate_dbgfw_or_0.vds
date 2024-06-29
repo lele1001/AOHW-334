@@ -1,0 +1,279 @@
+#-----------------------------------------------------------
+# Vivado v2022.2.2 (64-bit)
+# SW Build 3788238 on Tue Feb 21 19:59:23 MST 2023
+# IP Build 3783773 on Tue Feb 21 23:41:56 MST 2023
+# Start of session at: Fri Jun 28 08:45:48 2024
+# Process ID: 2342533
+# Current directory: /home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_gate_dbgfw_or_0_synth_1
+# Command line: vivado -log ulp_inst_0_gate_dbgfw_or_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source ulp_inst_0_gate_dbgfw_or_0.tcl
+# Log file: /home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_gate_dbgfw_or_0_synth_1/ulp_inst_0_gate_dbgfw_or_0.vds
+# Journal file: /home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_gate_dbgfw_or_0_synth_1/vivado.jou
+# Running On: nags27, OS: Linux, CPU Frequency: 3099.928 MHz, CPU Physical cores: 20, Host memory: 405693 MB
+#-----------------------------------------------------------
+source ulp_inst_0_gate_dbgfw_or_0.tcl -notrace
+INFO: Dispatch client connection id - 45305
+create_project: Time (s): cpu = 00:00:13 ; elapsed = 00:02:00 . Memory (MB): peak = 1834.988 ; gain = 89.992 ; free physical = 3272 ; free virtual = 4359
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/int/xo/ip_repo/xilinx_com_hls_sink_from_aie_1_0'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/int/xo/ip_repo/xilinx_com_hls_setup_aie_1_0'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/.local/hw_platform/iprepo'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/.local/hw_platform/ipcache'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/xilinx/software/Vitis/2022.2/data/ip'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/home/xilinx/software/Vivado/2022.2/data/ip'.
+WARNING: [IP_Flow 19-1663] Duplicate IP found for 'xilinx.com:hls:Data_Mover_XIP:1.0'. The one found in IP location '/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/.local/hw_platform/iprepo/xilinx/data_mover' will take precedence over the same IP in location /home/xilinx/software/Vitis/2022.2/data/ip/xilinx/data_mover
+WARNING: [IP_Flow 19-1663] Duplicate IP found for 'xilinx.com:ip:adapter_v3_0:1.0'. The one found in IP location '/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/.local/hw_platform/iprepo/xilinx/adapter_v3_0' will take precedence over the same IP in location /home/xilinx/software/Vitis/2022.2/data/ip/xilinx/adapter_v3_0
+WARNING: [IP_Flow 19-1663] Duplicate IP found for 'xilinx.com:ip:axis_ic2sgdma:1.0'. The one found in IP location '/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/.local/hw_platform/iprepo/xilinx/axis_ic2sgdma_v1_0' will take precedence over the same IP in location /home/xilinx/software/Vitis/2022.2/data/ip/xilinx/axis_ic2sgdma_v1_0
+WARNING: [IP_Flow 19-1663] Duplicate IP found for 'xilinx.com:ip:Event_Pulse:1.0'. The one found in IP location '/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/.local/hw_platform/iprepo/xilinx/event_pulse_v1_0' will take precedence over the same IP in location /home/xilinx/software/Vitis/2022.2/data/ip/xilinx/event_pulse_v1_0
+WARNING: [IP_Flow 19-1663] Duplicate IP found for 'xilinx.com:ip:sds_lib:1.0'. The one found in IP location '/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/.local/hw_platform/iprepo/xilinx/sds_lib' will take precedence over the same IP in location /home/xilinx/software/Vitis/2022.2/data/ip/xilinx/sds_lib
+WARNING: [IP_Flow 19-1663] Duplicate IP found for 'xilinx.com:sds:sds_mem_sink:1.0'. The one found in IP location '/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/.local/hw_platform/iprepo/xilinx/sds_mem_sink' will take precedence over the same IP in location /home/xilinx/software/Vitis/2022.2/data/ip/xilinx/sds_mem_sink
+WARNING: [IP_Flow 19-1663] Duplicate IP found for 'xilinx.com:ip:xrt_queue:1.1'. The one found in IP location '/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/.local/hw_platform/iprepo/xilinx/xrt_queue_v1_1' will take precedence over the same IP in location /home/xilinx/software/Vitis/2022.2/data/ip/xilinx/xrt_queue_v1_1
+WARNING: [IP_Flow 19-1663] Duplicate IP found for 'xilinx.com:ip:aximm_tieoff_v1_0:1.0'. The one found in IP location '/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/.local/hw_platform/iprepo/xilinx/aximm_tieoff_v1_0' will take precedence over the same IP in location /home/xilinx/software/Vitis/2022.2/data/ip/xilinx/aximm_tieoff_v1_0
+WARNING: [IP_Flow 19-1663] Duplicate IP found for 'xilinx.com:ip:maxis_tieoff_v1_0:1.0'. The one found in IP location '/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/.local/hw_platform/iprepo/xilinx/maxis_tieoff_v1_0' will take precedence over the same IP in location /home/xilinx/software/Vitis/2022.2/data/ip/xilinx/maxis_tieoff_v1_0
+WARNING: [IP_Flow 19-1663] Duplicate IP found for 'xilinx.com:ip:saxis_tieoff_v1_0:1.0'. The one found in IP location '/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/.local/hw_platform/iprepo/xilinx/saxis_tieoff_v1_0' will take precedence over the same IP in location /home/xilinx/software/Vitis/2022.2/data/ip/xilinx/saxis_tieoff_v1_0
+WARNING: [IP_Flow 19-1663] Duplicate IP found for 'xilinx.com:ip:ovld_reg:1.0'. The one found in IP location '/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/.local/hw_platform/iprepo/xilinx/ovld_reg_v1_0' will take precedence over the same IP in location /home/xilinx/software/Vitis/2022.2/data/ip/xilinx/ovld_reg_v1_0
+WARNING: [IP_Flow 19-1663] Duplicate IP found for 'xilinx.com:ip:xrt_queue:1.0'. The one found in IP location '/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/.local/hw_platform/iprepo/xilinx/xrt_queue_v1_0' will take precedence over the same IP in location /home/xilinx/software/Vitis/2022.2/data/ip/xilinx/xrt_queue_v1_0
+WARNING: [IP_Flow 19-1663] Duplicate IP found for 'xilinx.com:ip:axi_fifo_register:3.0'. The one found in IP location '/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/.local/hw_platform/iprepo/xilinx/axi_fifo_register_v3_0' will take precedence over the same IP in location /home/xilinx/software/Vitis/2022.2/data/ip/xilinx/axi_fifo_register_v3_0
+WARNING: [IP_Flow 19-1663] Duplicate IP found for 'xilinx.com:ip:stream_gate:1.0'. The one found in IP location '/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/.local/hw_platform/iprepo/xilinx/stream_gate_v1_0' will take precedence over the same IP in location /home/xilinx/software/Vitis/2022.2/data/ip/xilinx/stream_gate_v1_0
+WARNING: [IP_Flow 19-1663] Duplicate IP found for 'xilinx.com:ip:sgdma2axis_ic:1.0'. The one found in IP location '/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/.local/hw_platform/iprepo/xilinx/sgdma2axis_ic_v1_0' will take precedence over the same IP in location /home/xilinx/software/Vitis/2022.2/data/ip/xilinx/sgdma2axis_ic_v1_0
+WARNING: [IP_Flow 19-1663] Duplicate IP found for 'xilinx.com:sds:sds_mem_source:1.0'. The one found in IP location '/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/.local/hw_platform/iprepo/xilinx/sds_mem_source' will take precedence over the same IP in location /home/xilinx/software/Vitis/2022.2/data/ip/xilinx/sds_mem_source
+update_ip_catalog: Time (s): cpu = 00:00:05 ; elapsed = 00:00:54 . Memory (MB): peak = 2030.832 ; gain = 191.844 ; free physical = 3880 ; free virtual = 4903
+INFO: [IP_Flow 19-6924] IPCACHE: Running cache check for IP inst: ulp_inst_0_gate_dbgfw_or_0
+Command: synth_design -top ulp_inst_0_gate_dbgfw_or_0 -part xcvc1902-vsvd1760-2MP-e-S -incremental_mode off -mode out_of_context
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xcvc1902'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xcvc1902'
+INFO: [Device 21-403] Loading part xcvc1902-vsvd1760-2MP-e-S
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 1 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 2377121
+INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [/home/xilinx/software/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:11 ; elapsed = 00:02:47 . Memory (MB): peak = 3105.887 ; gain = 356.797 ; free physical = 15622 ; free virtual = 17743
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2269.148; parent = 2144.464; children = 204.043
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4074.453; parent = 3108.859; children = 965.594
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'ulp_inst_0_gate_dbgfw_or_0' [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_gate_dbgfw_or_0/synth/ulp_inst_0_gate_dbgfw_or_0.v:53]
+INFO: [Synth 8-6157] synthesizing module 'util_vector_logic_v2_0_2_util_vector_logic' [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/3d84/hdl/util_vector_logic_v2_0_vl_rfs.v:45]
+INFO: [Synth 8-6155] done synthesizing module 'util_vector_logic_v2_0_2_util_vector_logic' (0#1) [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/3d84/hdl/util_vector_logic_v2_0_vl_rfs.v:45]
+INFO: [Synth 8-6155] done synthesizing module 'ulp_inst_0_gate_dbgfw_or_0' (0#1) [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_gate_dbgfw_or_0/synth/ulp_inst_0_gate_dbgfw_or_0.v:53]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:15 ; elapsed = 00:03:29 . Memory (MB): peak = 3176.824 ; gain = 427.734 ; free physical = 17359 ; free virtual = 19556
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2354.967; parent = 2231.169; children = 204.043
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4142.422; parent = 3176.828; children = 965.594
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:15 ; elapsed = 00:03:33 . Memory (MB): peak = 3191.668 ; gain = 442.578 ; free physical = 18613 ; free virtual = 20820
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2354.967; parent = 2231.169; children = 204.043
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4157.266; parent = 3191.672; children = 965.594
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:15 ; elapsed = 00:03:35 . Memory (MB): peak = 3191.668 ; gain = 442.578 ; free physical = 18438 ; free virtual = 20650
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2354.967; parent = 2231.169; children = 204.043
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4157.266; parent = 3191.672; children = 965.594
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3191.668 ; gain = 0.000 ; free physical = 18439 ; free virtual = 20661
+INFO: [Chipscope 16-579] Latest version is versal_cips_v3_3 for versal_cips_v3_2
+INFO: [Constraints 18-6359] No Clock Expansion Window constraints config file entry for device xcvc1902.  GCLK Deskew mode will be Off and cannot be enabled via GCLK_DESKEW override.
+INFO: [Constraints 18-5720] The default GCLK Deskew mode is Off.
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3257.461 ; gain = 0.000 ; free physical = 14523 ; free virtual = 16819
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.19 . Memory (MB): peak = 3257.461 ; gain = 0.000 ; free physical = 14515 ; free virtual = 16811
+INFO: [Designutils 20-5008] Incremental synthesis strategy off
+INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [/home/xilinx/software/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:31 ; elapsed = 00:05:58 . Memory (MB): peak = 3257.461 ; gain = 508.371 ; free physical = 2713 ; free virtual = 5250
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2354.967; parent = 2231.169; children = 204.043
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4223.059; parent = 3257.465; children = 965.594
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xcvc1902-vsvd1760-2MP-e-S
+INFO: [Synth 8-6742] Reading net delay rules and data
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:31 ; elapsed = 00:06:00 . Memory (MB): peak = 3257.461 ; gain = 508.371 ; free physical = 3544 ; free virtual = 6081
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2354.967; parent = 2231.169; children = 204.043
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4223.059; parent = 3257.465; children = 965.594
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:31 ; elapsed = 00:06:01 . Memory (MB): peak = 3257.461 ; gain = 508.371 ; free physical = 4900 ; free virtual = 7437
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2354.967; parent = 2231.169; children = 204.043
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4223.059; parent = 3257.465; children = 965.594
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:32 ; elapsed = 00:06:06 . Memory (MB): peak = 3257.461 ; gain = 508.371 ; free physical = 4794 ; free virtual = 7333
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2354.967; parent = 2231.169; children = 204.043
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4223.059; parent = 3257.465; children = 965.594
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 1968 (col length:164)
+BRAMs: 1934 (col length: RAMB18 168 RAMB36 84)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:35 ; elapsed = 00:06:33 . Memory (MB): peak = 3257.461 ; gain = 508.371 ; free physical = 3773 ; free virtual = 6694
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2354.967; parent = 2231.169; children = 204.043
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4223.059; parent = 3257.465; children = 965.594
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:41 ; elapsed = 00:25:54 . Memory (MB): peak = 3970.258 ; gain = 1221.168 ; free physical = 15640 ; free virtual = 19298
+Synthesis current peak Physical Memory [PSS] (MB): peak = 3108.315; parent = 2995.178; children = 204.043
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4936.855; parent = 3971.262; children = 965.594
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:01:41 ; elapsed = 00:25:56 . Memory (MB): peak = 3971.258 ; gain = 1222.168 ; free physical = 15805 ; free virtual = 19478
+Synthesis current peak Physical Memory [PSS] (MB): peak = 3108.476; parent = 2995.338; children = 204.043
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4936.855; parent = 3971.262; children = 965.594
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+INFO: [Synth 8-11322] No global retiming is needed without any clock constraint
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:01:41 ; elapsed = 00:25:58 . Memory (MB): peak = 3990.289 ; gain = 1241.199 ; free physical = 15815 ; free virtual = 19493
+Synthesis current peak Physical Memory [PSS] (MB): peak = 3108.916; parent = 2995.778; children = 204.043
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4955.887; parent = 3990.293; children = 965.594
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:01:49 ; elapsed = 00:27:12 . Memory (MB): peak = 3996.227 ; gain = 1247.137 ; free physical = 11588 ; free virtual = 17894
+Synthesis current peak Physical Memory [PSS] (MB): peak = 3109.052; parent = 2995.914; children = 204.043
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4961.824; parent = 3996.230; children = 965.594
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:49 ; elapsed = 00:27:13 . Memory (MB): peak = 3996.227 ; gain = 1247.137 ; free physical = 11374 ; free virtual = 17767
+Synthesis current peak Physical Memory [PSS] (MB): peak = 3109.052; parent = 2995.914; children = 204.043
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4961.824; parent = 3996.230; children = 965.594
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:49 ; elapsed = 00:27:15 . Memory (MB): peak = 3996.227 ; gain = 1247.137 ; free physical = 11272 ; free virtual = 17655
+Synthesis current peak Physical Memory [PSS] (MB): peak = 3109.052; parent = 2995.914; children = 204.043
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4961.824; parent = 3996.230; children = 965.594
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:01:49 ; elapsed = 00:27:17 . Memory (MB): peak = 3996.227 ; gain = 1247.137 ; free physical = 11113 ; free virtual = 17523
+Synthesis current peak Physical Memory [PSS] (MB): peak = 3109.052; parent = 2995.914; children = 204.043
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4961.824; parent = 3996.230; children = 965.594
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:49 ; elapsed = 00:27:17 . Memory (MB): peak = 3996.227 ; gain = 1247.137 ; free physical = 11036 ; free virtual = 17463
+Synthesis current peak Physical Memory [PSS] (MB): peak = 3109.052; parent = 2995.914; children = 204.043
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4961.824; parent = 3996.230; children = 965.594
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:01:49 ; elapsed = 00:27:19 . Memory (MB): peak = 3996.227 ; gain = 1247.137 ; free physical = 10835 ; free virtual = 17308
+Synthesis current peak Physical Memory [PSS] (MB): peak = 3109.052; parent = 2995.914; children = 204.043
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4961.824; parent = 3996.230; children = 965.594
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+-----+------+
+|      |Cell |Count |
++------+-----+------+
+|1     |LUT2 |     1|
++------+-----+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:49 ; elapsed = 00:27:21 . Memory (MB): peak = 3996.227 ; gain = 1247.137 ; free physical = 10905 ; free virtual = 17192
+Synthesis current peak Physical Memory [PSS] (MB): peak = 3109.052; parent = 2995.914; children = 204.043
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4961.824; parent = 3996.230; children = 965.594
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 1 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:01:45 ; elapsed = 00:26:44 . Memory (MB): peak = 3996.227 ; gain = 1181.344 ; free physical = 10371 ; free virtual = 16710
+Synthesis Optimization Complete : Time (s): cpu = 00:01:49 ; elapsed = 00:27:28 . Memory (MB): peak = 3996.234 ; gain = 1247.137 ; free physical = 9673 ; free virtual = 16034
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 4013.133 ; gain = 0.000 ; free physical = 7021 ; free virtual = 13396
+INFO: [Chipscope 16-579] Latest version is versal_cips_v3_3 for versal_cips_v3_2
+INFO: [Constraints 18-6359] No Clock Expansion Window constraints config file entry for device xcvc1902.  GCLK Deskew mode will be Off and cannot be enabled via GCLK_DESKEW override.
+INFO: [Constraints 18-5720] The default GCLK Deskew mode is Off.
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 4034.945 ; gain = 0.000 ; free physical = 2218 ; free virtual = 11772
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Synth Design complete, checksum: c2c98df6
+INFO: [Common 17-83] Releasing license: Synthesis
+35 Infos, 17 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:02:20 ; elapsed = 00:31:36 . Memory (MB): peak = 4034.945 ; gain = 2004.113 ; free physical = 1663 ; free virtual = 11835
+INFO: [Common 17-600] The following parameters have non-default value.
+general.maxThreads
+INFO: [Common 17-1381] The checkpoint '/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_gate_dbgfw_or_0_synth_1/ulp_inst_0_gate_dbgfw_or_0.dcp' has been generated.
+INFO: [Coretcl 2-1648] Added synthesis output to IP cache for IP ulp_inst_0_gate_dbgfw_or_0, cache-ID = 225f4c12362eeb29
+INFO: [Common 17-1381] The checkpoint '/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_gate_dbgfw_or_0_synth_1/ulp_inst_0_gate_dbgfw_or_0.dcp' has been generated.
+write_checkpoint: Time (s): cpu = 00:00:00.26 ; elapsed = 00:00:06 . Memory (MB): peak = 4042.949 ; gain = 0.000 ; free physical = 1294 ; free virtual = 10578
+INFO: [runtcl-4] Executing : report_utilization -file ulp_inst_0_gate_dbgfw_or_0_utilization_synth.rpt -pb ulp_inst_0_gate_dbgfw_or_0_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Fri Jun 28 09:22:58 2024...

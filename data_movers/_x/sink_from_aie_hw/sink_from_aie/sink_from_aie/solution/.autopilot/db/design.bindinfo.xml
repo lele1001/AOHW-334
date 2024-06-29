@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<BindInfo>
+	<BindNode BINDTYPE="op" DISPLAY="bind_op add" ID="" IMPL="fabric" LATENCY="0" OPTYPE="add" PRAGMA="" RTLNAME="add_ln24_fu_100_p2" SOURCE="" VARIABLE="add_ln24" MODULE="sink_from_aie_Pipeline_VITIS_LOOP_24_1" LOOP="VITIS_LOOP_24_1" BUNDLEDNAME="" DSP="0" BRAM="0" URAM="0"/>
+	<BindNode BINDTYPE="op" DISPLAY="bind_op icmp" ID="" IMPL="auto" LATENCY="0" OPTYPE="icmp" PRAGMA="" RTLNAME="icmp_ln24_fu_116_p2" SOURCE="/home/users/eleonora.cabai/Documents/K-Means-AIE/data_movers/sink_from_aie.cpp:24" VARIABLE="icmp_ln24" MODULE="sink_from_aie_Pipeline_VITIS_LOOP_24_1" LOOP="VITIS_LOOP_24_1" BUNDLEDNAME="" DSP="0" BRAM="0" URAM="0"/>
+	<BindNode BINDTYPE="op" DISPLAY="bind_op icmp" ID="" IMPL="auto" LATENCY="0" OPTYPE="icmp" PRAGMA="" RTLNAME="icmp_ln24_fu_109_p2" SOURCE="/home/users/eleonora.cabai/Documents/K-Means-AIE/data_movers/sink_from_aie.cpp:24" VARIABLE="icmp_ln24" MODULE="sink_from_aie" LOOP="" BUNDLEDNAME="" DSP="0" BRAM="0" URAM="0"/>
+	<BindNode BINDTYPE="op" DISPLAY="bind_op select" ID="" IMPL="auto_sel" LATENCY="0" OPTYPE="select" PRAGMA="" RTLNAME="empty_fu_125_p3" SOURCE="/home/users/eleonora.cabai/Documents/K-Means-AIE/data_movers/sink_from_aie.cpp:24" VARIABLE="empty" MODULE="sink_from_aie" LOOP="" BUNDLEDNAME="" DSP="0" BRAM="0" URAM="0"/>
+	<BindNode BINDTYPE="adapter" DISPLAY="bind_adapter axilite" ID="" IMPL="" LATENCY="" OPTYPE="" PRAGMA="yes" RTLNAME="control_s_axi_U" SOURCE="" VARIABLE="" MODULE="sink_from_aie" LOOP="" BUNDLEDNAME="control" DSP="0" BRAM="0" URAM="0"/>
+	<BindNode BINDTYPE="adapter" DISPLAY="bind_adapter axi_master" ID="" IMPL="" LATENCY="" OPTYPE="" PRAGMA="yes" RTLNAME="gmem1_m_axi_U" SOURCE="" VARIABLE="" MODULE="sink_from_aie" LOOP="" BUNDLEDNAME="gmem1" DSP="0" BRAM="0" URAM="0"/>
+</BindInfo>

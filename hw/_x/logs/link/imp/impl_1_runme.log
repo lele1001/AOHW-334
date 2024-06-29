@@ -1,0 +1,1384 @@
+
+*** Running vivado
+    with args -log top_wrapper.vdi -applog -m64 -product Vivado -messageDb vivado.pb -mode batch -source top_wrapper.tcl -notrace
+
+
+****** Vivado v2022.2.2 (64-bit)
+  **** SW Build 3788238 on Tue Feb 21 19:59:23 MST 2023
+  **** IP Build 3783773 on Tue Feb 21 23:41:56 MST 2023
+    ** Copyright 1986-2023 Xilinx, Inc. All Rights Reserved.
+
+source top_wrapper.tcl -notrace
+INFO: Dispatch client connection id - 45305
+source /home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/scripts/impl_1/_full_init_pre.tcl
+create_project: Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 1836.609 ; gain = 92.961 ; free physical = 82461 ; free virtual = 109782
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/int/xo/ip_repo/xilinx_com_hls_sink_from_aie_1_0'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/int/xo/ip_repo/xilinx_com_hls_setup_aie_1_0'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/.local/hw_platform/iprepo'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/.local/hw_platform/ipcache'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/xilinx/software/Vitis/2022.2/data/ip'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/home/xilinx/software/Vivado/2022.2/data/ip'.
+WARNING: [IP_Flow 19-1663] Duplicate IP found for 'xilinx.com:hls:Data_Mover_XIP:1.0'. The one found in IP location '/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/.local/hw_platform/iprepo/xilinx/data_mover' will take precedence over the same IP in location /home/xilinx/software/Vitis/2022.2/data/ip/xilinx/data_mover
+WARNING: [IP_Flow 19-1663] Duplicate IP found for 'xilinx.com:ip:adapter_v3_0:1.0'. The one found in IP location '/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/.local/hw_platform/iprepo/xilinx/adapter_v3_0' will take precedence over the same IP in location /home/xilinx/software/Vitis/2022.2/data/ip/xilinx/adapter_v3_0
+WARNING: [IP_Flow 19-1663] Duplicate IP found for 'xilinx.com:ip:axis_ic2sgdma:1.0'. The one found in IP location '/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/.local/hw_platform/iprepo/xilinx/axis_ic2sgdma_v1_0' will take precedence over the same IP in location /home/xilinx/software/Vitis/2022.2/data/ip/xilinx/axis_ic2sgdma_v1_0
+WARNING: [IP_Flow 19-1663] Duplicate IP found for 'xilinx.com:ip:Event_Pulse:1.0'. The one found in IP location '/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/.local/hw_platform/iprepo/xilinx/event_pulse_v1_0' will take precedence over the same IP in location /home/xilinx/software/Vitis/2022.2/data/ip/xilinx/event_pulse_v1_0
+WARNING: [IP_Flow 19-1663] Duplicate IP found for 'xilinx.com:ip:sds_lib:1.0'. The one found in IP location '/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/.local/hw_platform/iprepo/xilinx/sds_lib' will take precedence over the same IP in location /home/xilinx/software/Vitis/2022.2/data/ip/xilinx/sds_lib
+WARNING: [IP_Flow 19-1663] Duplicate IP found for 'xilinx.com:sds:sds_mem_sink:1.0'. The one found in IP location '/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/.local/hw_platform/iprepo/xilinx/sds_mem_sink' will take precedence over the same IP in location /home/xilinx/software/Vitis/2022.2/data/ip/xilinx/sds_mem_sink
+WARNING: [IP_Flow 19-1663] Duplicate IP found for 'xilinx.com:ip:xrt_queue:1.1'. The one found in IP location '/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/.local/hw_platform/iprepo/xilinx/xrt_queue_v1_1' will take precedence over the same IP in location /home/xilinx/software/Vitis/2022.2/data/ip/xilinx/xrt_queue_v1_1
+WARNING: [IP_Flow 19-1663] Duplicate IP found for 'xilinx.com:ip:aximm_tieoff_v1_0:1.0'. The one found in IP location '/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/.local/hw_platform/iprepo/xilinx/aximm_tieoff_v1_0' will take precedence over the same IP in location /home/xilinx/software/Vitis/2022.2/data/ip/xilinx/aximm_tieoff_v1_0
+WARNING: [IP_Flow 19-1663] Duplicate IP found for 'xilinx.com:ip:maxis_tieoff_v1_0:1.0'. The one found in IP location '/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/.local/hw_platform/iprepo/xilinx/maxis_tieoff_v1_0' will take precedence over the same IP in location /home/xilinx/software/Vitis/2022.2/data/ip/xilinx/maxis_tieoff_v1_0
+WARNING: [IP_Flow 19-1663] Duplicate IP found for 'xilinx.com:ip:saxis_tieoff_v1_0:1.0'. The one found in IP location '/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/.local/hw_platform/iprepo/xilinx/saxis_tieoff_v1_0' will take precedence over the same IP in location /home/xilinx/software/Vitis/2022.2/data/ip/xilinx/saxis_tieoff_v1_0
+WARNING: [IP_Flow 19-1663] Duplicate IP found for 'xilinx.com:ip:ovld_reg:1.0'. The one found in IP location '/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/.local/hw_platform/iprepo/xilinx/ovld_reg_v1_0' will take precedence over the same IP in location /home/xilinx/software/Vitis/2022.2/data/ip/xilinx/ovld_reg_v1_0
+WARNING: [IP_Flow 19-1663] Duplicate IP found for 'xilinx.com:ip:xrt_queue:1.0'. The one found in IP location '/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/.local/hw_platform/iprepo/xilinx/xrt_queue_v1_0' will take precedence over the same IP in location /home/xilinx/software/Vitis/2022.2/data/ip/xilinx/xrt_queue_v1_0
+WARNING: [IP_Flow 19-1663] Duplicate IP found for 'xilinx.com:ip:axi_fifo_register:3.0'. The one found in IP location '/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/.local/hw_platform/iprepo/xilinx/axi_fifo_register_v3_0' will take precedence over the same IP in location /home/xilinx/software/Vitis/2022.2/data/ip/xilinx/axi_fifo_register_v3_0
+WARNING: [IP_Flow 19-1663] Duplicate IP found for 'xilinx.com:ip:stream_gate:1.0'. The one found in IP location '/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/.local/hw_platform/iprepo/xilinx/stream_gate_v1_0' will take precedence over the same IP in location /home/xilinx/software/Vitis/2022.2/data/ip/xilinx/stream_gate_v1_0
+WARNING: [IP_Flow 19-1663] Duplicate IP found for 'xilinx.com:ip:sgdma2axis_ic:1.0'. The one found in IP location '/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/.local/hw_platform/iprepo/xilinx/sgdma2axis_ic_v1_0' will take precedence over the same IP in location /home/xilinx/software/Vitis/2022.2/data/ip/xilinx/sgdma2axis_ic_v1_0
+WARNING: [IP_Flow 19-1663] Duplicate IP found for 'xilinx.com:sds:sds_mem_source:1.0'. The one found in IP location '/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/.local/hw_platform/iprepo/xilinx/sds_mem_source' will take precedence over the same IP in location /home/xilinx/software/Vitis/2022.2/data/ip/xilinx/sds_mem_source
+update_ip_catalog: Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 2033.453 ; gain = 192.844 ; free physical = 82279 ; free virtual = 109601
+Command: link_design -part xcvc1902-vsvd1760-2MP-e-S -reconfig_partitions top_i/ulp
+Design is defaulting to srcset: sources_1
+Design is defaulting to constrset: constrs_1
+Design is defaulting to dcp top: top_wrapper
+INFO: [Device 21-403] Loading part xcvc1902-vsvd1760-2MP-e-S
+INFO: [Project 1-454] Reading design checkpoint '/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.runs/my_rm_synth_1/ulp_inst_0.dcp' for cell 'top_i/ulp'
+INFO: [Project 1-454] Reading design checkpoint '/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_dbg_fw_0/ulp_inst_0_axi_dbg_fw_0.dcp' for cell 'top_i/ulp/axi_dbg_fw'
+INFO: [Project 1-454] Reading design checkpoint '/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_dbg_hub_0/ulp_inst_0_axi_dbg_hub_0.dcp' for cell 'top_i/ulp/axi_dbg_hub'
+INFO: [Project 1-454] Reading design checkpoint '/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_gpio_null_user_0/ulp_inst_0_axi_gpio_null_user_0.dcp' for cell 'top_i/ulp/axi_gpio_null_user'
+INFO: [Project 1-454] Reading design checkpoint '/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_ic_user_0/ulp_inst_0_axi_ic_user_0.dcp' for cell 'top_i/ulp/axi_ic_user'
+INFO: [Project 1-454] Reading design checkpoint '/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_ic_user_extend_0/ulp_inst_0_axi_ic_user_extend_0.dcp' for cell 'top_i/ulp/axi_ic_user_extend'
+INFO: [Project 1-454] Reading design checkpoint '/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_noc_aie_prog_0/ulp_inst_0_axi_noc_aie_prog_0.dcp' for cell 'top_i/ulp/axi_noc_aie_prog'
+INFO: [Project 1-454] Reading design checkpoint '/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_noc_h2c_0/ulp_inst_0_axi_noc_h2c_0.dcp' for cell 'top_i/ulp/axi_noc_h2c'
+INFO: [Project 1-454] Reading design checkpoint '/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_noc_kernel0_0/ulp_inst_0_axi_noc_kernel0_0.dcp' for cell 'top_i/ulp/axi_noc_kernel0'
+INFO: [Project 1-454] Reading design checkpoint '/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_sc_plram_0/ulp_inst_0_axi_sc_plram_0.dcp' for cell 'top_i/ulp/axi_sc_plram'
+INFO: [Project 1-454] Reading design checkpoint '/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_dwc_setup_aie_0_s_0/ulp_inst_0_dwc_setup_aie_0_s_0.dcp' for cell 'top_i/ulp/dwc_setup_aie_0_s'
+INFO: [Project 1-454] Reading design checkpoint '/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_gate_dbgfw_or_0/ulp_inst_0_gate_dbgfw_or_0.dcp' for cell 'top_i/ulp/gate_dbgfw_or'
+INFO: [Project 1-454] Reading design checkpoint '/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_ip_pipe_dbg_hub_fw_00_0/ulp_inst_0_ip_pipe_dbg_hub_fw_00_0.dcp' for cell 'top_i/ulp/ip_pipe_dbg_hub_fw_00'
+INFO: [Project 1-454] Reading design checkpoint '/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_ip_pipe_ext_tog_kernel_00_null_0/ulp_inst_0_ip_pipe_ext_tog_kernel_00_null_0.dcp' for cell 'top_i/ulp/ip_pipe_ext_tog_kernel_00_null'
+INFO: [Project 1-454] Reading design checkpoint '/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_ip_pipe_ext_tog_kernel_01_null_0/ulp_inst_0_ip_pipe_ext_tog_kernel_01_null_0.dcp' for cell 'top_i/ulp/ip_pipe_ext_tog_kernel_01_null'
+INFO: [Project 1-454] Reading design checkpoint '/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_plram_ctrl_0/ulp_inst_0_plram_ctrl_0.dcp' for cell 'top_i/ulp/plram_ctrl'
+INFO: [Project 1-454] Reading design checkpoint '/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_plram_ctrl_bram_0/ulp_inst_0_plram_ctrl_bram_0.dcp' for cell 'top_i/ulp/plram_ctrl_bram'
+INFO: [Project 1-454] Reading design checkpoint '/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_setup_aie_0_0/ulp_inst_0_setup_aie_0_0.dcp' for cell 'top_i/ulp/setup_aie_0'
+INFO: [Project 1-454] Reading design checkpoint '/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_sink_from_aie_0_0/ulp_inst_0_sink_from_aie_0_0.dcp' for cell 'top_i/ulp/sink_from_aie_0'
+INFO: [Project 1-454] Reading design checkpoint '/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_pipereg_kernel0_0/ulp_inst_0_pipereg_kernel0_0.dcp' for cell 'top_i/ulp/reset_controllers/pipereg_kernel0'
+INFO: [Project 1-454] Reading design checkpoint '/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_pipereg_kernel1_0/ulp_inst_0_pipereg_kernel1_0.dcp' for cell 'top_i/ulp/reset_controllers/pipereg_kernel1'
+INFO: [Project 1-454] Reading design checkpoint '/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_pipereg_pcie0_0/ulp_inst_0_pipereg_pcie0_0.dcp' for cell 'top_i/ulp/reset_controllers/pipereg_pcie0'
+INFO: [Project 1-454] Reading design checkpoint '/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_pipereg_pl_axi0_0/ulp_inst_0_pipereg_pl_axi0_0.dcp' for cell 'top_i/ulp/reset_controllers/pipereg_pl_axi0'
+INFO: [Project 1-454] Reading design checkpoint '/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_reset_sync_fixed_0/ulp_inst_0_reset_sync_fixed_0.dcp' for cell 'top_i/ulp/reset_controllers/reset_sync_fixed'
+INFO: [Project 1-454] Reading design checkpoint '/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_reset_sync_kernel0_0/ulp_inst_0_reset_sync_kernel0_0.dcp' for cell 'top_i/ulp/reset_controllers/reset_sync_kernel0'
+INFO: [Project 1-454] Reading design checkpoint '/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_reset_sync_kernel1_0/ulp_inst_0_reset_sync_kernel1_0.dcp' for cell 'top_i/ulp/reset_controllers/reset_sync_kernel1'
+Netlist sorting complete. Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 3208.422 ; gain = 13.000 ; free physical = 80417 ; free virtual = 107793
+INFO: [Netlist 29-17] Analyzing 1358 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 2 CPU seconds
+INFO: [Chipscope 16-579] Latest version is versal_cips_v3_3 for versal_cips_v3_2
+INFO: [Project 1-479] Netlist was created with Vivado 2022.2.2
+INFO: [Constraints 18-6359] No Clock Expansion Window constraints config file entry for device xcvc1902.  GCLK Deskew mode will be Off and cannot be enabled via GCLK_DESKEW override.
+INFO: [Constraints 18-5720] The default GCLK Deskew mode is Off.
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Chipscope 16-324] Core: top_i/ulp/axi_dbg_hub UUID: fb0fe778-2d73-5f9a-a5e3-705ed8bfac07 
+Reading Traffic File '/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/.local/hw_platform/xilinx_vck5000_gen4x8_qdma_2_202220_1_bb_locked/top_wrapper.nts'
+INFO: [Ipconfig 75-709] Read and Merge Traffic Stats:  Before Read: 0 insts (0 INI), 0 paths (0 INI). Read In: 22 insts (3 INI), 70 paths (15 INI). After Merge: 22 insts (3 INI), 70 paths (15 INI). Noc Frequency: 1000 0 error slaves
+Reading NOC Solution File '/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/.local/hw_platform/xilinx_vck5000_gen4x8_qdma_2_202220_1_bb_locked/top_wrapper.ncr'
+INFO: [Constraints 18-5158] Loading Memory Image Database: /home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/.local/hw_platform/xilinx_vck5000_gen4x8_qdma_2_202220_1_bb_locked/top_wrapper_mem_image.db
+Reading AI Engine Project File '/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/int/system.aieprj' for cell 'top_i/ulp'
+Reading Logical Architecture File '/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/int/system/aiearchive/vivado/logical_arch_aie.larch' for cell 'top_i/ulp/ai_engine_0'
+Reading Traffic File '/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/nsln/ulp_inst_0.nts' for cell 'top_i/ulp'
+INFO: [Ipconfig 75-709] Read and Merge Traffic Stats:  Before Read: 22 insts (3 INI), 70 paths (15 INI). Read In: 9 insts (3 INI), 3 paths (3 INI). After Merge: 25 insts (0 INI), 82 paths (0 INI). Noc Frequency: 1000 0 error slaves
+Reading AI Engine Shim Solution File '/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/int/system/aiearchive/arch/aieshim_solution.aiesol'
+Skip Reading NOC Solution File '/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.runs/my_rm_synth_1/ulp_inst_0/ulp_inst_0.ncr' for cell 'top_i/ulp'
+Reading AI Engine netlist file '/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/int/system/aiearchive/temp/graph_aie_netlist.aiexn' for cell 'top_i/ulp/ai_engine_0'
+WARNING: [Constraints 18-294] Collapsing instance top_i/ulp/ai_engine_0/aie_nl_inst into physical block  in floorplan design_1
+Reading AI Engine constraints file '/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/int/system/aiearchive/temp/graph_aie_constraints.aiecst' for cell 'top_i/ulp/ai_engine_0/aie_nl_inst'
+WARNING: [Ipconfig 75-856] LineFinder::LineFinder() - could not open file for reading: /home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/int/system/aiearchive/temp/graph_aie_constraints.aiecst
+WARNING: [Ipconfig 75-856] LineFinder::LineFinder() - could not open file for reading: /home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/int/system/aiearchive/temp/graph_aie_constraints.aiecst
+Reading AI Engine solution file '/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/int/system/aiearchive/temp/graph_aie.aiesol' for cell 'top_i/ulp/ai_engine_0/aie_nl_inst'
+Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_ic_user_extend_0/bd_0/ip/ip_1/bd_dad2_psr_aclk_0.xdc] for cell 'top_i/ulp/axi_ic_user_extend/inst/clk_map/psr_aclk/U0'
+Finished Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_ic_user_extend_0/bd_0/ip/ip_1/bd_dad2_psr_aclk_0.xdc] for cell 'top_i/ulp/axi_ic_user_extend/inst/clk_map/psr_aclk/U0'
+Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_reset_sync_kernel0_0/ulp_inst_0_reset_sync_kernel0_0_board.xdc] for cell 'top_i/ulp/reset_controllers/reset_sync_kernel0/U0'
+Finished Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_reset_sync_kernel0_0/ulp_inst_0_reset_sync_kernel0_0_board.xdc] for cell 'top_i/ulp/reset_controllers/reset_sync_kernel0/U0'
+Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_plram_ctrl_bram_0/ulp_inst_0_plram_ctrl_bram_0_waivers.xdc] for cell 'top_i/ulp/plram_ctrl_bram/inst'
+Finished Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_plram_ctrl_bram_0/ulp_inst_0_plram_ctrl_bram_0_waivers.xdc] for cell 'top_i/ulp/plram_ctrl_bram/inst'
+Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_sc_plram_0/bd_0/ip/ip_3/bd_a6d9_psr_aclk1_0.xdc] for cell 'top_i/ulp/axi_sc_plram/inst/clk_map/psr_aclk1/U0'
+Finished Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_sc_plram_0/bd_0/ip/ip_3/bd_a6d9_psr_aclk1_0.xdc] for cell 'top_i/ulp/axi_sc_plram/inst/clk_map/psr_aclk1/U0'
+Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_sc_plram_0/bd_0/ip/ip_3/bd_a6d9_psr_aclk1_0_board.xdc] for cell 'top_i/ulp/axi_sc_plram/inst/clk_map/psr_aclk1/U0'
+Finished Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_sc_plram_0/bd_0/ip/ip_3/bd_a6d9_psr_aclk1_0_board.xdc] for cell 'top_i/ulp/axi_sc_plram/inst/clk_map/psr_aclk1/U0'
+Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_sc_plram_0/bd_0/ip/ip_2/bd_a6d9_psr_aclk_0.xdc] for cell 'top_i/ulp/axi_sc_plram/inst/clk_map/psr_aclk/U0'
+Finished Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_sc_plram_0/bd_0/ip/ip_2/bd_a6d9_psr_aclk_0.xdc] for cell 'top_i/ulp/axi_sc_plram/inst/clk_map/psr_aclk/U0'
+Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_sc_plram_0/bd_0/ip/ip_2/bd_a6d9_psr_aclk_0_board.xdc] for cell 'top_i/ulp/axi_sc_plram/inst/clk_map/psr_aclk/U0'
+Finished Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_sc_plram_0/bd_0/ip/ip_2/bd_a6d9_psr_aclk_0_board.xdc] for cell 'top_i/ulp/axi_sc_plram/inst/clk_map/psr_aclk/U0'
+Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_sc_plram_0/bd_0/ip/ip_1/bd_a6d9_psr0_0.xdc] for cell 'top_i/ulp/axi_sc_plram/inst/clk_map/psr0/U0'
+Finished Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_sc_plram_0/bd_0/ip/ip_1/bd_a6d9_psr0_0.xdc] for cell 'top_i/ulp/axi_sc_plram/inst/clk_map/psr0/U0'
+Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_sc_plram_0/bd_0/ip/ip_1/bd_a6d9_psr0_0_board.xdc] for cell 'top_i/ulp/axi_sc_plram/inst/clk_map/psr0/U0'
+Finished Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_sc_plram_0/bd_0/ip/ip_1/bd_a6d9_psr0_0_board.xdc] for cell 'top_i/ulp/axi_sc_plram/inst/clk_map/psr0/U0'
+Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_reset_sync_kernel0_0/ulp_inst_0_reset_sync_kernel0_0.xdc] for cell 'top_i/ulp/reset_controllers/reset_sync_kernel0/U0'
+Finished Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_reset_sync_kernel0_0/ulp_inst_0_reset_sync_kernel0_0.xdc] for cell 'top_i/ulp/reset_controllers/reset_sync_kernel0/U0'
+Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_ic_user_extend_0/bd_0/ip/ip_1/bd_dad2_psr_aclk_0_board.xdc] for cell 'top_i/ulp/axi_ic_user_extend/inst/clk_map/psr_aclk/U0'
+Finished Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_ic_user_extend_0/bd_0/ip/ip_1/bd_dad2_psr_aclk_0_board.xdc] for cell 'top_i/ulp/axi_ic_user_extend/inst/clk_map/psr_aclk/U0'
+Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_ic_user_0/bd_0/ip/ip_3/bd_d23e_psr_aclk1_0.xdc] for cell 'top_i/ulp/axi_ic_user/inst/clk_map/psr_aclk1/U0'
+Finished Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_ic_user_0/bd_0/ip/ip_3/bd_d23e_psr_aclk1_0.xdc] for cell 'top_i/ulp/axi_ic_user/inst/clk_map/psr_aclk1/U0'
+Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_ic_user_0/bd_0/ip/ip_3/bd_d23e_psr_aclk1_0_board.xdc] for cell 'top_i/ulp/axi_ic_user/inst/clk_map/psr_aclk1/U0'
+Finished Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_ic_user_0/bd_0/ip/ip_3/bd_d23e_psr_aclk1_0_board.xdc] for cell 'top_i/ulp/axi_ic_user/inst/clk_map/psr_aclk1/U0'
+Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_ic_user_0/bd_0/ip/ip_2/bd_d23e_psr_aclk_0.xdc] for cell 'top_i/ulp/axi_ic_user/inst/clk_map/psr_aclk/U0'
+Finished Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_ic_user_0/bd_0/ip/ip_2/bd_d23e_psr_aclk_0.xdc] for cell 'top_i/ulp/axi_ic_user/inst/clk_map/psr_aclk/U0'
+Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_ic_user_0/bd_0/ip/ip_2/bd_d23e_psr_aclk_0_board.xdc] for cell 'top_i/ulp/axi_ic_user/inst/clk_map/psr_aclk/U0'
+Finished Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_ic_user_0/bd_0/ip/ip_2/bd_d23e_psr_aclk_0_board.xdc] for cell 'top_i/ulp/axi_ic_user/inst/clk_map/psr_aclk/U0'
+Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_ic_user_0/bd_0/ip/ip_1/bd_d23e_psr0_0.xdc] for cell 'top_i/ulp/axi_ic_user/inst/clk_map/psr0/U0'
+Finished Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_ic_user_0/bd_0/ip/ip_1/bd_d23e_psr0_0.xdc] for cell 'top_i/ulp/axi_ic_user/inst/clk_map/psr0/U0'
+Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_ic_user_0/bd_0/ip/ip_1/bd_d23e_psr0_0_board.xdc] for cell 'top_i/ulp/axi_ic_user/inst/clk_map/psr0/U0'
+Finished Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_ic_user_0/bd_0/ip/ip_1/bd_d23e_psr0_0_board.xdc] for cell 'top_i/ulp/axi_ic_user/inst/clk_map/psr0/U0'
+Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_gpio_null_user_0/ulp_inst_0_axi_gpio_null_user_0.xdc] for cell 'top_i/ulp/axi_gpio_null_user/U0'
+Finished Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_gpio_null_user_0/ulp_inst_0_axi_gpio_null_user_0.xdc] for cell 'top_i/ulp/axi_gpio_null_user/U0'
+Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_noc_kernel0_0/ulp_inst_0_axi_noc_kernel0_0_board.xdc] for cell 'top_i/ulp/axi_noc_kernel0/inst'
+Finished Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_noc_kernel0_0/ulp_inst_0_axi_noc_kernel0_0_board.xdc] for cell 'top_i/ulp/axi_noc_kernel0/inst'
+Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_noc_aie_prog_0/ulp_inst_0_axi_noc_aie_prog_0.xdc] for cell 'top_i/ulp/axi_noc_aie_prog/inst'
+Finished Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_noc_aie_prog_0/ulp_inst_0_axi_noc_aie_prog_0.xdc] for cell 'top_i/ulp/axi_noc_aie_prog/inst'
+Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_noc_aie_prog_0/ulp_inst_0_axi_noc_aie_prog_0_board.xdc] for cell 'top_i/ulp/axi_noc_aie_prog/inst'
+Finished Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_noc_aie_prog_0/ulp_inst_0_axi_noc_aie_prog_0_board.xdc] for cell 'top_i/ulp/axi_noc_aie_prog/inst'
+Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_noc_aie_prog_0/bd_0/ip/ip_0/xdc/bd_afcb_M00_AXI_nsu_0.xdc] for cell 'top_i/ulp/axi_noc_aie_prog/inst/M00_AXI_nsu/bd_afcb_M00_AXI_nsu_0_top_INST'
+Finished Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_noc_aie_prog_0/bd_0/ip/ip_0/xdc/bd_afcb_M00_AXI_nsu_0.xdc] for cell 'top_i/ulp/axi_noc_aie_prog/inst/M00_AXI_nsu/bd_afcb_M00_AXI_nsu_0_top_INST'
+Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_noc_h2c_0/ulp_inst_0_axi_noc_h2c_0.xdc] for cell 'top_i/ulp/axi_noc_h2c/inst'
+Finished Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_noc_h2c_0/ulp_inst_0_axi_noc_h2c_0.xdc] for cell 'top_i/ulp/axi_noc_h2c/inst'
+Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_noc_h2c_0/ulp_inst_0_axi_noc_h2c_0_board.xdc] for cell 'top_i/ulp/axi_noc_h2c/inst'
+Finished Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_noc_h2c_0/ulp_inst_0_axi_noc_h2c_0_board.xdc] for cell 'top_i/ulp/axi_noc_h2c/inst'
+Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_noc_h2c_0/bd_0/ip/ip_1/xdc/bd_0dc7_M01_AXI_nsu_0.xdc] for cell 'top_i/ulp/axi_noc_h2c/inst/M01_AXI_nsu/bd_0dc7_M01_AXI_nsu_0_top_INST'
+Finished Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_noc_h2c_0/bd_0/ip/ip_1/xdc/bd_0dc7_M01_AXI_nsu_0.xdc] for cell 'top_i/ulp/axi_noc_h2c/inst/M01_AXI_nsu/bd_0dc7_M01_AXI_nsu_0_top_INST'
+Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_noc_h2c_0/bd_0/ip/ip_0/xdc/bd_0dc7_M00_AXI_nsu_0.xdc] for cell 'top_i/ulp/axi_noc_h2c/inst/M00_AXI_nsu/bd_0dc7_M00_AXI_nsu_0_top_INST'
+Finished Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_noc_h2c_0/bd_0/ip/ip_0/xdc/bd_0dc7_M00_AXI_nsu_0.xdc] for cell 'top_i/ulp/axi_noc_h2c/inst/M00_AXI_nsu/bd_0dc7_M00_AXI_nsu_0_top_INST'
+Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_noc_kernel0_0/ulp_inst_0_axi_noc_kernel0_0.xdc] for cell 'top_i/ulp/axi_noc_kernel0/inst'
+Finished Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_noc_kernel0_0/ulp_inst_0_axi_noc_kernel0_0.xdc] for cell 'top_i/ulp/axi_noc_kernel0/inst'
+Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_gpio_null_user_0/ulp_inst_0_axi_gpio_null_user_0_board.xdc] for cell 'top_i/ulp/axi_gpio_null_user/U0'
+Finished Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_gpio_null_user_0/ulp_inst_0_axi_gpio_null_user_0_board.xdc] for cell 'top_i/ulp/axi_gpio_null_user/U0'
+Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_noc_kernel0_0/bd_0/ip/ip_3/xdc/bd_0ad1_S01_AXI_nmu_0.xdc] for cell 'top_i/ulp/axi_noc_kernel0/inst/S01_AXI_nmu/bd_0ad1_S01_AXI_nmu_0_top_INST'
+Finished Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_noc_kernel0_0/bd_0/ip/ip_3/xdc/bd_0ad1_S01_AXI_nmu_0.xdc] for cell 'top_i/ulp/axi_noc_kernel0/inst/S01_AXI_nmu/bd_0ad1_S01_AXI_nmu_0_top_INST'
+Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_noc_kernel0_0/bd_0/ip/ip_1/xdc/bd_0ad1_S00_AXI_nmu_0.xdc] for cell 'top_i/ulp/axi_noc_kernel0/inst/S00_AXI_nmu/bd_0ad1_S00_AXI_nmu_0_top_INST'
+Finished Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_noc_kernel0_0/bd_0/ip/ip_1/xdc/bd_0ad1_S00_AXI_nmu_0.xdc] for cell 'top_i/ulp/axi_noc_kernel0/inst/S00_AXI_nmu/bd_0ad1_S00_AXI_nmu_0_top_INST'
+Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_noc_kernel0_0/bd_0/ip/ip_0/xdc/bd_0ad1_M02_INI_stub_nmu_0.xdc] for cell 'top_i/ulp/axi_noc_kernel0/inst/M02_INI_stub_nmu/bd_0ad1_M02_INI_stub_nmu_0_top_INST'
+Finished Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_noc_kernel0_0/bd_0/ip/ip_0/xdc/bd_0ad1_M02_INI_stub_nmu_0.xdc] for cell 'top_i/ulp/axi_noc_kernel0/inst/M02_INI_stub_nmu/bd_0ad1_M02_INI_stub_nmu_0_top_INST'
+Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_reset_sync_fixed_0/ulp_inst_0_reset_sync_fixed_0.xdc] for cell 'top_i/ulp/reset_controllers/reset_sync_fixed/U0'
+Finished Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_reset_sync_fixed_0/ulp_inst_0_reset_sync_fixed_0.xdc] for cell 'top_i/ulp/reset_controllers/reset_sync_fixed/U0'
+Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_reset_sync_fixed_0/ulp_inst_0_reset_sync_fixed_0_board.xdc] for cell 'top_i/ulp/reset_controllers/reset_sync_fixed/U0'
+Finished Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_reset_sync_fixed_0/ulp_inst_0_reset_sync_fixed_0_board.xdc] for cell 'top_i/ulp/reset_controllers/reset_sync_fixed/U0'
+Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_reset_sync_kernel1_0/ulp_inst_0_reset_sync_kernel1_0.xdc] for cell 'top_i/ulp/reset_controllers/reset_sync_kernel1/U0'
+Finished Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_reset_sync_kernel1_0/ulp_inst_0_reset_sync_kernel1_0.xdc] for cell 'top_i/ulp/reset_controllers/reset_sync_kernel1/U0'
+Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_reset_sync_kernel1_0/ulp_inst_0_reset_sync_kernel1_0_board.xdc] for cell 'top_i/ulp/reset_controllers/reset_sync_kernel1/U0'
+Finished Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_reset_sync_kernel1_0/ulp_inst_0_reset_sync_kernel1_0_board.xdc] for cell 'top_i/ulp/reset_controllers/reset_sync_kernel1/U0'
+Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_ic_user_extend_0/bd_0/ip/ip_1/bd_dad2_psr_aclk_0_board.xdc] for cell 'top_i/ulp/axi_ic_user_extend/inst/clk_map/psr_aclk/U0'
+Finished Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_ic_user_extend_0/bd_0/ip/ip_1/bd_dad2_psr_aclk_0_board.xdc] for cell 'top_i/ulp/axi_ic_user_extend/inst/clk_map/psr_aclk/U0'
+Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_ic_user_0/bd_0/ip/ip_3/bd_d23e_psr_aclk1_0_board.xdc] for cell 'top_i/ulp/axi_ic_user/inst/clk_map/psr_aclk1/U0'
+Finished Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_ic_user_0/bd_0/ip/ip_3/bd_d23e_psr_aclk1_0_board.xdc] for cell 'top_i/ulp/axi_ic_user/inst/clk_map/psr_aclk1/U0'
+Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_ic_user_0/bd_0/ip/ip_2/bd_d23e_psr_aclk_0.xdc] for cell 'top_i/ulp/axi_ic_user/inst/clk_map/psr_aclk/U0'
+Finished Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_ic_user_0/bd_0/ip/ip_2/bd_d23e_psr_aclk_0.xdc] for cell 'top_i/ulp/axi_ic_user/inst/clk_map/psr_aclk/U0'
+Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_ic_user_0/bd_0/ip/ip_2/bd_d23e_psr_aclk_0_board.xdc] for cell 'top_i/ulp/axi_ic_user/inst/clk_map/psr_aclk/U0'
+Finished Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_ic_user_0/bd_0/ip/ip_2/bd_d23e_psr_aclk_0_board.xdc] for cell 'top_i/ulp/axi_ic_user/inst/clk_map/psr_aclk/U0'
+Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_ic_user_0/bd_0/ip/ip_1/bd_d23e_psr0_0.xdc] for cell 'top_i/ulp/axi_ic_user/inst/clk_map/psr0/U0'
+Finished Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_ic_user_0/bd_0/ip/ip_1/bd_d23e_psr0_0.xdc] for cell 'top_i/ulp/axi_ic_user/inst/clk_map/psr0/U0'
+Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_ic_user_0/bd_0/ip/ip_1/bd_d23e_psr0_0_board.xdc] for cell 'top_i/ulp/axi_ic_user/inst/clk_map/psr0/U0'
+Finished Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_ic_user_0/bd_0/ip/ip_1/bd_d23e_psr0_0_board.xdc] for cell 'top_i/ulp/axi_ic_user/inst/clk_map/psr0/U0'
+Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_gpio_null_user_0/ulp_inst_0_axi_gpio_null_user_0.xdc] for cell 'top_i/ulp/axi_gpio_null_user/U0'
+Finished Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_gpio_null_user_0/ulp_inst_0_axi_gpio_null_user_0.xdc] for cell 'top_i/ulp/axi_gpio_null_user/U0'
+Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_gpio_null_user_0/ulp_inst_0_axi_gpio_null_user_0_board.xdc] for cell 'top_i/ulp/axi_gpio_null_user/U0'
+Finished Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_gpio_null_user_0/ulp_inst_0_axi_gpio_null_user_0_board.xdc] for cell 'top_i/ulp/axi_gpio_null_user/U0'
+Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_ic_user_extend_0/bd_0/ip/ip_1/bd_dad2_psr_aclk_0.xdc] for cell 'top_i/ulp/axi_ic_user_extend/inst/clk_map/psr_aclk/U0'
+Finished Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_ic_user_extend_0/bd_0/ip/ip_1/bd_dad2_psr_aclk_0.xdc] for cell 'top_i/ulp/axi_ic_user_extend/inst/clk_map/psr_aclk/U0'
+Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_ic_user_0/bd_0/ip/ip_3/bd_d23e_psr_aclk1_0.xdc] for cell 'top_i/ulp/axi_ic_user/inst/clk_map/psr_aclk1/U0'
+Finished Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_ic_user_0/bd_0/ip/ip_3/bd_d23e_psr_aclk1_0.xdc] for cell 'top_i/ulp/axi_ic_user/inst/clk_map/psr_aclk1/U0'
+Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_noc_kernel0_0/ulp_inst_0_axi_noc_kernel0_0.xdc] for cell 'top_i/ulp/axi_noc_kernel0/inst'
+Finished Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_noc_kernel0_0/ulp_inst_0_axi_noc_kernel0_0.xdc] for cell 'top_i/ulp/axi_noc_kernel0/inst'
+Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_noc_kernel0_0/ulp_inst_0_axi_noc_kernel0_0_board.xdc] for cell 'top_i/ulp/axi_noc_kernel0/inst'
+Finished Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_noc_kernel0_0/ulp_inst_0_axi_noc_kernel0_0_board.xdc] for cell 'top_i/ulp/axi_noc_kernel0/inst'
+Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_noc_kernel0_0/bd_0/ip/ip_3/xdc/bd_0ad1_S01_AXI_nmu_0.xdc] for cell 'top_i/ulp/axi_noc_kernel0/inst/S01_AXI_nmu/bd_0ad1_S01_AXI_nmu_0_top_INST'
+Finished Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_noc_kernel0_0/bd_0/ip/ip_3/xdc/bd_0ad1_S01_AXI_nmu_0.xdc] for cell 'top_i/ulp/axi_noc_kernel0/inst/S01_AXI_nmu/bd_0ad1_S01_AXI_nmu_0_top_INST'
+Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_noc_kernel0_0/bd_0/ip/ip_1/xdc/bd_0ad1_S00_AXI_nmu_0.xdc] for cell 'top_i/ulp/axi_noc_kernel0/inst/S00_AXI_nmu/bd_0ad1_S00_AXI_nmu_0_top_INST'
+Finished Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_noc_kernel0_0/bd_0/ip/ip_1/xdc/bd_0ad1_S00_AXI_nmu_0.xdc] for cell 'top_i/ulp/axi_noc_kernel0/inst/S00_AXI_nmu/bd_0ad1_S00_AXI_nmu_0_top_INST'
+Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_noc_kernel0_0/bd_0/ip/ip_0/xdc/bd_0ad1_M02_INI_stub_nmu_0.xdc] for cell 'top_i/ulp/axi_noc_kernel0/inst/M02_INI_stub_nmu/bd_0ad1_M02_INI_stub_nmu_0_top_INST'
+Finished Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_noc_kernel0_0/bd_0/ip/ip_0/xdc/bd_0ad1_M02_INI_stub_nmu_0.xdc] for cell 'top_i/ulp/axi_noc_kernel0/inst/M02_INI_stub_nmu/bd_0ad1_M02_INI_stub_nmu_0_top_INST'
+Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_noc_h2c_0/ulp_inst_0_axi_noc_h2c_0.xdc] for cell 'top_i/ulp/axi_noc_h2c/inst'
+Finished Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_noc_h2c_0/ulp_inst_0_axi_noc_h2c_0.xdc] for cell 'top_i/ulp/axi_noc_h2c/inst'
+Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_noc_h2c_0/ulp_inst_0_axi_noc_h2c_0_board.xdc] for cell 'top_i/ulp/axi_noc_h2c/inst'
+Finished Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_noc_h2c_0/ulp_inst_0_axi_noc_h2c_0_board.xdc] for cell 'top_i/ulp/axi_noc_h2c/inst'
+Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_noc_h2c_0/bd_0/ip/ip_1/xdc/bd_0dc7_M01_AXI_nsu_0.xdc] for cell 'top_i/ulp/axi_noc_h2c/inst/M01_AXI_nsu/bd_0dc7_M01_AXI_nsu_0_top_INST'
+Finished Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_noc_h2c_0/bd_0/ip/ip_1/xdc/bd_0dc7_M01_AXI_nsu_0.xdc] for cell 'top_i/ulp/axi_noc_h2c/inst/M01_AXI_nsu/bd_0dc7_M01_AXI_nsu_0_top_INST'
+Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_sc_plram_0/bd_0/ip/ip_3/bd_a6d9_psr_aclk1_0_board.xdc] for cell 'top_i/ulp/axi_sc_plram/inst/clk_map/psr_aclk1/U0'
+Finished Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_sc_plram_0/bd_0/ip/ip_3/bd_a6d9_psr_aclk1_0_board.xdc] for cell 'top_i/ulp/axi_sc_plram/inst/clk_map/psr_aclk1/U0'
+Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_reset_sync_fixed_0/ulp_inst_0_reset_sync_fixed_0.xdc] for cell 'top_i/ulp/reset_controllers/reset_sync_fixed/U0'
+Finished Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_reset_sync_fixed_0/ulp_inst_0_reset_sync_fixed_0.xdc] for cell 'top_i/ulp/reset_controllers/reset_sync_fixed/U0'
+Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_reset_sync_fixed_0/ulp_inst_0_reset_sync_fixed_0_board.xdc] for cell 'top_i/ulp/reset_controllers/reset_sync_fixed/U0'
+Finished Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_reset_sync_fixed_0/ulp_inst_0_reset_sync_fixed_0_board.xdc] for cell 'top_i/ulp/reset_controllers/reset_sync_fixed/U0'
+Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_reset_sync_kernel0_0/ulp_inst_0_reset_sync_kernel0_0.xdc] for cell 'top_i/ulp/reset_controllers/reset_sync_kernel0/U0'
+Finished Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_reset_sync_kernel0_0/ulp_inst_0_reset_sync_kernel0_0.xdc] for cell 'top_i/ulp/reset_controllers/reset_sync_kernel0/U0'
+Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_reset_sync_kernel0_0/ulp_inst_0_reset_sync_kernel0_0_board.xdc] for cell 'top_i/ulp/reset_controllers/reset_sync_kernel0/U0'
+Finished Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_reset_sync_kernel0_0/ulp_inst_0_reset_sync_kernel0_0_board.xdc] for cell 'top_i/ulp/reset_controllers/reset_sync_kernel0/U0'
+Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_noc_aie_prog_0/ulp_inst_0_axi_noc_aie_prog_0.xdc] for cell 'top_i/ulp/axi_noc_aie_prog/inst'
+Finished Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_noc_aie_prog_0/ulp_inst_0_axi_noc_aie_prog_0.xdc] for cell 'top_i/ulp/axi_noc_aie_prog/inst'
+Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_noc_aie_prog_0/ulp_inst_0_axi_noc_aie_prog_0_board.xdc] for cell 'top_i/ulp/axi_noc_aie_prog/inst'
+Finished Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_noc_aie_prog_0/ulp_inst_0_axi_noc_aie_prog_0_board.xdc] for cell 'top_i/ulp/axi_noc_aie_prog/inst'
+Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_noc_aie_prog_0/bd_0/ip/ip_0/xdc/bd_afcb_M00_AXI_nsu_0.xdc] for cell 'top_i/ulp/axi_noc_aie_prog/inst/M00_AXI_nsu/bd_afcb_M00_AXI_nsu_0_top_INST'
+Finished Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_noc_aie_prog_0/bd_0/ip/ip_0/xdc/bd_afcb_M00_AXI_nsu_0.xdc] for cell 'top_i/ulp/axi_noc_aie_prog/inst/M00_AXI_nsu/bd_afcb_M00_AXI_nsu_0_top_INST'
+Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_sc_plram_0/bd_0/ip/ip_3/bd_a6d9_psr_aclk1_0.xdc] for cell 'top_i/ulp/axi_sc_plram/inst/clk_map/psr_aclk1/U0'
+Finished Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_sc_plram_0/bd_0/ip/ip_3/bd_a6d9_psr_aclk1_0.xdc] for cell 'top_i/ulp/axi_sc_plram/inst/clk_map/psr_aclk1/U0'
+Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_noc_h2c_0/bd_0/ip/ip_0/xdc/bd_0dc7_M00_AXI_nsu_0.xdc] for cell 'top_i/ulp/axi_noc_h2c/inst/M00_AXI_nsu/bd_0dc7_M00_AXI_nsu_0_top_INST'
+Finished Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_noc_h2c_0/bd_0/ip/ip_0/xdc/bd_0dc7_M00_AXI_nsu_0.xdc] for cell 'top_i/ulp/axi_noc_h2c/inst/M00_AXI_nsu/bd_0dc7_M00_AXI_nsu_0_top_INST'
+Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_sc_plram_0/bd_0/ip/ip_2/bd_a6d9_psr_aclk_0.xdc] for cell 'top_i/ulp/axi_sc_plram/inst/clk_map/psr_aclk/U0'
+Finished Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_sc_plram_0/bd_0/ip/ip_2/bd_a6d9_psr_aclk_0.xdc] for cell 'top_i/ulp/axi_sc_plram/inst/clk_map/psr_aclk/U0'
+Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_sc_plram_0/bd_0/ip/ip_2/bd_a6d9_psr_aclk_0_board.xdc] for cell 'top_i/ulp/axi_sc_plram/inst/clk_map/psr_aclk/U0'
+Finished Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_sc_plram_0/bd_0/ip/ip_2/bd_a6d9_psr_aclk_0_board.xdc] for cell 'top_i/ulp/axi_sc_plram/inst/clk_map/psr_aclk/U0'
+Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_sc_plram_0/bd_0/ip/ip_1/bd_a6d9_psr0_0.xdc] for cell 'top_i/ulp/axi_sc_plram/inst/clk_map/psr0/U0'
+Finished Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_sc_plram_0/bd_0/ip/ip_1/bd_a6d9_psr0_0.xdc] for cell 'top_i/ulp/axi_sc_plram/inst/clk_map/psr0/U0'
+Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_sc_plram_0/bd_0/ip/ip_1/bd_a6d9_psr0_0_board.xdc] for cell 'top_i/ulp/axi_sc_plram/inst/clk_map/psr0/U0'
+Finished Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_sc_plram_0/bd_0/ip/ip_1/bd_a6d9_psr0_0_board.xdc] for cell 'top_i/ulp/axi_sc_plram/inst/clk_map/psr0/U0'
+Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_reset_sync_kernel1_0/ulp_inst_0_reset_sync_kernel1_0.xdc] for cell 'top_i/ulp/reset_controllers/reset_sync_kernel1/U0'
+Finished Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_reset_sync_kernel1_0/ulp_inst_0_reset_sync_kernel1_0.xdc] for cell 'top_i/ulp/reset_controllers/reset_sync_kernel1/U0'
+Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_reset_sync_kernel1_0/ulp_inst_0_reset_sync_kernel1_0_board.xdc] for cell 'top_i/ulp/reset_controllers/reset_sync_kernel1/U0'
+Finished Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_reset_sync_kernel1_0/ulp_inst_0_reset_sync_kernel1_0_board.xdc] for cell 'top_i/ulp/reset_controllers/reset_sync_kernel1/U0'
+Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_plram_ctrl_bram_0/ulp_inst_0_plram_ctrl_bram_0_waivers.xdc] for cell 'top_i/ulp/plram_ctrl_bram/inst'
+Finished Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_plram_ctrl_bram_0/ulp_inst_0_plram_ctrl_bram_0_waivers.xdc] for cell 'top_i/ulp/plram_ctrl_bram/inst'
+Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/.local/hw_platform/xilinx_vck5000_gen4x8_qdma_2_202220_1_bb_locked/top_wrapper_board.xdc]
+Finished Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/.local/hw_platform/xilinx_vck5000_gen4x8_qdma_2_202220_1_bb_locked/top_wrapper_board.xdc]
+Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/.local/hw_platform/xilinx_vck5000_gen4x8_qdma_2_202220_1_bb_locked/top_wrapper_early.xdc]
+INFO: [Timing 38-35] Done setting XDC timing constraints. [ip_cpm4.xdc:77]
+WARNING: [Vivado 12-627] No clocks matched 'dpll?_clkout1'. [ip_cpm4.xdc:77]
+INFO: [Vivado 12-626] No clocks found. Please use 'create_clock' or 'create_generated_clock' command to create clocks. [ip_cpm4.xdc:77]
+get_clocks: Time (s): cpu = 00:00:23 ; elapsed = 00:00:25 . Memory (MB): peak = 4322.461 ; gain = 533.078 ; free physical = 78555 ; free virtual = 105992
+WARNING: [Vivado_Tcl 4-939] Waiver ID 'TIMING-1' object list should not be empty (perhaps an invalid wildcard was used or only unsupported objects). [ip_cpm4.xdc:77]
+WARNING: [Vivado 12-627] No clocks matched 'XPIPE_GT_OUTCLK*'. [ip_cpm4.xdc:78]
+INFO: [Vivado 12-626] No clocks found. Please use 'create_clock' or 'create_generated_clock' command to create clocks. [ip_cpm4.xdc:78]
+WARNING: [Vivado_Tcl 4-939] Waiver ID 'TIMING-2' object list should not be empty (perhaps an invalid wildcard was used or only unsupported objects). [ip_cpm4.xdc:78]
+WARNING: [Vivado 12-627] No clocks matched 'GT_REFCLK*'. [ip_cpm4.xdc:79]
+WARNING: [Vivado 12-627] No clocks matched 'XPIPE_GT_PIPECLK*'. [ip_cpm4.xdc:79]
+WARNING: [Vivado 12-627] No clocks matched 'dpll?_clkout1'. [ip_cpm4.xdc:79]
+INFO: [Vivado 12-626] No clocks found. Please use 'create_clock' or 'create_generated_clock' command to create clocks. [ip_cpm4.xdc:79]
+WARNING: [Vivado_Tcl 4-939] Waiver ID 'TIMING-3' object list should not be empty (perhaps an invalid wildcard was used or only unsupported objects). [ip_cpm4.xdc:79]
+add_cells_to_pblock: Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 4376.750 ; gain = 54.289 ; free physical = 78438 ; free virtual = 105883
+resize_pblock: Time (s): cpu = 00:00:16 ; elapsed = 00:00:18 . Memory (MB): peak = 4434.250 ; gain = 57.500 ; free physical = 78114 ; free virtual = 105615
+resize_pblock: Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 4440.656 ; gain = 6.406 ; free physical = 78048 ; free virtual = 105500
+resize_pblock: Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 4444.953 ; gain = 4.297 ; free physical = 77828 ; free virtual = 105286
+resize_pblock: Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 4444.953 ; gain = 0.000 ; free physical = 77798 ; free virtual = 105259
+resize_pblock: Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 4444.953 ; gain = 0.000 ; free physical = 77593 ; free virtual = 105056
+resize_pblock: Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 4444.953 ; gain = 0.000 ; free physical = 77481 ; free virtual = 104946
+resize_pblock: Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 4449.250 ; gain = 4.297 ; free physical = 77251 ; free virtual = 104757
+resize_pblock: Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 4449.250 ; gain = 0.000 ; free physical = 77060 ; free virtual = 104599
+resize_pblock: Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 4449.250 ; gain = 0.000 ; free physical = 77061 ; free virtual = 104537
+resize_pblock: Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 4449.250 ; gain = 0.000 ; free physical = 76845 ; free virtual = 104324
+resize_pblock: Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 4449.250 ; gain = 0.000 ; free physical = 76700 ; free virtual = 104182
+resize_pblock: Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 4449.250 ; gain = 0.000 ; free physical = 76345 ; free virtual = 104027
+resize_pblock: Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 4449.250 ; gain = 0.000 ; free physical = 76500 ; free virtual = 104022
+resize_pblock: Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 4449.250 ; gain = 0.000 ; free physical = 76356 ; free virtual = 103903
+resize_pblock: Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 4449.250 ; gain = 0.000 ; free physical = 76273 ; free virtual = 103769
+resize_pblock: Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 4449.250 ; gain = 0.000 ; free physical = 76197 ; free virtual = 103700
+resize_pblock: Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 4449.250 ; gain = 0.000 ; free physical = 76072 ; free virtual = 103587
+resize_pblock: Time (s): cpu = 00:00:12 ; elapsed = 00:00:14 . Memory (MB): peak = 4453.852 ; gain = 4.602 ; free physical = 75794 ; free virtual = 103399
+resize_pblock: Time (s): cpu = 00:00:12 ; elapsed = 00:00:14 . Memory (MB): peak = 4453.852 ; gain = 0.000 ; free physical = 75738 ; free virtual = 103273
+resize_pblock: Time (s): cpu = 00:00:12 ; elapsed = 00:00:14 . Memory (MB): peak = 4453.852 ; gain = 0.000 ; free physical = 75442 ; free virtual = 102995
+resize_pblock: Time (s): cpu = 00:00:12 ; elapsed = 00:00:14 . Memory (MB): peak = 4453.852 ; gain = 0.000 ; free physical = 75153 ; free virtual = 102716
+resize_pblock: Time (s): cpu = 00:00:12 ; elapsed = 00:00:14 . Memory (MB): peak = 4453.852 ; gain = 0.000 ; free physical = 74829 ; free virtual = 102398
+resize_pblock: Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 4453.852 ; gain = 0.000 ; free physical = 74285 ; free virtual = 101866
+resize_pblock: Time (s): cpu = 00:00:13 ; elapsed = 00:00:13 . Memory (MB): peak = 4453.852 ; gain = 0.000 ; free physical = 73956 ; free virtual = 101543
+resize_pblock: Time (s): cpu = 00:00:13 ; elapsed = 00:00:13 . Memory (MB): peak = 4453.852 ; gain = 0.000 ; free physical = 73894 ; free virtual = 101492
+resize_pblock: Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 4453.852 ; gain = 0.000 ; free physical = 73734 ; free virtual = 101351
+resize_pblock: Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 4453.852 ; gain = 0.000 ; free physical = 73470 ; free virtual = 101097
+resize_pblock: Time (s): cpu = 00:00:13 ; elapsed = 00:00:13 . Memory (MB): peak = 4453.852 ; gain = 0.000 ; free physical = 73372 ; free virtual = 101003
+resize_pblock: Time (s): cpu = 00:00:13 ; elapsed = 00:00:13 . Memory (MB): peak = 4458.516 ; gain = 4.664 ; free physical = 73360 ; free virtual = 100994
+resize_pblock: Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 4458.516 ; gain = 0.000 ; free physical = 73258 ; free virtual = 100895
+create_clock: Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 4528.312 ; gain = 69.797 ; free physical = 72956 ; free virtual = 100598
+WARNING: [Timing 38-492] The CPM_MAIN instance 'top_i/blp/cips/inst/cpm_0/inst/CPM_INST/CPM_MAIN_INST' has IFCPMXPIPELINK0XPIPEBUFGTDIV bus pins that are not tied constant, so automatic derivation of the generated clock on pin 'CPMDPLLPCIE0USERCLKINT' will proceed as if a worst case divide of 1 were specified on those bus pins. [ip_cpm4.xdc:13]
+WARNING: [Timing 38-492] The CPM_MAIN instance 'top_i/blp/cips/inst/cpm_0/inst/CPM_INST/CPM_MAIN_INST' has IFCPMXPIPELINK0XPIPEBUFGTDIV bus pins that are not tied constant, so automatic derivation of the generated clock on pin 'IFCPMXPIPELINK0XPIPEGTPIPECLK' will proceed as if a worst case divide of 1 were specified on those bus pins. [ip_cpm4.xdc:13]
+WARNING: [Timing 38-492] The CPM_MAIN instance 'top_i/blp/cips/inst/cpm_0/inst/CPM_INST/CPM_MAIN_INST' has IFCPMXPIPELINK0XPIPEBUFGTDIV bus pins that are not tied constant, so automatic derivation of the generated clock on pin 'PCIE0USERCLKINT' will proceed as if a worst case divide of 1 were specified on those bus pins. [ip_cpm4.xdc:13]
+WARNING: [Timing 38-3] User defined clock exists on pin top_i/blp/cips/inst/cpm_0/inst/DPLL_PCIE0_inst/CLKOUT1 [See ip_cpm4.xdc:9] and will prevent any subsequent automatic derivation of generated clocks on that pin. If the user defined clock specifies '-add', any existing auto-derived clocks on that pin are retained. [ip_cpm4.xdc:13]
+INFO: [Timing 38-2] Deriving generated clocks [ip_cpm4.xdc:13]
+get_clocks: Time (s): cpu = 00:00:42 ; elapsed = 00:00:51 . Memory (MB): peak = 5275.508 ; gain = 747.195 ; free physical = 75300 ; free virtual = 102948
+Finished Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/.local/hw_platform/xilinx_vck5000_gen4x8_qdma_2_202220_1_bb_locked/top_wrapper_early.xdc]
+Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/.local/hw_platform/tcl_hooks/impl.xdc]
+resize_pblock: Time (s): cpu = 00:00:16 ; elapsed = 00:00:18 . Memory (MB): peak = 5275.508 ; gain = 0.000 ; free physical = 75395 ; free virtual = 103071
+resize_pblock: Time (s): cpu = 00:00:18 ; elapsed = 00:00:20 . Memory (MB): peak = 5275.508 ; gain = 0.000 ; free physical = 78502 ; free virtual = 106181
+resize_pblock: Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 5275.508 ; gain = 0.000 ; free physical = 80578 ; free virtual = 108275
+Finished Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/.local/hw_platform/tcl_hooks/impl.xdc]
+Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/output/dont_partition.xdc]
+Finished Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/output/dont_partition.xdc]
+Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/.local/hw_platform/xilinx_vck5000_gen4x8_qdma_2_202220_1_bb_locked/top_wrapper.xdc]
+Finished Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/.local/hw_platform/xilinx_vck5000_gen4x8_qdma_2_202220_1_bb_locked/top_wrapper.xdc]
+Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/.local/hw_platform/xilinx_vck5000_gen4x8_qdma_2_202220_1_bb_locked/top_wrapper_late.xdc]
+Finished Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/.local/hw_platform/xilinx_vck5000_gen4x8_qdma_2_202220_1_bb_locked/top_wrapper_late.xdc]
+Reading XDEF placement.
+Reading placer database...
+Reading XDEF routing.
+Read XDEF Files: Time (s): cpu = 00:06:39 ; elapsed = 00:07:08 . Memory (MB): peak = 5275.508 ; gain = 0.000 ; free physical = 70875 ; free virtual = 98776
+Restored from archive | CPU: 400.040000 secs | Memory: 60.321724 MB |
+Finished XDEF File Restore: Time (s): cpu = 00:06:40 ; elapsed = 00:07:09 . Memory (MB): peak = 5275.508 ; gain = 0.000 ; free physical = 70811 ; free virtual = 98718
+WARNING: [Constraints 18-4434] Global Clock Buffer 'top_i/blp/blp_logic/ulp_clocking/shell_utils_ucc/inst/genblk1[0].aclk_kernel_inst/clock_throttling_aclk_kernel_00/ECCLK' is LOCed to site 'BUFGCE_X2Y23'. Using a LOC constraint to assign the placement of a Global Clock Buffer can result in sub-optimal placement results.
+Resolution: Remove the LOC constraint and use the CLOCK_REGION constraint to assign a Global Clock Buffer to a CLOCK_REGION.
+WARNING: [Constraints 18-4434] Global Clock Buffer 'top_i/blp/blp_logic/ulp_clocking/shell_utils_ucc/inst/genblk1[0].aclk_kernel_inst/clock_throttling_aclk_kernel_00/ICCLK' is LOCed to site 'BUFGCE_X2Y0'. Using a LOC constraint to assign the placement of a Global Clock Buffer can result in sub-optimal placement results.
+Resolution: Remove the LOC constraint and use the CLOCK_REGION constraint to assign a Global Clock Buffer to a CLOCK_REGION.
+WARNING: [Constraints 18-4434] Global Clock Buffer 'top_i/blp/blp_logic/ulp_clocking/shell_utils_ucc/inst/genblk1[0].aclk_kernel_inst/clock_throttling_aclk_kernel_00/VGC.FCLK' is LOCed to site 'BUFGCE_X2Y1'. Using a LOC constraint to assign the placement of a Global Clock Buffer can result in sub-optimal placement results.
+Resolution: Remove the LOC constraint and use the CLOCK_REGION constraint to assign a Global Clock Buffer to a CLOCK_REGION.
+WARNING: [Constraints 18-4434] Global Clock Buffer 'top_i/blp/blp_logic/ulp_clocking/shell_utils_ucc/inst/genblk1[1].aclk_kernel_inst/clock_throttling_aclk_kernel_00/ECCLK' is LOCed to site 'BUFGCE_X3Y3'. Using a LOC constraint to assign the placement of a Global Clock Buffer can result in sub-optimal placement results.
+Resolution: Remove the LOC constraint and use the CLOCK_REGION constraint to assign a Global Clock Buffer to a CLOCK_REGION.
+WARNING: [Constraints 18-4434] Global Clock Buffer 'top_i/blp/blp_logic/ulp_clocking/shell_utils_ucc/inst/genblk1[1].aclk_kernel_inst/clock_throttling_aclk_kernel_00/ICCLK' is LOCed to site 'BUFGCE_X3Y8'. Using a LOC constraint to assign the placement of a Global Clock Buffer can result in sub-optimal placement results.
+Resolution: Remove the LOC constraint and use the CLOCK_REGION constraint to assign a Global Clock Buffer to a CLOCK_REGION.
+WARNING: [Constraints 18-4434] Global Clock Buffer 'top_i/blp/blp_logic/ulp_clocking/shell_utils_ucc/inst/genblk1[1].aclk_kernel_inst/clock_throttling_aclk_kernel_00/VGC.FCLK' is LOCed to site 'BUFGCE_X3Y12'. Using a LOC constraint to assign the placement of a Global Clock Buffer can result in sub-optimal placement results.
+Resolution: Remove the LOC constraint and use the CLOCK_REGION constraint to assign a Global Clock Buffer to a CLOCK_REGION.
+WARNING: [Constraints 18-4434] Global Clock Buffer 'top_i/blp/cips/inst/cpm_0/inst/bufg_dpll0_cal' is LOCed to site 'BUFG_GT_X0Y30'. Using a LOC constraint to assign the placement of a Global Clock Buffer can result in sub-optimal placement results.
+Resolution: Remove the LOC constraint and use the CLOCK_REGION constraint to assign a Global Clock Buffer to a CLOCK_REGION.
+WARNING: [Constraints 18-4434] Global Clock Buffer 'top_i/blp/cips/inst/cpm_0/inst/bufg_dpll0_clkout1' is LOCed to site 'BUFG_GT_X0Y26'. Using a LOC constraint to assign the placement of a Global Clock Buffer can result in sub-optimal placement results.
+Resolution: Remove the LOC constraint and use the CLOCK_REGION constraint to assign a Global Clock Buffer to a CLOCK_REGION.
+WARNING: [Constraints 18-4434] Global Clock Buffer 'top_i/blp/cips/inst/cpm_0/inst/bufg_pcie_0' is LOCed to site 'BUFG_GT_X0Y41'. Using a LOC constraint to assign the placement of a Global Clock Buffer can result in sub-optimal placement results.
+Resolution: Remove the LOC constraint and use the CLOCK_REGION constraint to assign a Global Clock Buffer to a CLOCK_REGION.
+WARNING: [Constraints 18-4434] Global Clock Buffer 'top_i/blp/cips/inst/pspmc_0/inst/buffer_pl_clk_0.PL_CLK_0_BUFG' is LOCed to site 'BUFG_PS_X0Y6'. Using a LOC constraint to assign the placement of a Global Clock Buffer can result in sub-optimal placement results.
+Resolution: Remove the LOC constraint and use the CLOCK_REGION constraint to assign a Global Clock Buffer to a CLOCK_REGION.
+WARNING: [Constraints 18-4434] Global Clock Buffer 'top_i/blp/cips/inst/pspmc_0/inst/buffer_pl_clk_1.PL_CLK_1_BUFG' is LOCed to site 'BUFG_PS_X0Y7'. Using a LOC constraint to assign the placement of a Global Clock Buffer can result in sub-optimal placement results.
+Resolution: Remove the LOC constraint and use the CLOCK_REGION constraint to assign a Global Clock Buffer to a CLOCK_REGION.
+WARNING: [Constraints 18-4434] Global Clock Buffer 'top_i/blp/cips/inst/pspmc_0/inst/buffer_pl_clk_2.PL_CLK_2_BUFG' is LOCed to site 'BUFG_PS_X0Y8'. Using a LOC constraint to assign the placement of a Global Clock Buffer can result in sub-optimal placement results.
+Resolution: Remove the LOC constraint and use the CLOCK_REGION constraint to assign a Global Clock Buffer to a CLOCK_REGION.
+INFO: [Project 1-1714] 435 XPM XDC files have been applied to the design.
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00.03 ; elapsed = 00:00:00.03 . Memory (MB): peak = 5275.508 ; gain = 0.000 ; free physical = 64960 ; free virtual = 92896
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 1350 instances were transformed.
+  (CARRY8) => LUT6CY (LUTCY1, LUTCY2): 8 instances
+  CPM => CPM (CPM_EXT, CPM_MAIN): 1 instance 
+  LUT6CY => LUT6CY (LUTCY1, LUTCY2): 1102 instances
+  LUT6_2 => LUT6_2 (LUT5, LUT6): 104 instances
+  RAM16X1S => RAM32X1S (RAMS32): 32 instances
+  RAM32M => RAM32M (RAMD32(x6), RAMS32(x2)): 3 instances
+  RAM32M16 => RAM32M16 (RAMD32(x14), RAMS32(x2)): 96 instances
+  RAM32X1D => RAM32X1D (RAMD32(x2)): 4 instances
+
+53 Infos, 43 Warnings, 0 Critical Warnings and 0 Errors encountered.
+link_design completed successfully
+link_design: Time (s): cpu = 00:19:23 ; elapsed = 00:21:05 . Memory (MB): peak = 5275.508 ; gain = 3242.055 ; free physical = 64953 ; free virtual = 92889
+source /home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/scripts/impl_1/_full_init_post.tcl
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+WARNING: [Timing 38-492] The CPM_MAIN instance 'top_i/blp/cips/inst/cpm_0/inst/CPM_INST/CPM_MAIN_INST' has IFCPMXPIPELINK0XPIPEBUFGTDIV bus pins that are not tied constant, so automatic derivation of the generated clock on pin 'CPMDPLLPCIE0USERCLKINT' will proceed as if a worst case divide of 1 were specified on those bus pins.
+WARNING: [Timing 38-492] The CPM_MAIN instance 'top_i/blp/cips/inst/cpm_0/inst/CPM_INST/CPM_MAIN_INST' has IFCPMXPIPELINK0XPIPEBUFGTDIV bus pins that are not tied constant, so automatic derivation of the generated clock on pin 'IFCPMXPIPELINK0XPIPEGTPIPECLK' will proceed as if a worst case divide of 1 were specified on those bus pins.
+WARNING: [Timing 38-492] The CPM_MAIN instance 'top_i/blp/cips/inst/cpm_0/inst/CPM_INST/CPM_MAIN_INST' has IFCPMXPIPELINK0XPIPEBUFGTDIV bus pins that are not tied constant, so automatic derivation of the generated clock on pin 'PCIE0USERCLKINT' will proceed as if a worst case divide of 1 were specified on those bus pins.
+WARNING: [Timing 38-3] User defined clock exists on pin top_i/blp/cips/inst/cpm_0/inst/DPLL_PCIE0_inst/CLKOUT1 [See ip_cpm4.xdc:9] and will prevent any subsequent automatic derivation of generated clocks on that pin. If the user defined clock specifies '-add', any existing auto-derived clocks on that pin are retained.
+get_clocks: Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 5275.508 ; gain = 0.000 ; free physical = 65319 ; free virtual = 93266
+Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/output/_user_impl_clk.xdc]
+INFO: [Vivado 12-2286] Implicit search of objects for pattern 'top_i/blp/blp_logic/ulp_clocking/clkwiz_aclk_kernel_00/inst/clock_primitive_inst/MMCME5_inst/CLKIN1' matched to 'pin' objects. [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/output/_user_impl_clk.xdc:3]
+Resolution: To avoid ambiguous patterns, provide proper objects using get commands e.g. [get_nets xyz].
+INFO: [Vivado 12-2286] Implicit search of objects for pattern 'top_i/blp/blp_logic/ulp_clocking/clkwiz_aclk_kernel_00/inst/clock_primitive_inst/MMCME5_inst/CLKOUT0' matched to 'pin' objects. [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/output/_user_impl_clk.xdc:3]
+Resolution: To avoid ambiguous patterns, provide proper objects using get commands e.g. [get_nets xyz].
+WARNING: [Constraints 18-619] A clock with name 'clkwiz_aclk_kernel_00_clk_out1' already exists, overwriting the previous clock with the same name. [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/output/_user_impl_clk.xdc:3]
+Finished Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/output/_user_impl_clk.xdc]
+source /home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/scripts/impl_1/_full_opt_pre.tcl
+Post-synthesis utilization DRC check...
+available resources:
+   luts      : 887807
+   registers : 1780497
+   brams     : 967
+   dsps      : -1
+required resources:
+   luts      : 12092
+   registers : 17431
+   brams     : 34.5
+   dsps      : 0
+report_utilization: Time (s): cpu = 00:00:20 ; elapsed = 00:00:22 . Memory (MB): peak = 5302.695 ; gain = 0.000 ; free physical = 65427 ; free virtual = 93418
+INFO: System Diagram: Run step: synthed
+
+WARNING: [Vivado 12-1023] No nets matched for command 'get_nets -of [get_pins top_i/blp/blp_logic/axi_uart_*/s_axi_?resp]'.
+WARNING: [Vivado 12-508] No pins matched 'get_pins -of [get_nets -of [get_pins top_i/blp/blp_logic/axi_uart_*/s_axi_?resp]] -filter {DIRECTION ==IN}'.
+Command: opt_design
+Attempting to get a license for feature 'Implementation' and/or device 'xcvc1902'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xcvc1902'
+Running DRC as a precondition to command opt_design
+
+Starting DRC Task
+INFO: [DRC 23-27] Running DRC with 8 threads
+INFO: [Project 1-461] DRC finished with 0 Errors
+INFO: [Project 1-462] Please refer to the DRC report (report_drc) for more information.
+
+Time (s): cpu = 00:01:30 ; elapsed = 00:01:37 . Memory (MB): peak = 5646.754 ; gain = 344.059 ; free physical = 63685 ; free virtual = 91808
+
+Starting Cache Timing Information Task
+WARNING: [Timing 38-3] User defined clock exists on pin top_i/blp/blp_logic/ulp_clocking/clkwiz_aclk_kernel_00/inst/clock_primitive_inst/MMCME5_inst/CLKOUT0 [See /home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/output/_user_impl_clk.xdc:3] and will prevent any subsequent automatic derivation of generated clocks on that pin. If the user defined clock specifies '-add', any existing auto-derived clocks on that pin are retained.
+WARNING: [Timing 38-492] The CPM_MAIN instance 'top_i/blp/cips/inst/cpm_0/inst/CPM_INST/CPM_MAIN_INST' has IFCPMXPIPELINK0XPIPEBUFGTDIV bus pins that are not tied constant, so automatic derivation of the generated clock on pin 'CPMDPLLPCIE0USERCLKINT' will proceed as if a worst case divide of 1 were specified on those bus pins.
+WARNING: [Timing 38-492] The CPM_MAIN instance 'top_i/blp/cips/inst/cpm_0/inst/CPM_INST/CPM_MAIN_INST' has IFCPMXPIPELINK0XPIPEBUFGTDIV bus pins that are not tied constant, so automatic derivation of the generated clock on pin 'IFCPMXPIPELINK0XPIPEGTPIPECLK' will proceed as if a worst case divide of 1 were specified on those bus pins.
+WARNING: [Timing 38-492] The CPM_MAIN instance 'top_i/blp/cips/inst/cpm_0/inst/CPM_INST/CPM_MAIN_INST' has IFCPMXPIPELINK0XPIPEBUFGTDIV bus pins that are not tied constant, so automatic derivation of the generated clock on pin 'PCIE0USERCLKINT' will proceed as if a worst case divide of 1 were specified on those bus pins.
+WARNING: [Timing 38-3] User defined clock exists on pin top_i/blp/cips/inst/cpm_0/inst/DPLL_PCIE0_inst/CLKOUT1 [See ip_cpm4.xdc:9] and will prevent any subsequent automatic derivation of generated clocks on that pin. If the user defined clock specifies '-add', any existing auto-derived clocks on that pin are retained.
+Ending Cache Timing Information Task | Checksum: 2410e59be
+
+Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 5646.754 ; gain = 0.000 ; free physical = 64156 ; free virtual = 92280
+
+Starting Logic Optimization Task
+INFO: [Mig 66-82] Memory netlist is in sync with memory I/O ports assignments.
+
+Phase 1 Retarget
+INFO: [Opt 31-1287] Pulled Inverter top_i/ulp/axi_dbg_fw/inst/gen_mi.checks/gen_mi.err_wprio[0]_i_1 into driver instance top_i/ulp/axi_dbg_fw/inst/gen_mi.checks/gen_mi.err_wprio[3]_i_6, which resulted in an inversion of 6 pins
+INFO: [Opt 31-1287] Pulled Inverter top_i/ulp/axi_dbg_fw/inst/gen_mi.checks/gen_read_checks.gen_rthread_loop[0].rlen_queue_i_1 into driver instance top_i/ulp/axi_dbg_fw/inst/gen_mi.checks/gen_read_checks.gen_rthread_loop[0].rlen_queue_i_4, which resulted in an inversion of 3 pins
+INFO: [Opt 31-1287] Pulled Inverter top_i/ulp/axi_dbg_fw/inst/gen_mi.checks/gen_write_checks.awid_queue_i_1 into driver instance top_i/ulp/axi_dbg_fw/inst/gen_mi.checks/gen_write_checks.awid_queue_i_8, which resulted in an inversion of 6 pins
+INFO: [Opt 31-1287] Pulled Inverter top_i/ulp/axi_dbg_fw/inst/gen_mi.gen_read.r_threadcam/gen_cam.allocate_queue_i_6__0 into driver instance top_i/ulp/axi_dbg_fw/inst/gen_mi.gen_read.r_threadcam/gen_cam.allocate_queue_i_8__0, which resulted in an inversion of 6 pins
+INFO: [Opt 31-1287] Pulled Inverter top_i/ulp/axi_dbg_fw/inst/gen_mi.gen_read.r_threadcam/gen_mi.s_ar_reg_i_1 into driver instance top_i/ulp/axi_dbg_fw/inst/gen_mi.gen_read.r_threadcam/gen_mi.s_ar_reg_i_3, which resulted in an inversion of 5 pins
+INFO: [Opt 31-1287] Pulled Inverter top_i/ulp/axi_dbg_fw/inst/gen_mi.gen_write.w_threadcam/gen_mi.s_aw_reg_i_1 into driver instance top_i/ulp/axi_dbg_fw/inst/gen_mi.gen_write.w_threadcam/gen_mi.s_aw_reg_i_3, which resulted in an inversion of 3 pins
+INFO: [Opt 31-1287] Pulled Inverter top_i/ulp/axi_dbg_fw/inst/gen_mi.s_axi_ctl_rdata_i[0]_i_3 into driver instance top_i/ulp/axi_dbg_fw/inst/gen_mi.s_axi_ctl_rdata_i[15]_i_3, which resulted in an inversion of 16 pins
+INFO: [Opt 31-1287] Pulled Inverter top_i/ulp/axi_dbg_fw/inst/gen_mi.s_axi_ctl_rdata_i[15]_i_13 into driver instance top_i/ulp/axi_dbg_fw/inst/gen_mi.s_axi_ctl_rdata_i[13]_i_5, which resulted in an inversion of 17 pins
+INFO: [Opt 31-1287] Pulled Inverter top_i/ulp/axi_dbg_fw/inst/gen_mi.s_axi_ctl_rdata_i[25]_i_2 into driver instance top_i/ulp/axi_dbg_fw/inst/gen_mi.s_axi_ctl_rdata_i[25]_i_5, which resulted in an inversion of 1 pins
+INFO: [Opt 31-1287] Pulled Inverter top_i/ulp/axi_dbg_fw/inst/gen_mi.s_axi_ctl_rdata_i[26]_i_2 into driver instance top_i/ulp/axi_dbg_fw/inst/gen_mi.s_axi_ctl_rdata_i[26]_i_5, which resulted in an inversion of 1 pins
+INFO: [Opt 31-1287] Pulled Inverter top_i/ulp/axi_dbg_fw/inst/gen_mi.s_axi_ctl_rdata_i[27]_i_2 into driver instance top_i/ulp/axi_dbg_fw/inst/gen_mi.s_axi_ctl_rdata_i[27]_i_5, which resulted in an inversion of 1 pins
+INFO: [Opt 31-1287] Pulled Inverter top_i/ulp/axi_dbg_fw/inst/gen_mi.s_axi_ctl_rdata_i[28]_i_2 into driver instance top_i/ulp/axi_dbg_fw/inst/gen_mi.s_axi_ctl_rdata_i[28]_i_5, which resulted in an inversion of 1 pins
+INFO: [Opt 31-1287] Pulled Inverter top_i/ulp/axi_dbg_fw/inst/gen_mi.s_axi_ctl_rdata_i[29]_i_2 into driver instance top_i/ulp/axi_dbg_fw/inst/gen_mi.s_axi_ctl_rdata_i[29]_i_5, which resulted in an inversion of 1 pins
+INFO: [Opt 31-1287] Pulled Inverter top_i/ulp/axi_dbg_fw/inst/gen_mi.s_axi_ctl_rdata_i[30]_i_2 into driver instance top_i/ulp/axi_dbg_fw/inst/gen_mi.s_axi_ctl_rdata_i[30]_i_5, which resulted in an inversion of 1 pins
+INFO: [Opt 31-1287] Pulled Inverter top_i/ulp/axi_dbg_fw/inst/gen_mi.s_axi_ctl_rdata_i[31]_i_3 into driver instance top_i/ulp/axi_dbg_fw/inst/gen_mi.s_axi_ctl_rdata_i[31]_i_8, which resulted in an inversion of 1 pins
+INFO: [Opt 31-1287] Pulled Inverter top_i/ulp/axi_ic_user_extend/inst/s00_entry_pipeline/s00_si_converter/inst/gen_axilite_conv.axilite_conv_inst/s_axi_awready_i_i_3 into driver instance top_i/ulp/axi_ic_user_extend/inst/s00_entry_pipeline/s00_si_converter/inst/gen_axilite_conv.axilite_conv_inst/s_axi_wready_i_i_2, which resulted in an inversion of 11 pins
+INFO: [Opt 31-1287] Pulled Inverter top_i/ulp/axi_ic_user_extend/inst/s00_entry_pipeline/s00_si_converter/inst/gen_axilite_conv.axilite_conv_inst/s_axi_rlast_INST_0 into driver instance top_i/ulp/axi_ic_user_extend/inst/s00_entry_pipeline/s00_si_converter/inst/gen_axilite_conv.axilite_conv_inst/s_axi_rlast_INST_0_i_1, which resulted in an inversion of 15 pins
+INFO: [Opt 31-1287] Pulled Inverter top_i/ulp/setup_aie_0/inst/gmem0_m_axi_U/bus_read/fifo_rctl/sect_addr_buf[63]_i_1 into driver instance top_i/ulp/setup_aie_0/inst/gmem0_m_axi_U/bus_read/fifo_rctl/state[1]_i_2, which resulted in an inversion of 59 pins
+INFO: [Opt 31-138] Pushed 136 inverter(s) to 1428 load pin(s).
+INFO: [Opt 31-49] Retargeted 0 cell(s).
+Phase 1 Retarget | Checksum: 20cd9ae50
+
+Time (s): cpu = 00:01:15 ; elapsed = 00:01:22 . Memory (MB): peak = 5646.754 ; gain = 0.000 ; free physical = 63929 ; free virtual = 92134
+INFO: [Opt 31-389] Phase Retarget created 159 cells and removed 547 cells
+INFO: [Opt 31-1021] In phase Retarget, 3172 netlist objects are constrained preventing optimization. Please run opt_design with -debug_log to get more detail. 
+
+Phase 2 Constant propagation
+INFO: [Opt 31-138] Pushed 4 inverter(s) to 25 load pin(s).
+Phase 2 Constant propagation | Checksum: 1a20523f7
+
+Time (s): cpu = 00:01:19 ; elapsed = 00:01:26 . Memory (MB): peak = 5646.754 ; gain = 0.000 ; free physical = 63723 ; free virtual = 91930
+INFO: [Opt 31-389] Phase Constant propagation created 178 cells and removed 866 cells
+INFO: [Opt 31-1021] In phase Constant propagation, 1217 netlist objects are constrained preventing optimization. Please run opt_design with -debug_log to get more detail. 
+
+Phase 3 Sweep
+Phase 3 Sweep | Checksum: 245ad217c
+
+Time (s): cpu = 00:02:32 ; elapsed = 00:02:43 . Memory (MB): peak = 5646.754 ; gain = 0.000 ; free physical = 62504 ; free virtual = 90738
+INFO: [Opt 31-389] Phase Sweep created 0 cells and removed 3811 cells
+INFO: [Opt 31-1021] In phase Sweep, 386141 netlist objects are constrained preventing optimization. Please run opt_design with -debug_log to get more detail. 
+
+Phase 4 BUFG optimization
+INFO: [Opt 31-1077] Phase BUFG optimization inserted 0 global clock buffer(s) for CLOCK_LOW_FANOUT.
+Phase 4 BUFG optimization | Checksum: 245ad217c
+
+Time (s): cpu = 00:03:41 ; elapsed = 00:03:57 . Memory (MB): peak = 5646.754 ; gain = 0.000 ; free physical = 61241 ; free virtual = 89504
+INFO: [Opt 31-662] Phase BUFG optimization created 0 cells of which 0 are BUFGs and removed 0 cells.
+INFO: [Opt 31-1021] In phase BUFG optimization, 15 netlist objects are constrained preventing optimization. Please run opt_design with -debug_log to get more detail. 
+
+Phase 5 Shift Register Optimization
+INFO: [Opt 31-1064] SRL Remap converted 0 SRLs to 0 registers and converted 0 registers of register chains to 0 SRLs
+Phase 5 Shift Register Optimization | Checksum: 245ad217c
+
+Time (s): cpu = 00:03:44 ; elapsed = 00:04:00 . Memory (MB): peak = 5646.754 ; gain = 0.000 ; free physical = 61121 ; free virtual = 89383
+INFO: [Opt 31-389] Phase Shift Register Optimization created 0 cells and removed 0 cells
+
+Phase 6 Post Processing Netlist
+Phase 6 Post Processing Netlist | Checksum: 214113376
+
+Time (s): cpu = 00:03:49 ; elapsed = 00:04:06 . Memory (MB): peak = 5646.754 ; gain = 0.000 ; free physical = 61100 ; free virtual = 89366
+INFO: [Opt 31-389] Phase Post Processing Netlist created 0 cells and removed 0 cells
+INFO: [Opt 31-1021] In phase Post Processing Netlist, 895 netlist objects are constrained preventing optimization. Please run opt_design with -debug_log to get more detail. 
+Opt_design Change Summary
+=========================
+
+
+-------------------------------------------------------------------------------------------------------------------------
+|  Phase                        |  #Cells created  |  #Cells Removed  |  #Constrained objects preventing optimizations  |
+-------------------------------------------------------------------------------------------------------------------------
+|  Retarget                     |             159  |             547  |                                           3172  |
+|  Constant propagation         |             178  |             866  |                                           1217  |
+|  Sweep                        |               0  |            3811  |                                         386141  |
+|  BUFG optimization            |               0  |               0  |                                             15  |
+|  Shift Register Optimization  |               0  |               0  |                                              0  |
+|  Post Processing Netlist      |               0  |               0  |                                            895  |
+-------------------------------------------------------------------------------------------------------------------------
+
+
+
+Starting Connectivity Check Task
+
+Time (s): cpu = 00:00:00.26 ; elapsed = 00:00:00.29 . Memory (MB): peak = 5646.754 ; gain = 0.000 ; free physical = 62225 ; free virtual = 90549
+Ending Logic Optimization Task | Checksum: 23fa2cf54
+
+Time (s): cpu = 00:04:54 ; elapsed = 00:05:15 . Memory (MB): peak = 5646.754 ; gain = 0.000 ; free physical = 62510 ; free virtual = 90831
+
+Starting Final Cleanup Task
+Ending Final Cleanup Task | Checksum: 23fa2cf54
+
+Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 5646.754 ; gain = 0.000 ; free physical = 63002 ; free virtual = 91302
+
+Starting Netlist Obfuscation Task
+Netlist sorting complete. Time (s): cpu = 00:00:00.03 ; elapsed = 00:00:00.03 . Memory (MB): peak = 5646.754 ; gain = 0.000 ; free physical = 63002 ; free virtual = 91302
+Ending Netlist Obfuscation Task | Checksum: 23fa2cf54
+
+Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 5646.754 ; gain = 0.000 ; free physical = 63935 ; free virtual = 92239
+INFO: [Common 17-83] Releasing license: Implementation
+96 Infos, 55 Warnings, 0 Critical Warnings and 0 Errors encountered.
+opt_design completed successfully
+opt_design: Time (s): cpu = 00:07:41 ; elapsed = 00:08:15 . Memory (MB): peak = 5646.754 ; gain = 344.059 ; free physical = 64087 ; free virtual = 92391
+source /home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/scripts/impl_1/_full_opt_post.tcl
+source /home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/scripts/impl_1/_full_place_pre.tcl
+CRITICAL WARNING: [Vivado 12-4430] You are lowering the severity from an ERROR. This can potentially lead to board damage or other functionality issues on hardware. If this is not desired, please run 'reset_property SEVERITY [get_drc_checks HDPR-5]' to undo this change.
+INFO: [Chipscope 16-240] Debug cores have already been implemented
+Command: place_design
+Attempting to get a license for feature 'Implementation' and/or device 'xcvc1902'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xcvc1902'
+INFO: [DRC 23-27] Running DRC with 8 threads
+INFO: [Vivado_Tcl 4-198] DRC finished with 0 Errors
+INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more information.
+Running DRC as a precondition to command place_design
+INFO: [DRC 23-27] Running DRC with 8 threads
+INFO: [Vivado_Tcl 4-198] DRC finished with 0 Errors
+INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more information.
+
+Starting Placer Task
+INFO: [Place 30-611] Multithreading enabled for place_design using a maximum of 8 CPUs
+
+Phase 1 Placer Initialization
+
+Phase 1.1 Placer Initialization Netlist Sorting
+Netlist sorting complete. Time (s): cpu = 00:00:00.03 ; elapsed = 00:00:00.04 . Memory (MB): peak = 5904.379 ; gain = 0.000 ; free physical = 73264 ; free virtual = 101795
+Phase 1.1 Placer Initialization Netlist Sorting | Checksum: 9210384a
+
+Time (s): cpu = 00:00:00.83 ; elapsed = 00:00:00.94 . Memory (MB): peak = 5904.379 ; gain = 0.000 ; free physical = 73239 ; free virtual = 101771
+Netlist sorting complete. Time (s): cpu = 00:00:00.03 ; elapsed = 00:00:00.03 . Memory (MB): peak = 5904.379 ; gain = 0.000 ; free physical = 73213 ; free virtual = 101745
+
+Phase 1.2 IO Placement/ Clock Placement/ Build Placer Device
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+WARNING: [Timing 38-3] User defined clock exists on pin top_i/blp/blp_logic/ulp_clocking/clkwiz_aclk_kernel_00/inst/clock_primitive_inst/MMCME5_inst/CLKOUT0 [See /home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/output/_user_impl_clk.xdc:3] and will prevent any subsequent automatic derivation of generated clocks on that pin. If the user defined clock specifies '-add', any existing auto-derived clocks on that pin are retained.
+WARNING: [Timing 38-492] The CPM_MAIN instance 'top_i/blp/cips/inst/cpm_0/inst/CPM_INST/CPM_MAIN_INST' has IFCPMXPIPELINK0XPIPEBUFGTDIV bus pins that are not tied constant, so automatic derivation of the generated clock on pin 'CPMDPLLPCIE0USERCLKINT' will proceed as if a worst case divide of 1 were specified on those bus pins.
+WARNING: [Timing 38-492] The CPM_MAIN instance 'top_i/blp/cips/inst/cpm_0/inst/CPM_INST/CPM_MAIN_INST' has IFCPMXPIPELINK0XPIPEBUFGTDIV bus pins that are not tied constant, so automatic derivation of the generated clock on pin 'IFCPMXPIPELINK0XPIPEGTPIPECLK' will proceed as if a worst case divide of 1 were specified on those bus pins.
+WARNING: [Timing 38-492] The CPM_MAIN instance 'top_i/blp/cips/inst/cpm_0/inst/CPM_INST/CPM_MAIN_INST' has IFCPMXPIPELINK0XPIPEBUFGTDIV bus pins that are not tied constant, so automatic derivation of the generated clock on pin 'PCIE0USERCLKINT' will proceed as if a worst case divide of 1 were specified on those bus pins.
+WARNING: [Timing 38-3] User defined clock exists on pin top_i/blp/cips/inst/cpm_0/inst/DPLL_PCIE0_inst/CLKOUT1 [See ip_cpm4.xdc:9] and will prevent any subsequent automatic derivation of generated clocks on that pin. If the user defined clock specifies '-add', any existing auto-derived clocks on that pin are retained.
+Phase 1.2 IO Placement/ Clock Placement/ Build Placer Device | Checksum: 12bf3c66f
+
+Time (s): cpu = 00:05:09 ; elapsed = 00:05:33 . Memory (MB): peak = 6254.578 ; gain = 350.199 ; free physical = 78941 ; free virtual = 109805
+
+Phase 1.3 Build Placer Netlist Model
+Phase 1.3 Build Placer Netlist Model | Checksum: 202613c4b
+
+Time (s): cpu = 00:07:06 ; elapsed = 00:07:36 . Memory (MB): peak = 6550.785 ; gain = 646.406 ; free physical = 77635 ; free virtual = 108162
+
+Phase 1.4 Constrain Clocks/Macros
+Phase 1.4 Constrain Clocks/Macros | Checksum: 202613c4b
+
+Time (s): cpu = 00:07:08 ; elapsed = 00:07:38 . Memory (MB): peak = 6550.785 ; gain = 646.406 ; free physical = 77622 ; free virtual = 108149
+WARNING: [Place 30-3039] All sites of Tile URAM_DELAY_ROCF_TL_TILE_X19Y332 are not fully ranged in pblock " pblock_dynamic_region ". It is recommended to add the following sites to the pblock to define the complete programmable unit for this resource type- URAM_CAS_DLY_X1Y3   
+WARNING: [Place 30-3039] All sites of Tile URAM_DELAY_LOCF_TL_TILE_X9Y284 are not fully ranged in pblock " pblock_dynamic_region ". It is recommended to add the following sites to the pblock to define the complete programmable unit for this resource type- URAM_CAS_DLY_X0Y2   
+WARNING: [Place 30-3039] All sites of Tile URAM_DELAY_ROCF_TL_TILE_X19Y284 are not fully ranged in pblock " pblock_dynamic_region ". It is recommended to add the following sites to the pblock to define the complete programmable unit for this resource type- URAM_CAS_DLY_X1Y2   
+WARNING: [Place 30-3039] All sites of Tile URAM_DELAY_ROCF_TL_TILE_X36Y284 are not fully ranged in pblock " pblock_dynamic_region ". It is recommended to add the following sites to the pblock to define the complete programmable unit for this resource type- URAM_CAS_DLY_X2Y2   
+WARNING: [Place 30-3039] All sites of Tile URAM_DELAY_ROCF_TL_TILE_X59Y284 are not fully ranged in pblock " pblock_dynamic_region ". It is recommended to add the following sites to the pblock to define the complete programmable unit for this resource type- URAM_CAS_DLY_X3Y2   
+WARNING: [Place 30-3039] All sites of Tile URAM_DELAY_ROCF_TL_TILE_X82Y284 are not fully ranged in pblock " pblock_dynamic_region ". It is recommended to add the following sites to the pblock to define the complete programmable unit for this resource type- URAM_CAS_DLY_X4Y2   
+WARNING: [Place 30-3039] All sites of Tile URAM_DELAY_ROCF_TL_TILE_X104Y284 are not fully ranged in pblock " pblock_dynamic_region ". It is recommended to add the following sites to the pblock to define the complete programmable unit for this resource type- URAM_CAS_DLY_X5Y2   
+WARNING: [Place 30-3039] All sites of Tile CLK_GT_AAA_TILE_X112Y239 are not fully ranged in pblock " pblock_dynamic_region ". It is recommended to add the following sites to the pblock to define the complete programmable unit for this resource type- GCLK_DELAY_X6Y96  GCLK_DELAY_X6Y97  GCLK_DELAY_X6Y98  GCLK_DELAY_X6Y99  GCLK_DELAY_X6Y100  GCLK_DELAY_X6Y101  GCLK_DELAY_X6Y102  GCLK_DELAY_X6Y103  GCLK_DELAY_X6Y104  GCLK_DELAY_X6Y105  GCLK_DELAY_X6Y106  GCLK_DELAY_X6Y107  GCLK_DELAY_X6Y108  GCLK_DELAY_X6Y109  GCLK_DELAY_X6Y110  GCLK_DELAY_X6Y111  GCLK_DELAY_X6Y112  GCLK_DELAY_X6Y113  GCLK_DELAY_X6Y114  GCLK_DELAY_X6Y115  GCLK_DELAY_X6Y116  GCLK_DELAY_X6Y117  GCLK_DELAY_X6Y118  GCLK_DELAY_X6Y119   
+WARNING: [Place 30-3039] All sites of Tile URAM_DELAY_LOCF_TL_TILE_X9Y188 are not fully ranged in pblock " pblock_dynamic_region ". It is recommended to add the following sites to the pblock to define the complete programmable unit for this resource type- URAM_CAS_DLY_X0Y1   
+WARNING: [Place 30-3039] All sites of Tile URAM_DELAY_ROCF_TL_TILE_X19Y188 are not fully ranged in pblock " pblock_dynamic_region ". It is recommended to add the following sites to the pblock to define the complete programmable unit for this resource type- URAM_CAS_DLY_X1Y1   
+WARNING: [Place 30-3039] All sites of Tile URAM_DELAY_ROCF_TL_TILE_X36Y188 are not fully ranged in pblock " pblock_dynamic_region ". It is recommended to add the following sites to the pblock to define the complete programmable unit for this resource type- URAM_CAS_DLY_X2Y1   
+WARNING: [Place 30-3039] All sites of Tile URAM_DELAY_ROCF_TL_TILE_X59Y188 are not fully ranged in pblock " pblock_dynamic_region ". It is recommended to add the following sites to the pblock to define the complete programmable unit for this resource type- URAM_CAS_DLY_X3Y1   
+WARNING: [Place 30-3039] All sites of Tile URAM_DELAY_ROCF_TL_TILE_X82Y188 are not fully ranged in pblock " pblock_dynamic_region ". It is recommended to add the following sites to the pblock to define the complete programmable unit for this resource type- URAM_CAS_DLY_X4Y1   
+WARNING: [Place 30-3039] All sites of Tile URAM_DELAY_ROCF_TL_TILE_X104Y188 are not fully ranged in pblock " pblock_dynamic_region ". It is recommended to add the following sites to the pblock to define the complete programmable unit for this resource type- URAM_CAS_DLY_X5Y1   
+WARNING: [Place 30-3039] All sites of Tile CLK_GT_BBA_TILE_X112Y143 are not fully ranged in pblock " pblock_dynamic_region ". It is recommended to add the following sites to the pblock to define the complete programmable unit for this resource type- GCLK_DELAY_X6Y48  GCLK_DELAY_X6Y49  GCLK_DELAY_X6Y50  GCLK_DELAY_X6Y51  GCLK_DELAY_X6Y52  GCLK_DELAY_X6Y53  GCLK_DELAY_X6Y54  GCLK_DELAY_X6Y55  GCLK_DELAY_X6Y56  GCLK_DELAY_X6Y57  GCLK_DELAY_X6Y58  GCLK_DELAY_X6Y59  GCLK_DELAY_X6Y60  GCLK_DELAY_X6Y61  GCLK_DELAY_X6Y62  GCLK_DELAY_X6Y63  GCLK_DELAY_X6Y64  GCLK_DELAY_X6Y65  GCLK_DELAY_X6Y66  GCLK_DELAY_X6Y67  GCLK_DELAY_X6Y68  GCLK_DELAY_X6Y69  GCLK_DELAY_X6Y70  GCLK_DELAY_X6Y71   
+WARNING: [Place 30-3039] All sites of Tile URAM_DELAY_ROCF_TL_TILE_X19Y92 are not fully ranged in pblock " pblock_dynamic_region ". It is recommended to add the following sites to the pblock to define the complete programmable unit for this resource type- URAM_CAS_DLY_X1Y0   
+WARNING: [Place 30-3039] All sites of Tile URAM_DELAY_ROCF_TL_TILE_X36Y92 are not fully ranged in pblock " pblock_dynamic_region ". It is recommended to add the following sites to the pblock to define the complete programmable unit for this resource type- URAM_CAS_DLY_X2Y0   
+WARNING: [Place 30-3039] All sites of Tile URAM_DELAY_ROCF_TL_TILE_X59Y92 are not fully ranged in pblock " pblock_dynamic_region ". It is recommended to add the following sites to the pblock to define the complete programmable unit for this resource type- URAM_CAS_DLY_X3Y0   
+WARNING: [Place 30-3039] All sites of Tile URAM_DELAY_ROCF_TL_TILE_X82Y92 are not fully ranged in pblock " pblock_dynamic_region ". It is recommended to add the following sites to the pblock to define the complete programmable unit for this resource type- URAM_CAS_DLY_X4Y0   
+WARNING: [Place 30-3039] All sites of Tile URAM_DELAY_ROCF_TL_TILE_X104Y92 are not fully ranged in pblock " pblock_dynamic_region ". It is recommended to add the following sites to the pblock to define the complete programmable unit for this resource type- URAM_CAS_DLY_X5Y0   
+Phase 1 Placer Initialization | Checksum: 202613c4b
+
+Time (s): cpu = 00:07:29 ; elapsed = 00:08:00 . Memory (MB): peak = 6550.785 ; gain = 646.406 ; free physical = 77447 ; free virtual = 107979
+
+Phase 2 Global Placement
+
+Phase 2.1 Floorplanning
+
+Phase 2.1.1 Partition Driven Placement
+
+Phase 2.1.1.1 PBP: Partition Driven Placement
+Phase 2.1.1.1 PBP: Partition Driven Placement | Checksum: 1524067f8
+
+Time (s): cpu = 00:08:15 ; elapsed = 00:08:54 . Memory (MB): peak = 6596.035 ; gain = 691.656 ; free physical = 76792 ; free virtual = 107335
+
+Phase 2.1.1.2 PBP: Clock Region Placement
+Netlist sorting complete. Time (s): cpu = 00:00:00.03 ; elapsed = 00:00:00.04 . Memory (MB): peak = 6888.629 ; gain = 0.000 ; free physical = 83739 ; free virtual = 114486
+Phase 2.1.1.2 PBP: Clock Region Placement | Checksum: 21b411278
+
+Time (s): cpu = 00:10:39 ; elapsed = 00:11:23 . Memory (MB): peak = 6888.629 ; gain = 984.250 ; free physical = 83730 ; free virtual = 114488
+
+Phase 2.1.1.3 PBP: Discrete Incremental
+Phase 2.1.1.3 PBP: Discrete Incremental | Checksum: 17d3eeb33
+
+Time (s): cpu = 00:10:40 ; elapsed = 00:11:24 . Memory (MB): peak = 6888.629 ; gain = 984.250 ; free physical = 83701 ; free virtual = 114486
+
+Phase 2.1.1.4 PBP: Compute Congestion
+Phase 2.1.1.4 PBP: Compute Congestion | Checksum: 17d3eeb33
+
+Time (s): cpu = 00:11:14 ; elapsed = 00:11:58 . Memory (MB): peak = 6920.645 ; gain = 1016.266 ; free physical = 83613 ; free virtual = 114389
+
+Phase 2.1.1.5 PBP: Macro Placement
+Phase 2.1.1.5 PBP: Macro Placement | Checksum: 147b09a7c
+
+Time (s): cpu = 00:11:17 ; elapsed = 00:12:01 . Memory (MB): peak = 6920.645 ; gain = 1016.266 ; free physical = 83786 ; free virtual = 114564
+
+Phase 2.1.1.6 PBP: UpdateTiming
+Phase 2.1.1.6 PBP: UpdateTiming | Checksum: 1b0ddffc3
+
+Time (s): cpu = 00:11:53 ; elapsed = 00:12:38 . Memory (MB): peak = 6920.645 ; gain = 1016.266 ; free physical = 85386 ; free virtual = 116176
+
+Phase 2.1.1.7 PBP: Add part constraints
+Phase 2.1.1.7 PBP: Add part constraints | Checksum: 1b0ddffc3
+
+Time (s): cpu = 00:11:54 ; elapsed = 00:12:38 . Memory (MB): peak = 6920.645 ; gain = 1016.266 ; free physical = 85376 ; free virtual = 116167
+Phase 2.1.1 Partition Driven Placement | Checksum: 1b0ddffc3
+
+Time (s): cpu = 00:11:54 ; elapsed = 00:12:39 . Memory (MB): peak = 6920.645 ; gain = 1016.266 ; free physical = 85381 ; free virtual = 116171
+Generating placement and routing for NoC components
+NoC TrafficSpec | Checksum: f06d08eb
+NoC Constraints | Checksum: 44406fa6
+NoC Incremental Solution | Checksum: ecb5006f
+INFO: [Ipconfig 75-92] Running NOC Placement
+INFO: [Ipconfig 75-122] Detailed placement phase
+INFO: [Ipconfig 75-133] Running NOC Routing
+NoC Compiler Finished Successfully
+NoC Solution | Checksum: 85397e5f
+Phase 2.1 Floorplanning | Checksum: 1cd993ca8
+
+Time (s): cpu = 00:12:11 ; elapsed = 00:12:58 . Memory (MB): peak = 7092.496 ; gain = 1188.117 ; free physical = 84803 ; free virtual = 115597
+
+Phase 2.2 Update Timing before SLR Path Opt
+Phase 2.2 Update Timing before SLR Path Opt | Checksum: 1c3fbd3b2
+
+Time (s): cpu = 00:12:13 ; elapsed = 00:13:00 . Memory (MB): peak = 7124.512 ; gain = 1220.133 ; free physical = 84776 ; free virtual = 115570
+
+Phase 2.3 Post-Processing in Floorplanning
+Phase 2.3 Post-Processing in Floorplanning | Checksum: 1c3fbd3b2
+
+Time (s): cpu = 00:12:14 ; elapsed = 00:13:01 . Memory (MB): peak = 7124.512 ; gain = 1220.133 ; free physical = 84739 ; free virtual = 115533
+
+Phase 2.4 Global Placement Core
+
+Phase 2.4.1 UpdateTiming Before Physical Synthesis
+Phase 2.4.1 UpdateTiming Before Physical Synthesis | Checksum: 23f41c4af
+
+Time (s): cpu = 00:20:17 ; elapsed = 00:23:07 . Memory (MB): peak = 7132.516 ; gain = 1228.137 ; free physical = 81355 ; free virtual = 112433
+
+Phase 2.4.2 Physical Synthesis In Placer
+INFO: [Physopt 32-1035] Found 0 LUTNM shape to break, 433 LUT instances to create LUTNM shape
+INFO: [Physopt 32-1044] Break lutnm for timing: one critical 0, two critical 0, total 0, new lutff created 0
+INFO: [Physopt 32-1138] End 1 Pass. Optimized 192 nets or LUTs. Breaked 0 LUT, combined 192 existing LUTs and moved 0 existing LUT
+INFO: [Physopt 32-1030] Pass 1. Identified 18 candidate driver sets for equivalent driver rewiring.
+INFO: [Physopt 32-661] Optimized 16 nets.  Re-placed 39 instances.
+INFO: [Physopt 32-775] End 1 Pass. Optimized 16 nets or cells. Created 0 new cell, deleted 10 existing cells and moved 39 existing cells
+Netlist sorting complete. Time (s): cpu = 00:00:00.11 ; elapsed = 00:00:00.12 . Memory (MB): peak = 7132.516 ; gain = 0.000 ; free physical = 81563 ; free virtual = 112652
+INFO: [Physopt 32-65] No nets found for high-fanout optimization.
+INFO: [Physopt 32-232] Optimized 0 net. Created 0 new instance.
+INFO: [Physopt 32-775] End 1 Pass. Optimized 0 net or cell. Created 0 new cell, deleted 0 existing cell and moved 0 existing cell
+INFO: [Physopt 32-456] No candidate cells for DSP register optimization found in the design.
+INFO: [Physopt 32-775] End 2 Pass. Optimized 0 net or cell. Created 0 new cell, deleted 0 existing cell and moved 0 existing cell
+INFO: [Physopt 32-1123] No candidate cells found for Shift Register to Pipeline optimization
+INFO: [Physopt 32-775] End 2 Pass. Optimized 0 net or cell. Created 0 new cell, deleted 0 existing cell and moved 0 existing cell
+INFO: [Physopt 32-677] No candidate cells for Shift Register optimization found in the design
+INFO: [Physopt 32-775] End 1 Pass. Optimized 0 net or cell. Created 0 new cell, deleted 0 existing cell and moved 0 existing cell
+INFO: [Physopt 32-526] No candidate cells for BRAM register optimization found in the design
+INFO: [Physopt 32-775] End 1 Pass. Optimized 0 net or cell. Created 0 new cell, deleted 0 existing cell and moved 0 existing cell
+INFO: [Physopt 32-846] No candidate cells for URAM register optimization found in the design
+INFO: [Physopt 32-775] End 2 Pass. Optimized 0 net or cell. Created 0 new cell, deleted 0 existing cell and moved 0 existing cell
+INFO: [Physopt 32-949] No candidate nets found for dynamic/static region interface net replication
+INFO: [Physopt 32-775] End 1 Pass. Optimized 0 net or cell. Created 0 new cell, deleted 0 existing cell and moved 0 existing cell
+Netlist sorting complete. Time (s): cpu = 00:00:00.03 ; elapsed = 00:00:00.04 . Memory (MB): peak = 7132.516 ; gain = 0.000 ; free physical = 81424 ; free virtual = 112520
+Netlist sorting complete. Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.03 . Memory (MB): peak = 7132.516 ; gain = 0.000 ; free physical = 81416 ; free virtual = 112511
+
+Summary of Physical Synthesis Optimizations
+============================================
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+|  Optimization                                     |  Added Cells  |  Removed Cells  |  Optimized Cells/Nets  |  Dont Touch  |  Iterations  |  Elapsed   |
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+|  LUT Combining                                    |            0  |            192  |                   192  |           0  |           1  |  00:00:03  |
+|  Retime                                           |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
+|  Equivalent Driver Rewiring                       |            0  |             10  |                    16  |           0  |           1  |  00:00:05  |
+|  Very High Fanout                                 |            0  |              0  |                     0  |           0  |           1  |  00:00:04  |
+|  DSP Register                                     |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
+|  Shift Register to Pipeline                       |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
+|  Shift Register                                   |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
+|  BRAM Register                                    |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
+|  URAM Register                                    |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
+|  Dynamic/Static Region Interface Net Replication  |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
+|  Total                                            |            0  |            202  |                   208  |           0  |          10  |  00:00:12  |
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+Phase 2.4.2 Physical Synthesis In Placer | Checksum: 2331924e1
+
+Time (s): cpu = 00:21:03 ; elapsed = 00:23:55 . Memory (MB): peak = 7132.516 ; gain = 1228.137 ; free physical = 81960 ; free virtual = 113036
+Phase 2.4 Global Placement Core | Checksum: 18ad8c970
+
+Time (s): cpu = 00:24:21 ; elapsed = 00:27:23 . Memory (MB): peak = 7132.516 ; gain = 1228.137 ; free physical = 94110 ; free virtual = 125228
+Phase 2 Global Placement | Checksum: ba93fef2
+
+Time (s): cpu = 00:24:22 ; elapsed = 00:27:24 . Memory (MB): peak = 7132.516 ; gain = 1228.137 ; free physical = 94090 ; free virtual = 125208
+
+Phase 3 Detail Placement
+
+Phase 3.1 Commit Multi Column Macros
+Phase 3.1 Commit Multi Column Macros | Checksum: 152bd0154
+
+Time (s): cpu = 00:25:29 ; elapsed = 00:28:33 . Memory (MB): peak = 7132.516 ; gain = 1228.137 ; free physical = 96316 ; free virtual = 127470
+
+Phase 3.2 Commit Most Macros & LUTRAMs
+Phase 3.2 Commit Most Macros & LUTRAMs | Checksum: a53b921e
+
+Time (s): cpu = 00:25:49 ; elapsed = 00:28:55 . Memory (MB): peak = 7132.516 ; gain = 1228.137 ; free physical = 96359 ; free virtual = 127527
+
+Phase 3.3 Small Shape DP
+
+Phase 3.3.1 Small Shape Clustering
+Phase 3.3.1 Small Shape Clustering | Checksum: 3545aa56
+
+Time (s): cpu = 00:26:46 ; elapsed = 00:29:57 . Memory (MB): peak = 7132.516 ; gain = 1228.137 ; free physical = 95056 ; free virtual = 126224
+
+Phase 3.3.2 Flow Legalize Slice Clusters
+Phase 3.3.2 Flow Legalize Slice Clusters | Checksum: 45e1c242
+
+Time (s): cpu = 00:26:48 ; elapsed = 00:29:59 . Memory (MB): peak = 7132.516 ; gain = 1228.137 ; free physical = 95050 ; free virtual = 126218
+
+Phase 3.3.3 Slice Area Swap
+
+Phase 3.3.3.1 Slice Area Swap Initial
+Phase 3.3.3.1 Slice Area Swap Initial | Checksum: 120342cd2
+
+Time (s): cpu = 00:26:53 ; elapsed = 00:30:05 . Memory (MB): peak = 7132.516 ; gain = 1228.137 ; free physical = 94987 ; free virtual = 126156
+Phase 3.3.3 Slice Area Swap | Checksum: 120342cd2
+
+Time (s): cpu = 00:26:53 ; elapsed = 00:30:06 . Memory (MB): peak = 7132.516 ; gain = 1228.137 ; free physical = 94986 ; free virtual = 126156
+Phase 3.3 Small Shape DP | Checksum: 11382c581
+
+Time (s): cpu = 00:27:51 ; elapsed = 00:31:09 . Memory (MB): peak = 7132.516 ; gain = 1228.137 ; free physical = 92941 ; free virtual = 124149
+
+Phase 3.4 Place Remaining
+Phase 3.4 Place Remaining | Checksum: 11382c581
+
+Time (s): cpu = 00:27:59 ; elapsed = 00:31:18 . Memory (MB): peak = 7132.516 ; gain = 1228.137 ; free physical = 91515 ; free virtual = 122726
+
+Phase 3.5 Optimize BEL assignments
+Phase 3.5 Optimize BEL assignments | Checksum: 1c8ea9a57
+
+Time (s): cpu = 00:29:25 ; elapsed = 00:32:44 . Memory (MB): peak = 7132.516 ; gain = 1228.137 ; free physical = 101497 ; free virtual = 132700
+
+Phase 3.6 Pipeline Register Optimization
+Phase 3.6 Pipeline Register Optimization | Checksum: 1c8ea9a57
+
+Time (s): cpu = 00:29:27 ; elapsed = 00:32:46 . Memory (MB): peak = 7132.516 ; gain = 1228.137 ; free physical = 101483 ; free virtual = 132687
+
+Phase 3.7 Fast Optimization
+Phase 3.7 Fast Optimization | Checksum: 1755b9369
+
+Time (s): cpu = 00:30:42 ; elapsed = 00:34:01 . Memory (MB): peak = 7132.516 ; gain = 1228.137 ; free physical = 99240 ; free virtual = 130459
+Phase 3 Detail Placement | Checksum: 1755b9369
+
+Time (s): cpu = 00:30:43 ; elapsed = 00:34:02 . Memory (MB): peak = 7132.516 ; gain = 1228.137 ; free physical = 99133 ; free virtual = 130352
+
+Phase 4 Post Placement Optimization and Clean-Up
+
+Phase 4.1 Post Commit Optimization
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+WARNING: [Timing 38-3] User defined clock exists on pin top_i/blp/blp_logic/ulp_clocking/clkwiz_aclk_kernel_00/inst/clock_primitive_inst/MMCME5_inst/CLKOUT0 [See /home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/output/_user_impl_clk.xdc:3] and will prevent any subsequent automatic derivation of generated clocks on that pin. If the user defined clock specifies '-add', any existing auto-derived clocks on that pin are retained.
+WARNING: [Timing 38-492] The CPM_MAIN instance 'top_i/blp/cips/inst/cpm_0/inst/CPM_INST/CPM_MAIN_INST' has IFCPMXPIPELINK0XPIPEBUFGTDIV bus pins that are not tied constant, so automatic derivation of the generated clock on pin 'CPMDPLLPCIE0USERCLKINT' will proceed as if a worst case divide of 1 were specified on those bus pins.
+WARNING: [Timing 38-492] The CPM_MAIN instance 'top_i/blp/cips/inst/cpm_0/inst/CPM_INST/CPM_MAIN_INST' has IFCPMXPIPELINK0XPIPEBUFGTDIV bus pins that are not tied constant, so automatic derivation of the generated clock on pin 'IFCPMXPIPELINK0XPIPEGTPIPECLK' will proceed as if a worst case divide of 1 were specified on those bus pins.
+WARNING: [Timing 38-492] The CPM_MAIN instance 'top_i/blp/cips/inst/cpm_0/inst/CPM_INST/CPM_MAIN_INST' has IFCPMXPIPELINK0XPIPEBUFGTDIV bus pins that are not tied constant, so automatic derivation of the generated clock on pin 'PCIE0USERCLKINT' will proceed as if a worst case divide of 1 were specified on those bus pins.
+WARNING: [Timing 38-3] User defined clock exists on pin top_i/blp/cips/inst/cpm_0/inst/DPLL_PCIE0_inst/CLKOUT1 [See ip_cpm4.xdc:9] and will prevent any subsequent automatic derivation of generated clocks on that pin. If the user defined clock specifies '-add', any existing auto-derived clocks on that pin are retained.
+Netlist sorting complete. Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.04 . Memory (MB): peak = 7284.496 ; gain = 0.000 ; free physical = 103402 ; free virtual = 134896
+
+Phase 4.1.1 Post Placement Optimization
+
+Phase 4.1.1.1 Post Placement Timing Optimization
+INFO: [Place 30-746] Post Placement Timing Summary WNS=0.234. For the most accurate timing information please run report_timing.
+Phase 4.1.1.1 Post Placement Timing Optimization | Checksum: 1986b8e45
+
+Time (s): cpu = 00:34:04 ; elapsed = 00:37:35 . Memory (MB): peak = 7284.496 ; gain = 1380.117 ; free physical = 100703 ; free virtual = 132555
+
+Time (s): cpu = 00:34:04 ; elapsed = 00:37:35 . Memory (MB): peak = 7284.496 ; gain = 1380.117 ; free physical = 100702 ; free virtual = 132554
+Phase 4.1 Post Commit Optimization | Checksum: 1986b8e45
+
+Time (s): cpu = 00:34:05 ; elapsed = 00:37:36 . Memory (MB): peak = 7284.496 ; gain = 1380.117 ; free physical = 100677 ; free virtual = 132528
+Netlist sorting complete. Time (s): cpu = 00:00:00.03 ; elapsed = 00:00:00.04 . Memory (MB): peak = 7476.496 ; gain = 0.000 ; free physical = 97920 ; free virtual = 129899
+
+Phase 4.2 Post Placement Cleanup
+Phase 4.2 Post Placement Cleanup | Checksum: 1ec04bd66
+
+Time (s): cpu = 00:35:48 ; elapsed = 00:39:29 . Memory (MB): peak = 7476.496 ; gain = 1572.117 ; free physical = 97749 ; free virtual = 129733
+
+Phase 4.3 Placer Reporting
+
+Phase 4.3.1 Print Estimated Congestion
+INFO: [Place 30-612] Post-Placement Estimated Congestion 
+ ________________________________________________________________________
+|           | Global Congestion | Long Congestion   | Short Congestion  |
+| Direction | Region Size       | Region Size       | Region Size       |
+|___________|___________________|___________________|___________________|
+|      North|              16x16|              16x16|              16x16|
+|___________|___________________|___________________|___________________|
+|      South|                8x8|              16x16|              16x16|
+|___________|___________________|___________________|___________________|
+|       East|                8x8|              16x16|                8x8|
+|___________|___________________|___________________|___________________|
+|       West|              16x16|                8x8|                8x8|
+|___________|___________________|___________________|___________________|
+
+Phase 4.3.1 Print Estimated Congestion | Checksum: 1ec04bd66
+
+Time (s): cpu = 00:35:51 ; elapsed = 00:39:32 . Memory (MB): peak = 7476.496 ; gain = 1572.117 ; free physical = 97702 ; free virtual = 129689
+Phase 4.3 Placer Reporting | Checksum: 1ec04bd66
+
+Time (s): cpu = 00:35:54 ; elapsed = 00:39:36 . Memory (MB): peak = 7476.496 ; gain = 1572.117 ; free physical = 97655 ; free virtual = 129646
+
+Phase 4.4 Final Placement Cleanup
+Netlist sorting complete. Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.03 . Memory (MB): peak = 7476.496 ; gain = 0.000 ; free physical = 97627 ; free virtual = 129618
+
+Time (s): cpu = 00:35:54 ; elapsed = 00:39:36 . Memory (MB): peak = 7476.496 ; gain = 1572.117 ; free physical = 97627 ; free virtual = 129618
+Phase 4 Post Placement Optimization and Clean-Up | Checksum: 159384f1d
+
+Time (s): cpu = 00:35:58 ; elapsed = 00:39:40 . Memory (MB): peak = 7476.496 ; gain = 1572.117 ; free physical = 97811 ; free virtual = 129805
+Ending Placer Task | Checksum: fb1bd336
+
+Time (s): cpu = 00:36:01 ; elapsed = 00:39:43 . Memory (MB): peak = 7476.496 ; gain = 1572.117 ; free physical = 97562 ; free virtual = 129550
+INFO: [Common 17-83] Releasing license: Implementation
+134 Infos, 85 Warnings, 1 Critical Warnings and 0 Errors encountered.
+place_design completed successfully
+place_design: Time (s): cpu = 00:41:12 ; elapsed = 00:45:14 . Memory (MB): peak = 7476.496 ; gain = 1829.742 ; free physical = 97921 ; free virtual = 129910
+source /home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/scripts/impl_1/_full_place_post.tcl
+INFO: System Diagram: Run step: placed
+
+report_utilization: Time (s): cpu = 00:00:25 ; elapsed = 00:00:41 . Memory (MB): peak = 7476.496 ; gain = 0.000 ; free physical = 96803 ; free virtual = 128815
+report_utilization: Time (s): cpu = 00:00:22 ; elapsed = 00:00:29 . Memory (MB): peak = 7476.496 ; gain = 0.000 ; free physical = 97266 ; free virtual = 129296
+Command: phys_opt_design
+Attempting to get a license for feature 'Implementation' and/or device 'xcvc1902'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xcvc1902'
+
+Starting Initial Update Timing Task
+
+Time (s): cpu = 00:01:41 ; elapsed = 00:01:42 . Memory (MB): peak = 7500.508 ; gain = 0.000 ; free physical = 94376 ; free virtual = 126467
+INFO: [Vivado_Tcl 4-383] Design worst setup slack (WNS) is greater than or equal to 0.000 ns. Skipping all physical synthesis optimizations.
+INFO: [Vivado_Tcl 4-232] No setup violation found. The netlist was not modified.
+INFO: [Common 17-83] Releasing license: Implementation
+138 Infos, 85 Warnings, 1 Critical Warnings and 0 Errors encountered.
+phys_opt_design completed successfully
+phys_opt_design: Time (s): cpu = 00:02:00 ; elapsed = 00:02:02 . Memory (MB): peak = 7500.508 ; gain = 24.012 ; free physical = 94340 ; free virtual = 126431
+Command: route_design
+Attempting to get a license for feature 'Implementation' and/or device 'xcvc1902'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xcvc1902'
+Running DRC as a precondition to command route_design
+INFO: [DRC 23-27] Running DRC with 8 threads
+INFO: [Vivado_Tcl 4-198] DRC finished with 0 Errors
+INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more information.
+
+
+Starting Routing Task
+INFO: [Route 35-254] Multithreading enabled for route_design using a maximum of 8 CPUs
+
+Phase 1 Build RT Design
+Checksum: PlaceDB: 5254626d ConstDB: 0 ShapeSum: 552e41a8 RouteDB: 53992f21
+INFO: [DRC 23-27] Running DRC with 8 threads
+Nodegraph reading from file.  Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 7508.512 ; gain = 0.000 ; free physical = 86682 ; free virtual = 120761
+INFO: [Route 35-3399] The non-VCC/GND terminal top_i/blp/cips/inst/cpm_0/inst/XPIPE_QUAD0_inst/CH0_RXFINEALIGNDONE_M is mapped to the XPIPE_QUAD_X0Y0/CH0_RXFINEALIGNDONE_M that is directly connected to the VCC/GND source
+INFO: [Route 35-3399] The non-VCC/GND terminal top_i/blp/cips/inst/cpm_0/inst/XPIPE_QUAD0_inst/CH0_RXPHALIGNDONE_M is mapped to the XPIPE_QUAD_X0Y0/CH0_RXPHALIGNDONE_M that is directly connected to the VCC/GND source
+INFO: [Route 35-3399] The non-VCC/GND terminal top_i/blp/cips/inst/cpm_0/inst/XPIPE_QUAD0_inst/CH0_TXPHALIGNDONE_M is mapped to the XPIPE_QUAD_X0Y0/CH0_TXPHALIGNDONE_M that is directly connected to the VCC/GND source
+INFO: [Route 35-3399] The non-VCC/GND terminal top_i/blp/cips/inst/cpm_0/inst/XPIPE_QUAD0_inst/CH1_RXFINEALIGNDONE_M is mapped to the XPIPE_QUAD_X0Y0/CH1_RXFINEALIGNDONE_M that is directly connected to the VCC/GND source
+INFO: [Route 35-3399] The non-VCC/GND terminal top_i/blp/cips/inst/cpm_0/inst/XPIPE_QUAD0_inst/CH1_RXPHALIGNDONE_M is mapped to the XPIPE_QUAD_X0Y0/CH1_RXPHALIGNDONE_M that is directly connected to the VCC/GND source
+INFO: [Route 35-3399] The non-VCC/GND terminal top_i/blp/cips/inst/cpm_0/inst/XPIPE_QUAD0_inst/CH1_TXPHALIGNDONE_M is mapped to the XPIPE_QUAD_X0Y0/CH1_TXPHALIGNDONE_M that is directly connected to the VCC/GND source
+INFO: [Route 35-3399] The non-VCC/GND terminal top_i/blp/cips/inst/cpm_0/inst/XPIPE_QUAD0_inst/CH2_RXFINEALIGNDONE_M is mapped to the XPIPE_QUAD_X0Y0/CH2_RXFINEALIGNDONE_M that is directly connected to the VCC/GND source
+INFO: [Route 35-3399] The non-VCC/GND terminal top_i/blp/cips/inst/cpm_0/inst/XPIPE_QUAD0_inst/CH2_RXPHALIGNDONE_M is mapped to the XPIPE_QUAD_X0Y0/CH2_RXPHALIGNDONE_M that is directly connected to the VCC/GND source
+INFO: [Route 35-3399] The non-VCC/GND terminal top_i/blp/cips/inst/cpm_0/inst/XPIPE_QUAD0_inst/CH2_TXPHALIGNDONE_M is mapped to the XPIPE_QUAD_X0Y0/CH2_TXPHALIGNDONE_M that is directly connected to the VCC/GND source
+INFO: [Route 35-3399] The non-VCC/GND terminal top_i/blp/cips/inst/cpm_0/inst/XPIPE_QUAD0_inst/CH3_RXFINEALIGNDONE_M is mapped to the XPIPE_QUAD_X0Y0/CH3_RXFINEALIGNDONE_M that is directly connected to the VCC/GND source
+INFO: [Route 35-3399] The non-VCC/GND terminal top_i/blp/cips/inst/cpm_0/inst/XPIPE_QUAD0_inst/CH3_RXPHALIGNDONE_M is mapped to the XPIPE_QUAD_X0Y0/CH3_RXPHALIGNDONE_M that is directly connected to the VCC/GND source
+INFO: [Route 35-3399] The non-VCC/GND terminal top_i/blp/cips/inst/cpm_0/inst/XPIPE_QUAD0_inst/CH3_TXPHALIGNDONE_M is mapped to the XPIPE_QUAD_X0Y0/CH3_TXPHALIGNDONE_M that is directly connected to the VCC/GND source
+INFO: [Route 35-3399] The non-VCC/GND terminal top_i/blp/cips/inst/cpm_0/inst/XPIPE_QUAD1_inst/CH0_RXFINEALIGNDONE_M is mapped to the XPIPE_QUAD_X0Y1/CH0_RXFINEALIGNDONE_M that is directly connected to the VCC/GND source
+INFO: [Route 35-3399] The non-VCC/GND terminal top_i/blp/cips/inst/cpm_0/inst/XPIPE_QUAD1_inst/CH0_RXPHALIGNDONE_M is mapped to the XPIPE_QUAD_X0Y1/CH0_RXPHALIGNDONE_M that is directly connected to the VCC/GND source
+INFO: [Route 35-3399] The non-VCC/GND terminal top_i/blp/cips/inst/cpm_0/inst/XPIPE_QUAD1_inst/CH0_TXPHALIGNDONE_M is mapped to the XPIPE_QUAD_X0Y1/CH0_TXPHALIGNDONE_M that is directly connected to the VCC/GND source
+INFO: [Route 35-3399] The non-VCC/GND terminal top_i/blp/cips/inst/cpm_0/inst/XPIPE_QUAD1_inst/CH1_RXFINEALIGNDONE_M is mapped to the XPIPE_QUAD_X0Y1/CH1_RXFINEALIGNDONE_M that is directly connected to the VCC/GND source
+INFO: [Route 35-3399] The non-VCC/GND terminal top_i/blp/cips/inst/cpm_0/inst/XPIPE_QUAD1_inst/CH1_RXPHALIGNDONE_M is mapped to the XPIPE_QUAD_X0Y1/CH1_RXPHALIGNDONE_M that is directly connected to the VCC/GND source
+INFO: [Route 35-3399] The non-VCC/GND terminal top_i/blp/cips/inst/cpm_0/inst/XPIPE_QUAD1_inst/CH1_TXPHALIGNDONE_M is mapped to the XPIPE_QUAD_X0Y1/CH1_TXPHALIGNDONE_M that is directly connected to the VCC/GND source
+INFO: [Route 35-3399] The non-VCC/GND terminal top_i/blp/cips/inst/cpm_0/inst/XPIPE_QUAD1_inst/CH2_RXFINEALIGNDONE_M is mapped to the XPIPE_QUAD_X0Y1/CH2_RXFINEALIGNDONE_M that is directly connected to the VCC/GND source
+INFO: [Route 35-3399] The non-VCC/GND terminal top_i/blp/cips/inst/cpm_0/inst/XPIPE_QUAD1_inst/CH2_RXPHALIGNDONE_M is mapped to the XPIPE_QUAD_X0Y1/CH2_RXPHALIGNDONE_M that is directly connected to the VCC/GND source
+INFO: [Route 35-3399] The non-VCC/GND terminal top_i/blp/cips/inst/cpm_0/inst/XPIPE_QUAD1_inst/CH2_TXPHALIGNDONE_M is mapped to the XPIPE_QUAD_X0Y1/CH2_TXPHALIGNDONE_M that is directly connected to the VCC/GND source
+INFO: [Route 35-3399] The non-VCC/GND terminal top_i/blp/cips/inst/cpm_0/inst/XPIPE_QUAD1_inst/CH3_RXFINEALIGNDONE_M is mapped to the XPIPE_QUAD_X0Y1/CH3_RXFINEALIGNDONE_M that is directly connected to the VCC/GND source
+INFO: [Route 35-3399] The non-VCC/GND terminal top_i/blp/cips/inst/cpm_0/inst/XPIPE_QUAD1_inst/CH3_RXPHALIGNDONE_M is mapped to the XPIPE_QUAD_X0Y1/CH3_RXPHALIGNDONE_M that is directly connected to the VCC/GND source
+INFO: [Route 35-3399] The non-VCC/GND terminal top_i/blp/cips/inst/cpm_0/inst/XPIPE_QUAD1_inst/CH3_TXPHALIGNDONE_M is mapped to the XPIPE_QUAD_X0Y1/CH3_TXPHALIGNDONE_M that is directly connected to the VCC/GND source
+Post Restoration Checksum: NetGraph: 225ecdc3 NumContArr: 1acbc222 Constraints: ccf91633 Timing: 0
+Phase 1 Build RT Design | Checksum: 10a23a618
+
+Time (s): cpu = 00:06:24 ; elapsed = 00:06:50 . Memory (MB): peak = 7510.547 ; gain = 2.035 ; free physical = 75581 ; free virtual = 109428
+
+Phase 2 Router Initialization
+
+Phase 2.1 Fix Topology Constraints
+Phase 2.1 Fix Topology Constraints | Checksum: 10a23a618
+
+Time (s): cpu = 00:06:28 ; elapsed = 00:06:54 . Memory (MB): peak = 7510.547 ; gain = 2.035 ; free physical = 75515 ; free virtual = 109360
+
+Phase 2.2 Pre Route Cleanup
+Phase 2.2 Pre Route Cleanup | Checksum: 10a23a618
+
+Time (s): cpu = 00:06:31 ; elapsed = 00:06:57 . Memory (MB): peak = 7510.547 ; gain = 2.035 ; free physical = 75486 ; free virtual = 109340
+
+Phase 2.3 Global Clock Net Routing
+ Number of Nodes with overlaps = 0
+Phase 2.3 Global Clock Net Routing | Checksum: 18b9215b8
+
+Time (s): cpu = 00:06:49 ; elapsed = 00:07:17 . Memory (MB): peak = 7695.551 ; gain = 187.039 ; free physical = 74134 ; free virtual = 107988
+
+Phase 2.4 Update Timing
+Phase 2.4 Update Timing | Checksum: 1ff9f69d3
+
+Time (s): cpu = 00:08:05 ; elapsed = 00:08:38 . Memory (MB): peak = 7695.551 ; gain = 187.039 ; free physical = 73411 ; free virtual = 107301
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=0.234  | TNS=0.000  | WHS=-0.036 | THS=-0.331 |
+
+
+Phase 2.5 Update Timing for Bus Skew
+
+Phase 2.5.1 Update Timing
+Phase 2.5.1 Update Timing | Checksum: 1c9ff801a
+
+Time (s): cpu = 00:09:26 ; elapsed = 00:10:07 . Memory (MB): peak = 7695.551 ; gain = 187.039 ; free physical = 73894 ; free virtual = 107813
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=0.234  | TNS=0.000  | WHS=N/A    | THS=N/A    |
+
+Phase 2.5 Update Timing for Bus Skew | Checksum: 2232e75ad
+
+Time (s): cpu = 00:09:30 ; elapsed = 00:10:11 . Memory (MB): peak = 7695.551 ; gain = 187.039 ; free physical = 73759 ; free virtual = 107679
+
+Router Utilization Summary
+  Global Vertical Routing Utilization    = 0 %
+  Global Horizontal Routing Utilization  = 0 %
+  Routable Net Status*
+  *Does not include unroutable nets such as driverless and loadless.
+  Run report_route_status for detailed report.
+  Number of Failed Nets               = 24401
+    (Failed Nets is the sum of unrouted and partially routed nets)
+  Number of Unrouted Nets             = 20308
+  Number of Partially Routed Nets     = 4093
+  Number of Node Overlaps             = 0
+
+Phase 2 Router Initialization | Checksum: 23b64f10a
+
+Time (s): cpu = 00:09:45 ; elapsed = 00:10:27 . Memory (MB): peak = 7732.535 ; gain = 224.023 ; free physical = 73457 ; free virtual = 107381
+
+Phase 3 Initial Routing
+
+Phase 3.1 Global Routing
+
+Phase 3.1.1 SLL Assignment
+Phase 3.1.1 SLL Assignment | Checksum: 23b64f10a
+
+Time (s): cpu = 00:09:47 ; elapsed = 00:10:30 . Memory (MB): peak = 7732.535 ; gain = 224.023 ; free physical = 73776 ; free virtual = 107703
+Phase 3.1 Global Routing | Checksum: 23b64f10a
+
+Time (s): cpu = 00:09:50 ; elapsed = 00:10:32 . Memory (MB): peak = 7732.535 ; gain = 224.023 ; free physical = 73797 ; free virtual = 107724
+Phase 3 Initial Routing | Checksum: 1682d17a6
+
+Time (s): cpu = 00:10:43 ; elapsed = 00:11:30 . Memory (MB): peak = 7732.535 ; gain = 224.023 ; free physical = 72587 ; free virtual = 106580
+
+Phase 4 Rip-up And Reroute
+
+Phase 4.1 Global Iteration 0
+ Number of Nodes with overlaps = 1566
+ Number of Nodes with overlaps = 64
+ Number of Nodes with overlaps = 1
+ Number of Nodes with overlaps = 0
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=0.198  | TNS=0.000  | WHS=0.015  | THS=0.000  |
+
+Phase 4.1 Global Iteration 0 | Checksum: 2574b6cd3
+
+Time (s): cpu = 00:13:00 ; elapsed = 00:14:02 . Memory (MB): peak = 7764.551 ; gain = 256.039 ; free physical = 70935 ; free virtual = 105345
+
+Phase 4.2 Additional Iteration for Hold
+Phase 4.2 Additional Iteration for Hold | Checksum: 2ab43a772
+
+Time (s): cpu = 00:13:02 ; elapsed = 00:14:05 . Memory (MB): peak = 7764.551 ; gain = 256.039 ; free physical = 70862 ; free virtual = 105273
+Phase 4 Rip-up And Reroute | Checksum: 2ab43a772
+
+Time (s): cpu = 00:13:05 ; elapsed = 00:14:08 . Memory (MB): peak = 7764.551 ; gain = 256.039 ; free physical = 70794 ; free virtual = 105206
+
+Phase 5 Delay and Skew Optimization
+
+Phase 5.1 Delay CleanUp
+Phase 5.1 Delay CleanUp | Checksum: 2ab43a772
+
+Time (s): cpu = 00:13:07 ; elapsed = 00:14:11 . Memory (MB): peak = 7764.551 ; gain = 256.039 ; free physical = 70730 ; free virtual = 105142
+
+Phase 5.2 Clock Skew Optimization
+Phase 5.2 Clock Skew Optimization | Checksum: 2ab43a772
+
+Time (s): cpu = 00:13:10 ; elapsed = 00:14:14 . Memory (MB): peak = 7764.551 ; gain = 256.039 ; free physical = 70660 ; free virtual = 105073
+Phase 5 Delay and Skew Optimization | Checksum: 2ab43a772
+
+Time (s): cpu = 00:13:12 ; elapsed = 00:14:16 . Memory (MB): peak = 7764.551 ; gain = 256.039 ; free physical = 70625 ; free virtual = 105038
+
+Phase 6 Post Hold Fix
+
+Phase 6.1 Hold Fix Iter
+
+Phase 6.1.1 Update Timing
+Phase 6.1.1 Update Timing | Checksum: 22cb03c6d
+
+Time (s): cpu = 00:14:05 ; elapsed = 00:15:14 . Memory (MB): peak = 7764.551 ; gain = 256.039 ; free physical = 70906 ; free virtual = 105377
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=0.198  | TNS=0.000  | WHS=0.015  | THS=0.000  |
+
+Phase 6.1 Hold Fix Iter | Checksum: 2582bec5a
+
+Time (s): cpu = 00:14:08 ; elapsed = 00:15:17 . Memory (MB): peak = 7764.551 ; gain = 256.039 ; free physical = 70881 ; free virtual = 105353
+Phase 6 Post Hold Fix | Checksum: 2582bec5a
+
+Time (s): cpu = 00:14:10 ; elapsed = 00:15:20 . Memory (MB): peak = 7764.551 ; gain = 256.039 ; free physical = 70851 ; free virtual = 105323
+
+Phase 7 Leaf Clock Prog Delay Opt
+Phase 7 Leaf Clock Prog Delay Opt | Checksum: 2582bec5a
+
+Time (s): cpu = 00:15:05 ; elapsed = 00:16:16 . Memory (MB): peak = 7764.551 ; gain = 256.039 ; free physical = 70430 ; free virtual = 104913
+
+Phase 8 Route finalize
+
+Router Utilization Summary
+  Global Vertical Routing Utilization    = 0.483088 %
+  Global Horizontal Routing Utilization  = 0.494883 %
+  Routable Net Status*
+  *Does not include unroutable nets such as driverless and loadless.
+  Run report_route_status for detailed report.
+  Number of Failed Nets               = 0
+    (Failed Nets is the sum of unrouted and partially routed nets)
+  Number of Unrouted Nets             = 0
+  Number of Partially Routed Nets     = 0
+  Number of Node Overlaps             = 0
+
+Phase 8 Route finalize | Checksum: 1e54d1c16
+
+Time (s): cpu = 00:15:12 ; elapsed = 00:16:23 . Memory (MB): peak = 7764.551 ; gain = 256.039 ; free physical = 70197 ; free virtual = 104682
+
+Phase 9 Verifying routed nets
+
+ Verification completed successfully
+Phase 9 Verifying routed nets | Checksum: 1e54d1c16
+
+Time (s): cpu = 00:15:15 ; elapsed = 00:16:27 . Memory (MB): peak = 7764.551 ; gain = 256.039 ; free physical = 70513 ; free virtual = 104998
+
+Phase 10 Depositing Routes
+Phase 10 Depositing Routes | Checksum: 24017592d
+
+Time (s): cpu = 00:15:35 ; elapsed = 00:16:49 . Memory (MB): peak = 7764.551 ; gain = 256.039 ; free physical = 70432 ; free virtual = 104922
+
+Phase 11 Post Router Timing
+INFO: [Route 35-57] Estimated Timing Summary | WNS=0.198  | TNS=0.000  | WHS=0.015  | THS=0.000  |
+
+INFO: [Route 35-327] The final timing numbers are based on the router estimated timing analysis. For a complete and accurate timing signoff, please run report_timing_summary.
+Phase 11 Post Router Timing | Checksum: 24017592d
+
+Time (s): cpu = 00:15:50 ; elapsed = 00:17:05 . Memory (MB): peak = 7764.551 ; gain = 256.039 ; free physical = 70278 ; free virtual = 104777
+INFO: [DRC 23-27] Running DRC with 8 threads
+INFO: [Route 35-16] Router Completed Successfully
+
+Time (s): cpu = 00:19:03 ; elapsed = 00:20:35 . Memory (MB): peak = 7764.551 ; gain = 256.039 ; free physical = 73768 ; free virtual = 108304
+
+Routing Is Done.
+INFO: [Common 17-83] Releasing license: Implementation
+177 Infos, 85 Warnings, 1 Critical Warnings and 0 Errors encountered.
+route_design completed successfully
+route_design: Time (s): cpu = 00:21:06 ; elapsed = 00:22:47 . Memory (MB): peak = 7764.551 ; gain = 264.043 ; free physical = 73768 ; free virtual = 108303
+source /home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/scripts/impl_1/_full_route_post.tcl
+INFO: System Diagram: Run step: routed
+
+report_utilization: Time (s): cpu = 00:00:25 ; elapsed = 00:00:27 . Memory (MB): peak = 7764.551 ; gain = 0.000 ; free physical = 73605 ; free virtual = 108143
+report_utilization: Time (s): cpu = 00:00:23 ; elapsed = 00:00:25 . Memory (MB): peak = 7764.551 ; gain = 0.000 ; free physical = 73019 ; free virtual = 107564
+WARNING: [Vivado 12-1032] No pblocks found for command 'get_pblocks -of_objects [get_cells -hierarchical -filter {NAME != top_i/ulp && NAME !~ top_i/ulp/*}]'.
+Writing Interface Constraints File '/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/int/system/aiearchive/vivado/aie_interface.aieintfcst'
+Writing Interface Solution File '/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/int/system/aiearchive/vivado/aie_interface.aieintfsol' for cell 'top_i/ulp/ai_engine_0'
+Writing AI Engine Constraints file '/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/int/system/aiearchive/vivado/aie_constraints.aiecst' for cell 'top_i/ulp/ai_engine_0/aie_nl_inst'
+Writing Metadata file '/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/int/system/aiearchive/vivado/aieprj_meta_data.json'
+INFO: [Timing 38-480] Writing timing data to binary archive.
+Writing XDEF routing.
+Writing XDEF routing logical nets.
+Writing XDEF routing special nets.
+Write XDEF Complete: Time (s): cpu = 00:01:04 ; elapsed = 00:01:14 . Memory (MB): peak = 7780.559 ; gain = 16.008 ; free physical = 76023 ; free virtual = 110745
+INFO: [Common 17-1381] The checkpoint '/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.runs/impl_1/top_wrapper_routed.dcp' has been generated.
+write_checkpoint: Time (s): cpu = 00:02:35 ; elapsed = 00:02:56 . Memory (MB): peak = 7780.559 ; gain = 16.008 ; free physical = 78568 ; free virtual = 113188
+INFO: [runtcl-4] Executing : report_timing_summary -max_paths 10 -file xilinx_vck5000_gen4x8_qdma_2_202220_1_bb_locked_timing_summary_routed.rpt -pb xilinx_vck5000_gen4x8_qdma_2_202220_1_bb_locked_timing_summary_routed.pb -rpx xilinx_vck5000_gen4x8_qdma_2_202220_1_bb_locked_timing_summary_routed.rpx -warn_on_violation 
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -2MP, Temperature grade: E, Delay Type: min_max.
+INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 8 CPUs
+WARNING: [Timing 38-436] There are set_bus_skew constraint(s) in this design. Please run report_bus_skew to ensure that bus skew requirements are met.
+report_timing_summary: Time (s): cpu = 00:00:21 ; elapsed = 00:00:24 . Memory (MB): peak = 7780.559 ; gain = 0.000 ; free physical = 78585 ; free virtual = 113214
+source /home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/scripts/impl_1/_full_write_device_image_pre.tcl
+Starting auto-frequency scaling ...
+kernel clock 'blp_s_aclk_kernel_00':
+   clock pin path     : top_i/ulp/blp_s_aclk_kernel_00
+   original frequency : 200.0 MHz
+kernel clock 'blp_s_aclk_kernel_01':
+   clock pin path     : top_i/ulp/blp_s_aclk_kernel_01
+   original frequency : 500.0 MHz
+
+
+INFO: [OCL_UTIL] clock is 'clkwiz_aclk_kernel_01_clk_out1' for pin 'top_i/ulp/blp_s_aclk_kernel_01'
+get_timing_paths: Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 7780.559 ; gain = 0.000 ; free physical = 78362 ; free virtual = 113030
+INFO: [OCL_UTIL] clock is 'clkwiz_aclk_kernel_00_clk_out1' for pin 'top_i/ulp/blp_s_aclk_kernel_00'
+get_timing_paths: Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 7780.559 ; gain = 0.000 ; free physical = 78105 ; free virtual = 112896
+get_timing_paths: Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 7780.559 ; gain = 0.000 ; free physical = 77981 ; free virtual = 112615
+Auto-frequency scaling completed
+kernel clock 'blp_s_aclk_kernel_01':
+   original frequency : 500.0 MHz
+   scaled frequency   : 598.0 MHz
+WARNING: The auto scaled frequency '598.0 MHz' exceeds the original specified frequency. The compiler will select the original specified frequency of '500.0' MHz.
+WARNING: [Timing 38-436] There are set_bus_skew constraint(s) in this design. Please run report_bus_skew to ensure that bus skew requirements are met.
+report_timing_summary: Time (s): cpu = 00:00:18 ; elapsed = 00:00:20 . Memory (MB): peak = 7780.559 ; gain = 0.000 ; free physical = 77212 ; free virtual = 111849
+kernel clock 'blp_s_aclk_kernel_00':
+   original frequency : 200.0 MHz
+   scaled frequency   : 210.4 MHz
+WARNING: The auto scaled frequency '210.4 MHz' exceeds the original specified frequency. The compiler will select the original specified frequency of '200.0' MHz.
+Command: write_device_image -force -no_partial_pdifile top_wrapper.pdi
+Attempting to get a license for feature 'Implementation' and/or device 'xcvc1902'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xcvc1902'
+Running DRC as a precondition to command write_device_image
+INFO: [IP_Flow 19-1839] IP Catalog is up to date.
+INFO: [DRC 23-27] Running DRC with 8 threads
+WARNING: [DRC RTSTAT-10] No routable loads: 209 net(s) have no routable loads. The problem bus(es) and/or net(s) are top_i/ulp/ai_engine_0/inst/ai_pl_ch_0/inst/ai2pl_wrapper_32/mrs_s0/regfile_reg_0_7_28_33/DOC0, top_i/blp/blp_logic/ulp_clocking/shell_utils_ucc/inst/genblk1[1].aclk_kernel_inst/clock_throttling_aclk_kernel_00/Gate_Div, top_i/blp/blp_logic/ulp_clocking/shell_utils_ucc/inst/genblk1[0].aclk_kernel_inst/clock_throttling_aclk_kernel_00/Gate_Div, top_i/blp/blp_logic/ulp_clocking/shell_utils_ucc/inst/genblk1[1].aclk_kernel_inst/clock_throttling_aclk_kernel_00/Gate_Div_d1, top_i/blp/blp_logic/ulp_clocking/shell_utils_ucc/inst/genblk1[0].aclk_kernel_inst/clock_throttling_aclk_kernel_00/Gate_Div_d1, top_i/blp/blp_logic/ulp_clocking/shell_utils_ucc/inst/genblk1[1].aclk_kernel_inst/clock_throttling_aclk_kernel_00/Gate_Fast_d1, top_i/blp/blp_logic/ulp_clocking/shell_utils_ucc/inst/genblk1[0].aclk_kernel_inst/clock_throttling_aclk_kernel_00/Gate_Fast_d1, top_i/ulp/axi_ic_user/inst/s00_nodes/s00_w_node/inst/mi_handler_m_sc_areset_pipe, top_i/blp/blp_logic/axi_ic_rpu/inst/m05_nodes/m05_aw_node/inst/mi_handler_m_sc_areset_pipe, top_i/blp/blp_logic/axi_ic_pluser/inst/m00_nodes/m00_ar_node/inst/mi_handler_m_sc_areset_pipe, top_i/blp/blp_logic/axi_ic_pluser/inst/s00_nodes/s00_aw_node/inst/mi_handler_m_sc_areset_pipe, top_i/blp/blp_logic/axi_ic_pluser/inst/m02_nodes/m02_w_node/inst/mi_handler_m_sc_areset_pipe, top_i/blp/blp_logic/axi_ic_rpu/inst/m07_nodes/m07_aw_node/inst/mi_handler_m_sc_areset_pipe, top_i/blp/blp_logic/axi_ic_pluser/inst/m04_nodes/m04_r_node/inst/mi_handler_m_sc_areset_pipe, top_i/blp/blp_logic/axi_ic_plmgmt/inst/m05_nodes/m05_b_node/inst/mi_handler_m_sc_areset_pipe... and (the first 15 of 209 listed).
+INFO: [Vivado 12-3199] DRC finished with 0 Errors, 1 Warnings
+INFO: [Vivado 12-3200] Please refer to the DRC report (report_drc) for more information.
+Integrating Hard IP ELF/MEM with the PDI.
+INFO: [Constraints 18-5160] Reading Static MEM File '_mem_tmp.mem' for cell 'top_i/blp/axi_noc_mc/inst/MC0_ddrc/inst/noc_ddr4_phy/inst/u_ddrmc_main'
+INFO: [Constraints 18-5160] Reading Static MEM File '_mem_tmp.mem' for cell 'top_i/blp/axi_noc_mc/inst/MC1_ddrc/inst/noc_ddr4_phy/inst/u_ddrmc_main'
+INFO: [Constraints 18-5160] Reading Static MEM File '_mem_tmp.mem' for cell 'top_i/blp/axi_noc_mc/inst/MC2_ddrc/inst/noc_ddr4_phy/inst/u_ddrmc_main'
+INFO: [Constraints 18-5160] Reading Static MEM File '_mem_tmp.mem' for cell 'top_i/blp/axi_noc_mc/inst/MC3_ddrc/inst/noc_ddr4_phy/inst/u_ddrmc_main'
+Partition "pblock_dynamic_region" Reconfigurable Module "top_i/ulp"
+INFO: [Vivado 12-8265] Design contains reconfigurable partitions, but no partial pdi files will be generated since -no_partial_pdifile option was specified.
+Generating PS PMC files.
+Loading data files...
+Loading site data...
+Loading route data...
+Processing options...
+Creating bitmap...
+INFO: [Bitstream 40-812] Reading NPI Startup sequence definitions
+INFO: [Bitstream 40-811] Reading NPI Shutdown sequence definitions
+INFO: [Bitstream 40-810] Reading NPI Preconfig sequence definitions
+Creating bitstream...
+INFO: [Bitstream 40-283] Bitstream size = 19568000 bits
+Writing CDO partition ./top_wrapper.rcdo...
+Writing NPI partition ./top_wrapper.rnpi...
+Generating bif file top_wrapper.bif for base design.
+Generating Hard Block Files
+INFO: [Hsi 55-2053] elapsed time for repository (/home/xilinx/software/Vivado/2022.2/data/embeddedsw) loading 0 seconds
+WARNING : No interface that uses file system is available 
+
+/home/xilinx/software/Vivado/2022.2/gnu/microblaze/lin
+make[2]: Entering directory '/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.runs/impl_1/.Xil/Vivado-2551620-nags27/versal_plm/versal_plm_bsp'
+Running Make include in blp_cips_pspmc_0_psv_pmc_0/libsrc/xilnvm_v3_0/src
+Running Make include in blp_cips_pspmc_0_psv_pmc_0/libsrc/ipipsu_v2_12/src
+Running Make include in blp_cips_pspmc_0_psv_pmc_0/libsrc/xilpm_v4_1/src
+Include files for this library have already been copied.
+Running Make include in blp_cips_pspmc_0_psv_pmc_0/libsrc/standalone_v8_0/src
+Running Make include in blp_cips_pspmc_0_psv_pmc_0/libsrc/ospipsv_v1_7/src
+Running Make include in blp_cips_pspmc_0_psv_pmc_0/libsrc/pmonpsv_v2_2/src
+Running Make include in blp_cips_pspmc_0_psv_pmc_0/libsrc/xilsecure_v5_0/src
+Running Make include in blp_cips_pspmc_0_psv_pmc_0/libsrc/ttcps_v3_16/src
+Running Make include in blp_cips_pspmc_0_psv_pmc_0/libsrc/xilloader_v1_7/src
+Running Make include in blp_cips_pspmc_0_psv_pmc_0/libsrc/rtcpsu_v1_12/src
+Running Make include in blp_cips_pspmc_0_psv_pmc_0/libsrc/xilsem_v1_6/src
+Include files for this library have already been copied.
+Running Make include in blp_cips_pspmc_0_psv_pmc_0/libsrc/sysmonpsv_v3_1/src
+Running Make include in blp_cips_pspmc_0_psv_pmc_0/libsrc/xilpuf_v2_0/src
+Running Make include in blp_cips_pspmc_0_psv_pmc_0/libsrc/ddrpsv_v1_4/src
+Running Make include in blp_cips_pspmc_0_psv_pmc_0/libsrc/trngpsv_v1_2/src
+Running Make include in blp_cips_pspmc_0_psv_pmc_0/libsrc/xilplmi_v1_7/src
+Running Make include in blp_cips_pspmc_0_psv_pmc_0/libsrc/uartlite_v3_7/src
+Running Make include in blp_cips_pspmc_0_psv_pmc_0/libsrc/zdma_v1_15/src
+Running Make include in blp_cips_pspmc_0_psv_pmc_0/libsrc/cpu_v2_16/src
+Running Make include in blp_cips_pspmc_0_psv_pmc_0/libsrc/cframe_v1_4/src
+Running Make include in blp_cips_pspmc_0_psv_pmc_0/libsrc/uartpsv_v1_7/src
+Running Make include in blp_cips_pspmc_0_psv_pmc_0/libsrc/coresightps_dcc_v1_8/src
+Running Make include in blp_cips_pspmc_0_psv_pmc_0/libsrc/cfupmc_v1_5/src
+Running Make include in blp_cips_pspmc_0_psv_pmc_0/libsrc/xilpdi_v1_6/src
+Running Make include in blp_cips_pspmc_0_psv_pmc_0/libsrc/iomodule_v2_14/src
+Running Make include in blp_cips_pspmc_0_psv_pmc_0/libsrc/xilffs_v4_8/src
+Running Make include in blp_cips_pspmc_0_psv_pmc_0/libsrc/csudma_v1_12/src
+Running Make libs in blp_cips_pspmc_0_psv_pmc_0/libsrc/xilnvm_v3_0/src
+Compiling XilNvm Library
+Running Make libs in blp_cips_pspmc_0_psv_pmc_0/libsrc/xilsem_v1_6/src
+Running Make libs in blp_cips_pspmc_0_psv_pmc_0/libsrc/xilpm_v4_1/src
+Compiling XilPM Library
+Running Make libs in blp_cips_pspmc_0_psv_pmc_0/libsrc/xilpdi_v1_6/src
+Compiling Xilpdi Library
+Running Make libs in blp_cips_pspmc_0_psv_pmc_0/libsrc/xilplmi_v1_7/src
+Compiling XilPLMI Library
+Running Make libs in blp_cips_pspmc_0_psv_pmc_0/libsrc/xilloader_v1_7/src
+Compiling XilLoader Library
+Running Make libs in blp_cips_pspmc_0_psv_pmc_0/libsrc/xilpuf_v2_0/src
+Compiling XilPuf Library
+Running Make libs in blp_cips_pspmc_0_psv_pmc_0/libsrc/xilsecure_v5_0/src
+Compiling XilSecure Library
+Finished building libraries sequentially.
+Running Make include in blp_cips_pspmc_0_psv_pmc_0/libsrc/xilnvm_v3_0/src
+Running Make include in blp_cips_pspmc_0_psv_pmc_0/libsrc/ipipsu_v2_12/src
+Running Make include in blp_cips_pspmc_0_psv_pmc_0/libsrc/xilpm_v4_1/src
+Include files for this library have already been copied.
+Running Make include in blp_cips_pspmc_0_psv_pmc_0/libsrc/standalone_v8_0/src
+Running Make include in blp_cips_pspmc_0_psv_pmc_0/libsrc/ospipsv_v1_7/src
+Running Make include in blp_cips_pspmc_0_psv_pmc_0/libsrc/pmonpsv_v2_2/src
+Running Make include in blp_cips_pspmc_0_psv_pmc_0/libsrc/xilsecure_v5_0/src
+Running Make include in blp_cips_pspmc_0_psv_pmc_0/libsrc/ttcps_v3_16/src
+Running Make include in blp_cips_pspmc_0_psv_pmc_0/libsrc/xilloader_v1_7/src
+Running Make include in blp_cips_pspmc_0_psv_pmc_0/libsrc/rtcpsu_v1_12/src
+Running Make include in blp_cips_pspmc_0_psv_pmc_0/libsrc/xilsem_v1_6/src
+Running Make include in blp_cips_pspmc_0_psv_pmc_0/libsrc/sysmonpsv_v3_1/src
+Include files for this library have already been copied.
+Running Make include in blp_cips_pspmc_0_psv_pmc_0/libsrc/xilpuf_v2_0/src
+Running Make include in blp_cips_pspmc_0_psv_pmc_0/libsrc/ddrpsv_v1_4/src
+Running Make include in blp_cips_pspmc_0_psv_pmc_0/libsrc/trngpsv_v1_2/src
+Running Make include in blp_cips_pspmc_0_psv_pmc_0/libsrc/xilplmi_v1_7/src
+Running Make include in blp_cips_pspmc_0_psv_pmc_0/libsrc/uartlite_v3_7/src
+Running Make include in blp_cips_pspmc_0_psv_pmc_0/libsrc/zdma_v1_15/src
+Running Make include in blp_cips_pspmc_0_psv_pmc_0/libsrc/cpu_v2_16/src
+Running Make include in blp_cips_pspmc_0_psv_pmc_0/libsrc/cframe_v1_4/src
+Running Make include in blp_cips_pspmc_0_psv_pmc_0/libsrc/uartpsv_v1_7/src
+Running Make include in blp_cips_pspmc_0_psv_pmc_0/libsrc/coresightps_dcc_v1_8/src
+Running Make include in blp_cips_pspmc_0_psv_pmc_0/libsrc/cfupmc_v1_5/src
+Running Make include in blp_cips_pspmc_0_psv_pmc_0/libsrc/xilpdi_v1_6/src
+Running Make include in blp_cips_pspmc_0_psv_pmc_0/libsrc/iomodule_v2_14/src
+Running Make include in blp_cips_pspmc_0_psv_pmc_0/libsrc/xilffs_v4_8/src
+Running Make include in blp_cips_pspmc_0_psv_pmc_0/libsrc/csudma_v1_12/src
+Running Make libs in blp_cips_pspmc_0_psv_pmc_0/libsrc/ipipsu_v2_12/src
+Running Make libs in blp_cips_pspmc_0_psv_pmc_0/libsrc/standalone_v8_0/src
+Running Make libs in blp_cips_pspmc_0_psv_pmc_0/libsrc/ospipsv_v1_7/src
+Running Make libs in blp_cips_pspmc_0_psv_pmc_0/libsrc/pmonpsv_v2_2/src
+Running Make libs in blp_cips_pspmc_0_psv_pmc_0/libsrc/ttcps_v3_16/src
+Running Make libs in blp_cips_pspmc_0_psv_pmc_0/libsrc/rtcpsu_v1_12/src
+Running Make libs in blp_cips_pspmc_0_psv_pmc_0/libsrc/sysmonpsv_v3_1/src
+Running Make libs in blp_cips_pspmc_0_psv_pmc_0/libsrc/ddrpsv_v1_4/src
+Running Make libs in blp_cips_pspmc_0_psv_pmc_0/libsrc/trngpsv_v1_2/src
+Compiling xsysmonpsv
+Running Make libs in blp_cips_pspmc_0_psv_pmc_0/libsrc/uartlite_v3_7/src
+microblaze_sleep.c:81:9: note: '#pragma message: For the sleep routines, assembly instructions are used'
+   81 | #pragma message ("For the sleep routines, assembly instructions are used")
+      |         ^~~~~~~
+In file included from xuartlite_g.c:16:
+../../../include/xparameters.h:1903:34: warning: conversion from 'long long unsigned int' to 'unsigned int' changes value from '17213554688' to '33685504' [-Woverflow]
+ 1903 | #define XPAR_UARTLITE_0_BASEADDR 0x402020000U
+      |                                  ^~~~~~~~~~~~
+xuartlite_g.c:27:17: note: in expansion of macro 'XPAR_UARTLITE_0_BASEADDR'
+   27 |                 XPAR_UARTLITE_0_BASEADDR,
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~
+../../../include/xparameters.h:1923:34: warning: conversion from 'long long unsigned int' to 'unsigned int' changes value from '17213558784' to '33689600' [-Woverflow]
+ 1923 | #define XPAR_UARTLITE_1_BASEADDR 0x402021000U
+      |                                  ^~~~~~~~~~~~
+xuartlite_g.c:35:17: note: in expansion of macro 'XPAR_UARTLITE_1_BASEADDR'
+   35 |                 XPAR_UARTLITE_1_BASEADDR,
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~
+../../../include/xparameters.h:1943:34: warning: conversion from 'long long unsigned int' to 'unsigned int' changes value from '2203351912448' to '33689600' [-Woverflow]
+ 1943 | #define XPAR_UARTLITE_2_BASEADDR 0x20102021000U
+      |                                  ^~~~~~~~~~~~~~
+xuartlite_g.c:43:17: note: in expansion of macro 'XPAR_UARTLITE_2_BASEADDR'
+   43 |                 XPAR_UARTLITE_2_BASEADDR,
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~
+../../../include/xparameters.h:1963:34: warning: conversion from 'long long unsigned int' to 'unsigned int' changes value from '2203351916544' to '33693696' [-Woverflow]
+ 1963 | #define XPAR_UARTLITE_3_BASEADDR 0x20102022000U
+      |                                  ^~~~~~~~~~~~~~
+xuartlite_g.c:51:17: note: in expansion of macro 'XPAR_UARTLITE_3_BASEADDR'
+   51 |                 XPAR_UARTLITE_3_BASEADDR,
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~
+../../../include/xparameters.h:1983:34: warning: conversion from 'long long unsigned int' to 'unsigned int' changes value from '2203351908352' to '33685504' [-Woverflow]
+ 1983 | #define XPAR_UARTLITE_4_BASEADDR 0x20102020000U
+      |                                  ^~~~~~~~~~~~~~
+xuartlite_g.c:59:17: note: in expansion of macro 'XPAR_UARTLITE_4_BASEADDR'
+   59 |                 XPAR_UARTLITE_4_BASEADDR,
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~
+Running Make libs in blp_cips_pspmc_0_psv_pmc_0/libsrc/zdma_v1_15/src
+Running Make libs in blp_cips_pspmc_0_psv_pmc_0/libsrc/cpu_v2_16/src
+Running Make libs in blp_cips_pspmc_0_psv_pmc_0/libsrc/cframe_v1_4/src
+Running Make libs in blp_cips_pspmc_0_psv_pmc_0/libsrc/uartpsv_v1_7/src
+Running Make libs in blp_cips_pspmc_0_psv_pmc_0/libsrc/coresightps_dcc_v1_8/src
+Running Make libs in blp_cips_pspmc_0_psv_pmc_0/libsrc/cfupmc_v1_5/src
+Running Make libs in blp_cips_pspmc_0_psv_pmc_0/libsrc/iomodule_v2_14/src
+Running Make libs in blp_cips_pspmc_0_psv_pmc_0/libsrc/xilffs_v4_8/src
+Running Make libs in blp_cips_pspmc_0_psv_pmc_0/libsrc/csudma_v1_12/src
+xcoresightpsdcc.c:39:2: warning: #warning "The driver is supported only for ARM architecture" [-Wcpp]
+   39 | #warning "The driver is supported only for ARM architecture"
+      |  ^~~~~~~
+DEBUG NON_LTO_OBJECTS is ../../../lib/microblaze_interrupt_handler.o
+In file included from xiomodule_g.c:16:
+../../../include/xparameters.h:1440:62: warning: conversion from 'long long unsigned int' to 'unsigned int' changes value from '18446744073709551615' to '4294967295' [-Woverflow]
+ 1440 | #define XPAR_BLP_CIPS_PSPMC_0_PSV_PMC_IOMODULE_0_IO_BASEADDR 0xFFFFFFFFFFFFFFFFU
+      |                                                              ^~~~~~~~~~~~~~~~~~~
+xiomodule_g.c:30:17: note: in expansion of macro 'XPAR_BLP_CIPS_PSPMC_0_PSV_PMC_IOMODULE_0_IO_BASEADDR'
+   30 |                 XPAR_BLP_CIPS_PSPMC_0_PSV_PMC_IOMODULE_0_IO_BASEADDR,
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Finished building libraries parallelly.
+/home/xilinx/software/Vivado/2022.2/gnu/microblaze/lin/x86_64-oesdk-linux/usr/bin/microblaze-xilinx-elf/microblaze-xilinx-elf-ar.real: creating blp_cips_pspmc_0_psv_pmc_0/lib/libxil.a
+Finished building libraries
+make[2]: Leaving directory '/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.runs/impl_1/.Xil/Vivado-2551620-nags27/versal_plm/versal_plm_bsp'
+make[2]: Entering directory '/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.runs/impl_1/.Xil/Vivado-2551620-nags27/versal_plm'
+make[2]: Leaving directory '/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.runs/impl_1/.Xil/Vivado-2551620-nags27/versal_plm'
+INFO: [Project 1-1179] Generating top_wrapper.bif file ...
+Running bootgen.
+Found bootgen at /home/xilinx/software/Vivado/2022.2/bin/bootgen
+Running '/home/xilinx/software/Vivado/2022.2/bin/bootgen -arch versal -image top_wrapper.bif -w -o ./top_wrapper.pdi'
+
+
+****** Xilinx Bootgen v2022.2.2
+  **** Build date : Feb 16 2023-18:59:31
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+
+
+[INFO]   : Bootimage generated successfully
+
+Bootgen Completed Successfully.
+INFO: [Vivado 12-1842] Bitgen Completed Successfully.
+INFO: [Common 17-83] Releasing license: Implementation
+200 Infos, 89 Warnings, 1 Critical Warnings and 0 Errors encountered.
+write_device_image completed successfully
+write_device_image: Time (s): cpu = 00:25:23 ; elapsed = 00:28:23 . Memory (MB): peak = 9176.098 ; gain = 1395.539 ; free physical = 76560 ; free virtual = 113420
+Command: write_device_image -force -cell top_i/ulp -file top_i_ulp_my_rm_partial
+Attempting to get a license for feature 'Implementation' and/or device 'xcvc1902'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xcvc1902'
+Running DRC as a precondition to command write_device_image
+INFO: [IP_Flow 19-1839] IP Catalog is up to date.
+INFO: [DRC 23-27] Running DRC with 8 threads
+WARNING: [DRC RTSTAT-10] No routable loads: 209 net(s) have no routable loads. The problem bus(es) and/or net(s) are top_i/ulp/ai_engine_0/inst/ai_pl_ch_0/inst/ai2pl_wrapper_32/mrs_s0/regfile_reg_0_7_28_33/DOC0, top_i/blp/blp_logic/ulp_clocking/shell_utils_ucc/inst/genblk1[1].aclk_kernel_inst/clock_throttling_aclk_kernel_00/Gate_Div, top_i/blp/blp_logic/ulp_clocking/shell_utils_ucc/inst/genblk1[0].aclk_kernel_inst/clock_throttling_aclk_kernel_00/Gate_Div, top_i/blp/blp_logic/ulp_clocking/shell_utils_ucc/inst/genblk1[1].aclk_kernel_inst/clock_throttling_aclk_kernel_00/Gate_Div_d1, top_i/blp/blp_logic/ulp_clocking/shell_utils_ucc/inst/genblk1[0].aclk_kernel_inst/clock_throttling_aclk_kernel_00/Gate_Div_d1, top_i/blp/blp_logic/ulp_clocking/shell_utils_ucc/inst/genblk1[1].aclk_kernel_inst/clock_throttling_aclk_kernel_00/Gate_Fast_d1, top_i/blp/blp_logic/ulp_clocking/shell_utils_ucc/inst/genblk1[0].aclk_kernel_inst/clock_throttling_aclk_kernel_00/Gate_Fast_d1, top_i/ulp/axi_ic_user/inst/s00_nodes/s00_w_node/inst/mi_handler_m_sc_areset_pipe, top_i/blp/blp_logic/axi_ic_rpu/inst/m05_nodes/m05_aw_node/inst/mi_handler_m_sc_areset_pipe, top_i/blp/blp_logic/axi_ic_pluser/inst/m00_nodes/m00_ar_node/inst/mi_handler_m_sc_areset_pipe, top_i/blp/blp_logic/axi_ic_pluser/inst/s00_nodes/s00_aw_node/inst/mi_handler_m_sc_areset_pipe, top_i/blp/blp_logic/axi_ic_pluser/inst/m02_nodes/m02_w_node/inst/mi_handler_m_sc_areset_pipe, top_i/blp/blp_logic/axi_ic_rpu/inst/m07_nodes/m07_aw_node/inst/mi_handler_m_sc_areset_pipe, top_i/blp/blp_logic/axi_ic_pluser/inst/m04_nodes/m04_r_node/inst/mi_handler_m_sc_areset_pipe, top_i/blp/blp_logic/axi_ic_plmgmt/inst/m05_nodes/m05_b_node/inst/mi_handler_m_sc_areset_pipe... and (the first 15 of 209 listed).
+INFO: [Vivado 12-3199] DRC finished with 0 Errors, 1 Warnings
+INFO: [Vivado 12-3200] Please refer to the DRC report (report_drc) for more information.
+Integrating Hard IP ELF/MEM with the PDI.
+INFO: [Constraints 18-5160] Reading Static MEM File '_mem_tmp.mem' for cell 'top_i/blp/axi_noc_mc/inst/MC0_ddrc/inst/noc_ddr4_phy/inst/u_ddrmc_main'
+INFO: [Constraints 18-5160] Reading Static MEM File '_mem_tmp.mem' for cell 'top_i/blp/axi_noc_mc/inst/MC1_ddrc/inst/noc_ddr4_phy/inst/u_ddrmc_main'
+INFO: [Constraints 18-5160] Reading Static MEM File '_mem_tmp.mem' for cell 'top_i/blp/axi_noc_mc/inst/MC2_ddrc/inst/noc_ddr4_phy/inst/u_ddrmc_main'
+INFO: [Constraints 18-5160] Reading Static MEM File '_mem_tmp.mem' for cell 'top_i/blp/axi_noc_mc/inst/MC3_ddrc/inst/noc_ddr4_phy/inst/u_ddrmc_main'
+Partition "pblock_dynamic_region" Reconfigurable Module "top_i/ulp"
+INFO: [Vivado 12-8266] No full design pdi will be created with the use of the -cell option.
+Process Partition "pblock_dynamic_region"
+Generating PS PMC files.
+Loading data files...
+Loading site data...
+Loading route data...
+Processing options...
+INFO: [Designutils 20-5003] Per-Frame CRC checking will be used for DFX bitstreams.
+Creating bitmap...
+INFO: [Bitstream 40-812] Reading NPI Startup sequence definitions
+INFO: [Bitstream 40-811] Reading NPI Shutdown sequence definitions
+INFO: [Bitstream 40-810] Reading NPI Preconfig sequence definitions
+Creating bitstream...
+Partial bitstream contains 55088256 bits.
+Writing CDO partition ./top_i_ulp_my_rm_partial.rcdo...
+Writing NPI partition ./top_i_ulp_my_rm_partial.rnpi...
+Creating bitstream...
+Partial bitstream contains 1901312 bits.
+Writing CDO partition ./top_i_ulp_my_rm_partial_mask.rcdo...
+Writing NPI partition ./top_i_ulp_my_rm_partial_mask.rnpi...
+Creating bitstream...
+Partial bitstream contains 321280 bits.
+Writing CDO partition ./top_i_ulp_my_rm_partial_unmask.rcdo...
+Writing NPI partition ./top_i_ulp_my_rm_partial_unmask.rnpi...
+Creating bitstream...
+Partial bitstream contains 1024 bits.
+Writing CDO partition ./top_i_ulp_my_rm_partial_clear.rcdo...
+Writing NPI partition ./top_i_ulp_my_rm_partial_shutdown.rnpi...
+Writing NPI partition ./top_i_ulp_my_rm_partial_shutdown.txt...
+Generating bif file top_i_ulp_my_rm_partial.bif for partial pdi
+INFO: [Project 1-1179] Generating top_i_ulp_my_rm_partial.bif file ...
+Running bootgen.
+Found bootgen at /home/xilinx/software/Vivado/2022.2/bin/bootgen
+Running '/home/xilinx/software/Vivado/2022.2/bin/bootgen -arch versal -image top_i_ulp_my_rm_partial.bif -w -o ./top_i_ulp_my_rm_partial.pdi'
+
+
+****** Xilinx Bootgen v2022.2.2
+  **** Build date : Feb 16 2023-18:59:31
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+
+
+[INFO]   : Bootimage generated successfully
+
+Bootgen Completed Successfully.
+INFO: [Vivado 12-1842] Bitgen Completed Successfully.
+INFO: [Common 17-83] Releasing license: Implementation
+217 Infos, 90 Warnings, 1 Critical Warnings and 0 Errors encountered.
+write_device_image completed successfully
+write_device_image: Time (s): cpu = 00:32:57 ; elapsed = 00:36:05 . Memory (MB): peak = 9576.691 ; gain = 400.594 ; free physical = 80005 ; free virtual = 117740
+source /home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/scripts/impl_1/_full_write_device_image_post.tcl
+INFO: [Common 17-206] Exiting Vivado at Fri Jun 28 13:34:31 2024...

@@ -1,0 +1,49 @@
+Begin Function 'setup_aie'
+
+RTL state condition: (1'b1 == ap_CS_fsm_state1)
+# ST_1
+local size <add_27> <integer> <Arithmetic> 'add' </home/users/eleonora.cabai/Documents/K-Means-AIE/data_movers/setup_aie.cpp:27>
+size /home/users/eleonora.cabai/Documents/K-Means-AIE/data_movers/setup_aie.cpp:27
+reg: size_reg_280[31:0] lv
+
+local tmp <bitselect_28> <integer> <> 'bitselect' </home/users/eleonora.cabai/Documents/K-Means-AIE/data_movers/setup_aie.cpp:28>
+tmp /home/users/eleonora.cabai/Documents/K-Means-AIE/data_movers/setup_aie.cpp:28
+reg: tmp_reg_285[0:0] lv
+
+local trunc_ln28_2 <partselect_28> <integer> <> 'partselect' </home/users/eleonora.cabai/Documents/K-Means-AIE/data_movers/setup_aie.cpp:28>
+trunc_ln28_2 /home/users/eleonora.cabai/Documents/K-Means-AIE/data_movers/setup_aie.cpp:28
+reg: trunc_ln28_2_reg_290[29:0] lv
+
+local tmp_1 <partselect_37> <integer> <> 'partselect' </home/users/eleonora.cabai/Documents/K-Means-AIE/data_movers/setup_aie.cpp:37>
+tmp_1 /home/users/eleonora.cabai/Documents/K-Means-AIE/data_movers/setup_aie.cpp:37
+reg: tmp_1_reg_295[29:0] lv
+
+
+RTL state condition: (1'b1 == ap_CS_fsm_state2)
+# ST_2
+local size_loop <select_28> <integer> <> 'select' </home/users/eleonora.cabai/Documents/K-Means-AIE/data_movers/setup_aie.cpp:28>
+size_loop /home/users/eleonora.cabai/Documents/K-Means-AIE/data_movers/setup_aie.cpp:28
+reg: size_loop_reg_300[30:0] lv
+
+local icmp_ln37 <icmp_37> <integer> <Comparator> 'icmp' </home/users/eleonora.cabai/Documents/K-Means-AIE/data_movers/setup_aie.cpp:37>
+icmp_ln37 /home/users/eleonora.cabai/Documents/K-Means-AIE/data_movers/setup_aie.cpp:37
+reg: icmp_ln37_reg_311[0:0] lv
+
+
+RTL state condition: (1'b1 == ap_CS_fsm_state3)
+# ST_3
+local trunc_ln1 <partselect_37> <integer> <> 'partselect' </home/users/eleonora.cabai/Documents/K-Means-AIE/data_movers/setup_aie.cpp:37>
+trunc_ln1 /home/users/eleonora.cabai/Documents/K-Means-AIE/data_movers/setup_aie.cpp:37
+reg: trunc_ln1_reg_316[59:0] lv
+
+local empty <select_37> <integer> <> 'select' </home/users/eleonora.cabai/Documents/K-Means-AIE/data_movers/setup_aie.cpp:37>
+empty /home/users/eleonora.cabai/Documents/K-Means-AIE/data_movers/setup_aie.cpp:37
+empty /home/users/eleonora.cabai/Documents/K-Means-AIE/data_movers/setup_aie.cpp:28
+reg: empty_reg_322[30:0] lv
+
+
+RTL state condition: (1'b1 == ap_CS_fsm_state75)
+# ST_75
+
+End Function 'setup_aie'
+

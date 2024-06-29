@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<POWERDATA data="AI-Engine Compiler" dataVersion="2022.2" design="graph" date="Fri Jun 28 08:35:11 2024
+">
+ <DEVICE part="xcvc1902" grade="extended" package="vsvd1760" speed="-2MP" process="typical" vid="No"></DEVICE>
+  <AIE status="COMPILER_OUTPUT">
+    <AIE_MODULE name="graph" num_tiles="1" clk_freq="1250">
+      <TILE name="CR(24,0)" type="int16" int_core_load="0.54" fp_core_load="0" mem_banks="2" mem_rw_rate="0.2" stream_util="0.073" coordinates="24,1">
+        <KERNEL name="i0"  int_core_load="0.9" fp_core_load="0"></KERNEL>
+      </TILE>
+      <SHIM name="SHIM(19, 0)" type="AIE_PL_NOC_SHIM" stream_util="0" num_pl_streams="0" num_aximm_connections="1" coordinates="19,0"></SHIM>
+      <SHIM name="SHIM(24, 0)" type="AIE_PL_SHIM" stream_util="0.081" num_pl_streams="2" num_aximm_connections="0" coordinates="24,0"></SHIM>
+    </AIE_MODULE>
+  </AIE>
+</POWERDATA>

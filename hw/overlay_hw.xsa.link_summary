@@ -1,0 +1,1710 @@
+<ENTRY>
+{
+ "thisFile": "/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/overlay_hw.xsa.link_summary",
+ "connectId": "",
+ "serverToken": "",
+ "timestamp": "0"
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_CmdStep",
+ "dateTimestamp": "Fri Jun 28 08:39:03 2024",
+ "timestampMillis": "1719556743158",
+ "buildStep": {
+  "cmdId": "8052e49c-5b4f-4b06-993e-5302393ecff6",
+  "name": "v++",
+  "logFile": "/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/link.steps.log",
+  "commandLine": "/home/xilinx/software/Vitis/2022.2/bin/unwrapped/lnx64.o/v++ --xp vivado_param:project.ensureVersalHasCIPS=false --xp vivado_param:bd.enableAutoConnectionsInNoc=1 --xp vivado_param:constr.restoreXDEFConstraintsASTCL=1 --xp vivado_param:ips.enableSLRParameter=4  --vivado.prop \"run.__KERNEL__.{STEPS.SYNTH_DESIGN.ARGS.MORE OPTIONS}={-directive sdx_optimization_effort_high}\" --advanced.misc \"report=type report_timing_summary name impl_report_timing_summary_route_design_summary steps {route_design} runs {impl_1} options {-max_paths 10}\" --advanced.misc \"report=type report_timing_summary name impl_report_timing_summary_post_route_phys_opt_design_summary steps {post_route_phys_opt_design} runs {impl_1} options {-max_paths 10}\" -l --kernel_frequency 200 --platform xilinx_vck5000_gen4x8_qdma_2_202220_1 -t hw -s -g --config xclbin_overlay.cfg -o overlay_hw.xsa ../data_movers/setup_aie_hw.xo ../data_movers/sink_from_aie_hw.xo ../aie/libadf.a ",
+  "args": [
+   "--xp",
+   "vivado_param:project.ensureVersalHasCIPS=false",
+   "--xp",
+   "vivado_param:bd.enableAutoConnectionsInNoc=1",
+   "--xp",
+   "vivado_param:constr.restoreXDEFConstraintsASTCL=1",
+   "--xp",
+   "vivado_param:ips.enableSLRParameter=4",
+   "-l",
+   "--kernel_frequency",
+   "200",
+   "--platform",
+   "xilinx_vck5000_gen4x8_qdma_2_202220_1",
+   "-t",
+   "hw",
+   "-s",
+   "-g",
+   "--config",
+   "xclbin_overlay.cfg",
+   "-o",
+   "overlay_hw.xsa",
+   "../data_movers/setup_aie_hw.xo",
+   "../data_movers/sink_from_aie_hw.xo",
+   "../aie/libadf.a"
+  ],
+  "iniFiles": [
+   {
+    "path": "/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/xclbin_overlay.cfg",
+    "content": "[connectivity]\nnk = setup_aie:1:setup_aie_0\nnk = sink_from_aie:1:sink_from_aie_0\n\nslr = setup_aie_0:SLR0\nslr = sink_from_aie_0:SLR0\n\nsp = sink_from_aie_0.m_axi_gmem1:MC_NOC0\nsp = setup_aie_0.m_axi_gmem0:MC_NOC0\n\nstream_connect = setup_aie_0.s:ai_engine_0.in_plio_kmeans\nstream_connect = ai_engine_0.out_plio_kmeans:sink_from_aie_0.input_stream\n\n[vivado]\n# use following line to improve the hw_emu running speed affected by platform\nprop=fileset.sim_1.xsim.elaborate.xelab.more_options={-override_timeprecision -timescale=1ns/1ps}\n\n"
+   }
+  ],
+  "cwd": "/home/users/eleonora.cabai/Documents/K-Means-AIE/hw"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Fri Jun 28 08:39:03 2024",
+ "timestampMillis": "1719556743158",
+ "status": {
+  "cmdId": "8052e49c-5b4f-4b06-993e-5302393ecff6",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_FlowMetaData",
+ "dateTimestamp": "Fri Jun 28 08:39:12 2024",
+ "timestampMillis": "1719556752493",
+ "buildSummary": {
+  "hardwarePlatform": "xilinx_vck5000_gen4x8_qdma_2_202220_1.xpfm",
+  "hardwareDsa": "",
+  "platformDirectory": "/opt/xilinx/platforms/xilinx_vck5000_gen4x8_qdma_2_202220_1",
+  "runtime": "OpenCL",
+  "systemConfig": "Linux",
+  "flow": "BF_LINK",
+  "target": "TT_HW",
+  "binaryContainer": {
+   "base": {
+    "type": "BT_UKNOWN",
+    "name": "overlay_hw",
+    "file": "/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/int/overlay_hw.xclbin",
+    "reports": [],
+    "uuid": ""
+   },
+   "kernels": []
+  },
+  "kernels": [
+   {
+    "base": {
+     "type": "KERNEL",
+     "name": "setup_aie",
+     "file": "/home/users/eleonora.cabai/Documents/K-Means-AIE/data_movers/setup_aie_hw.xo",
+     "reports": [],
+     "uuid": ""
+    },
+    "sources": [
+     "/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/int/xo/setup_aie/setup_aie/cpu_sources/setup_aie.cpp"
+    ],
+    "psSources": [],
+    "cuNames": [
+     "setup_aie_0"
+    ],
+    "type": "HLS",
+    "frequency": 0,
+    "freqUnits": ""
+   },
+   {
+    "base": {
+     "type": "KERNEL",
+     "name": "sink_from_aie",
+     "file": "/home/users/eleonora.cabai/Documents/K-Means-AIE/data_movers/sink_from_aie_hw.xo",
+     "reports": [],
+     "uuid": ""
+    },
+    "sources": [
+     "/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/int/xo/sink_from_aie/sink_from_aie/cpu_sources/sink_from_aie.cpp"
+    ],
+    "psSources": [],
+    "cuNames": [
+     "sink_from_aie_0"
+    ],
+    "type": "HLS",
+    "frequency": 0,
+    "freqUnits": ""
+   }
+  ],
+  "toolVersion": "Vitis V++ Compiler Release 2022.2.2. SW Build 3716524 on 2023-02-17-15:43:22",
+  "aieInputs": {
+   "base": {
+    "type": "AI_LIBSDF",
+    "name": "libadf",
+    "file": "/home/users/eleonora.cabai/Documents/K-Means-AIE/aie/libadf.a",
+    "reports": [
+     {
+      "path": "/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/int/aie.partial.aiecompile_summary",
+      "name": "",
+      "fileType": "TEXT",
+      "reportType": "TASK_LOG_SUMMARY",
+      "cmdId": ""
+     },
+     {
+      "path": "/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/int/aie_control_config.json",
+      "name": "",
+      "fileType": "JSON",
+      "reportType": "AIE_CONTROL_CONFIG",
+      "cmdId": ""
+     },
+     {
+      "path": "/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/int/aie.router.soln.json",
+      "name": "",
+      "fileType": "JSON",
+      "reportType": "AIE_ROUTER_SOLUTION",
+      "cmdId": ""
+     },
+     {
+      "path": "/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/int/aie.mapped.json",
+      "name": "",
+      "fileType": "JSON",
+      "reportType": "AIE_GRAPH_MAPPED",
+      "cmdId": ""
+     },
+     {
+      "path": "/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/int/aie.compiler.report.json",
+      "name": "",
+      "fileType": "JSON",
+      "reportType": "AIE_COMPILER_REPORT",
+      "cmdId": ""
+     }
+    ],
+    "uuid": ""
+   },
+   "sources": [],
+   "type": "AI_UKNOWN"
+  }
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Fri Jun 28 08:39:12 2024",
+ "timestampMillis": "1719556752729",
+ "report": {
+  "path": "/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/int/aie_control_config.json",
+  "name": "",
+  "fileType": "JSON",
+  "reportType": "AIE_CONTROL_CONFIG",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_SubCmdStep",
+ "dateTimestamp": "Fri Jun 28 08:39:13 2024",
+ "timestampMillis": "1719556753271",
+ "buildStep": {
+  "cmdId": "39cde29e-9cdf-4daf-b3f1-db0dc5e094f6",
+  "name": "system_link",
+  "logFile": "",
+  "commandLine": "system_link --xo /home/users/eleonora.cabai/Documents/K-Means-AIE/data_movers/setup_aie_hw.xo --xo /home/users/eleonora.cabai/Documents/K-Means-AIE/data_movers/sink_from_aie_hw.xo -keep /home/users/eleonora.cabai/Documents/K-Means-AIE/hw/.Xil/v++-2318253-nags27/hw.o --config /home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/int/syslinkConfig.ini --xpfm /opt/xilinx/platforms/xilinx_vck5000_gen4x8_qdma_2_202220_1/xilinx_vck5000_gen4x8_qdma_2_202220_1.xpfm --target hw --output_dir /home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/int --temp_dir /home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/sys_link",
+  "args": [
+   "--xo",
+   "/home/users/eleonora.cabai/Documents/K-Means-AIE/data_movers/setup_aie_hw.xo",
+   "--xo",
+   "/home/users/eleonora.cabai/Documents/K-Means-AIE/data_movers/sink_from_aie_hw.xo",
+   "-keep",
+   "/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/.Xil/v++-2318253-nags27/hw.o",
+   "--config",
+   "/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/int/syslinkConfig.ini",
+   "--xpfm",
+   "/opt/xilinx/platforms/xilinx_vck5000_gen4x8_qdma_2_202220_1/xilinx_vck5000_gen4x8_qdma_2_202220_1.xpfm",
+   "--target",
+   "hw",
+   "--output_dir",
+   "/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/int",
+   "--temp_dir",
+   "/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/sys_link"
+  ],
+  "iniFiles": [
+   {
+    "path": "/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/int/syslinkConfig.ini",
+    "content": "nk=setup_aie:1:setup_aie_0\nnk=sink_from_aie:1:sink_from_aie_0\nsc=setup_aie_0.s:ai_engine_0.in_plio_kmeans\nsc=ai_engine_0.out_plio_kmeans:sink_from_aie_0.input_stream\nsp=sink_from_aie_0.m_axi_gmem1:MC_NOC0\nsp=setup_aie_0.m_axi_gmem0:MC_NOC0\nslr=setup_aie_0:SLR0\nslr=sink_from_aie_0:SLR0\n\n"
+   }
+  ],
+  "cwd": "/home/users/eleonora.cabai/Documents/K-Means-AIE/hw"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Fri Jun 28 08:39:13 2024",
+ "timestampMillis": "1719556753272",
+ "status": {
+  "cmdId": "39cde29e-9cdf-4daf-b3f1-db0dc5e094f6",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Fri Jun 28 08:39:59 2024",
+ "timestampMillis": "1719556799998",
+ "status": {
+  "cmdId": "39cde29e-9cdf-4daf-b3f1-db0dc5e094f6",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_SubCmdStep",
+ "dateTimestamp": "Fri Jun 28 08:40:00 2024",
+ "timestampMillis": "1719556800004",
+ "buildStep": {
+  "cmdId": "755e070d-160d-478f-bd08-32a7842bc75b",
+  "name": "cf2sw",
+  "logFile": "",
+  "commandLine": "cf2sw -sdsl /home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/int/sdsl.dat -rtd /home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/int/cf2sw.rtd -nofilter /home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/int/cf2sw_full.rtd -xclbin /home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/int/xclbin_orig.xml -o /home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/int/xclbin_orig.1.xml",
+  "args": [
+   "-sdsl",
+   "/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/int/sdsl.dat",
+   "-rtd",
+   "/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/int/cf2sw.rtd",
+   "-nofilter",
+   "/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/int/cf2sw_full.rtd",
+   "-xclbin",
+   "/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/int/xclbin_orig.xml",
+   "-o",
+   "/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/int/xclbin_orig.1.xml"
+  ],
+  "iniFiles": [],
+  "cwd": "/home/users/eleonora.cabai/Documents/K-Means-AIE/hw"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Fri Jun 28 08:40:00 2024",
+ "timestampMillis": "1719556800004",
+ "status": {
+  "cmdId": "755e070d-160d-478f-bd08-32a7842bc75b",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Fri Jun 28 08:40:07 2024",
+ "timestampMillis": "1719556807790",
+ "status": {
+  "cmdId": "755e070d-160d-478f-bd08-32a7842bc75b",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_SubCmdStep",
+ "dateTimestamp": "Fri Jun 28 08:40:07 2024",
+ "timestampMillis": "1719556807820",
+ "buildStep": {
+  "cmdId": "d0d87794-bb92-4b87-84fd-56f84095a6aa",
+  "name": "rtd2_system_diagram",
+  "logFile": "",
+  "commandLine": "rtd2SystemDiagram",
+  "args": [],
+  "iniFiles": [],
+  "cwd": "/home/users/eleonora.cabai/Documents/K-Means-AIE/hw"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Fri Jun 28 08:40:07 2024",
+ "timestampMillis": "1719556807820",
+ "status": {
+  "cmdId": "d0d87794-bb92-4b87-84fd-56f84095a6aa",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Fri Jun 28 08:40:08 2024",
+ "timestampMillis": "1719556808461",
+ "report": {
+  "path": "/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/int/systemDiagramModel.json",
+  "name": "",
+  "fileType": "JSON",
+  "reportType": "SYSTEM_DIAGRAM",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Fri Jun 28 08:40:08 2024",
+ "timestampMillis": "1719556808465",
+ "status": {
+  "cmdId": "d0d87794-bb92-4b87-84fd-56f84095a6aa",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_SubCmdStep",
+ "dateTimestamp": "Fri Jun 28 08:40:08 2024",
+ "timestampMillis": "1719556808476",
+ "buildStep": {
+  "cmdId": "d37eb607-c614-43d9-958f-bb2086450e83",
+  "name": "vpl",
+  "logFile": "",
+  "commandLine": "vpl -t hw -f xilinx_vck5000_gen4x8_qdma_2_202220_1 -s -g --kernel_frequency 200 --remote_ip_cache /home/users/eleonora.cabai/Documents/K-Means-AIE/hw/.ipcache --output_dir /home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/int --log_dir /home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/logs/link --report_dir /home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/reports/link --config /home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/int/vplConfig.ini -k /home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/int/kernel_info.dat --webtalk_flag Vitis --temp_dir /home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link --no-info --iprepo /home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/int/xo/ip_repo/xilinx_com_hls_sink_from_aie_1_0 --iprepo /home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/int/xo/ip_repo/xilinx_com_hls_setup_aie_1_0 --messageDb /home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/run_link/vpl.pb /home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/int/dr.bd.tcl",
+  "args": [
+   "-t",
+   "hw",
+   "-f",
+   "xilinx_vck5000_gen4x8_qdma_2_202220_1",
+   "-s",
+   "-g",
+   "--kernel_frequency",
+   "200",
+   "--remote_ip_cache",
+   "/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/.ipcache",
+   "--output_dir",
+   "/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/int",
+   "--log_dir",
+   "/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/logs/link",
+   "--report_dir",
+   "/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/reports/link",
+   "--config",
+   "/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/int/vplConfig.ini",
+   "-k",
+   "/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/int/kernel_info.dat",
+   "--webtalk_flag",
+   "Vitis",
+   "--temp_dir",
+   "/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link",
+   "--no-info",
+   "--iprepo",
+   "/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/int/xo/ip_repo/xilinx_com_hls_sink_from_aie_1_0",
+   "--iprepo",
+   "/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/int/xo/ip_repo/xilinx_com_hls_setup_aie_1_0",
+   "--messageDb",
+   "/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/run_link/vpl.pb",
+   "/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/int/dr.bd.tcl"
+  ],
+  "iniFiles": [
+   {
+    "path": "/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/int/vplConfig.ini",
+    "content": "[advanced]\nmisc=report=type report_timing_summary name impl_report_timing_summary_route_design_summary steps {route_design} runs {impl_1} options {-max_paths 10}\nmisc=report=type report_timing_summary name impl_report_timing_summary_post_route_phys_opt_design_summary steps {post_route_phys_opt_design} runs {impl_1} options {-max_paths 10}\nparam=compiler.enablePerformanceTrace=1\nparam=hw_emu.enableDebugWaveform=1\nparam=hw_emu.enableProfiling=1\nparam=compiler.vppCurrentWorkingDir=/home/users/eleonora.cabai/Documents/K-Means-AIE/hw\nmisc=BinaryName=overlay_hw\n\n[connectivity]\nnk=setup_aie:1:setup_aie_0\nnk=sink_from_aie:1:sink_from_aie_0\n\n[vivado]\nparam=project.ensureVersalHasCIPS=false\nparam=bd.enableAutoConnectionsInNoc=1\nparam=constr.restoreXDEFConstraintsASTCL=1\nparam=ips.enableSLRParameter=4\nprop=run.__KERNEL__.{STEPS.SYNTH_DESIGN.ARGS.MORE OPTIONS}={-directive sdx_optimization_effort_high}\nprop=fileset.sim_1.xsim.elaborate.xelab.more_options={-override_timeprecision -timescale=1ns/1ps}\n\n"
+   }
+  ],
+  "cwd": "/home/users/eleonora.cabai/Documents/K-Means-AIE/hw"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Fri Jun 28 08:40:08 2024",
+ "timestampMillis": "1719556808479",
+ "status": {
+  "cmdId": "d37eb607-c614-43d9-958f-bb2086450e83",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_CmdStep",
+ "dateTimestamp": "Fri Jun 28 08:40:12 2024",
+ "timestampMillis": "1719556812872",
+ "buildStep": {
+  "cmdId": "d65935a6-5554-4c35-8766-79b9568a7d0a",
+  "name": "vpl",
+  "logFile": "/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/link.steps.log",
+  "commandLine": "/home/xilinx/software/Vitis/2022.2/bin/unwrapped/lnx64.o/vpl -t hw -f xilinx_vck5000_gen4x8_qdma_2_202220_1 -s -g --kernel_frequency 200 --remote_ip_cache /home/users/eleonora.cabai/Documents/K-Means-AIE/hw/.ipcache --output_dir /home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/int --log_dir /home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/logs/link --report_dir /home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/reports/link --config /home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/int/vplConfig.ini -k /home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/int/kernel_info.dat --webtalk_flag Vitis --temp_dir /home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link --no-info --iprepo /home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/int/xo/ip_repo/xilinx_com_hls_sink_from_aie_1_0 --iprepo /home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/int/xo/ip_repo/xilinx_com_hls_setup_aie_1_0 --messageDb /home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/run_link/vpl.pb /home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/int/dr.bd.tcl ",
+  "args": [],
+  "iniFiles": [],
+  "cwd": "/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/run_link"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Fri Jun 28 08:40:12 2024",
+ "timestampMillis": "1719556812882",
+ "status": {
+  "cmdId": "d65935a6-5554-4c35-8766-79b9568a7d0a",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_VivadoProject",
+ "dateTimestamp": "Fri Jun 28 08:40:25 2024",
+ "timestampMillis": "1719556825667",
+ "vivadoProject": {
+  "openDir": "/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl",
+  "openScript": "openprj.tcl",
+  "relativeProject": "prj/prj.xpr"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_SubCmdStep",
+ "dateTimestamp": "Fri Jun 28 08:40:25 2024",
+ "timestampMillis": "1719556825668",
+ "buildStep": {
+  "cmdId": "6512d919-c4fd-41d2-81f1-92414aa84696",
+  "name": "vivado",
+  "logFile": "/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/vivado.log",
+  "commandLine": "vivado -log vivado.log -applog -m64 -messageDb vivado.pb -mode batch -source vpl.tcl -notrace",
+  "args": [
+   "-log",
+   "vivado.log",
+   "-applog",
+   " -m64",
+   "-messageDb",
+   "vivado.pb",
+   "-mode",
+   "batch",
+   "-source",
+   "vpl.tcl",
+   "-notrace"
+  ],
+  "iniFiles": [],
+  "cwd": "/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/run_link"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Fri Jun 28 08:40:25 2024",
+ "timestampMillis": "1719556825671",
+ "status": {
+  "cmdId": "6512d919-c4fd-41d2-81f1-92414aa84696",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Fri Jun 28 08:42:12 2024",
+ "timestampMillis": "1719556932513",
+ "report": {
+  "path": "/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/int/debug_ip_layout.rtd",
+  "name": "",
+  "fileType": "JSON",
+  "reportType": "DEBUG_IP_LAYOUT",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Fri Jun 28 08:42:12 2024",
+ "timestampMillis": "1719556932701",
+ "report": {
+  "path": "/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/int/automation_summary_update_bd.txt",
+  "name": "",
+  "fileType": "TEXT",
+  "reportType": "VITIS_DESIGN_FLOW",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_CmdStep",
+ "dateTimestamp": "Fri Jun 28 10:41:22 2024",
+ "timestampMillis": "1719564082212",
+ "buildStep": {
+  "cmdId": "0e9f27fd-cbe3-46e3-915f-02e8300d942c",
+  "name": "vivado.impl",
+  "logFile": "",
+  "commandLine": "",
+  "args": [],
+  "iniFiles": [],
+  "cwd": "/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Fri Jun 28 10:41:22 2024",
+ "timestampMillis": "1719564082236",
+ "status": {
+  "cmdId": "0e9f27fd-cbe3-46e3-915f-02e8300d942c",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_CmdStep",
+ "dateTimestamp": "Fri Jun 28 10:41:22 2024",
+ "timestampMillis": "1719564082237",
+ "buildStep": {
+  "cmdId": "bbc110f0-d72c-4833-ab64-a88a4ef97a41",
+  "name": "vivado.impl.impl_1",
+  "logFile": "/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.runs/impl_1/runme.log",
+  "commandLine": "",
+  "args": [],
+  "iniFiles": [],
+  "cwd": "/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.runs/impl_1"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Fri Jun 28 10:41:22 2024",
+ "timestampMillis": "1719564082237",
+ "status": {
+  "cmdId": "bbc110f0-d72c-4833-ab64-a88a4ef97a41",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Fri Jun 28 12:23:42 2024",
+ "timestampMillis": "1719570222138",
+ "report": {
+  "path": "/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.runs/impl_1/system_diagram.json",
+  "name": "",
+  "fileType": "JSON",
+  "reportType": "SYSTEM_DIAGRAM_PLUS",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Fri Jun 28 12:24:42 2024",
+ "timestampMillis": "1719570282008",
+ "report": {
+  "path": "/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/int/kernel_service.json",
+  "name": "",
+  "fileType": "JSON",
+  "reportType": "KERNEL_SERVICE",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Fri Jun 28 12:24:42 2024",
+ "timestampMillis": "1719570282014",
+ "report": {
+  "path": "/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/int/kernel_service.pb",
+  "name": "",
+  "fileType": "BINARY_PROTOBUF",
+  "reportType": "KERNEL_SERVICE",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Fri Jun 28 12:28:49 2024",
+ "timestampMillis": "1719570529135",
+ "report": {
+  "path": "/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.runs/impl_1/dr_timing_summary.rpt",
+  "name": "",
+  "fileType": "TEXT",
+  "reportType": "GLOBAL_REPORT_TIMING_SUMMARY_FAIL",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Fri Jun 28 12:28:49 2024",
+ "timestampMillis": "1719570529145",
+ "report": {
+  "path": "/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.runs/impl_1/dr_timing_summary.rpt",
+  "name": "",
+  "fileType": "TEXT",
+  "reportType": "GLOBAL_REPORT_TIMING_SUMMARY_FAIL",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Fri Jun 28 13:43:50 2024",
+ "timestampMillis": "1719575030186",
+ "status": {
+  "cmdId": "6512d919-c4fd-41d2-81f1-92414aa84696",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Fri Jun 28 13:43:50 2024",
+ "timestampMillis": "1719575030467",
+ "report": {
+  "path": "/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/reports/link/imp/impl_1_full_util_synthed.pb",
+  "name": "",
+  "fileType": "BINARY_PROTOBUF",
+  "reportType": "GLOBAL_UTILIZATION_SYNTHESIS",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Fri Jun 28 13:43:50 2024",
+ "timestampMillis": "1719575030469",
+ "report": {
+  "path": "/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/reports/link/imp/impl_1_kernel_util_placed.rpt",
+  "name": "",
+  "fileType": "TEXT",
+  "reportType": "KERNEL_UTILIZATION_PLACEMENT",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Fri Jun 28 13:43:50 2024",
+ "timestampMillis": "1719575030470",
+ "report": {
+  "path": "/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/reports/link/imp/impl_1_slr_util_routed.rpt",
+  "name": "",
+  "fileType": "TEXT",
+  "reportType": "GLOBAL_SLR_UTIL_ROUTED",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Fri Jun 28 13:43:50 2024",
+ "timestampMillis": "1719575030470",
+ "report": {
+  "path": "/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/reports/link/imp/impl_1_slr_util_routed.pb",
+  "name": "",
+  "fileType": "BINARY_PROTOBUF",
+  "reportType": "GLOBAL_SLR_UTIL_ROUTED",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Fri Jun 28 13:43:50 2024",
+ "timestampMillis": "1719575030471",
+ "report": {
+  "path": "/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/reports/link/imp/impl_1_slr_util_placed.pb",
+  "name": "",
+  "fileType": "BINARY_PROTOBUF",
+  "reportType": "GLOBAL_SLR_UTIL_PLACED",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Fri Jun 28 13:43:50 2024",
+ "timestampMillis": "1719575030472",
+ "report": {
+  "path": "/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/reports/link/imp/impl_1_kernel_util_synthed.xutil",
+  "name": "",
+  "fileType": "XUTIL",
+  "reportType": "KERNEL_UTILIZATION_SYNTHESIS",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Fri Jun 28 13:43:50 2024",
+ "timestampMillis": "1719575030472",
+ "report": {
+  "path": "/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/reports/link/imp/impl_1_kernel_util_routed.xutil",
+  "name": "",
+  "fileType": "XUTIL",
+  "reportType": "KERNEL_UTILIZATION_ROUTE",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Fri Jun 28 13:43:50 2024",
+ "timestampMillis": "1719575030473",
+ "report": {
+  "path": "/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/reports/link/imp/impl_1_kernel_util_synthed.rpt",
+  "name": "",
+  "fileType": "TEXT",
+  "reportType": "KERNEL_UTILIZATION_SYNTHESIS",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Fri Jun 28 13:43:50 2024",
+ "timestampMillis": "1719575030473",
+ "report": {
+  "path": "/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/reports/link/imp/impl_1_kernel_util_placed.xutil",
+  "name": "",
+  "fileType": "XUTIL",
+  "reportType": "KERNEL_UTILIZATION_PLACEMENT",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Fri Jun 28 13:43:50 2024",
+ "timestampMillis": "1719575030475",
+ "report": {
+  "path": "/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/reports/link/imp/impl_1_slr_util_placed.rpt",
+  "name": "",
+  "fileType": "TEXT",
+  "reportType": "GLOBAL_SLR_UTIL_PLACED",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Fri Jun 28 13:43:50 2024",
+ "timestampMillis": "1719575030475",
+ "report": {
+  "path": "/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/reports/link/imp/impl_1_full_util_synthed.rpt",
+  "name": "",
+  "fileType": "TEXT",
+  "reportType": "GLOBAL_UTILIZATION_SYNTHESIS",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Fri Jun 28 13:43:50 2024",
+ "timestampMillis": "1719575030476",
+ "report": {
+  "path": "/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/reports/link/imp/impl_1_full_util_routed.rpt",
+  "name": "",
+  "fileType": "TEXT",
+  "reportType": "GLOBAL_UTILIZATION_ROUTE",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Fri Jun 28 13:43:50 2024",
+ "timestampMillis": "1719575030481",
+ "report": {
+  "path": "/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/reports/link/imp/impl_1_kernel_util_routed.rpt",
+  "name": "",
+  "fileType": "TEXT",
+  "reportType": "KERNEL_UTILIZATION_ROUTE",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Fri Jun 28 13:43:50 2024",
+ "timestampMillis": "1719575030481",
+ "report": {
+  "path": "/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/reports/link/imp/impl_1_full_util_routed.pb",
+  "name": "",
+  "fileType": "BINARY_PROTOBUF",
+  "reportType": "GLOBAL_UTILIZATION_ROUTE",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Fri Jun 28 13:43:50 2024",
+ "timestampMillis": "1719575030540",
+ "report": {
+  "path": "/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/reports/link/syn/ulp_inst_0_axi_dbg_hub_0_synth_1_ulp_inst_0_axi_dbg_hub_0_utilization_synth.rpt",
+  "name": "",
+  "fileType": "TEXT",
+  "reportType": "GLOBAL_REPORT_UTILIZATION",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Fri Jun 28 13:43:50 2024",
+ "timestampMillis": "1719575030549",
+ "report": {
+  "path": "/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/reports/link/syn/ulp_inst_0_axi_gpio_null_user_0_synth_1_ulp_inst_0_axi_gpio_null_user_0_utilization_synth.rpt",
+  "name": "",
+  "fileType": "TEXT",
+  "reportType": "GLOBAL_REPORT_UTILIZATION",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Fri Jun 28 13:43:50 2024",
+ "timestampMillis": "1719575030553",
+ "report": {
+  "path": "/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/reports/link/syn/ulp_inst_0_ip_pipe_dbg_hub_fw_00_0_synth_1_ulp_inst_0_ip_pipe_dbg_hub_fw_00_0_utilization_synth.rpt",
+  "name": "",
+  "fileType": "TEXT",
+  "reportType": "GLOBAL_REPORT_UTILIZATION",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Fri Jun 28 13:43:50 2024",
+ "timestampMillis": "1719575030554",
+ "report": {
+  "path": "/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/reports/link/syn/ulp_inst_0_ip_pipe_ext_tog_kernel_00_null_0_synth_1_ulp_inst_0_ip_pipe_ext_tog_kernel_00_null_0_utilization_synth.rpt",
+  "name": "",
+  "fileType": "TEXT",
+  "reportType": "GLOBAL_REPORT_UTILIZATION",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Fri Jun 28 13:43:50 2024",
+ "timestampMillis": "1719575030555",
+ "report": {
+  "path": "/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/reports/link/syn/ulp_inst_0_ip_pipe_ext_tog_kernel_01_null_0_synth_1_ulp_inst_0_ip_pipe_ext_tog_kernel_01_null_0_utilization_synth.rpt",
+  "name": "",
+  "fileType": "TEXT",
+  "reportType": "GLOBAL_REPORT_UTILIZATION",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Fri Jun 28 13:43:50 2024",
+ "timestampMillis": "1719575030556",
+ "report": {
+  "path": "/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/reports/link/syn/ulp_inst_0_axi_ic_user_0_synth_1_ulp_inst_0_axi_ic_user_0_utilization_synth.rpt",
+  "name": "",
+  "fileType": "TEXT",
+  "reportType": "GLOBAL_REPORT_UTILIZATION",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Fri Jun 28 13:43:50 2024",
+ "timestampMillis": "1719575030557",
+ "report": {
+  "path": "/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/reports/link/syn/ulp_inst_0_axi_ic_user_extend_0_synth_1_ulp_inst_0_axi_ic_user_extend_0_utilization_synth.rpt",
+  "name": "",
+  "fileType": "TEXT",
+  "reportType": "GLOBAL_REPORT_UTILIZATION",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Fri Jun 28 13:43:50 2024",
+ "timestampMillis": "1719575030558",
+ "report": {
+  "path": "/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/reports/link/syn/ulp_inst_0_axi_noc_kernel0_0_synth_1_ulp_inst_0_axi_noc_kernel0_0_utilization_synth.rpt",
+  "name": "",
+  "fileType": "TEXT",
+  "reportType": "GLOBAL_REPORT_UTILIZATION",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Fri Jun 28 13:43:50 2024",
+ "timestampMillis": "1719575030560",
+ "report": {
+  "path": "/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/reports/link/syn/ulp_inst_0_axi_noc_h2c_0_synth_1_ulp_inst_0_axi_noc_h2c_0_utilization_synth.rpt",
+  "name": "",
+  "fileType": "TEXT",
+  "reportType": "GLOBAL_REPORT_UTILIZATION",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Fri Jun 28 13:43:50 2024",
+ "timestampMillis": "1719575030561",
+ "report": {
+  "path": "/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/reports/link/syn/ulp_inst_0_axi_sc_plram_0_synth_1_ulp_inst_0_axi_sc_plram_0_utilization_synth.rpt",
+  "name": "",
+  "fileType": "TEXT",
+  "reportType": "GLOBAL_REPORT_UTILIZATION",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Fri Jun 28 13:43:50 2024",
+ "timestampMillis": "1719575030561",
+ "report": {
+  "path": "/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/reports/link/syn/ulp_inst_0_plram_ctrl_0_synth_1_ulp_inst_0_plram_ctrl_0_utilization_synth.rpt",
+  "name": "",
+  "fileType": "TEXT",
+  "reportType": "GLOBAL_REPORT_UTILIZATION",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Fri Jun 28 13:43:50 2024",
+ "timestampMillis": "1719575030562",
+ "report": {
+  "path": "/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/reports/link/syn/ulp_inst_0_plram_ctrl_bram_0_synth_1_ulp_inst_0_plram_ctrl_bram_0_utilization_synth.rpt",
+  "name": "",
+  "fileType": "TEXT",
+  "reportType": "GLOBAL_REPORT_UTILIZATION",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Fri Jun 28 13:43:50 2024",
+ "timestampMillis": "1719575030563",
+ "report": {
+  "path": "/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/reports/link/syn/ulp_inst_0_pipereg_kernel0_0_synth_1_ulp_inst_0_pipereg_kernel0_0_utilization_synth.rpt",
+  "name": "",
+  "fileType": "TEXT",
+  "reportType": "GLOBAL_REPORT_UTILIZATION",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Fri Jun 28 13:43:50 2024",
+ "timestampMillis": "1719575030563",
+ "report": {
+  "path": "/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/reports/link/syn/ulp_inst_0_pipereg_kernel1_0_synth_1_ulp_inst_0_pipereg_kernel1_0_utilization_synth.rpt",
+  "name": "",
+  "fileType": "TEXT",
+  "reportType": "GLOBAL_REPORT_UTILIZATION",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Fri Jun 28 13:43:50 2024",
+ "timestampMillis": "1719575030564",
+ "report": {
+  "path": "/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/reports/link/syn/ulp_inst_0_pipereg_pcie0_0_synth_1_ulp_inst_0_pipereg_pcie0_0_utilization_synth.rpt",
+  "name": "",
+  "fileType": "TEXT",
+  "reportType": "GLOBAL_REPORT_UTILIZATION",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Fri Jun 28 13:43:50 2024",
+ "timestampMillis": "1719575030565",
+ "report": {
+  "path": "/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/reports/link/syn/ulp_inst_0_pipereg_pl_axi0_0_synth_1_ulp_inst_0_pipereg_pl_axi0_0_utilization_synth.rpt",
+  "name": "",
+  "fileType": "TEXT",
+  "reportType": "GLOBAL_REPORT_UTILIZATION",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Fri Jun 28 13:43:50 2024",
+ "timestampMillis": "1719575030565",
+ "report": {
+  "path": "/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/reports/link/syn/ulp_inst_0_reset_sync_kernel0_0_synth_1_ulp_inst_0_reset_sync_kernel0_0_utilization_synth.rpt",
+  "name": "",
+  "fileType": "TEXT",
+  "reportType": "GLOBAL_REPORT_UTILIZATION",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Fri Jun 28 13:43:50 2024",
+ "timestampMillis": "1719575030571",
+ "report": {
+  "path": "/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/reports/link/syn/ulp_inst_0_reset_sync_kernel1_0_synth_1_ulp_inst_0_reset_sync_kernel1_0_utilization_synth.rpt",
+  "name": "",
+  "fileType": "TEXT",
+  "reportType": "GLOBAL_REPORT_UTILIZATION",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Fri Jun 28 13:43:50 2024",
+ "timestampMillis": "1719575030579",
+ "report": {
+  "path": "/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/reports/link/syn/ulp_inst_0_reset_sync_fixed_0_synth_1_ulp_inst_0_reset_sync_fixed_0_utilization_synth.rpt",
+  "name": "",
+  "fileType": "TEXT",
+  "reportType": "GLOBAL_REPORT_UTILIZATION",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Fri Jun 28 13:43:50 2024",
+ "timestampMillis": "1719575030601",
+ "report": {
+  "path": "/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/reports/link/syn/ulp_inst_0_axi_noc_aie_prog_0_synth_1_ulp_inst_0_axi_noc_aie_prog_0_utilization_synth.rpt",
+  "name": "",
+  "fileType": "TEXT",
+  "reportType": "GLOBAL_REPORT_UTILIZATION",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Fri Jun 28 13:43:50 2024",
+ "timestampMillis": "1719575030602",
+ "report": {
+  "path": "/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/reports/link/syn/ulp_inst_0_axi_dbg_fw_0_synth_1_ulp_inst_0_axi_dbg_fw_0_utilization_synth.rpt",
+  "name": "",
+  "fileType": "TEXT",
+  "reportType": "GLOBAL_REPORT_UTILIZATION",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Fri Jun 28 13:43:50 2024",
+ "timestampMillis": "1719575030603",
+ "report": {
+  "path": "/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/reports/link/syn/ulp_inst_0_gate_dbgfw_or_0_synth_1_ulp_inst_0_gate_dbgfw_or_0_utilization_synth.rpt",
+  "name": "",
+  "fileType": "TEXT",
+  "reportType": "GLOBAL_REPORT_UTILIZATION",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Fri Jun 28 13:43:50 2024",
+ "timestampMillis": "1719575030604",
+ "report": {
+  "path": "/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/reports/link/syn/ulp_inst_0_setup_aie_0_0_synth_1_ulp_inst_0_setup_aie_0_0_utilization_synth.rpt",
+  "name": "setup_aie",
+  "fileType": "TEXT",
+  "reportType": "GLOBAL_REPORT_UTILIZATION",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Fri Jun 28 13:43:50 2024",
+ "timestampMillis": "1719575030604",
+ "report": {
+  "path": "/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/reports/link/syn/ulp_inst_0_sink_from_aie_0_0_synth_1_ulp_inst_0_sink_from_aie_0_0_utilization_synth.rpt",
+  "name": "sink_from_aie",
+  "fileType": "TEXT",
+  "reportType": "GLOBAL_REPORT_UTILIZATION",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Fri Jun 28 13:43:50 2024",
+ "timestampMillis": "1719575030605",
+ "report": {
+  "path": "/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/reports/link/syn/ulp_inst_0_dwc_setup_aie_0_s_0_synth_1_ulp_inst_0_dwc_setup_aie_0_s_0_utilization_synth.rpt",
+  "name": "",
+  "fileType": "TEXT",
+  "reportType": "GLOBAL_REPORT_UTILIZATION",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Fri Jun 28 13:43:50 2024",
+ "timestampMillis": "1719575030606",
+ "report": {
+  "path": "/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/reports/link/imp/impl_1_system_diagram.json",
+  "name": "",
+  "fileType": "JSON",
+  "reportType": "SYSTEM_DIAGRAM_PLUS",
+  "cmdId": "bbc110f0-d72c-4833-ab64-a88a4ef97a41"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Fri Jun 28 13:43:50 2024",
+ "timestampMillis": "1719575030610",
+ "report": {
+  "path": "/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/reports/link/imp/impl_1_xilinx_vck5000_gen4x8_qdma_2_202220_1_bb_locked_timing_summary_routed.rpt",
+  "name": "",
+  "fileType": "TEXT",
+  "reportType": "GLOBAL_REPORT_TIMING_SUMMARY",
+  "cmdId": "bbc110f0-d72c-4833-ab64-a88a4ef97a41"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Fri Jun 28 13:43:50 2024",
+ "timestampMillis": "1719575030620",
+ "report": {
+  "path": "/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/reports/link/imp/impl_1_xilinx_vck5000_gen4x8_qdma_2_202220_1_bb_locked_timing_summary_routed.rpx",
+  "name": "",
+  "fileType": "BINARY_PROTOBUF",
+  "reportType": "GLOBAL_REPORT_TIMING_SUMMARY",
+  "cmdId": "bbc110f0-d72c-4833-ab64-a88a4ef97a41"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Fri Jun 28 13:43:50 2024",
+ "timestampMillis": "1719575030630",
+ "report": {
+  "path": "/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/reports/link/imp/impl_1_xilinx_vck5000_gen4x8_qdma_2_202220_1_bb_locked_timing_summary_routed.rpv",
+  "name": "",
+  "fileType": "BINARY_PROTOBUF",
+  "reportType": "GLOBAL_REPORT_TIMING_SUMMARY_CONCISE",
+  "cmdId": "bbc110f0-d72c-4833-ab64-a88a4ef97a41"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Fri Jun 28 13:43:50 2024",
+ "timestampMillis": "1719575030702",
+ "status": {
+  "cmdId": "d65935a6-5554-4c35-8766-79b9568a7d0a",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Fri Jun 28 13:43:50 2024",
+ "timestampMillis": "1719575030754",
+ "status": {
+  "cmdId": "d37eb607-c614-43d9-958f-bb2086450e83",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_SubCmdStep",
+ "dateTimestamp": "Fri Jun 28 13:43:50 2024",
+ "timestampMillis": "1719575030780",
+ "buildStep": {
+  "cmdId": "36b180d6-10bf-460f-a26e-0ae17464e0ec",
+  "name": "rtdgen",
+  "logFile": "",
+  "commandLine": "rtdgen",
+  "args": [],
+  "iniFiles": [],
+  "cwd": "/home/users/eleonora.cabai/Documents/K-Means-AIE/hw"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Fri Jun 28 13:43:50 2024",
+ "timestampMillis": "1719575030780",
+ "status": {
+  "cmdId": "36b180d6-10bf-460f-a26e-0ae17464e0ec",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Fri Jun 28 13:43:50 2024",
+ "timestampMillis": "1719575030798",
+ "report": {
+  "path": "/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/int/overlay_hw_xml.rtd",
+  "name": "",
+  "fileType": "JSON",
+  "reportType": "XCLBIN_INFO",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_SubCmdStep",
+ "dateTimestamp": "Fri Jun 28 13:43:50 2024",
+ "timestampMillis": "1719575030804",
+ "buildStep": {
+  "cmdId": "436cc76e-3cad-4c40-bc83-08a0b5b4b9cd",
+  "name": "cf2sw",
+  "logFile": "",
+  "commandLine": "cf2sw -a /home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/int/address_map.xml -sdsl /home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/int/sdsl.dat -xclbin /home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/int/xclbin_orig.xml -rtd /home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/int/overlay_hw.rtd -o /home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/int/overlay_hw.xml",
+  "args": [
+   "-a",
+   "/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/int/address_map.xml",
+   "-sdsl",
+   "/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/int/sdsl.dat",
+   "-xclbin",
+   "/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/int/xclbin_orig.xml",
+   "-rtd",
+   "/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/int/overlay_hw.rtd",
+   "-o",
+   "/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/int/overlay_hw.xml"
+  ],
+  "iniFiles": [],
+  "cwd": "/home/users/eleonora.cabai/Documents/K-Means-AIE/hw"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Fri Jun 28 13:43:50 2024",
+ "timestampMillis": "1719575030805",
+ "status": {
+  "cmdId": "436cc76e-3cad-4c40-bc83-08a0b5b4b9cd",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Fri Jun 28 13:43:56 2024",
+ "timestampMillis": "1719575036942",
+ "status": {
+  "cmdId": "436cc76e-3cad-4c40-bc83-08a0b5b4b9cd",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_SubCmdStep",
+ "dateTimestamp": "Fri Jun 28 13:43:56 2024",
+ "timestampMillis": "1719575036946",
+ "buildStep": {
+  "cmdId": "7e88f3f7-540a-4311-9e4b-ef91f19c4150",
+  "name": "rtdgen",
+  "logFile": "",
+  "commandLine": "writeSystemDiagram",
+  "args": [
+   "/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/int/overlay_hw.rtd",
+   "/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/int/systemDiagramModelSlrBaseAddress.json"
+  ],
+  "iniFiles": [],
+  "cwd": "/home/users/eleonora.cabai/Documents/K-Means-AIE/hw"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Fri Jun 28 13:43:56 2024",
+ "timestampMillis": "1719575036947",
+ "status": {
+  "cmdId": "7e88f3f7-540a-4311-9e4b-ef91f19c4150",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Fri Jun 28 13:43:56 2024",
+ "timestampMillis": "1719575036950",
+ "report": {
+  "path": "/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/int/systemDiagramModelSlrBaseAddress.json",
+  "name": "",
+  "fileType": "JSON",
+  "reportType": "SYSTEM_DIAGRAM_PLUS",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Fri Jun 28 13:43:56 2024",
+ "timestampMillis": "1719575036950",
+ "status": {
+  "cmdId": "7e88f3f7-540a-4311-9e4b-ef91f19c4150",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_SubCmdStep",
+ "dateTimestamp": "Fri Jun 28 13:43:56 2024",
+ "timestampMillis": "1719575036951",
+ "buildStep": {
+  "cmdId": "403868f6-c0cd-4079-9ea5-6c1f5f94ef74",
+  "name": "rtdgen",
+  "logFile": "",
+  "commandLine": "writeAutomationSummary",
+  "args": [
+   "/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/int/automation_summary.txt"
+  ],
+  "iniFiles": [],
+  "cwd": "/home/users/eleonora.cabai/Documents/K-Means-AIE/hw"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Fri Jun 28 13:43:56 2024",
+ "timestampMillis": "1719575036951",
+ "status": {
+  "cmdId": "403868f6-c0cd-4079-9ea5-6c1f5f94ef74",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Fri Jun 28 13:43:56 2024",
+ "timestampMillis": "1719575036955",
+ "report": {
+  "path": "/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/int/automation_summary.txt",
+  "name": "",
+  "fileType": "TEXT",
+  "reportType": "VITIS_DESIGN_FLOW",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Fri Jun 28 13:43:56 2024",
+ "timestampMillis": "1719575036956",
+ "status": {
+  "cmdId": "403868f6-c0cd-4079-9ea5-6c1f5f94ef74",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Fri Jun 28 13:43:56 2024",
+ "timestampMillis": "1719575036958",
+ "status": {
+  "cmdId": "36b180d6-10bf-460f-a26e-0ae17464e0ec",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_SubCmdStep",
+ "dateTimestamp": "Fri Jun 28 13:43:56 2024",
+ "timestampMillis": "1719575036968",
+ "buildStep": {
+  "cmdId": "e2daca3b-a443-47e4-8642-abfe3d4865eb",
+  "name": "xclbinutil",
+  "logFile": "",
+  "commandLine": "xclbinutil --add-section DEBUG_IP_LAYOUT:JSON:/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/int/debug_ip_layout.rtd --add-section BITSTREAM_PARTIAL_PDI:raw:/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/int/partial.pdi --force --target hw --key-value SYS:dfx_enable:true --add-section :JSON:/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/int/overlay_hw.rtd --append-section :JSON:/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/int/appendSection.rtd --add-section CLOCK_FREQ_TOPOLOGY:JSON:/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/int/overlay_hw_xml.rtd --add-section BUILD_METADATA:JSON:/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/int/overlay_hw_build.rtd --add-section EMBEDDED_METADATA:RAW:/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/int/overlay_hw.xml --add-section SYSTEM_METADATA:RAW:/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/int/systemDiagramModelSlrBaseAddress.json --add-section AIE_METADATA:JSON:/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/int/aie_control_config.json --key-value SYS:PlatformVBNV:xilinx_vck5000_gen4x8_qdma_2_202220_1 --output /home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/int/overlay_hw.xclbin",
+  "args": [
+   "--add-section",
+   "DEBUG_IP_LAYOUT:JSON:/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/int/debug_ip_layout.rtd",
+   "--add-section",
+   "BITSTREAM_PARTIAL_PDI:raw:/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/int/partial.pdi",
+   "--force",
+   "--target",
+   "hw",
+   "--key-value",
+   "SYS:dfx_enable:true",
+   "--add-section",
+   ":JSON:/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/int/overlay_hw.rtd",
+   "--append-section",
+   ":JSON:/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/int/appendSection.rtd",
+   "--add-section",
+   "CLOCK_FREQ_TOPOLOGY:JSON:/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/int/overlay_hw_xml.rtd",
+   "--add-section",
+   "BUILD_METADATA:JSON:/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/int/overlay_hw_build.rtd",
+   "--add-section",
+   "EMBEDDED_METADATA:RAW:/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/int/overlay_hw.xml",
+   "--add-section",
+   "SYSTEM_METADATA:RAW:/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/int/systemDiagramModelSlrBaseAddress.json",
+   "--add-section",
+   "AIE_METADATA:JSON:/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/int/aie_control_config.json",
+   "--key-value",
+   "SYS:PlatformVBNV:xilinx_vck5000_gen4x8_qdma_2_202220_1",
+   "--output",
+   "/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/int/overlay_hw.xclbin"
+  ],
+  "iniFiles": [],
+  "cwd": "/home/users/eleonora.cabai/Documents/K-Means-AIE/hw"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Fri Jun 28 13:43:56 2024",
+ "timestampMillis": "1719575036969",
+ "status": {
+  "cmdId": "e2daca3b-a443-47e4-8642-abfe3d4865eb",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Fri Jun 28 13:43:57 2024",
+ "timestampMillis": "1719575037444",
+ "status": {
+  "cmdId": "e2daca3b-a443-47e4-8642-abfe3d4865eb",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_SubCmdStep",
+ "dateTimestamp": "Fri Jun 28 13:43:57 2024",
+ "timestampMillis": "1719575037448",
+ "buildStep": {
+  "cmdId": "c053be1c-e26e-4154-8e29-6f1c3de6ffbf",
+  "name": "xclbinutilinfo",
+  "logFile": "",
+  "commandLine": "xclbinutil --quiet --force --info /home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/int/overlay_hw.xclbin.info --input /home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/int/overlay_hw.xclbin",
+  "args": [
+   "--quiet",
+   "--force",
+   "--info",
+   "/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/int/overlay_hw.xclbin.info",
+   "--input",
+   "/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/int/overlay_hw.xclbin"
+  ],
+  "iniFiles": [],
+  "cwd": "/home/users/eleonora.cabai/Documents/K-Means-AIE/hw"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Fri Jun 28 13:43:57 2024",
+ "timestampMillis": "1719575037452",
+ "status": {
+  "cmdId": "c053be1c-e26e-4154-8e29-6f1c3de6ffbf",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Fri Jun 28 13:43:58 2024",
+ "timestampMillis": "1719575038142",
+ "status": {
+  "cmdId": "c053be1c-e26e-4154-8e29-6f1c3de6ffbf",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_SubCmdStep",
+ "dateTimestamp": "Fri Jun 28 13:43:58 2024",
+ "timestampMillis": "1719575038150",
+ "buildStep": {
+  "cmdId": "6d24eabb-317a-4ed7-b962-ade6dbd192b2",
+  "name": "generate_sc_driver",
+  "logFile": "",
+  "commandLine": "",
+  "args": [],
+  "iniFiles": [],
+  "cwd": "/home/users/eleonora.cabai/Documents/K-Means-AIE/hw"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Fri Jun 28 13:43:58 2024",
+ "timestampMillis": "1719575038150",
+ "status": {
+  "cmdId": "6d24eabb-317a-4ed7-b962-ade6dbd192b2",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Fri Jun 28 13:43:58 2024",
+ "timestampMillis": "1719575038151",
+ "status": {
+  "cmdId": "6d24eabb-317a-4ed7-b962-ade6dbd192b2",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Fri Jun 28 13:43:58 2024",
+ "timestampMillis": "1719575038199",
+ "report": {
+  "path": "/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/reports/link/system_estimate_overlay_hw.xtxt",
+  "name": "",
+  "fileType": "TEXT",
+  "reportType": "GLOBAL_SYSTEM_ESTIMATE",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Fri Jun 28 13:43:59 2024",
+ "timestampMillis": "1719575039073",
+ "report": {
+  "path": "/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/logs/optraceViewer.html",
+  "name": "",
+  "fileType": "HTML",
+  "reportType": "OPERATION_TRACE",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Fri Jun 28 13:43:59 2024",
+ "timestampMillis": "1719575039092",
+ "status": {
+  "cmdId": "8052e49c-5b4f-4b06-993e-5302393ecff6",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Fri Jun 28 13:43:59 2024",
+ "timestampMillis": "1719575039338",
+ "report": {
+  "path": "/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/reports/link/v++_link_overlay_hw_guidance.html",
+  "name": "",
+  "fileType": "HTML",
+  "reportType": "GLOBAL_RULECHECK_GUIDANCE",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Fri Jun 28 13:43:59 2024",
+ "timestampMillis": "1719575039339",
+ "report": {
+  "path": "/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/v++_link_overlay_hw_guidance.pb3",
+  "name": "",
+  "fileType": "BINARY_PROTOBUF",
+  "reportType": "GLOBAL_RULECHECK_GUIDANCE",
+  "cmdId": ""
+ }
+}
+</ENTRY>

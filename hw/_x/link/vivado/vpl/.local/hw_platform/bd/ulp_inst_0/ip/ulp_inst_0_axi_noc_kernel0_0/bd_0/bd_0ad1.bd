@@ -1,0 +1,4036 @@
+{
+  "design": {
+    "design_info": {
+      "boundary_crc": "0x990F65472A567112",
+      "design_src": "SBD",
+      "device": "xcvc1902-vsvd1760-2MP-e-S",
+      "name": "bd_0ad1",
+      "rev_ctrl_bd_flag": "RevCtrlBdOff",
+      "scoped": "true",
+      "synth_flow_mode": "None",
+      "tool_version": "2022.2",
+      "validated": "true"
+    },
+    "design_tree": {
+      "M02_INI_stub_nmu": "",
+      "M00_INI_stub_nmu": "",
+      "M01_INI_stub_nmu": "",
+      "stub_clock": "",
+      "no_black_box": ""
+    },
+    "interface_ports": {
+      "M00_INI": {
+        "mode": "Master",
+        "vlnv_bus_definition": "xilinx.com:interface:inimm:1.0",
+        "vlnv": "xilinx.com:interface:inimm_rtl:1.0",
+        "parameters": {
+          "ADDR_WIDTH": {
+            "value": "64",
+            "value_src": "default"
+          },
+          "COMPUTED_STRATEGY": {
+            "value": "load",
+            "value_src": "default_prop"
+          },
+          "INI_STRATEGY": {
+            "value": "load"
+          },
+          "MY_CATEGORY": {
+            "value": "pl",
+            "value_src": "default"
+          },
+          "NOC_ID": {
+            "value": "-1",
+            "value_src": "default"
+          },
+          "WRITE_BUFFER_SIZE": {
+            "value": "80",
+            "value_src": "default"
+          }
+        },
+        "memory_map_ref": "M00_INI"
+      },
+      "M01_INI": {
+        "mode": "Master",
+        "vlnv_bus_definition": "xilinx.com:interface:inimm:1.0",
+        "vlnv": "xilinx.com:interface:inimm_rtl:1.0",
+        "parameters": {
+          "ADDR_WIDTH": {
+            "value": "64",
+            "value_src": "default"
+          },
+          "COMPUTED_STRATEGY": {
+            "value": "load",
+            "value_src": "default_prop"
+          },
+          "INI_STRATEGY": {
+            "value": "load"
+          },
+          "MY_CATEGORY": {
+            "value": "pl",
+            "value_src": "default"
+          },
+          "NOC_ID": {
+            "value": "-1",
+            "value_src": "default"
+          },
+          "WRITE_BUFFER_SIZE": {
+            "value": "80",
+            "value_src": "default"
+          }
+        },
+        "memory_map_ref": "M01_INI"
+      },
+      "M02_INI": {
+        "mode": "Master",
+        "vlnv_bus_definition": "xilinx.com:interface:inimm:1.0",
+        "vlnv": "xilinx.com:interface:inimm_rtl:1.0",
+        "parameters": {
+          "ADDR_WIDTH": {
+            "value": "64",
+            "value_src": "default"
+          },
+          "COMPUTED_STRATEGY": {
+            "value": "load",
+            "value_src": "default_prop"
+          },
+          "INI_STRATEGY": {
+            "value": "load"
+          },
+          "MY_CATEGORY": {
+            "value": "pl",
+            "value_src": "default"
+          },
+          "NOC_ID": {
+            "value": "-1",
+            "value_src": "default"
+          },
+          "WRITE_BUFFER_SIZE": {
+            "value": "80",
+            "value_src": "default"
+          }
+        },
+        "memory_map_ref": "M02_INI"
+      }
+    },
+    "components": {
+      "M02_INI_stub_nmu": {
+        "vlnv": "xilinx.com:ip:noc_nmu:1.0",
+        "xci_name": "bd_0ad1_M02_INI_stub_nmu_0",
+        "xci_path": "ip/ip_0/bd_0ad1_M02_INI_stub_nmu_0.xci",
+        "inst_hier_path": "M02_INI_stub_nmu",
+        "parameters": {
+          "ATTR_FILE": {
+            "value": "nocattrs.dat"
+          },
+          "NOC_FREQ": {
+            "value": "1000"
+          },
+          "USER_PHYS_NAME": {
+            "value": "NOC_NMU512_X3Y0"
+          },
+          "USER_REG_ADDR_DST0": {
+            "value": "0x00000"
+          },
+          "USER_REG_ADDR_DST1": {
+            "value": "0x00000"
+          },
+          "USER_REG_ADDR_DST2": {
+            "value": "0x00000"
+          },
+          "USER_REG_ADDR_DST3": {
+            "value": "0x00000"
+          },
+          "USER_REG_ADDR_DST4": {
+            "value": "0x00000"
+          },
+          "USER_REG_ADDR_DST5": {
+            "value": "0x00000"
+          },
+          "USER_REG_ADDR_DST6": {
+            "value": "0x00000"
+          },
+          "USER_REG_ADDR_DST7": {
+            "value": "0x00000"
+          },
+          "USER_REG_ADDR_DST8": {
+            "value": "0x00000"
+          },
+          "USER_REG_ADDR_DST9": {
+            "value": "0x00000"
+          },
+          "USER_REG_ADDR_DST10": {
+            "value": "0x00000"
+          },
+          "USER_REG_ADDR_DST11": {
+            "value": "0x00000"
+          },
+          "USER_REG_ADDR_DST12": {
+            "value": "0x00000"
+          },
+          "USER_REG_ADDR_DST13": {
+            "value": "0x00000"
+          },
+          "USER_REG_ADDR_DST14": {
+            "value": "0x00000"
+          },
+          "USER_REG_ADDR_DST15": {
+            "value": "0x00000"
+          },
+          "USER_REG_ADDR_ENABLE": {
+            "value": "0x0000"
+          },
+          "USER_REG_ADDR_MADDR0": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_MADDR1": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_MADDR2": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_MADDR3": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_MADDR4": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_MADDR5": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_MADDR6": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_MADDR7": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_MADDR8": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_MADDR9": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_MADDR10": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_MADDR11": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_MADDR12": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_MADDR13": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_MADDR14": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_MADDR15": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_MASK0": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_MASK1": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_MASK2": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_MASK3": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_MASK4": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_MASK5": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_MASK6": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_MASK7": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_MASK8": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_MASK9": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_MASK10": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_MASK11": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_MASK12": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_MASK13": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_MASK14": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_MASK15": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_REMAP": {
+            "value": "0x0000"
+          },
+          "USER_REG_ADDR_RPADDR0": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_RPADDR1": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_RPADDR2": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_RPADDR3": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_RPADDR4": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_RPADDR5": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_RPADDR6": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_RPADDR7": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_RPADDR8": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_RPADDR9": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_RPADDR10": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_RPADDR11": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_RPADDR12": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_RPADDR13": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_RPADDR14": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_RPADDR15": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADR_MAP_CPM": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_ADR_MAP_FPD_AFI_0": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_ADR_MAP_FPD_AFI_1": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_ADR_MAP_LPD_AFI_FS": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_ADR_MAP_ME_ARRAY_0": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_ADR_MAP_ME_ARRAY_1": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_ADR_MAP_ME_ARRAY_2": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_ADR_MAP_ME_ARRAY_3": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_ADR_MAP_PCIE": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_ADR_MAP_PMC": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_ADR_MAP_PMC_ALIAS_0": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_ADR_MAP_PMC_ALIAS_1": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_ADR_MAP_PMC_ALIAS_2": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_ADR_MAP_PMC_ALIAS_3": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_ADR_MAP_QSPI": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_ADR_MAP_STM_GIC": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_ADR_MAP_XPDS": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_AXI_LOOPBACK": {
+            "value": "0x00"
+          },
+          "USER_REG_AXI_NON_MOD_DISABLE": {
+            "value": "0x0"
+          },
+          "USER_REG_AXI_PAR_CHK": {
+            "value": "0x0"
+          },
+          "USER_REG_CHOPSIZE": {
+            "value": "0xA"
+          },
+          "USER_REG_DDR_ADR_MAP0": {
+            "value": "0x06688"
+          },
+          "USER_REG_DDR_ADR_MAP1": {
+            "value": "0x01FFF"
+          },
+          "USER_REG_DDR_ADR_MAP2": {
+            "value": "0x01FFF"
+          },
+          "USER_REG_DDR_ADR_MAP3": {
+            "value": "0x01FFF"
+          },
+          "USER_REG_DDR_ADR_MAP4": {
+            "value": "0x01FFF"
+          },
+          "USER_REG_DDR_ADR_MAP5": {
+            "value": "0x01FFF"
+          },
+          "USER_REG_DDR_ADR_MAP6": {
+            "value": "0x01FFF"
+          },
+          "USER_REG_DDR_DST_MAP0": {
+            "value": "0x900"
+          },
+          "USER_REG_DDR_DST_MAP1": {
+            "value": "0x600"
+          },
+          "USER_REG_DDR_DST_MAP2": {
+            "value": "0x800"
+          },
+          "USER_REG_DDR_DST_MAP3": {
+            "value": "0x700"
+          },
+          "USER_REG_DDR_DST_MAP4": {
+            "value": "0xFC0"
+          },
+          "USER_REG_DDR_DST_MAP5": {
+            "value": "0xFC0"
+          },
+          "USER_REG_DDR_DST_MAP6": {
+            "value": "0xFC0"
+          },
+          "USER_REG_DDR_DST_MAP7": {
+            "value": "0xFC0"
+          },
+          "USER_REG_DWIDTH": {
+            "value": "0x6"
+          },
+          "USER_REG_ECC_CHK_EN": {
+            "value": "0x1"
+          },
+          "USER_REG_HBM_MAP_T0_CH0": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T0_CH1": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T0_CH2": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T0_CH3": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T0_CH4": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T0_CH5": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T0_CH6": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T0_CH7": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T0_CH8": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T0_CH9": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T0_CH10": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T0_CH11": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T0_CH12": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T0_CH13": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T0_CH14": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T0_CH15": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T1_CH0": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T1_CH1": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T1_CH2": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T1_CH3": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T1_CH4": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T1_CH5": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T1_CH6": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T1_CH7": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T1_CH8": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T1_CH9": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T1_CH10": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T1_CH11": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T1_CH12": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T1_CH13": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T1_CH14": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T1_CH15": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T2_CH0": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T2_CH1": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T2_CH2": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T2_CH3": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T2_CH4": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T2_CH5": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T2_CH6": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T2_CH7": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T2_CH8": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T2_CH9": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T2_CH10": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T2_CH11": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T2_CH12": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T2_CH13": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T2_CH14": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T2_CH15": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T3_CH0": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T3_CH1": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T3_CH2": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T3_CH3": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T3_CH4": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T3_CH5": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T3_CH6": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T3_CH7": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T3_CH8": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T3_CH9": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T3_CH10": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T3_CH11": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T3_CH12": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T3_CH13": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T3_CH14": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T3_CH15": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_MODE_SELECT": {
+            "value": "0x0000"
+          },
+          "USER_REG_OUTSTANDING_RD_TXN": {
+            "value": "0x40"
+          },
+          "USER_REG_OUTSTANDING_WR_TXN": {
+            "value": "0x40"
+          },
+          "USER_REG_PRIORITY": {
+            "value": "0x0"
+          },
+          "USER_REG_RD_AXPROT_SEL": {
+            "value": "0x00"
+          },
+          "USER_REG_RD_RATE_CREDIT_DROP": {
+            "value": "0x004"
+          },
+          "USER_REG_RD_RATE_CREDIT_LIMIT": {
+            "value": "0x0100"
+          },
+          "USER_REG_RD_VCA_TOKEN0": {
+            "value": "0x14"
+          },
+          "USER_REG_RPOISON_TO_SLVERR": {
+            "value": "0x0"
+          },
+          "USER_REG_RROB_RAM_SETTING": {
+            "value": "0x012"
+          },
+          "USER_REG_SMID_SEL": {
+            "value": "0x00000"
+          },
+          "USER_REG_SRC": {
+            "value": "0x200"
+          },
+          "USER_REG_TBASE_AXI_TIMEOUT": {
+            "value": "0x1"
+          },
+          "USER_REG_TBASE_MODE_RLIMIT_RD": {
+            "value": "0x2"
+          },
+          "USER_REG_TBASE_MODE_RLIMIT_WR": {
+            "value": "0x2"
+          },
+          "USER_REG_TBASE_TRK_TIMEOUT": {
+            "value": "0x1"
+          },
+          "USER_REG_VC_MAP": {
+            "value": "0x688"
+          },
+          "USER_REG_WBUF_LAUNCH_SIZE": {
+            "value": "0x10"
+          },
+          "USER_REG_WBUF_RAM_SETTING": {
+            "value": "0x012"
+          },
+          "USER_REG_WR_AXPROT_SEL": {
+            "value": "0x00"
+          },
+          "USER_REG_WR_RATE_CREDIT_DROP": {
+            "value": "0x004"
+          },
+          "USER_REG_WR_RATE_CREDIT_LIMIT": {
+            "value": "0x0100"
+          },
+          "USER_REG_WR_VCA_TOKEN0": {
+            "value": "0xFF"
+          }
+        },
+        "hdl_attributes": {
+          "DONT_TOUCH": {
+            "value": "true"
+          }
+        }
+      },
+      "M00_INI_stub_nmu": {
+        "vlnv": "xilinx.com:ip:noc_nmu:1.0",
+        "xci_name": "bd_0ad1_M00_INI_stub_nmu_0",
+        "xci_path": "ip/ip_1/bd_0ad1_M00_INI_stub_nmu_0.xci",
+        "inst_hier_path": "M00_INI_stub_nmu",
+        "parameters": {
+          "ATTR_FILE": {
+            "value": "nocattrs.dat"
+          },
+          "NOC_FREQ": {
+            "value": "1000"
+          },
+          "USER_PHYS_NAME": {
+            "value": "NOC_NMU512_X0Y0"
+          },
+          "USER_REG_ADDR_DST0": {
+            "value": "0x00000"
+          },
+          "USER_REG_ADDR_DST1": {
+            "value": "0x00000"
+          },
+          "USER_REG_ADDR_DST2": {
+            "value": "0x00000"
+          },
+          "USER_REG_ADDR_DST3": {
+            "value": "0x00000"
+          },
+          "USER_REG_ADDR_DST4": {
+            "value": "0x00000"
+          },
+          "USER_REG_ADDR_DST5": {
+            "value": "0x00000"
+          },
+          "USER_REG_ADDR_DST6": {
+            "value": "0x00000"
+          },
+          "USER_REG_ADDR_DST7": {
+            "value": "0x00000"
+          },
+          "USER_REG_ADDR_DST8": {
+            "value": "0x00000"
+          },
+          "USER_REG_ADDR_DST9": {
+            "value": "0x00000"
+          },
+          "USER_REG_ADDR_DST10": {
+            "value": "0x00000"
+          },
+          "USER_REG_ADDR_DST11": {
+            "value": "0x00000"
+          },
+          "USER_REG_ADDR_DST12": {
+            "value": "0x00000"
+          },
+          "USER_REG_ADDR_DST13": {
+            "value": "0x00000"
+          },
+          "USER_REG_ADDR_DST14": {
+            "value": "0x00000"
+          },
+          "USER_REG_ADDR_DST15": {
+            "value": "0x00000"
+          },
+          "USER_REG_ADDR_ENABLE": {
+            "value": "0x0000"
+          },
+          "USER_REG_ADDR_MADDR0": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_MADDR1": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_MADDR2": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_MADDR3": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_MADDR4": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_MADDR5": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_MADDR6": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_MADDR7": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_MADDR8": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_MADDR9": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_MADDR10": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_MADDR11": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_MADDR12": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_MADDR13": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_MADDR14": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_MADDR15": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_MASK0": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_MASK1": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_MASK2": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_MASK3": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_MASK4": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_MASK5": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_MASK6": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_MASK7": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_MASK8": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_MASK9": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_MASK10": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_MASK11": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_MASK12": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_MASK13": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_MASK14": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_MASK15": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_REMAP": {
+            "value": "0x0000"
+          },
+          "USER_REG_ADDR_RPADDR0": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_RPADDR1": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_RPADDR2": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_RPADDR3": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_RPADDR4": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_RPADDR5": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_RPADDR6": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_RPADDR7": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_RPADDR8": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_RPADDR9": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_RPADDR10": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_RPADDR11": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_RPADDR12": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_RPADDR13": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_RPADDR14": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_RPADDR15": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADR_MAP_CPM": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_ADR_MAP_FPD_AFI_0": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_ADR_MAP_FPD_AFI_1": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_ADR_MAP_LPD_AFI_FS": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_ADR_MAP_ME_ARRAY_0": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_ADR_MAP_ME_ARRAY_1": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_ADR_MAP_ME_ARRAY_2": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_ADR_MAP_ME_ARRAY_3": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_ADR_MAP_PCIE": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_ADR_MAP_PMC": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_ADR_MAP_PMC_ALIAS_0": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_ADR_MAP_PMC_ALIAS_1": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_ADR_MAP_PMC_ALIAS_2": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_ADR_MAP_PMC_ALIAS_3": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_ADR_MAP_QSPI": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_ADR_MAP_STM_GIC": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_ADR_MAP_XPDS": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_AXI_LOOPBACK": {
+            "value": "0x00"
+          },
+          "USER_REG_AXI_NON_MOD_DISABLE": {
+            "value": "0x0"
+          },
+          "USER_REG_AXI_PAR_CHK": {
+            "value": "0x0"
+          },
+          "USER_REG_CHOPSIZE": {
+            "value": "0xA"
+          },
+          "USER_REG_DDR_ADR_MAP0": {
+            "value": "0x06688"
+          },
+          "USER_REG_DDR_ADR_MAP1": {
+            "value": "0x01FFF"
+          },
+          "USER_REG_DDR_ADR_MAP2": {
+            "value": "0x01FFF"
+          },
+          "USER_REG_DDR_ADR_MAP3": {
+            "value": "0x01FFF"
+          },
+          "USER_REG_DDR_ADR_MAP4": {
+            "value": "0x01FFF"
+          },
+          "USER_REG_DDR_ADR_MAP5": {
+            "value": "0x01FFF"
+          },
+          "USER_REG_DDR_ADR_MAP6": {
+            "value": "0x01FFF"
+          },
+          "USER_REG_DDR_DST_MAP0": {
+            "value": "0x880"
+          },
+          "USER_REG_DDR_DST_MAP1": {
+            "value": "0x580"
+          },
+          "USER_REG_DDR_DST_MAP2": {
+            "value": "0x780"
+          },
+          "USER_REG_DDR_DST_MAP3": {
+            "value": "0x680"
+          },
+          "USER_REG_DDR_DST_MAP4": {
+            "value": "0xFC0"
+          },
+          "USER_REG_DDR_DST_MAP5": {
+            "value": "0xFC0"
+          },
+          "USER_REG_DDR_DST_MAP6": {
+            "value": "0xFC0"
+          },
+          "USER_REG_DDR_DST_MAP7": {
+            "value": "0xFC0"
+          },
+          "USER_REG_DWIDTH": {
+            "value": "0x6"
+          },
+          "USER_REG_ECC_CHK_EN": {
+            "value": "0x1"
+          },
+          "USER_REG_HBM_MAP_T0_CH0": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T0_CH1": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T0_CH2": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T0_CH3": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T0_CH4": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T0_CH5": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T0_CH6": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T0_CH7": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T0_CH8": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T0_CH9": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T0_CH10": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T0_CH11": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T0_CH12": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T0_CH13": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T0_CH14": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T0_CH15": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T1_CH0": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T1_CH1": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T1_CH2": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T1_CH3": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T1_CH4": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T1_CH5": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T1_CH6": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T1_CH7": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T1_CH8": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T1_CH9": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T1_CH10": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T1_CH11": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T1_CH12": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T1_CH13": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T1_CH14": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T1_CH15": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T2_CH0": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T2_CH1": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T2_CH2": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T2_CH3": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T2_CH4": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T2_CH5": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T2_CH6": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T2_CH7": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T2_CH8": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T2_CH9": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T2_CH10": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T2_CH11": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T2_CH12": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T2_CH13": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T2_CH14": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T2_CH15": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T3_CH0": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T3_CH1": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T3_CH2": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T3_CH3": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T3_CH4": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T3_CH5": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T3_CH6": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T3_CH7": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T3_CH8": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T3_CH9": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T3_CH10": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T3_CH11": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T3_CH12": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T3_CH13": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T3_CH14": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T3_CH15": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_MODE_SELECT": {
+            "value": "0x0000"
+          },
+          "USER_REG_OUTSTANDING_RD_TXN": {
+            "value": "0x40"
+          },
+          "USER_REG_OUTSTANDING_WR_TXN": {
+            "value": "0x40"
+          },
+          "USER_REG_PRIORITY": {
+            "value": "0x0"
+          },
+          "USER_REG_RD_AXPROT_SEL": {
+            "value": "0x00"
+          },
+          "USER_REG_RD_RATE_CREDIT_DROP": {
+            "value": "0x004"
+          },
+          "USER_REG_RD_RATE_CREDIT_LIMIT": {
+            "value": "0x0100"
+          },
+          "USER_REG_RD_VCA_TOKEN0": {
+            "value": "0x14"
+          },
+          "USER_REG_RPOISON_TO_SLVERR": {
+            "value": "0x0"
+          },
+          "USER_REG_RROB_RAM_SETTING": {
+            "value": "0x012"
+          },
+          "USER_REG_SMID_SEL": {
+            "value": "0x00000"
+          },
+          "USER_REG_SRC": {
+            "value": "0x140"
+          },
+          "USER_REG_TBASE_AXI_TIMEOUT": {
+            "value": "0x1"
+          },
+          "USER_REG_TBASE_MODE_RLIMIT_RD": {
+            "value": "0x2"
+          },
+          "USER_REG_TBASE_MODE_RLIMIT_WR": {
+            "value": "0x2"
+          },
+          "USER_REG_TBASE_TRK_TIMEOUT": {
+            "value": "0x1"
+          },
+          "USER_REG_VC_MAP": {
+            "value": "0xEA8"
+          },
+          "USER_REG_WBUF_LAUNCH_SIZE": {
+            "value": "0x10"
+          },
+          "USER_REG_WBUF_RAM_SETTING": {
+            "value": "0x012"
+          },
+          "USER_REG_WR_AXPROT_SEL": {
+            "value": "0x00"
+          },
+          "USER_REG_WR_RATE_CREDIT_DROP": {
+            "value": "0x004"
+          },
+          "USER_REG_WR_RATE_CREDIT_LIMIT": {
+            "value": "0x0100"
+          },
+          "USER_REG_WR_VCA_TOKEN0": {
+            "value": "0xFF"
+          }
+        },
+        "hdl_attributes": {
+          "DONT_TOUCH": {
+            "value": "true"
+          }
+        }
+      },
+      "M01_INI_stub_nmu": {
+        "vlnv": "xilinx.com:ip:noc_nmu:1.0",
+        "xci_name": "bd_0ad1_M01_INI_stub_nmu_0",
+        "xci_path": "ip/ip_2/bd_0ad1_M01_INI_stub_nmu_0.xci",
+        "inst_hier_path": "M01_INI_stub_nmu",
+        "parameters": {
+          "ATTR_FILE": {
+            "value": "nocattrs.dat"
+          },
+          "NOC_FREQ": {
+            "value": "1000"
+          },
+          "USER_PHYS_NAME": {
+            "value": "NOC_NMU512_X1Y1"
+          },
+          "USER_REG_ADDR_DST0": {
+            "value": "0x00000"
+          },
+          "USER_REG_ADDR_DST1": {
+            "value": "0x00000"
+          },
+          "USER_REG_ADDR_DST2": {
+            "value": "0x00000"
+          },
+          "USER_REG_ADDR_DST3": {
+            "value": "0x00000"
+          },
+          "USER_REG_ADDR_DST4": {
+            "value": "0x00000"
+          },
+          "USER_REG_ADDR_DST5": {
+            "value": "0x00000"
+          },
+          "USER_REG_ADDR_DST6": {
+            "value": "0x00000"
+          },
+          "USER_REG_ADDR_DST7": {
+            "value": "0x00000"
+          },
+          "USER_REG_ADDR_DST8": {
+            "value": "0x00000"
+          },
+          "USER_REG_ADDR_DST9": {
+            "value": "0x00000"
+          },
+          "USER_REG_ADDR_DST10": {
+            "value": "0x00000"
+          },
+          "USER_REG_ADDR_DST11": {
+            "value": "0x00000"
+          },
+          "USER_REG_ADDR_DST12": {
+            "value": "0x00000"
+          },
+          "USER_REG_ADDR_DST13": {
+            "value": "0x00000"
+          },
+          "USER_REG_ADDR_DST14": {
+            "value": "0x00000"
+          },
+          "USER_REG_ADDR_DST15": {
+            "value": "0x00000"
+          },
+          "USER_REG_ADDR_ENABLE": {
+            "value": "0x0000"
+          },
+          "USER_REG_ADDR_MADDR0": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_MADDR1": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_MADDR2": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_MADDR3": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_MADDR4": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_MADDR5": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_MADDR6": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_MADDR7": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_MADDR8": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_MADDR9": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_MADDR10": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_MADDR11": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_MADDR12": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_MADDR13": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_MADDR14": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_MADDR15": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_MASK0": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_MASK1": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_MASK2": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_MASK3": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_MASK4": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_MASK5": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_MASK6": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_MASK7": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_MASK8": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_MASK9": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_MASK10": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_MASK11": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_MASK12": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_MASK13": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_MASK14": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_MASK15": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_REMAP": {
+            "value": "0x0000"
+          },
+          "USER_REG_ADDR_RPADDR0": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_RPADDR1": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_RPADDR2": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_RPADDR3": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_RPADDR4": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_RPADDR5": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_RPADDR6": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_RPADDR7": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_RPADDR8": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_RPADDR9": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_RPADDR10": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_RPADDR11": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_RPADDR12": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_RPADDR13": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_RPADDR14": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADDR_RPADDR15": {
+            "value": "0x00000000"
+          },
+          "USER_REG_ADR_MAP_CPM": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_ADR_MAP_FPD_AFI_0": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_ADR_MAP_FPD_AFI_1": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_ADR_MAP_LPD_AFI_FS": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_ADR_MAP_ME_ARRAY_0": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_ADR_MAP_ME_ARRAY_1": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_ADR_MAP_ME_ARRAY_2": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_ADR_MAP_ME_ARRAY_3": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_ADR_MAP_PCIE": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_ADR_MAP_PMC": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_ADR_MAP_PMC_ALIAS_0": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_ADR_MAP_PMC_ALIAS_1": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_ADR_MAP_PMC_ALIAS_2": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_ADR_MAP_PMC_ALIAS_3": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_ADR_MAP_QSPI": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_ADR_MAP_STM_GIC": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_ADR_MAP_XPDS": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_AXI_LOOPBACK": {
+            "value": "0x00"
+          },
+          "USER_REG_AXI_NON_MOD_DISABLE": {
+            "value": "0x0"
+          },
+          "USER_REG_AXI_PAR_CHK": {
+            "value": "0x0"
+          },
+          "USER_REG_CHOPSIZE": {
+            "value": "0xA"
+          },
+          "USER_REG_DDR_ADR_MAP0": {
+            "value": "0x06688"
+          },
+          "USER_REG_DDR_ADR_MAP1": {
+            "value": "0x01FFF"
+          },
+          "USER_REG_DDR_ADR_MAP2": {
+            "value": "0x01FFF"
+          },
+          "USER_REG_DDR_ADR_MAP3": {
+            "value": "0x01FFF"
+          },
+          "USER_REG_DDR_ADR_MAP4": {
+            "value": "0x01FFF"
+          },
+          "USER_REG_DDR_ADR_MAP5": {
+            "value": "0x01FFF"
+          },
+          "USER_REG_DDR_ADR_MAP6": {
+            "value": "0x01FFF"
+          },
+          "USER_REG_DDR_DST_MAP0": {
+            "value": "0x8C0"
+          },
+          "USER_REG_DDR_DST_MAP1": {
+            "value": "0x5C0"
+          },
+          "USER_REG_DDR_DST_MAP2": {
+            "value": "0x7C0"
+          },
+          "USER_REG_DDR_DST_MAP3": {
+            "value": "0x6C0"
+          },
+          "USER_REG_DDR_DST_MAP4": {
+            "value": "0xFC0"
+          },
+          "USER_REG_DDR_DST_MAP5": {
+            "value": "0xFC0"
+          },
+          "USER_REG_DDR_DST_MAP6": {
+            "value": "0xFC0"
+          },
+          "USER_REG_DDR_DST_MAP7": {
+            "value": "0xFC0"
+          },
+          "USER_REG_DWIDTH": {
+            "value": "0x6"
+          },
+          "USER_REG_ECC_CHK_EN": {
+            "value": "0x1"
+          },
+          "USER_REG_HBM_MAP_T0_CH0": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T0_CH1": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T0_CH2": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T0_CH3": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T0_CH4": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T0_CH5": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T0_CH6": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T0_CH7": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T0_CH8": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T0_CH9": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T0_CH10": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T0_CH11": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T0_CH12": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T0_CH13": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T0_CH14": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T0_CH15": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T1_CH0": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T1_CH1": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T1_CH2": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T1_CH3": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T1_CH4": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T1_CH5": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T1_CH6": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T1_CH7": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T1_CH8": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T1_CH9": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T1_CH10": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T1_CH11": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T1_CH12": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T1_CH13": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T1_CH14": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T1_CH15": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T2_CH0": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T2_CH1": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T2_CH2": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T2_CH3": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T2_CH4": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T2_CH5": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T2_CH6": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T2_CH7": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T2_CH8": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T2_CH9": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T2_CH10": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T2_CH11": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T2_CH12": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T2_CH13": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T2_CH14": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T2_CH15": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T3_CH0": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T3_CH1": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T3_CH2": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T3_CH3": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T3_CH4": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T3_CH5": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T3_CH6": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T3_CH7": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T3_CH8": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T3_CH9": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T3_CH10": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T3_CH11": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T3_CH12": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T3_CH13": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T3_CH14": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_HBM_MAP_T3_CH15": {
+            "value": "0x0FC0"
+          },
+          "USER_REG_MODE_SELECT": {
+            "value": "0x0000"
+          },
+          "USER_REG_OUTSTANDING_RD_TXN": {
+            "value": "0x40"
+          },
+          "USER_REG_OUTSTANDING_WR_TXN": {
+            "value": "0x40"
+          },
+          "USER_REG_PRIORITY": {
+            "value": "0x0"
+          },
+          "USER_REG_RD_AXPROT_SEL": {
+            "value": "0x00"
+          },
+          "USER_REG_RD_RATE_CREDIT_DROP": {
+            "value": "0x004"
+          },
+          "USER_REG_RD_RATE_CREDIT_LIMIT": {
+            "value": "0x0100"
+          },
+          "USER_REG_RD_VCA_TOKEN0": {
+            "value": "0x14"
+          },
+          "USER_REG_RPOISON_TO_SLVERR": {
+            "value": "0x0"
+          },
+          "USER_REG_RROB_RAM_SETTING": {
+            "value": "0x012"
+          },
+          "USER_REG_SMID_SEL": {
+            "value": "0x00000"
+          },
+          "USER_REG_SRC": {
+            "value": "0x080"
+          },
+          "USER_REG_TBASE_AXI_TIMEOUT": {
+            "value": "0x1"
+          },
+          "USER_REG_TBASE_MODE_RLIMIT_RD": {
+            "value": "0x2"
+          },
+          "USER_REG_TBASE_MODE_RLIMIT_WR": {
+            "value": "0x2"
+          },
+          "USER_REG_TBASE_TRK_TIMEOUT": {
+            "value": "0x1"
+          },
+          "USER_REG_VC_MAP": {
+            "value": "0xFAC"
+          },
+          "USER_REG_WBUF_LAUNCH_SIZE": {
+            "value": "0x10"
+          },
+          "USER_REG_WBUF_RAM_SETTING": {
+            "value": "0x012"
+          },
+          "USER_REG_WR_AXPROT_SEL": {
+            "value": "0x00"
+          },
+          "USER_REG_WR_RATE_CREDIT_DROP": {
+            "value": "0x004"
+          },
+          "USER_REG_WR_RATE_CREDIT_LIMIT": {
+            "value": "0x0100"
+          },
+          "USER_REG_WR_VCA_TOKEN0": {
+            "value": "0xFF"
+          }
+        },
+        "hdl_attributes": {
+          "DONT_TOUCH": {
+            "value": "true"
+          }
+        }
+      },
+      "stub_clock": {
+        "vlnv": "xilinx.com:ip:xlconstant:1.1",
+        "xci_name": "bd_0ad1_stub_clock_0",
+        "xci_path": "ip/ip_3/bd_0ad1_stub_clock_0.xci",
+        "inst_hier_path": "stub_clock",
+        "hdl_attributes": {
+          "DONT_TOUCH": {
+            "value": "true"
+          }
+        }
+      },
+      "no_black_box": {
+        "vlnv": "xilinx.com:ip:xlconstant:1.1",
+        "xci_name": "bd_0ad1_no_black_box_0",
+        "xci_path": "ip/ip_4/bd_0ad1_no_black_box_0.xci",
+        "inst_hier_path": "no_black_box",
+        "hdl_attributes": {
+          "DONT_TOUCH": {
+            "value": "true"
+          }
+        }
+      }
+    },
+    "nets": {
+      "m00_ini_stub_nmu_if_noc_axi_araddr": {
+        "ports": [
+          "M00_INI_stub_nmu/IF_NOC_AXI_ARADDR"
+        ],
+        "hdl_attributes": {
+          "EXT_CONN": {
+            "value": "TRUE"
+          },
+          "HIDDEN": {
+            "value": "TRUE"
+          },
+          "SIM_ONLY": {
+            "value": "TRUE"
+          }
+        }
+      },
+      "m00_ini_stub_nmu_if_noc_axi_arburst": {
+        "ports": [
+          "M00_INI_stub_nmu/IF_NOC_AXI_ARBURST"
+        ],
+        "hdl_attributes": {
+          "EXT_CONN": {
+            "value": "TRUE"
+          },
+          "HIDDEN": {
+            "value": "TRUE"
+          },
+          "SIM_ONLY": {
+            "value": "TRUE"
+          }
+        }
+      },
+      "m00_ini_stub_nmu_if_noc_axi_arcache": {
+        "ports": [
+          "M00_INI_stub_nmu/IF_NOC_AXI_ARCACHE"
+        ],
+        "hdl_attributes": {
+          "EXT_CONN": {
+            "value": "TRUE"
+          },
+          "HIDDEN": {
+            "value": "TRUE"
+          },
+          "SIM_ONLY": {
+            "value": "TRUE"
+          }
+        }
+      },
+      "m00_ini_stub_nmu_if_noc_axi_arlen": {
+        "ports": [
+          "M00_INI_stub_nmu/IF_NOC_AXI_ARLEN"
+        ],
+        "hdl_attributes": {
+          "EXT_CONN": {
+            "value": "TRUE"
+          },
+          "HIDDEN": {
+            "value": "TRUE"
+          },
+          "SIM_ONLY": {
+            "value": "TRUE"
+          }
+        }
+      },
+      "m00_ini_stub_nmu_if_noc_axi_arlock": {
+        "ports": [
+          "M00_INI_stub_nmu/IF_NOC_AXI_ARLOCK"
+        ],
+        "hdl_attributes": {
+          "EXT_CONN": {
+            "value": "TRUE"
+          },
+          "HIDDEN": {
+            "value": "TRUE"
+          },
+          "SIM_ONLY": {
+            "value": "TRUE"
+          }
+        }
+      },
+      "m00_ini_stub_nmu_if_noc_axi_arprot": {
+        "ports": [
+          "M00_INI_stub_nmu/IF_NOC_AXI_ARPROT"
+        ],
+        "hdl_attributes": {
+          "EXT_CONN": {
+            "value": "TRUE"
+          },
+          "HIDDEN": {
+            "value": "TRUE"
+          },
+          "SIM_ONLY": {
+            "value": "TRUE"
+          }
+        }
+      },
+      "m00_ini_stub_nmu_if_noc_axi_arqos": {
+        "ports": [
+          "M00_INI_stub_nmu/IF_NOC_AXI_ARQOS"
+        ],
+        "hdl_attributes": {
+          "EXT_CONN": {
+            "value": "TRUE"
+          },
+          "HIDDEN": {
+            "value": "TRUE"
+          },
+          "SIM_ONLY": {
+            "value": "TRUE"
+          }
+        }
+      },
+      "m00_ini_stub_nmu_if_noc_axi_arready": {
+        "ports": [
+          "M00_INI_stub_nmu/IF_NOC_AXI_ARREADY"
+        ],
+        "hdl_attributes": {
+          "EXT_CONN": {
+            "value": "TRUE"
+          },
+          "HIDDEN": {
+            "value": "TRUE"
+          },
+          "SIM_ONLY": {
+            "value": "TRUE"
+          }
+        }
+      },
+      "m00_ini_stub_nmu_if_noc_axi_arregion": {
+        "ports": [
+          "M00_INI_stub_nmu/IF_NOC_AXI_ARREGION"
+        ],
+        "hdl_attributes": {
+          "EXT_CONN": {
+            "value": "TRUE"
+          },
+          "HIDDEN": {
+            "value": "TRUE"
+          },
+          "SIM_ONLY": {
+            "value": "TRUE"
+          }
+        }
+      },
+      "m00_ini_stub_nmu_if_noc_axi_arsize": {
+        "ports": [
+          "M00_INI_stub_nmu/IF_NOC_AXI_ARSIZE"
+        ],
+        "hdl_attributes": {
+          "EXT_CONN": {
+            "value": "TRUE"
+          },
+          "HIDDEN": {
+            "value": "TRUE"
+          },
+          "SIM_ONLY": {
+            "value": "TRUE"
+          }
+        }
+      },
+      "m00_ini_stub_nmu_if_noc_axi_arvalid": {
+        "ports": [
+          "M00_INI_stub_nmu/IF_NOC_AXI_ARVALID"
+        ],
+        "hdl_attributes": {
+          "EXT_CONN": {
+            "value": "TRUE"
+          },
+          "HIDDEN": {
+            "value": "TRUE"
+          },
+          "SIM_ONLY": {
+            "value": "TRUE"
+          }
+        }
+      },
+      "m00_ini_stub_nmu_if_noc_axi_awaddr": {
+        "ports": [
+          "M00_INI_stub_nmu/IF_NOC_AXI_AWADDR"
+        ],
+        "hdl_attributes": {
+          "EXT_CONN": {
+            "value": "TRUE"
+          },
+          "HIDDEN": {
+            "value": "TRUE"
+          },
+          "SIM_ONLY": {
+            "value": "TRUE"
+          }
+        }
+      },
+      "m00_ini_stub_nmu_if_noc_axi_awburst": {
+        "ports": [
+          "M00_INI_stub_nmu/IF_NOC_AXI_AWBURST"
+        ],
+        "hdl_attributes": {
+          "EXT_CONN": {
+            "value": "TRUE"
+          },
+          "HIDDEN": {
+            "value": "TRUE"
+          },
+          "SIM_ONLY": {
+            "value": "TRUE"
+          }
+        }
+      },
+      "m00_ini_stub_nmu_if_noc_axi_awcache": {
+        "ports": [
+          "M00_INI_stub_nmu/IF_NOC_AXI_AWCACHE"
+        ],
+        "hdl_attributes": {
+          "EXT_CONN": {
+            "value": "TRUE"
+          },
+          "HIDDEN": {
+            "value": "TRUE"
+          },
+          "SIM_ONLY": {
+            "value": "TRUE"
+          }
+        }
+      },
+      "m00_ini_stub_nmu_if_noc_axi_awlen": {
+        "ports": [
+          "M00_INI_stub_nmu/IF_NOC_AXI_AWLEN"
+        ],
+        "hdl_attributes": {
+          "EXT_CONN": {
+            "value": "TRUE"
+          },
+          "HIDDEN": {
+            "value": "TRUE"
+          },
+          "SIM_ONLY": {
+            "value": "TRUE"
+          }
+        }
+      },
+      "m00_ini_stub_nmu_if_noc_axi_awlock": {
+        "ports": [
+          "M00_INI_stub_nmu/IF_NOC_AXI_AWLOCK"
+        ],
+        "hdl_attributes": {
+          "EXT_CONN": {
+            "value": "TRUE"
+          },
+          "HIDDEN": {
+            "value": "TRUE"
+          },
+          "SIM_ONLY": {
+            "value": "TRUE"
+          }
+        }
+      },
+      "m00_ini_stub_nmu_if_noc_axi_awprot": {
+        "ports": [
+          "M00_INI_stub_nmu/IF_NOC_AXI_AWPROT"
+        ],
+        "hdl_attributes": {
+          "EXT_CONN": {
+            "value": "TRUE"
+          },
+          "HIDDEN": {
+            "value": "TRUE"
+          },
+          "SIM_ONLY": {
+            "value": "TRUE"
+          }
+        }
+      },
+      "m00_ini_stub_nmu_if_noc_axi_awqos": {
+        "ports": [
+          "M00_INI_stub_nmu/IF_NOC_AXI_AWQOS"
+        ],
+        "hdl_attributes": {
+          "EXT_CONN": {
+            "value": "TRUE"
+          },
+          "HIDDEN": {
+            "value": "TRUE"
+          },
+          "SIM_ONLY": {
+            "value": "TRUE"
+          }
+        }
+      },
+      "m00_ini_stub_nmu_if_noc_axi_awready": {
+        "ports": [
+          "M00_INI_stub_nmu/IF_NOC_AXI_AWREADY"
+        ],
+        "hdl_attributes": {
+          "EXT_CONN": {
+            "value": "TRUE"
+          },
+          "HIDDEN": {
+            "value": "TRUE"
+          },
+          "SIM_ONLY": {
+            "value": "TRUE"
+          }
+        }
+      },
+      "m00_ini_stub_nmu_if_noc_axi_awregion": {
+        "ports": [
+          "M00_INI_stub_nmu/IF_NOC_AXI_AWREGION"
+        ],
+        "hdl_attributes": {
+          "EXT_CONN": {
+            "value": "TRUE"
+          },
+          "HIDDEN": {
+            "value": "TRUE"
+          },
+          "SIM_ONLY": {
+            "value": "TRUE"
+          }
+        }
+      },
+      "m00_ini_stub_nmu_if_noc_axi_awsize": {
+        "ports": [
+          "M00_INI_stub_nmu/IF_NOC_AXI_AWSIZE"
+        ],
+        "hdl_attributes": {
+          "EXT_CONN": {
+            "value": "TRUE"
+          },
+          "HIDDEN": {
+            "value": "TRUE"
+          },
+          "SIM_ONLY": {
+            "value": "TRUE"
+          }
+        }
+      },
+      "m00_ini_stub_nmu_if_noc_axi_awvalid": {
+        "ports": [
+          "M00_INI_stub_nmu/IF_NOC_AXI_AWVALID"
+        ],
+        "hdl_attributes": {
+          "EXT_CONN": {
+            "value": "TRUE"
+          },
+          "HIDDEN": {
+            "value": "TRUE"
+          },
+          "SIM_ONLY": {
+            "value": "TRUE"
+          }
+        }
+      },
+      "m00_ini_stub_nmu_if_noc_axi_bready": {
+        "ports": [
+          "M00_INI_stub_nmu/IF_NOC_AXI_BREADY"
+        ],
+        "hdl_attributes": {
+          "EXT_CONN": {
+            "value": "TRUE"
+          },
+          "HIDDEN": {
+            "value": "TRUE"
+          },
+          "SIM_ONLY": {
+            "value": "TRUE"
+          }
+        }
+      },
+      "m00_ini_stub_nmu_if_noc_axi_bresp": {
+        "ports": [
+          "M00_INI_stub_nmu/IF_NOC_AXI_BRESP"
+        ],
+        "hdl_attributes": {
+          "EXT_CONN": {
+            "value": "TRUE"
+          },
+          "HIDDEN": {
+            "value": "TRUE"
+          },
+          "SIM_ONLY": {
+            "value": "TRUE"
+          }
+        }
+      },
+      "m00_ini_stub_nmu_if_noc_axi_bvalid": {
+        "ports": [
+          "M00_INI_stub_nmu/IF_NOC_AXI_BVALID"
+        ],
+        "hdl_attributes": {
+          "EXT_CONN": {
+            "value": "TRUE"
+          },
+          "HIDDEN": {
+            "value": "TRUE"
+          },
+          "SIM_ONLY": {
+            "value": "TRUE"
+          }
+        }
+      },
+      "m00_ini_stub_nmu_if_noc_axi_rdata": {
+        "ports": [
+          "M00_INI_stub_nmu/IF_NOC_AXI_RDATA"
+        ],
+        "hdl_attributes": {
+          "EXT_CONN": {
+            "value": "TRUE"
+          },
+          "HIDDEN": {
+            "value": "TRUE"
+          },
+          "SIM_ONLY": {
+            "value": "TRUE"
+          }
+        }
+      },
+      "m00_ini_stub_nmu_if_noc_axi_rlast": {
+        "ports": [
+          "M00_INI_stub_nmu/IF_NOC_AXI_RLAST"
+        ],
+        "hdl_attributes": {
+          "EXT_CONN": {
+            "value": "TRUE"
+          },
+          "HIDDEN": {
+            "value": "TRUE"
+          },
+          "SIM_ONLY": {
+            "value": "TRUE"
+          }
+        }
+      },
+      "m00_ini_stub_nmu_if_noc_axi_rready": {
+        "ports": [
+          "M00_INI_stub_nmu/IF_NOC_AXI_RREADY"
+        ],
+        "hdl_attributes": {
+          "EXT_CONN": {
+            "value": "TRUE"
+          },
+          "HIDDEN": {
+            "value": "TRUE"
+          },
+          "SIM_ONLY": {
+            "value": "TRUE"
+          }
+        }
+      },
+      "m00_ini_stub_nmu_if_noc_axi_rresp": {
+        "ports": [
+          "M00_INI_stub_nmu/IF_NOC_AXI_RRESP"
+        ],
+        "hdl_attributes": {
+          "EXT_CONN": {
+            "value": "TRUE"
+          },
+          "HIDDEN": {
+            "value": "TRUE"
+          },
+          "SIM_ONLY": {
+            "value": "TRUE"
+          }
+        }
+      },
+      "m00_ini_stub_nmu_if_noc_axi_rvalid": {
+        "ports": [
+          "M00_INI_stub_nmu/IF_NOC_AXI_RVALID"
+        ],
+        "hdl_attributes": {
+          "EXT_CONN": {
+            "value": "TRUE"
+          },
+          "HIDDEN": {
+            "value": "TRUE"
+          },
+          "SIM_ONLY": {
+            "value": "TRUE"
+          }
+        }
+      },
+      "m00_ini_stub_nmu_if_noc_axi_wdata": {
+        "ports": [
+          "M00_INI_stub_nmu/IF_NOC_AXI_WDATA"
+        ],
+        "hdl_attributes": {
+          "EXT_CONN": {
+            "value": "TRUE"
+          },
+          "HIDDEN": {
+            "value": "TRUE"
+          },
+          "SIM_ONLY": {
+            "value": "TRUE"
+          }
+        }
+      },
+      "m00_ini_stub_nmu_if_noc_axi_wlast": {
+        "ports": [
+          "M00_INI_stub_nmu/IF_NOC_AXI_WLAST"
+        ],
+        "hdl_attributes": {
+          "EXT_CONN": {
+            "value": "TRUE"
+          },
+          "HIDDEN": {
+            "value": "TRUE"
+          },
+          "SIM_ONLY": {
+            "value": "TRUE"
+          }
+        }
+      },
+      "m00_ini_stub_nmu_if_noc_axi_wready": {
+        "ports": [
+          "M00_INI_stub_nmu/IF_NOC_AXI_WREADY"
+        ],
+        "hdl_attributes": {
+          "EXT_CONN": {
+            "value": "TRUE"
+          },
+          "HIDDEN": {
+            "value": "TRUE"
+          },
+          "SIM_ONLY": {
+            "value": "TRUE"
+          }
+        }
+      },
+      "m00_ini_stub_nmu_if_noc_axi_wstrb": {
+        "ports": [
+          "M00_INI_stub_nmu/IF_NOC_AXI_WSTRB"
+        ],
+        "hdl_attributes": {
+          "EXT_CONN": {
+            "value": "TRUE"
+          },
+          "HIDDEN": {
+            "value": "TRUE"
+          },
+          "SIM_ONLY": {
+            "value": "TRUE"
+          }
+        }
+      },
+      "m00_ini_stub_nmu_if_noc_axi_wvalid": {
+        "ports": [
+          "M00_INI_stub_nmu/IF_NOC_AXI_WVALID"
+        ],
+        "hdl_attributes": {
+          "EXT_CONN": {
+            "value": "TRUE"
+          },
+          "HIDDEN": {
+            "value": "TRUE"
+          },
+          "SIM_ONLY": {
+            "value": "TRUE"
+          }
+        }
+      },
+      "m00_ini_stub_nmu_if_noc_npp_in_noc_credit_rdy": {
+        "ports": [
+          "M00_INI_stub_nmu/IF_NOC_NPP_IN_NOC_CREDIT_RDY"
+        ],
+        "hdl_attributes": {
+          "EXT_CONN": {
+            "value": "TRUE"
+          },
+          "HIDDEN": {
+            "value": "TRUE"
+          },
+          "SIM_ONLY": {
+            "value": "TRUE"
+          }
+        }
+      },
+      "m00_ini_stub_nmu_if_noc_npp_in_noc_credit_return": {
+        "ports": [
+          "M00_INI_stub_nmu/IF_NOC_NPP_IN_NOC_CREDIT_RETURN"
+        ],
+        "hdl_attributes": {
+          "EXT_CONN": {
+            "value": "TRUE"
+          },
+          "HIDDEN": {
+            "value": "TRUE"
+          },
+          "SIM_ONLY": {
+            "value": "TRUE"
+          }
+        }
+      },
+      "m00_ini_stub_nmu_if_noc_npp_in_noc_flit": {
+        "ports": [
+          "M00_INI_stub_nmu/IF_NOC_NPP_IN_NOC_FLIT"
+        ],
+        "hdl_attributes": {
+          "EXT_CONN": {
+            "value": "TRUE"
+          },
+          "HIDDEN": {
+            "value": "TRUE"
+          },
+          "SIM_ONLY": {
+            "value": "TRUE"
+          }
+        }
+      },
+      "m00_ini_stub_nmu_if_noc_npp_in_noc_valid": {
+        "ports": [
+          "M00_INI_stub_nmu/IF_NOC_NPP_IN_NOC_VALID"
+        ],
+        "hdl_attributes": {
+          "EXT_CONN": {
+            "value": "TRUE"
+          },
+          "HIDDEN": {
+            "value": "TRUE"
+          },
+          "SIM_ONLY": {
+            "value": "TRUE"
+          }
+        }
+      },
+      "m00_ini_stub_nmu_if_noc_npp_out_noc_credit_rdy": {
+        "ports": [
+          "M00_INI_stub_nmu/IF_NOC_NPP_OUT_NOC_CREDIT_RDY"
+        ],
+        "hdl_attributes": {
+          "EXT_CONN": {
+            "value": "TRUE"
+          },
+          "HIDDEN": {
+            "value": "TRUE"
+          },
+          "SIM_ONLY": {
+            "value": "TRUE"
+          }
+        }
+      },
+      "m00_ini_stub_nmu_if_noc_npp_out_noc_credit_return": {
+        "ports": [
+          "M00_INI_stub_nmu/IF_NOC_NPP_OUT_NOC_CREDIT_RETURN"
+        ],
+        "hdl_attributes": {
+          "EXT_CONN": {
+            "value": "TRUE"
+          },
+          "HIDDEN": {
+            "value": "TRUE"
+          },
+          "SIM_ONLY": {
+            "value": "TRUE"
+          }
+        }
+      },
+      "m00_ini_stub_nmu_if_noc_npp_out_noc_flit": {
+        "ports": [
+          "M00_INI_stub_nmu/IF_NOC_NPP_OUT_NOC_FLIT"
+        ],
+        "hdl_attributes": {
+          "EXT_CONN": {
+            "value": "TRUE"
+          },
+          "HIDDEN": {
+            "value": "TRUE"
+          },
+          "SIM_ONLY": {
+            "value": "TRUE"
+          }
+        }
+      },
+      "m00_ini_stub_nmu_if_noc_npp_out_noc_valid": {
+        "ports": [
+          "M00_INI_stub_nmu/IF_NOC_NPP_OUT_NOC_VALID"
+        ],
+        "hdl_attributes": {
+          "EXT_CONN": {
+            "value": "TRUE"
+          },
+          "HIDDEN": {
+            "value": "TRUE"
+          },
+          "SIM_ONLY": {
+            "value": "TRUE"
+          }
+        }
+      },
+      "m01_ini_stub_nmu_if_noc_axi_araddr": {
+        "ports": [
+          "M01_INI_stub_nmu/IF_NOC_AXI_ARADDR"
+        ],
+        "hdl_attributes": {
+          "EXT_CONN": {
+            "value": "TRUE"
+          },
+          "HIDDEN": {
+            "value": "TRUE"
+          },
+          "SIM_ONLY": {
+            "value": "TRUE"
+          }
+        }
+      },
+      "m01_ini_stub_nmu_if_noc_axi_arburst": {
+        "ports": [
+          "M01_INI_stub_nmu/IF_NOC_AXI_ARBURST"
+        ],
+        "hdl_attributes": {
+          "EXT_CONN": {
+            "value": "TRUE"
+          },
+          "HIDDEN": {
+            "value": "TRUE"
+          },
+          "SIM_ONLY": {
+            "value": "TRUE"
+          }
+        }
+      },
+      "m01_ini_stub_nmu_if_noc_axi_arcache": {
+        "ports": [
+          "M01_INI_stub_nmu/IF_NOC_AXI_ARCACHE"
+        ],
+        "hdl_attributes": {
+          "EXT_CONN": {
+            "value": "TRUE"
+          },
+          "HIDDEN": {
+            "value": "TRUE"
+          },
+          "SIM_ONLY": {
+            "value": "TRUE"
+          }
+        }
+      },
+      "m01_ini_stub_nmu_if_noc_axi_arlen": {
+        "ports": [
+          "M01_INI_stub_nmu/IF_NOC_AXI_ARLEN"
+        ],
+        "hdl_attributes": {
+          "EXT_CONN": {
+            "value": "TRUE"
+          },
+          "HIDDEN": {
+            "value": "TRUE"
+          },
+          "SIM_ONLY": {
+            "value": "TRUE"
+          }
+        }
+      },
+      "m01_ini_stub_nmu_if_noc_axi_arlock": {
+        "ports": [
+          "M01_INI_stub_nmu/IF_NOC_AXI_ARLOCK"
+        ],
+        "hdl_attributes": {
+          "EXT_CONN": {
+            "value": "TRUE"
+          },
+          "HIDDEN": {
+            "value": "TRUE"
+          },
+          "SIM_ONLY": {
+            "value": "TRUE"
+          }
+        }
+      },
+      "m01_ini_stub_nmu_if_noc_axi_arprot": {
+        "ports": [
+          "M01_INI_stub_nmu/IF_NOC_AXI_ARPROT"
+        ],
+        "hdl_attributes": {
+          "EXT_CONN": {
+            "value": "TRUE"
+          },
+          "HIDDEN": {
+            "value": "TRUE"
+          },
+          "SIM_ONLY": {
+            "value": "TRUE"
+          }
+        }
+      },
+      "m01_ini_stub_nmu_if_noc_axi_arqos": {
+        "ports": [
+          "M01_INI_stub_nmu/IF_NOC_AXI_ARQOS"
+        ],
+        "hdl_attributes": {
+          "EXT_CONN": {
+            "value": "TRUE"
+          },
+          "HIDDEN": {
+            "value": "TRUE"
+          },
+          "SIM_ONLY": {
+            "value": "TRUE"
+          }
+        }
+      },
+      "m01_ini_stub_nmu_if_noc_axi_arready": {
+        "ports": [
+          "M01_INI_stub_nmu/IF_NOC_AXI_ARREADY"
+        ],
+        "hdl_attributes": {
+          "EXT_CONN": {
+            "value": "TRUE"
+          },
+          "HIDDEN": {
+            "value": "TRUE"
+          },
+          "SIM_ONLY": {
+            "value": "TRUE"
+          }
+        }
+      },
+      "m01_ini_stub_nmu_if_noc_axi_arregion": {
+        "ports": [
+          "M01_INI_stub_nmu/IF_NOC_AXI_ARREGION"
+        ],
+        "hdl_attributes": {
+          "EXT_CONN": {
+            "value": "TRUE"
+          },
+          "HIDDEN": {
+            "value": "TRUE"
+          },
+          "SIM_ONLY": {
+            "value": "TRUE"
+          }
+        }
+      },
+      "m01_ini_stub_nmu_if_noc_axi_arsize": {
+        "ports": [
+          "M01_INI_stub_nmu/IF_NOC_AXI_ARSIZE"
+        ],
+        "hdl_attributes": {
+          "EXT_CONN": {
+            "value": "TRUE"
+          },
+          "HIDDEN": {
+            "value": "TRUE"
+          },
+          "SIM_ONLY": {
+            "value": "TRUE"
+          }
+        }
+      },
+      "m01_ini_stub_nmu_if_noc_axi_arvalid": {
+        "ports": [
+          "M01_INI_stub_nmu/IF_NOC_AXI_ARVALID"
+        ],
+        "hdl_attributes": {
+          "EXT_CONN": {
+            "value": "TRUE"
+          },
+          "HIDDEN": {
+            "value": "TRUE"
+          },
+          "SIM_ONLY": {
+            "value": "TRUE"
+          }
+        }
+      },
+      "m01_ini_stub_nmu_if_noc_axi_awaddr": {
+        "ports": [
+          "M01_INI_stub_nmu/IF_NOC_AXI_AWADDR"
+        ],
+        "hdl_attributes": {
+          "EXT_CONN": {
+            "value": "TRUE"
+          },
+          "HIDDEN": {
+            "value": "TRUE"
+          },
+          "SIM_ONLY": {
+            "value": "TRUE"
+          }
+        }
+      },
+      "m01_ini_stub_nmu_if_noc_axi_awburst": {
+        "ports": [
+          "M01_INI_stub_nmu/IF_NOC_AXI_AWBURST"
+        ],
+        "hdl_attributes": {
+          "EXT_CONN": {
+            "value": "TRUE"
+          },
+          "HIDDEN": {
+            "value": "TRUE"
+          },
+          "SIM_ONLY": {
+            "value": "TRUE"
+          }
+        }
+      },
+      "m01_ini_stub_nmu_if_noc_axi_awcache": {
+        "ports": [
+          "M01_INI_stub_nmu/IF_NOC_AXI_AWCACHE"
+        ],
+        "hdl_attributes": {
+          "EXT_CONN": {
+            "value": "TRUE"
+          },
+          "HIDDEN": {
+            "value": "TRUE"
+          },
+          "SIM_ONLY": {
+            "value": "TRUE"
+          }
+        }
+      },
+      "m01_ini_stub_nmu_if_noc_axi_awlen": {
+        "ports": [
+          "M01_INI_stub_nmu/IF_NOC_AXI_AWLEN"
+        ],
+        "hdl_attributes": {
+          "EXT_CONN": {
+            "value": "TRUE"
+          },
+          "HIDDEN": {
+            "value": "TRUE"
+          },
+          "SIM_ONLY": {
+            "value": "TRUE"
+          }
+        }
+      },
+      "m01_ini_stub_nmu_if_noc_axi_awlock": {
+        "ports": [
+          "M01_INI_stub_nmu/IF_NOC_AXI_AWLOCK"
+        ],
+        "hdl_attributes": {
+          "EXT_CONN": {
+            "value": "TRUE"
+          },
+          "HIDDEN": {
+            "value": "TRUE"
+          },
+          "SIM_ONLY": {
+            "value": "TRUE"
+          }
+        }
+      },
+      "m01_ini_stub_nmu_if_noc_axi_awprot": {
+        "ports": [
+          "M01_INI_stub_nmu/IF_NOC_AXI_AWPROT"
+        ],
+        "hdl_attributes": {
+          "EXT_CONN": {
+            "value": "TRUE"
+          },
+          "HIDDEN": {
+            "value": "TRUE"
+          },
+          "SIM_ONLY": {
+            "value": "TRUE"
+          }
+        }
+      },
+      "m01_ini_stub_nmu_if_noc_axi_awqos": {
+        "ports": [
+          "M01_INI_stub_nmu/IF_NOC_AXI_AWQOS"
+        ],
+        "hdl_attributes": {
+          "EXT_CONN": {
+            "value": "TRUE"
+          },
+          "HIDDEN": {
+            "value": "TRUE"
+          },
+          "SIM_ONLY": {
+            "value": "TRUE"
+          }
+        }
+      },
+      "m01_ini_stub_nmu_if_noc_axi_awready": {
+        "ports": [
+          "M01_INI_stub_nmu/IF_NOC_AXI_AWREADY"
+        ],
+        "hdl_attributes": {
+          "EXT_CONN": {
+            "value": "TRUE"
+          },
+          "HIDDEN": {
+            "value": "TRUE"
+          },
+          "SIM_ONLY": {
+            "value": "TRUE"
+          }
+        }
+      },
+      "m01_ini_stub_nmu_if_noc_axi_awregion": {
+        "ports": [
+          "M01_INI_stub_nmu/IF_NOC_AXI_AWREGION"
+        ],
+        "hdl_attributes": {
+          "EXT_CONN": {
+            "value": "TRUE"
+          },
+          "HIDDEN": {
+            "value": "TRUE"
+          },
+          "SIM_ONLY": {
+            "value": "TRUE"
+          }
+        }
+      },
+      "m01_ini_stub_nmu_if_noc_axi_awsize": {
+        "ports": [
+          "M01_INI_stub_nmu/IF_NOC_AXI_AWSIZE"
+        ],
+        "hdl_attributes": {
+          "EXT_CONN": {
+            "value": "TRUE"
+          },
+          "HIDDEN": {
+            "value": "TRUE"
+          },
+          "SIM_ONLY": {
+            "value": "TRUE"
+          }
+        }
+      },
+      "m01_ini_stub_nmu_if_noc_axi_awvalid": {
+        "ports": [
+          "M01_INI_stub_nmu/IF_NOC_AXI_AWVALID"
+        ],
+        "hdl_attributes": {
+          "EXT_CONN": {
+            "value": "TRUE"
+          },
+          "HIDDEN": {
+            "value": "TRUE"
+          },
+          "SIM_ONLY": {
+            "value": "TRUE"
+          }
+        }
+      },
+      "m01_ini_stub_nmu_if_noc_axi_bready": {
+        "ports": [
+          "M01_INI_stub_nmu/IF_NOC_AXI_BREADY"
+        ],
+        "hdl_attributes": {
+          "EXT_CONN": {
+            "value": "TRUE"
+          },
+          "HIDDEN": {
+            "value": "TRUE"
+          },
+          "SIM_ONLY": {
+            "value": "TRUE"
+          }
+        }
+      },
+      "m01_ini_stub_nmu_if_noc_axi_bresp": {
+        "ports": [
+          "M01_INI_stub_nmu/IF_NOC_AXI_BRESP"
+        ],
+        "hdl_attributes": {
+          "EXT_CONN": {
+            "value": "TRUE"
+          },
+          "HIDDEN": {
+            "value": "TRUE"
+          },
+          "SIM_ONLY": {
+            "value": "TRUE"
+          }
+        }
+      },
+      "m01_ini_stub_nmu_if_noc_axi_bvalid": {
+        "ports": [
+          "M01_INI_stub_nmu/IF_NOC_AXI_BVALID"
+        ],
+        "hdl_attributes": {
+          "EXT_CONN": {
+            "value": "TRUE"
+          },
+          "HIDDEN": {
+            "value": "TRUE"
+          },
+          "SIM_ONLY": {
+            "value": "TRUE"
+          }
+        }
+      },
+      "m01_ini_stub_nmu_if_noc_axi_rdata": {
+        "ports": [
+          "M01_INI_stub_nmu/IF_NOC_AXI_RDATA"
+        ],
+        "hdl_attributes": {
+          "EXT_CONN": {
+            "value": "TRUE"
+          },
+          "HIDDEN": {
+            "value": "TRUE"
+          },
+          "SIM_ONLY": {
+            "value": "TRUE"
+          }
+        }
+      },
+      "m01_ini_stub_nmu_if_noc_axi_rlast": {
+        "ports": [
+          "M01_INI_stub_nmu/IF_NOC_AXI_RLAST"
+        ],
+        "hdl_attributes": {
+          "EXT_CONN": {
+            "value": "TRUE"
+          },
+          "HIDDEN": {
+            "value": "TRUE"
+          },
+          "SIM_ONLY": {
+            "value": "TRUE"
+          }
+        }
+      },
+      "m01_ini_stub_nmu_if_noc_axi_rready": {
+        "ports": [
+          "M01_INI_stub_nmu/IF_NOC_AXI_RREADY"
+        ],
+        "hdl_attributes": {
+          "EXT_CONN": {
+            "value": "TRUE"
+          },
+          "HIDDEN": {
+            "value": "TRUE"
+          },
+          "SIM_ONLY": {
+            "value": "TRUE"
+          }
+        }
+      },
+      "m01_ini_stub_nmu_if_noc_axi_rresp": {
+        "ports": [
+          "M01_INI_stub_nmu/IF_NOC_AXI_RRESP"
+        ],
+        "hdl_attributes": {
+          "EXT_CONN": {
+            "value": "TRUE"
+          },
+          "HIDDEN": {
+            "value": "TRUE"
+          },
+          "SIM_ONLY": {
+            "value": "TRUE"
+          }
+        }
+      },
+      "m01_ini_stub_nmu_if_noc_axi_rvalid": {
+        "ports": [
+          "M01_INI_stub_nmu/IF_NOC_AXI_RVALID"
+        ],
+        "hdl_attributes": {
+          "EXT_CONN": {
+            "value": "TRUE"
+          },
+          "HIDDEN": {
+            "value": "TRUE"
+          },
+          "SIM_ONLY": {
+            "value": "TRUE"
+          }
+        }
+      },
+      "m01_ini_stub_nmu_if_noc_axi_wdata": {
+        "ports": [
+          "M01_INI_stub_nmu/IF_NOC_AXI_WDATA"
+        ],
+        "hdl_attributes": {
+          "EXT_CONN": {
+            "value": "TRUE"
+          },
+          "HIDDEN": {
+            "value": "TRUE"
+          },
+          "SIM_ONLY": {
+            "value": "TRUE"
+          }
+        }
+      },
+      "m01_ini_stub_nmu_if_noc_axi_wlast": {
+        "ports": [
+          "M01_INI_stub_nmu/IF_NOC_AXI_WLAST"
+        ],
+        "hdl_attributes": {
+          "EXT_CONN": {
+            "value": "TRUE"
+          },
+          "HIDDEN": {
+            "value": "TRUE"
+          },
+          "SIM_ONLY": {
+            "value": "TRUE"
+          }
+        }
+      },
+      "m01_ini_stub_nmu_if_noc_axi_wready": {
+        "ports": [
+          "M01_INI_stub_nmu/IF_NOC_AXI_WREADY"
+        ],
+        "hdl_attributes": {
+          "EXT_CONN": {
+            "value": "TRUE"
+          },
+          "HIDDEN": {
+            "value": "TRUE"
+          },
+          "SIM_ONLY": {
+            "value": "TRUE"
+          }
+        }
+      },
+      "m01_ini_stub_nmu_if_noc_axi_wstrb": {
+        "ports": [
+          "M01_INI_stub_nmu/IF_NOC_AXI_WSTRB"
+        ],
+        "hdl_attributes": {
+          "EXT_CONN": {
+            "value": "TRUE"
+          },
+          "HIDDEN": {
+            "value": "TRUE"
+          },
+          "SIM_ONLY": {
+            "value": "TRUE"
+          }
+        }
+      },
+      "m01_ini_stub_nmu_if_noc_axi_wvalid": {
+        "ports": [
+          "M01_INI_stub_nmu/IF_NOC_AXI_WVALID"
+        ],
+        "hdl_attributes": {
+          "EXT_CONN": {
+            "value": "TRUE"
+          },
+          "HIDDEN": {
+            "value": "TRUE"
+          },
+          "SIM_ONLY": {
+            "value": "TRUE"
+          }
+        }
+      },
+      "m01_ini_stub_nmu_if_noc_npp_in_noc_credit_rdy": {
+        "ports": [
+          "M01_INI_stub_nmu/IF_NOC_NPP_IN_NOC_CREDIT_RDY"
+        ],
+        "hdl_attributes": {
+          "EXT_CONN": {
+            "value": "TRUE"
+          },
+          "HIDDEN": {
+            "value": "TRUE"
+          },
+          "SIM_ONLY": {
+            "value": "TRUE"
+          }
+        }
+      },
+      "m01_ini_stub_nmu_if_noc_npp_in_noc_credit_return": {
+        "ports": [
+          "M01_INI_stub_nmu/IF_NOC_NPP_IN_NOC_CREDIT_RETURN"
+        ],
+        "hdl_attributes": {
+          "EXT_CONN": {
+            "value": "TRUE"
+          },
+          "HIDDEN": {
+            "value": "TRUE"
+          },
+          "SIM_ONLY": {
+            "value": "TRUE"
+          }
+        }
+      },
+      "m01_ini_stub_nmu_if_noc_npp_in_noc_flit": {
+        "ports": [
+          "M01_INI_stub_nmu/IF_NOC_NPP_IN_NOC_FLIT"
+        ],
+        "hdl_attributes": {
+          "EXT_CONN": {
+            "value": "TRUE"
+          },
+          "HIDDEN": {
+            "value": "TRUE"
+          },
+          "SIM_ONLY": {
+            "value": "TRUE"
+          }
+        }
+      },
+      "m01_ini_stub_nmu_if_noc_npp_in_noc_valid": {
+        "ports": [
+          "M01_INI_stub_nmu/IF_NOC_NPP_IN_NOC_VALID"
+        ],
+        "hdl_attributes": {
+          "EXT_CONN": {
+            "value": "TRUE"
+          },
+          "HIDDEN": {
+            "value": "TRUE"
+          },
+          "SIM_ONLY": {
+            "value": "TRUE"
+          }
+        }
+      },
+      "m01_ini_stub_nmu_if_noc_npp_out_noc_credit_rdy": {
+        "ports": [
+          "M01_INI_stub_nmu/IF_NOC_NPP_OUT_NOC_CREDIT_RDY"
+        ],
+        "hdl_attributes": {
+          "EXT_CONN": {
+            "value": "TRUE"
+          },
+          "HIDDEN": {
+            "value": "TRUE"
+          },
+          "SIM_ONLY": {
+            "value": "TRUE"
+          }
+        }
+      },
+      "m01_ini_stub_nmu_if_noc_npp_out_noc_credit_return": {
+        "ports": [
+          "M01_INI_stub_nmu/IF_NOC_NPP_OUT_NOC_CREDIT_RETURN"
+        ],
+        "hdl_attributes": {
+          "EXT_CONN": {
+            "value": "TRUE"
+          },
+          "HIDDEN": {
+            "value": "TRUE"
+          },
+          "SIM_ONLY": {
+            "value": "TRUE"
+          }
+        }
+      },
+      "m01_ini_stub_nmu_if_noc_npp_out_noc_flit": {
+        "ports": [
+          "M01_INI_stub_nmu/IF_NOC_NPP_OUT_NOC_FLIT"
+        ],
+        "hdl_attributes": {
+          "EXT_CONN": {
+            "value": "TRUE"
+          },
+          "HIDDEN": {
+            "value": "TRUE"
+          },
+          "SIM_ONLY": {
+            "value": "TRUE"
+          }
+        }
+      },
+      "m01_ini_stub_nmu_if_noc_npp_out_noc_valid": {
+        "ports": [
+          "M01_INI_stub_nmu/IF_NOC_NPP_OUT_NOC_VALID"
+        ],
+        "hdl_attributes": {
+          "EXT_CONN": {
+            "value": "TRUE"
+          },
+          "HIDDEN": {
+            "value": "TRUE"
+          },
+          "SIM_ONLY": {
+            "value": "TRUE"
+          }
+        }
+      },
+      "m02_ini_stub_nmu_if_noc_axi_araddr": {
+        "ports": [
+          "M02_INI_stub_nmu/IF_NOC_AXI_ARADDR"
+        ],
+        "hdl_attributes": {
+          "EXT_CONN": {
+            "value": "TRUE"
+          },
+          "HIDDEN": {
+            "value": "TRUE"
+          },
+          "SIM_ONLY": {
+            "value": "TRUE"
+          }
+        }
+      },
+      "m02_ini_stub_nmu_if_noc_axi_arburst": {
+        "ports": [
+          "M02_INI_stub_nmu/IF_NOC_AXI_ARBURST"
+        ],
+        "hdl_attributes": {
+          "EXT_CONN": {
+            "value": "TRUE"
+          },
+          "HIDDEN": {
+            "value": "TRUE"
+          },
+          "SIM_ONLY": {
+            "value": "TRUE"
+          }
+        }
+      },
+      "m02_ini_stub_nmu_if_noc_axi_arcache": {
+        "ports": [
+          "M02_INI_stub_nmu/IF_NOC_AXI_ARCACHE"
+        ],
+        "hdl_attributes": {
+          "EXT_CONN": {
+            "value": "TRUE"
+          },
+          "HIDDEN": {
+            "value": "TRUE"
+          },
+          "SIM_ONLY": {
+            "value": "TRUE"
+          }
+        }
+      },
+      "m02_ini_stub_nmu_if_noc_axi_arlen": {
+        "ports": [
+          "M02_INI_stub_nmu/IF_NOC_AXI_ARLEN"
+        ],
+        "hdl_attributes": {
+          "EXT_CONN": {
+            "value": "TRUE"
+          },
+          "HIDDEN": {
+            "value": "TRUE"
+          },
+          "SIM_ONLY": {
+            "value": "TRUE"
+          }
+        }
+      },
+      "m02_ini_stub_nmu_if_noc_axi_arlock": {
+        "ports": [
+          "M02_INI_stub_nmu/IF_NOC_AXI_ARLOCK"
+        ],
+        "hdl_attributes": {
+          "EXT_CONN": {
+            "value": "TRUE"
+          },
+          "HIDDEN": {
+            "value": "TRUE"
+          },
+          "SIM_ONLY": {
+            "value": "TRUE"
+          }
+        }
+      },
+      "m02_ini_stub_nmu_if_noc_axi_arprot": {
+        "ports": [
+          "M02_INI_stub_nmu/IF_NOC_AXI_ARPROT"
+        ],
+        "hdl_attributes": {
+          "EXT_CONN": {
+            "value": "TRUE"
+          },
+          "HIDDEN": {
+            "value": "TRUE"
+          },
+          "SIM_ONLY": {
+            "value": "TRUE"
+          }
+        }
+      },
+      "m02_ini_stub_nmu_if_noc_axi_arqos": {
+        "ports": [
+          "M02_INI_stub_nmu/IF_NOC_AXI_ARQOS"
+        ],
+        "hdl_attributes": {
+          "EXT_CONN": {
+            "value": "TRUE"
+          },
+          "HIDDEN": {
+            "value": "TRUE"
+          },
+          "SIM_ONLY": {
+            "value": "TRUE"
+          }
+        }
+      },
+      "m02_ini_stub_nmu_if_noc_axi_arready": {
+        "ports": [
+          "M02_INI_stub_nmu/IF_NOC_AXI_ARREADY"
+        ],
+        "hdl_attributes": {
+          "EXT_CONN": {
+            "value": "TRUE"
+          },
+          "HIDDEN": {
+            "value": "TRUE"
+          },
+          "SIM_ONLY": {
+            "value": "TRUE"
+          }
+        }
+      },
+      "m02_ini_stub_nmu_if_noc_axi_arregion": {
+        "ports": [
+          "M02_INI_stub_nmu/IF_NOC_AXI_ARREGION"
+        ],
+        "hdl_attributes": {
+          "EXT_CONN": {
+            "value": "TRUE"
+          },
+          "HIDDEN": {
+            "value": "TRUE"
+          },
+          "SIM_ONLY": {
+            "value": "TRUE"
+          }
+        }
+      },
+      "m02_ini_stub_nmu_if_noc_axi_arsize": {
+        "ports": [
+          "M02_INI_stub_nmu/IF_NOC_AXI_ARSIZE"
+        ],
+        "hdl_attributes": {
+          "EXT_CONN": {
+            "value": "TRUE"
+          },
+          "HIDDEN": {
+            "value": "TRUE"
+          },
+          "SIM_ONLY": {
+            "value": "TRUE"
+          }
+        }
+      },
+      "m02_ini_stub_nmu_if_noc_axi_arvalid": {
+        "ports": [
+          "M02_INI_stub_nmu/IF_NOC_AXI_ARVALID"
+        ],
+        "hdl_attributes": {
+          "EXT_CONN": {
+            "value": "TRUE"
+          },
+          "HIDDEN": {
+            "value": "TRUE"
+          },
+          "SIM_ONLY": {
+            "value": "TRUE"
+          }
+        }
+      },
+      "m02_ini_stub_nmu_if_noc_axi_awaddr": {
+        "ports": [
+          "M02_INI_stub_nmu/IF_NOC_AXI_AWADDR"
+        ],
+        "hdl_attributes": {
+          "EXT_CONN": {
+            "value": "TRUE"
+          },
+          "HIDDEN": {
+            "value": "TRUE"
+          },
+          "SIM_ONLY": {
+            "value": "TRUE"
+          }
+        }
+      },
+      "m02_ini_stub_nmu_if_noc_axi_awburst": {
+        "ports": [
+          "M02_INI_stub_nmu/IF_NOC_AXI_AWBURST"
+        ],
+        "hdl_attributes": {
+          "EXT_CONN": {
+            "value": "TRUE"
+          },
+          "HIDDEN": {
+            "value": "TRUE"
+          },
+          "SIM_ONLY": {
+            "value": "TRUE"
+          }
+        }
+      },
+      "m02_ini_stub_nmu_if_noc_axi_awcache": {
+        "ports": [
+          "M02_INI_stub_nmu/IF_NOC_AXI_AWCACHE"
+        ],
+        "hdl_attributes": {
+          "EXT_CONN": {
+            "value": "TRUE"
+          },
+          "HIDDEN": {
+            "value": "TRUE"
+          },
+          "SIM_ONLY": {
+            "value": "TRUE"
+          }
+        }
+      },
+      "m02_ini_stub_nmu_if_noc_axi_awlen": {
+        "ports": [
+          "M02_INI_stub_nmu/IF_NOC_AXI_AWLEN"
+        ],
+        "hdl_attributes": {
+          "EXT_CONN": {
+            "value": "TRUE"
+          },
+          "HIDDEN": {
+            "value": "TRUE"
+          },
+          "SIM_ONLY": {
+            "value": "TRUE"
+          }
+        }
+      },
+      "m02_ini_stub_nmu_if_noc_axi_awlock": {
+        "ports": [
+          "M02_INI_stub_nmu/IF_NOC_AXI_AWLOCK"
+        ],
+        "hdl_attributes": {
+          "EXT_CONN": {
+            "value": "TRUE"
+          },
+          "HIDDEN": {
+            "value": "TRUE"
+          },
+          "SIM_ONLY": {
+            "value": "TRUE"
+          }
+        }
+      },
+      "m02_ini_stub_nmu_if_noc_axi_awprot": {
+        "ports": [
+          "M02_INI_stub_nmu/IF_NOC_AXI_AWPROT"
+        ],
+        "hdl_attributes": {
+          "EXT_CONN": {
+            "value": "TRUE"
+          },
+          "HIDDEN": {
+            "value": "TRUE"
+          },
+          "SIM_ONLY": {
+            "value": "TRUE"
+          }
+        }
+      },
+      "m02_ini_stub_nmu_if_noc_axi_awqos": {
+        "ports": [
+          "M02_INI_stub_nmu/IF_NOC_AXI_AWQOS"
+        ],
+        "hdl_attributes": {
+          "EXT_CONN": {
+            "value": "TRUE"
+          },
+          "HIDDEN": {
+            "value": "TRUE"
+          },
+          "SIM_ONLY": {
+            "value": "TRUE"
+          }
+        }
+      },
+      "m02_ini_stub_nmu_if_noc_axi_awready": {
+        "ports": [
+          "M02_INI_stub_nmu/IF_NOC_AXI_AWREADY"
+        ],
+        "hdl_attributes": {
+          "EXT_CONN": {
+            "value": "TRUE"
+          },
+          "HIDDEN": {
+            "value": "TRUE"
+          },
+          "SIM_ONLY": {
+            "value": "TRUE"
+          }
+        }
+      },
+      "m02_ini_stub_nmu_if_noc_axi_awregion": {
+        "ports": [
+          "M02_INI_stub_nmu/IF_NOC_AXI_AWREGION"
+        ],
+        "hdl_attributes": {
+          "EXT_CONN": {
+            "value": "TRUE"
+          },
+          "HIDDEN": {
+            "value": "TRUE"
+          },
+          "SIM_ONLY": {
+            "value": "TRUE"
+          }
+        }
+      },
+      "m02_ini_stub_nmu_if_noc_axi_awsize": {
+        "ports": [
+          "M02_INI_stub_nmu/IF_NOC_AXI_AWSIZE"
+        ],
+        "hdl_attributes": {
+          "EXT_CONN": {
+            "value": "TRUE"
+          },
+          "HIDDEN": {
+            "value": "TRUE"
+          },
+          "SIM_ONLY": {
+            "value": "TRUE"
+          }
+        }
+      },
+      "m02_ini_stub_nmu_if_noc_axi_awvalid": {
+        "ports": [
+          "M02_INI_stub_nmu/IF_NOC_AXI_AWVALID"
+        ],
+        "hdl_attributes": {
+          "EXT_CONN": {
+            "value": "TRUE"
+          },
+          "HIDDEN": {
+            "value": "TRUE"
+          },
+          "SIM_ONLY": {
+            "value": "TRUE"
+          }
+        }
+      },
+      "m02_ini_stub_nmu_if_noc_axi_bready": {
+        "ports": [
+          "M02_INI_stub_nmu/IF_NOC_AXI_BREADY"
+        ],
+        "hdl_attributes": {
+          "EXT_CONN": {
+            "value": "TRUE"
+          },
+          "HIDDEN": {
+            "value": "TRUE"
+          },
+          "SIM_ONLY": {
+            "value": "TRUE"
+          }
+        }
+      },
+      "m02_ini_stub_nmu_if_noc_axi_bresp": {
+        "ports": [
+          "M02_INI_stub_nmu/IF_NOC_AXI_BRESP"
+        ],
+        "hdl_attributes": {
+          "EXT_CONN": {
+            "value": "TRUE"
+          },
+          "HIDDEN": {
+            "value": "TRUE"
+          },
+          "SIM_ONLY": {
+            "value": "TRUE"
+          }
+        }
+      },
+      "m02_ini_stub_nmu_if_noc_axi_bvalid": {
+        "ports": [
+          "M02_INI_stub_nmu/IF_NOC_AXI_BVALID"
+        ],
+        "hdl_attributes": {
+          "EXT_CONN": {
+            "value": "TRUE"
+          },
+          "HIDDEN": {
+            "value": "TRUE"
+          },
+          "SIM_ONLY": {
+            "value": "TRUE"
+          }
+        }
+      },
+      "m02_ini_stub_nmu_if_noc_axi_rdata": {
+        "ports": [
+          "M02_INI_stub_nmu/IF_NOC_AXI_RDATA"
+        ],
+        "hdl_attributes": {
+          "EXT_CONN": {
+            "value": "TRUE"
+          },
+          "HIDDEN": {
+            "value": "TRUE"
+          },
+          "SIM_ONLY": {
+            "value": "TRUE"
+          }
+        }
+      },
+      "m02_ini_stub_nmu_if_noc_axi_rlast": {
+        "ports": [
+          "M02_INI_stub_nmu/IF_NOC_AXI_RLAST"
+        ],
+        "hdl_attributes": {
+          "EXT_CONN": {
+            "value": "TRUE"
+          },
+          "HIDDEN": {
+            "value": "TRUE"
+          },
+          "SIM_ONLY": {
+            "value": "TRUE"
+          }
+        }
+      },
+      "m02_ini_stub_nmu_if_noc_axi_rready": {
+        "ports": [
+          "M02_INI_stub_nmu/IF_NOC_AXI_RREADY"
+        ],
+        "hdl_attributes": {
+          "EXT_CONN": {
+            "value": "TRUE"
+          },
+          "HIDDEN": {
+            "value": "TRUE"
+          },
+          "SIM_ONLY": {
+            "value": "TRUE"
+          }
+        }
+      },
+      "m02_ini_stub_nmu_if_noc_axi_rresp": {
+        "ports": [
+          "M02_INI_stub_nmu/IF_NOC_AXI_RRESP"
+        ],
+        "hdl_attributes": {
+          "EXT_CONN": {
+            "value": "TRUE"
+          },
+          "HIDDEN": {
+            "value": "TRUE"
+          },
+          "SIM_ONLY": {
+            "value": "TRUE"
+          }
+        }
+      },
+      "m02_ini_stub_nmu_if_noc_axi_rvalid": {
+        "ports": [
+          "M02_INI_stub_nmu/IF_NOC_AXI_RVALID"
+        ],
+        "hdl_attributes": {
+          "EXT_CONN": {
+            "value": "TRUE"
+          },
+          "HIDDEN": {
+            "value": "TRUE"
+          },
+          "SIM_ONLY": {
+            "value": "TRUE"
+          }
+        }
+      },
+      "m02_ini_stub_nmu_if_noc_axi_wdata": {
+        "ports": [
+          "M02_INI_stub_nmu/IF_NOC_AXI_WDATA"
+        ],
+        "hdl_attributes": {
+          "EXT_CONN": {
+            "value": "TRUE"
+          },
+          "HIDDEN": {
+            "value": "TRUE"
+          },
+          "SIM_ONLY": {
+            "value": "TRUE"
+          }
+        }
+      },
+      "m02_ini_stub_nmu_if_noc_axi_wlast": {
+        "ports": [
+          "M02_INI_stub_nmu/IF_NOC_AXI_WLAST"
+        ],
+        "hdl_attributes": {
+          "EXT_CONN": {
+            "value": "TRUE"
+          },
+          "HIDDEN": {
+            "value": "TRUE"
+          },
+          "SIM_ONLY": {
+            "value": "TRUE"
+          }
+        }
+      },
+      "m02_ini_stub_nmu_if_noc_axi_wready": {
+        "ports": [
+          "M02_INI_stub_nmu/IF_NOC_AXI_WREADY"
+        ],
+        "hdl_attributes": {
+          "EXT_CONN": {
+            "value": "TRUE"
+          },
+          "HIDDEN": {
+            "value": "TRUE"
+          },
+          "SIM_ONLY": {
+            "value": "TRUE"
+          }
+        }
+      },
+      "m02_ini_stub_nmu_if_noc_axi_wstrb": {
+        "ports": [
+          "M02_INI_stub_nmu/IF_NOC_AXI_WSTRB"
+        ],
+        "hdl_attributes": {
+          "EXT_CONN": {
+            "value": "TRUE"
+          },
+          "HIDDEN": {
+            "value": "TRUE"
+          },
+          "SIM_ONLY": {
+            "value": "TRUE"
+          }
+        }
+      },
+      "m02_ini_stub_nmu_if_noc_axi_wvalid": {
+        "ports": [
+          "M02_INI_stub_nmu/IF_NOC_AXI_WVALID"
+        ],
+        "hdl_attributes": {
+          "EXT_CONN": {
+            "value": "TRUE"
+          },
+          "HIDDEN": {
+            "value": "TRUE"
+          },
+          "SIM_ONLY": {
+            "value": "TRUE"
+          }
+        }
+      },
+      "m02_ini_stub_nmu_if_noc_npp_in_noc_credit_rdy": {
+        "ports": [
+          "M02_INI_stub_nmu/IF_NOC_NPP_IN_NOC_CREDIT_RDY"
+        ],
+        "hdl_attributes": {
+          "EXT_CONN": {
+            "value": "TRUE"
+          },
+          "HIDDEN": {
+            "value": "TRUE"
+          },
+          "SIM_ONLY": {
+            "value": "TRUE"
+          }
+        }
+      },
+      "m02_ini_stub_nmu_if_noc_npp_in_noc_credit_return": {
+        "ports": [
+          "M02_INI_stub_nmu/IF_NOC_NPP_IN_NOC_CREDIT_RETURN"
+        ],
+        "hdl_attributes": {
+          "EXT_CONN": {
+            "value": "TRUE"
+          },
+          "HIDDEN": {
+            "value": "TRUE"
+          },
+          "SIM_ONLY": {
+            "value": "TRUE"
+          }
+        }
+      },
+      "m02_ini_stub_nmu_if_noc_npp_in_noc_flit": {
+        "ports": [
+          "M02_INI_stub_nmu/IF_NOC_NPP_IN_NOC_FLIT"
+        ],
+        "hdl_attributes": {
+          "EXT_CONN": {
+            "value": "TRUE"
+          },
+          "HIDDEN": {
+            "value": "TRUE"
+          },
+          "SIM_ONLY": {
+            "value": "TRUE"
+          }
+        }
+      },
+      "m02_ini_stub_nmu_if_noc_npp_in_noc_valid": {
+        "ports": [
+          "M02_INI_stub_nmu/IF_NOC_NPP_IN_NOC_VALID"
+        ],
+        "hdl_attributes": {
+          "EXT_CONN": {
+            "value": "TRUE"
+          },
+          "HIDDEN": {
+            "value": "TRUE"
+          },
+          "SIM_ONLY": {
+            "value": "TRUE"
+          }
+        }
+      },
+      "m02_ini_stub_nmu_if_noc_npp_out_noc_credit_rdy": {
+        "ports": [
+          "M02_INI_stub_nmu/IF_NOC_NPP_OUT_NOC_CREDIT_RDY"
+        ],
+        "hdl_attributes": {
+          "EXT_CONN": {
+            "value": "TRUE"
+          },
+          "HIDDEN": {
+            "value": "TRUE"
+          },
+          "SIM_ONLY": {
+            "value": "TRUE"
+          }
+        }
+      },
+      "m02_ini_stub_nmu_if_noc_npp_out_noc_credit_return": {
+        "ports": [
+          "M02_INI_stub_nmu/IF_NOC_NPP_OUT_NOC_CREDIT_RETURN"
+        ],
+        "hdl_attributes": {
+          "EXT_CONN": {
+            "value": "TRUE"
+          },
+          "HIDDEN": {
+            "value": "TRUE"
+          },
+          "SIM_ONLY": {
+            "value": "TRUE"
+          }
+        }
+      },
+      "m02_ini_stub_nmu_if_noc_npp_out_noc_flit": {
+        "ports": [
+          "M02_INI_stub_nmu/IF_NOC_NPP_OUT_NOC_FLIT"
+        ],
+        "hdl_attributes": {
+          "EXT_CONN": {
+            "value": "TRUE"
+          },
+          "HIDDEN": {
+            "value": "TRUE"
+          },
+          "SIM_ONLY": {
+            "value": "TRUE"
+          }
+        }
+      },
+      "m02_ini_stub_nmu_if_noc_npp_out_noc_valid": {
+        "ports": [
+          "M02_INI_stub_nmu/IF_NOC_NPP_OUT_NOC_VALID"
+        ],
+        "hdl_attributes": {
+          "EXT_CONN": {
+            "value": "TRUE"
+          },
+          "HIDDEN": {
+            "value": "TRUE"
+          },
+          "SIM_ONLY": {
+            "value": "TRUE"
+          }
+        }
+      },
+      "stub_clock_dout": {
+        "ports": [
+          "stub_clock/dout",
+          "M02_INI_stub_nmu/aclk",
+          "M00_INI_stub_nmu/aclk",
+          "M01_INI_stub_nmu/aclk"
+        ]
+      }
+    },
+    "addressing": {
+      "/": {
+        "memory_maps": {
+          "M00_INI": {
+            "address_blocks": {
+              "Reg": {
+                "base_address": "0",
+                "range": "64K",
+                "width": "16",
+                "usage": "register"
+              }
+            }
+          },
+          "M01_INI": {
+            "address_blocks": {
+              "Reg": {
+                "base_address": "0",
+                "range": "64K",
+                "width": "16",
+                "usage": "register"
+              }
+            }
+          },
+          "M02_INI": {
+            "address_blocks": {
+              "Reg": {
+                "base_address": "0",
+                "range": "64K",
+                "width": "16",
+                "usage": "register"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

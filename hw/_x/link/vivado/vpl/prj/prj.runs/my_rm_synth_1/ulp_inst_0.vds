@@ -1,0 +1,1095 @@
+#-----------------------------------------------------------
+# Vivado v2022.2.2 (64-bit)
+# SW Build 3788238 on Tue Feb 21 19:59:23 MST 2023
+# IP Build 3783773 on Tue Feb 21 23:41:56 MST 2023
+# Start of session at: Fri Jun 28 10:37:18 2024
+# Process ID: 2546409
+# Current directory: /home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.runs/my_rm_synth_1
+# Command line: vivado -log ulp_inst_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source ulp_inst_0.tcl
+# Log file: /home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.runs/my_rm_synth_1/ulp_inst_0.vds
+# Journal file: /home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.runs/my_rm_synth_1/vivado.jou
+# Running On: nags27, OS: Linux, CPU Frequency: 3099.929 MHz, CPU Physical cores: 20, Host memory: 405693 MB
+#-----------------------------------------------------------
+source ulp_inst_0.tcl -notrace
+INFO: Dispatch client connection id - 45305
+create_project: Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 1835.520 ; gain = 91.961 ; free physical = 79965 ; free virtual = 106981
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/int/xo/ip_repo/xilinx_com_hls_sink_from_aie_1_0'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/int/xo/ip_repo/xilinx_com_hls_setup_aie_1_0'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/.local/hw_platform/iprepo'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/.local/hw_platform/ipcache'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/xilinx/software/Vitis/2022.2/data/ip'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/home/xilinx/software/Vivado/2022.2/data/ip'.
+WARNING: [IP_Flow 19-1663] Duplicate IP found for 'xilinx.com:hls:Data_Mover_XIP:1.0'. The one found in IP location '/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/.local/hw_platform/iprepo/xilinx/data_mover' will take precedence over the same IP in location /home/xilinx/software/Vitis/2022.2/data/ip/xilinx/data_mover
+WARNING: [IP_Flow 19-1663] Duplicate IP found for 'xilinx.com:ip:adapter_v3_0:1.0'. The one found in IP location '/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/.local/hw_platform/iprepo/xilinx/adapter_v3_0' will take precedence over the same IP in location /home/xilinx/software/Vitis/2022.2/data/ip/xilinx/adapter_v3_0
+WARNING: [IP_Flow 19-1663] Duplicate IP found for 'xilinx.com:ip:axis_ic2sgdma:1.0'. The one found in IP location '/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/.local/hw_platform/iprepo/xilinx/axis_ic2sgdma_v1_0' will take precedence over the same IP in location /home/xilinx/software/Vitis/2022.2/data/ip/xilinx/axis_ic2sgdma_v1_0
+WARNING: [IP_Flow 19-1663] Duplicate IP found for 'xilinx.com:ip:Event_Pulse:1.0'. The one found in IP location '/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/.local/hw_platform/iprepo/xilinx/event_pulse_v1_0' will take precedence over the same IP in location /home/xilinx/software/Vitis/2022.2/data/ip/xilinx/event_pulse_v1_0
+WARNING: [IP_Flow 19-1663] Duplicate IP found for 'xilinx.com:ip:sds_lib:1.0'. The one found in IP location '/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/.local/hw_platform/iprepo/xilinx/sds_lib' will take precedence over the same IP in location /home/xilinx/software/Vitis/2022.2/data/ip/xilinx/sds_lib
+WARNING: [IP_Flow 19-1663] Duplicate IP found for 'xilinx.com:sds:sds_mem_sink:1.0'. The one found in IP location '/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/.local/hw_platform/iprepo/xilinx/sds_mem_sink' will take precedence over the same IP in location /home/xilinx/software/Vitis/2022.2/data/ip/xilinx/sds_mem_sink
+WARNING: [IP_Flow 19-1663] Duplicate IP found for 'xilinx.com:ip:xrt_queue:1.1'. The one found in IP location '/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/.local/hw_platform/iprepo/xilinx/xrt_queue_v1_1' will take precedence over the same IP in location /home/xilinx/software/Vitis/2022.2/data/ip/xilinx/xrt_queue_v1_1
+WARNING: [IP_Flow 19-1663] Duplicate IP found for 'xilinx.com:ip:aximm_tieoff_v1_0:1.0'. The one found in IP location '/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/.local/hw_platform/iprepo/xilinx/aximm_tieoff_v1_0' will take precedence over the same IP in location /home/xilinx/software/Vitis/2022.2/data/ip/xilinx/aximm_tieoff_v1_0
+WARNING: [IP_Flow 19-1663] Duplicate IP found for 'xilinx.com:ip:maxis_tieoff_v1_0:1.0'. The one found in IP location '/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/.local/hw_platform/iprepo/xilinx/maxis_tieoff_v1_0' will take precedence over the same IP in location /home/xilinx/software/Vitis/2022.2/data/ip/xilinx/maxis_tieoff_v1_0
+WARNING: [IP_Flow 19-1663] Duplicate IP found for 'xilinx.com:ip:saxis_tieoff_v1_0:1.0'. The one found in IP location '/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/.local/hw_platform/iprepo/xilinx/saxis_tieoff_v1_0' will take precedence over the same IP in location /home/xilinx/software/Vitis/2022.2/data/ip/xilinx/saxis_tieoff_v1_0
+WARNING: [IP_Flow 19-1663] Duplicate IP found for 'xilinx.com:ip:ovld_reg:1.0'. The one found in IP location '/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/.local/hw_platform/iprepo/xilinx/ovld_reg_v1_0' will take precedence over the same IP in location /home/xilinx/software/Vitis/2022.2/data/ip/xilinx/ovld_reg_v1_0
+WARNING: [IP_Flow 19-1663] Duplicate IP found for 'xilinx.com:ip:xrt_queue:1.0'. The one found in IP location '/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/.local/hw_platform/iprepo/xilinx/xrt_queue_v1_0' will take precedence over the same IP in location /home/xilinx/software/Vitis/2022.2/data/ip/xilinx/xrt_queue_v1_0
+WARNING: [IP_Flow 19-1663] Duplicate IP found for 'xilinx.com:ip:axi_fifo_register:3.0'. The one found in IP location '/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/.local/hw_platform/iprepo/xilinx/axi_fifo_register_v3_0' will take precedence over the same IP in location /home/xilinx/software/Vitis/2022.2/data/ip/xilinx/axi_fifo_register_v3_0
+WARNING: [IP_Flow 19-1663] Duplicate IP found for 'xilinx.com:ip:stream_gate:1.0'. The one found in IP location '/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/.local/hw_platform/iprepo/xilinx/stream_gate_v1_0' will take precedence over the same IP in location /home/xilinx/software/Vitis/2022.2/data/ip/xilinx/stream_gate_v1_0
+WARNING: [IP_Flow 19-1663] Duplicate IP found for 'xilinx.com:ip:sgdma2axis_ic:1.0'. The one found in IP location '/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/.local/hw_platform/iprepo/xilinx/sgdma2axis_ic_v1_0' will take precedence over the same IP in location /home/xilinx/software/Vitis/2022.2/data/ip/xilinx/sgdma2axis_ic_v1_0
+WARNING: [IP_Flow 19-1663] Duplicate IP found for 'xilinx.com:sds:sds_mem_source:1.0'. The one found in IP location '/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/.local/hw_platform/iprepo/xilinx/sds_mem_source' will take precedence over the same IP in location /home/xilinx/software/Vitis/2022.2/data/ip/xilinx/sds_mem_source
+update_ip_catalog: Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 2031.262 ; gain = 191.742 ; free physical = 79944 ; free virtual = 106965
+WARNING: [BD 41-2576] File '/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ulp_inst_0_sim_netlist.vhdl' referenced by design 'ulp_inst_0' could not be found.
+WARNING: [BD 41-2576] File '/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ulp_inst_0_sim_netlist.v' referenced by design 'ulp_inst_0' could not be found.
+WARNING: [BD 41-2576] File '/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ulp_inst_0_stub.vhdl' referenced by design 'ulp_inst_0' could not be found.
+WARNING: [BD 41-2576] File '/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ulp_inst_0_stub.v' referenced by design 'ulp_inst_0' could not be found.
+WARNING: [BD 41-2576] File '/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ulp_inst_0.dcp' referenced by design 'ulp_inst_0' could not be found.
+Command: synth_design -top ulp_inst_0 -part xcvc1902-vsvd1760-2MP-e-S -incremental_mode off -mode out_of_context
+Starting synth_design
+WARNING: [Vivado_Tcl 4-393] The 'Synthesis' target of the following IPs are stale, please generate the output products using the generate_target or synth_ip command before running synth_design.
+/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.srcs/my_rm/bd/ulp_inst_0/ulp_inst_0.bd
+
+WARNING: [Vivado_Tcl 4-393] The 'Implementation' target of the following IPs are stale, please generate the output products using the generate_target or synth_ip command before running synth_design.
+/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.srcs/my_rm/bd/ulp_inst_0/ulp_inst_0.bd
+
+Attempting to get a license for feature 'Synthesis' and/or device 'xcvc1902'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xcvc1902'
+INFO: [Device 21-403] Loading part xcvc1902-vsvd1760-2MP-e-S
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 1 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 2548136
+INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [/home/xilinx/software/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:09 ; elapsed = 00:00:17 . Memory (MB): peak = 3162.605 ; gain = 355.797 ; free physical = 81575 ; free virtual = 108574
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2367.294; parent = 2237.179; children = 130.115
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4137.109; parent = 3171.516; children = 965.594
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'ulp_inst_0' [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/synth/ulp_inst_0.v:134]
+INFO: [Synth 8-6157] synthesizing module 'ulp_inst_0_ai_engine_0_0' [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_ai_engine_0_0/synth/ulp_inst_0_ai_engine_0_0.v:53]
+INFO: [Synth 8-6157] synthesizing module 'bd_9d54' [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_ai_engine_0_0/bd_0/synth/bd_9d54.v:9]
+INFO: [Synth 8-6157] synthesizing module 'bd_9d54_ai_pl_ch_0_0' [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_ai_engine_0_0/bd_0/ip/ip_1/synth/bd_9d54_ai_pl_ch_0_0.sv:53]
+INFO: [Synth 8-6157] synthesizing module 'AIE_PL_M_AXIS32' [/home/xilinx/software/Vivado/2022.2/scripts/rt/data/unisim_comp.v:325]
+INFO: [Synth 8-6155] done synthesizing module 'AIE_PL_M_AXIS32' (0#1) [/home/xilinx/software/Vivado/2022.2/scripts/rt/data/unisim_comp.v:325]
+INFO: [Synth 8-6157] synthesizing module 'ai_pl_channel_v1_0_ai2pl' [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_ai_engine_0_0/bd_0/ip/ip_1/hdl/ai_pl_v1_0_6_ai2pl.sv:2]
+INFO: [Synth 8-6155] done synthesizing module 'ai_pl_channel_v1_0_ai2pl' (0#1) [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_ai_engine_0_0/bd_0/ip/ip_1/hdl/ai_pl_v1_0_6_ai2pl.sv:2]
+WARNING: [Synth 8-7071] port 's_axis_aresetn' of module 'ai_pl_v1_0_6_ai_pl' is unconnected for instance 'inst' [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_ai_engine_0_0/bd_0/ip/ip_1/synth/bd_9d54_ai_pl_ch_0_0.sv:96]
+WARNING: [Synth 8-7071] port 'm_axis_aresetn' of module 'ai_pl_v1_0_6_ai_pl' is unconnected for instance 'inst' [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_ai_engine_0_0/bd_0/ip/ip_1/synth/bd_9d54_ai_pl_ch_0_0.sv:96]
+WARNING: [Synth 8-7023] instance 'inst' of module 'ai_pl_v1_0_6_ai_pl' has 24 connections declared, but only 22 given [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_ai_engine_0_0/bd_0/ip/ip_1/synth/bd_9d54_ai_pl_ch_0_0.sv:96]
+INFO: [Synth 8-6155] done synthesizing module 'bd_9d54_ai_pl_ch_0_0' (0#1) [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_ai_engine_0_0/bd_0/ip/ip_1/synth/bd_9d54_ai_pl_ch_0_0.sv:53]
+INFO: [Synth 8-6157] synthesizing module 'bd_9d54_noc_ai_mm_0_0' [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_ai_engine_0_0/bd_0/ip/ip_0/synth/bd_9d54_noc_ai_mm_0_0.v:53]
+INFO: [Synth 8-6157] synthesizing module 'ai_noc_v1_0_0_ai_noc' [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/fc78/hdl/ai_noc_v1_0_rfs.v:3]
+INFO: [Synth 8-6157] synthesizing module 'AIE_NOC_S_AXI' [/home/xilinx/software/Vivado/2022.2/scripts/rt/data/unisim_comp.v:163]
+INFO: [Synth 8-6155] done synthesizing module 'AIE_NOC_S_AXI' (0#1) [/home/xilinx/software/Vivado/2022.2/scripts/rt/data/unisim_comp.v:163]
+WARNING: [Synth 8-689] width (16) of port connection 'S_AXI_AWID' does not match port width (2) of module 'AIE_NOC_S_AXI' [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/fc78/hdl/ai_noc_v1_0_rfs.v:187]
+WARNING: [Synth 8-689] width (16) of port connection 'S_AXI_BID' does not match port width (2) of module 'AIE_NOC_S_AXI' [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/fc78/hdl/ai_noc_v1_0_rfs.v:206]
+WARNING: [Synth 8-689] width (2) of port connection 'S_AXI_BUSER' does not match port width (16) of module 'AIE_NOC_S_AXI' [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/fc78/hdl/ai_noc_v1_0_rfs.v:208]
+WARNING: [Synth 8-689] width (16) of port connection 'S_AXI_ARID' does not match port width (2) of module 'AIE_NOC_S_AXI' [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/fc78/hdl/ai_noc_v1_0_rfs.v:211]
+WARNING: [Synth 8-689] width (16) of port connection 'S_AXI_RID' does not match port width (2) of module 'AIE_NOC_S_AXI' [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/fc78/hdl/ai_noc_v1_0_rfs.v:224]
+WARNING: [Synth 8-7071] port 'FROM_NOC' of module 'AIE_NOC_S_AXI' is unconnected for instance 'noc_ai_mm' [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/fc78/hdl/ai_noc_v1_0_rfs.v:183]
+WARNING: [Synth 8-7071] port 'S_AXI_TDEST' of module 'AIE_NOC_S_AXI' is unconnected for instance 'noc_ai_mm' [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/fc78/hdl/ai_noc_v1_0_rfs.v:183]
+WARNING: [Synth 8-7071] port 'S_AXI_WID' of module 'AIE_NOC_S_AXI' is unconnected for instance 'noc_ai_mm' [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/fc78/hdl/ai_noc_v1_0_rfs.v:183]
+WARNING: [Synth 8-7023] instance 'noc_ai_mm' of module 'AIE_NOC_S_AXI' has 52 connections declared, but only 49 given [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/fc78/hdl/ai_noc_v1_0_rfs.v:183]
+INFO: [Synth 8-6155] done synthesizing module 'ai_noc_v1_0_0_ai_noc' (0#1) [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/fc78/hdl/ai_noc_v1_0_rfs.v:3]
+WARNING: [Synth 8-7071] port 's_axi_aresetn' of module 'ai_noc_v1_0_0_ai_noc' is unconnected for instance 'inst' [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_ai_engine_0_0/bd_0/ip/ip_0/synth/bd_9d54_noc_ai_mm_0_0.v:221]
+WARNING: [Synth 8-7071] port 's_axis_aresetn' of module 'ai_noc_v1_0_0_ai_noc' is unconnected for instance 'inst' [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_ai_engine_0_0/bd_0/ip/ip_0/synth/bd_9d54_noc_ai_mm_0_0.v:221]
+WARNING: [Synth 8-7071] port 'm_axi_aresetn' of module 'ai_noc_v1_0_0_ai_noc' is unconnected for instance 'inst' [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_ai_engine_0_0/bd_0/ip/ip_0/synth/bd_9d54_noc_ai_mm_0_0.v:221]
+WARNING: [Synth 8-7071] port 'm_axis_aresetn' of module 'ai_noc_v1_0_0_ai_noc' is unconnected for instance 'inst' [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_ai_engine_0_0/bd_0/ip/ip_0/synth/bd_9d54_noc_ai_mm_0_0.v:221]
+WARNING: [Synth 8-7023] instance 'inst' of module 'ai_noc_v1_0_0_ai_noc' has 122 connections declared, but only 118 given [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_ai_engine_0_0/bd_0/ip/ip_0/synth/bd_9d54_noc_ai_mm_0_0.v:221]
+INFO: [Synth 8-6155] done synthesizing module 'bd_9d54_noc_ai_mm_0_0' (0#1) [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_ai_engine_0_0/bd_0/ip/ip_0/synth/bd_9d54_noc_ai_mm_0_0.v:53]
+WARNING: [Synth 8-7071] port 'to_aie_2' of module 'bd_9d54_noc_ai_mm_0_0' is unconnected for instance 'noc_ai_mm_0' [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_ai_engine_0_0/bd_0/synth/bd_9d54.v:229]
+WARNING: [Synth 8-7071] port 'to_aie_3' of module 'bd_9d54_noc_ai_mm_0_0' is unconnected for instance 'noc_ai_mm_0' [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_ai_engine_0_0/bd_0/synth/bd_9d54.v:229]
+WARNING: [Synth 8-7071] port 'to_aie_6' of module 'bd_9d54_noc_ai_mm_0_0' is unconnected for instance 'noc_ai_mm_0' [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_ai_engine_0_0/bd_0/synth/bd_9d54.v:229]
+WARNING: [Synth 8-7071] port 'to_aie_7' of module 'bd_9d54_noc_ai_mm_0_0' is unconnected for instance 'noc_ai_mm_0' [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_ai_engine_0_0/bd_0/synth/bd_9d54.v:229]
+WARNING: [Synth 8-7023] instance 'noc_ai_mm_0' of module 'bd_9d54_noc_ai_mm_0_0' has 46 connections declared, but only 42 given [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_ai_engine_0_0/bd_0/synth/bd_9d54.v:229]
+INFO: [Synth 8-6157] synthesizing module 'bd_9d54_pl_ai_ch_0_0' [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_ai_engine_0_0/bd_0/ip/ip_2/synth/bd_9d54_pl_ai_ch_0_0.sv:53]
+INFO: [Synth 8-6157] synthesizing module 'AIE_PL_S_AXIS32' [/home/xilinx/software/Vivado/2022.2/scripts/rt/data/unisim_comp.v:395]
+INFO: [Synth 8-6155] done synthesizing module 'AIE_PL_S_AXIS32' (0#1) [/home/xilinx/software/Vivado/2022.2/scripts/rt/data/unisim_comp.v:395]
+INFO: [Synth 8-6157] synthesizing module 'ai_pl_channel_v1_0_pl2ai' [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_ai_engine_0_0/bd_0/ip/ip_1/hdl/ai_pl_v1_0_6_pl2ai.sv:2]
+WARNING: [Synth 8-689] width (66) of port connection 's_axis_tdata' does not match port width (34) of module 'ai_pl_channel_v1_0_reg_slice' [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_ai_engine_0_0/bd_0/ip/ip_1/hdl/ai_pl_v1_0_6_pl2ai.sv:103]
+WARNING: [Synth 8-689] width (66) of port connection 'm_axis_tdata' does not match port width (34) of module 'ai_pl_channel_v1_0_reg_slice' [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_ai_engine_0_0/bd_0/ip/ip_1/hdl/ai_pl_v1_0_6_pl2ai.sv:106]
+INFO: [Synth 8-6155] done synthesizing module 'ai_pl_channel_v1_0_pl2ai' (0#1) [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_ai_engine_0_0/bd_0/ip/ip_1/hdl/ai_pl_v1_0_6_pl2ai.sv:2]
+WARNING: [Synth 8-7071] port 's_axis_aresetn' of module 'ai_pl_v1_0_6_ai_pl' is unconnected for instance 'inst' [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_ai_engine_0_0/bd_0/ip/ip_2/synth/bd_9d54_pl_ai_ch_0_0.sv:93]
+WARNING: [Synth 8-7071] port 'm_axis_aresetn' of module 'ai_pl_v1_0_6_ai_pl' is unconnected for instance 'inst' [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_ai_engine_0_0/bd_0/ip/ip_2/synth/bd_9d54_pl_ai_ch_0_0.sv:93]
+WARNING: [Synth 8-7023] instance 'inst' of module 'ai_pl_v1_0_6_ai_pl' has 24 connections declared, but only 22 given [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_ai_engine_0_0/bd_0/ip/ip_2/synth/bd_9d54_pl_ai_ch_0_0.sv:93]
+INFO: [Synth 8-6155] done synthesizing module 'bd_9d54_pl_ai_ch_0_0' (0#1) [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_ai_engine_0_0/bd_0/ip/ip_2/synth/bd_9d54_pl_ai_ch_0_0.sv:53]
+WARNING: [Synth 8-7071] port 'to_aie' of module 'bd_9d54_pl_ai_ch_0_0' is unconnected for instance 'pl_ai_ch_0' [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_ai_engine_0_0/bd_0/synth/bd_9d54.v:272]
+WARNING: [Synth 8-7023] instance 'pl_ai_ch_0' of module 'bd_9d54_pl_ai_ch_0_0' has 6 connections declared, but only 5 given [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_ai_engine_0_0/bd_0/synth/bd_9d54.v:272]
+INFO: [Synth 8-6155] done synthesizing module 'bd_9d54' (0#1) [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_ai_engine_0_0/bd_0/synth/bd_9d54.v:9]
+INFO: [Synth 8-6155] done synthesizing module 'ulp_inst_0_ai_engine_0_0' (0#1) [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_ai_engine_0_0/synth/ulp_inst_0_ai_engine_0_0.v:53]
+WARNING: [Synth 8-7071] port 'M00_AXIS_tkeep' of module 'ulp_inst_0_ai_engine_0_0' is unconnected for instance 'ai_engine_0' [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/synth/ulp_inst_0.v:717]
+WARNING: [Synth 8-7071] port 'M00_AXIS_tlast' of module 'ulp_inst_0_ai_engine_0_0' is unconnected for instance 'ai_engine_0' [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/synth/ulp_inst_0.v:717]
+WARNING: [Synth 8-7023] instance 'ai_engine_0' of module 'ulp_inst_0_ai_engine_0_0' has 52 connections declared, but only 50 given [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/synth/ulp_inst_0.v:717]
+INFO: [Synth 8-6157] synthesizing module 'ulp_inst_0_axi_dbg_fw_0' [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.runs/my_rm_synth_1/.Xil/Vivado-2546409-nags27/realtime/ulp_inst_0_axi_dbg_fw_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'ulp_inst_0_axi_dbg_fw_0' (0#1) [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.runs/my_rm_synth_1/.Xil/Vivado-2546409-nags27/realtime/ulp_inst_0_axi_dbg_fw_0_stub.v:5]
+WARNING: [Synth 8-7071] port 'm_axi_awuser' of module 'ulp_inst_0_axi_dbg_fw_0' is unconnected for instance 'axi_dbg_fw' [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/synth/ulp_inst_0.v:768]
+WARNING: [Synth 8-7071] port 'm_axi_aruser' of module 'ulp_inst_0_axi_dbg_fw_0' is unconnected for instance 'axi_dbg_fw' [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/synth/ulp_inst_0.v:768]
+WARNING: [Synth 8-7071] port 's_axi_ctl_awready' of module 'ulp_inst_0_axi_dbg_fw_0' is unconnected for instance 'axi_dbg_fw' [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/synth/ulp_inst_0.v:768]
+WARNING: [Synth 8-7071] port 's_axi_ctl_wready' of module 'ulp_inst_0_axi_dbg_fw_0' is unconnected for instance 'axi_dbg_fw' [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/synth/ulp_inst_0.v:768]
+WARNING: [Synth 8-7071] port 's_axi_ctl_bresp' of module 'ulp_inst_0_axi_dbg_fw_0' is unconnected for instance 'axi_dbg_fw' [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/synth/ulp_inst_0.v:768]
+WARNING: [Synth 8-7071] port 's_axi_ctl_bvalid' of module 'ulp_inst_0_axi_dbg_fw_0' is unconnected for instance 'axi_dbg_fw' [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/synth/ulp_inst_0.v:768]
+WARNING: [Synth 8-7071] port 's_axi_ctl_arready' of module 'ulp_inst_0_axi_dbg_fw_0' is unconnected for instance 'axi_dbg_fw' [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/synth/ulp_inst_0.v:768]
+WARNING: [Synth 8-7071] port 's_axi_ctl_rdata' of module 'ulp_inst_0_axi_dbg_fw_0' is unconnected for instance 'axi_dbg_fw' [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/synth/ulp_inst_0.v:768]
+WARNING: [Synth 8-7071] port 's_axi_ctl_rresp' of module 'ulp_inst_0_axi_dbg_fw_0' is unconnected for instance 'axi_dbg_fw' [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/synth/ulp_inst_0.v:768]
+WARNING: [Synth 8-7071] port 's_axi_ctl_rvalid' of module 'ulp_inst_0_axi_dbg_fw_0' is unconnected for instance 'axi_dbg_fw' [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/synth/ulp_inst_0.v:768]
+WARNING: [Synth 8-7071] port 'ip2intc_irpt' of module 'ulp_inst_0_axi_dbg_fw_0' is unconnected for instance 'axi_dbg_fw' [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/synth/ulp_inst_0.v:768]
+WARNING: [Synth 8-7023] instance 'axi_dbg_fw' of module 'ulp_inst_0_axi_dbg_fw_0' has 104 connections declared, but only 93 given [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/synth/ulp_inst_0.v:768]
+INFO: [Synth 8-6157] synthesizing module 'ulp_inst_0_axi_dbg_hub_0' [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.runs/my_rm_synth_1/.Xil/Vivado-2546409-nags27/realtime/ulp_inst_0_axi_dbg_hub_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'ulp_inst_0_axi_dbg_hub_0' (0#1) [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.runs/my_rm_synth_1/.Xil/Vivado-2546409-nags27/realtime/ulp_inst_0_axi_dbg_hub_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'ulp_inst_0_axi_gpio_null_user_0' [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.runs/my_rm_synth_1/.Xil/Vivado-2546409-nags27/realtime/ulp_inst_0_axi_gpio_null_user_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'ulp_inst_0_axi_gpio_null_user_0' (0#1) [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.runs/my_rm_synth_1/.Xil/Vivado-2546409-nags27/realtime/ulp_inst_0_axi_gpio_null_user_0_stub.v:5]
+WARNING: [Synth 8-7071] port 'gpio_io_o' of module 'ulp_inst_0_axi_gpio_null_user_0' is unconnected for instance 'axi_gpio_null_user' [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/synth/ulp_inst_0.v:904]
+WARNING: [Synth 8-7071] port 'gpio_io_t' of module 'ulp_inst_0_axi_gpio_null_user_0' is unconnected for instance 'axi_gpio_null_user' [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/synth/ulp_inst_0.v:904]
+WARNING: [Synth 8-7023] instance 'axi_gpio_null_user' of module 'ulp_inst_0_axi_gpio_null_user_0' has 22 connections declared, but only 20 given [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/synth/ulp_inst_0.v:904]
+INFO: [Synth 8-6157] synthesizing module 'ulp_inst_0_axi_ic_user_0' [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.runs/my_rm_synth_1/.Xil/Vivado-2546409-nags27/realtime/ulp_inst_0_axi_ic_user_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'ulp_inst_0_axi_ic_user_0' (0#1) [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.runs/my_rm_synth_1/.Xil/Vivado-2546409-nags27/realtime/ulp_inst_0_axi_ic_user_0_stub.v:5]
+WARNING: [Synth 8-7071] port 'M01_AXI_awprot' of module 'ulp_inst_0_axi_ic_user_0' is unconnected for instance 'axi_ic_user' [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/synth/ulp_inst_0.v:926]
+WARNING: [Synth 8-7071] port 'M01_AXI_arprot' of module 'ulp_inst_0_axi_ic_user_0' is unconnected for instance 'axi_ic_user' [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/synth/ulp_inst_0.v:926]
+WARNING: [Synth 8-7071] port 'M02_AXI_awprot' of module 'ulp_inst_0_axi_ic_user_0' is unconnected for instance 'axi_ic_user' [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/synth/ulp_inst_0.v:926]
+WARNING: [Synth 8-7071] port 'M02_AXI_arprot' of module 'ulp_inst_0_axi_ic_user_0' is unconnected for instance 'axi_ic_user' [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/synth/ulp_inst_0.v:926]
+WARNING: [Synth 8-7023] instance 'axi_ic_user' of module 'ulp_inst_0_axi_ic_user_0' has 101 connections declared, but only 97 given [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/synth/ulp_inst_0.v:926]
+INFO: [Synth 8-6157] synthesizing module 'ulp_inst_0_axi_ic_user_extend_0' [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.runs/my_rm_synth_1/.Xil/Vivado-2546409-nags27/realtime/ulp_inst_0_axi_ic_user_extend_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'ulp_inst_0_axi_ic_user_extend_0' (0#1) [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.runs/my_rm_synth_1/.Xil/Vivado-2546409-nags27/realtime/ulp_inst_0_axi_ic_user_extend_0_stub.v:5]
+WARNING: [Synth 8-7071] port 'M00_AXI_awprot' of module 'ulp_inst_0_axi_ic_user_extend_0' is unconnected for instance 'axi_ic_user_extend' [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/synth/ulp_inst_0.v:1024]
+WARNING: [Synth 8-7071] port 'M00_AXI_arprot' of module 'ulp_inst_0_axi_ic_user_extend_0' is unconnected for instance 'axi_ic_user_extend' [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/synth/ulp_inst_0.v:1024]
+WARNING: [Synth 8-7023] instance 'axi_ic_user_extend' of module 'ulp_inst_0_axi_ic_user_extend_0' has 62 connections declared, but only 60 given [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/synth/ulp_inst_0.v:1024]
+INFO: [Synth 8-6157] synthesizing module 'ulp_inst_0_axi_noc_aie_prog_0' [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.runs/my_rm_synth_1/.Xil/Vivado-2546409-nags27/realtime/ulp_inst_0_axi_noc_aie_prog_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'ulp_inst_0_axi_noc_aie_prog_0' (0#1) [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.runs/my_rm_synth_1/.Xil/Vivado-2546409-nags27/realtime/ulp_inst_0_axi_noc_aie_prog_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'ulp_inst_0_axi_noc_h2c_0' [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.runs/my_rm_synth_1/.Xil/Vivado-2546409-nags27/realtime/ulp_inst_0_axi_noc_h2c_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'ulp_inst_0_axi_noc_h2c_0' (0#1) [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.runs/my_rm_synth_1/.Xil/Vivado-2546409-nags27/realtime/ulp_inst_0_axi_noc_h2c_0_stub.v:5]
+WARNING: [Synth 8-7071] port 'M01_AXI_awregion' of module 'ulp_inst_0_axi_noc_h2c_0' is unconnected for instance 'axi_noc_h2c' [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/synth/ulp_inst_0.v:1129]
+WARNING: [Synth 8-7071] port 'M01_AXI_arregion' of module 'ulp_inst_0_axi_noc_h2c_0' is unconnected for instance 'axi_noc_h2c' [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/synth/ulp_inst_0.v:1129]
+WARNING: [Synth 8-7023] instance 'axi_noc_h2c' of module 'ulp_inst_0_axi_noc_h2c_0' has 85 connections declared, but only 83 given [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/synth/ulp_inst_0.v:1129]
+INFO: [Synth 8-6157] synthesizing module 'ulp_inst_0_axi_noc_kernel0_0' [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.runs/my_rm_synth_1/.Xil/Vivado-2546409-nags27/realtime/ulp_inst_0_axi_noc_kernel0_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'ulp_inst_0_axi_noc_kernel0_0' (0#1) [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.runs/my_rm_synth_1/.Xil/Vivado-2546409-nags27/realtime/ulp_inst_0_axi_noc_kernel0_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'ulp_inst_0_axi_sc_plram_0' [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.runs/my_rm_synth_1/.Xil/Vivado-2546409-nags27/realtime/ulp_inst_0_axi_sc_plram_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'ulp_inst_0_axi_sc_plram_0' (0#1) [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.runs/my_rm_synth_1/.Xil/Vivado-2546409-nags27/realtime/ulp_inst_0_axi_sc_plram_0_stub.v:5]
+WARNING: [Synth 8-7071] port 'M00_AXI_awqos' of module 'ulp_inst_0_axi_sc_plram_0' is unconnected for instance 'axi_sc_plram' [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/synth/ulp_inst_0.v:1297]
+WARNING: [Synth 8-7071] port 'M00_AXI_awuser' of module 'ulp_inst_0_axi_sc_plram_0' is unconnected for instance 'axi_sc_plram' [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/synth/ulp_inst_0.v:1297]
+WARNING: [Synth 8-7071] port 'M00_AXI_arqos' of module 'ulp_inst_0_axi_sc_plram_0' is unconnected for instance 'axi_sc_plram' [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/synth/ulp_inst_0.v:1297]
+WARNING: [Synth 8-7071] port 'M00_AXI_aruser' of module 'ulp_inst_0_axi_sc_plram_0' is unconnected for instance 'axi_sc_plram' [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/synth/ulp_inst_0.v:1297]
+WARNING: [Synth 8-7023] instance 'axi_sc_plram' of module 'ulp_inst_0_axi_sc_plram_0' has 77 connections declared, but only 73 given [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/synth/ulp_inst_0.v:1297]
+INFO: [Synth 8-6157] synthesizing module 'ulp_inst_0_const_1_0' [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_const_1_0/synth/ulp_inst_0_const_1_0.v:53]
+INFO: [Synth 8-6157] synthesizing module 'xlconstant_v1_1_7_xlconstant' [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/badb/hdl/xlconstant_v1_1_vl_rfs.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'xlconstant_v1_1_7_xlconstant' (0#1) [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/badb/hdl/xlconstant_v1_1_vl_rfs.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'ulp_inst_0_const_1_0' (0#1) [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_const_1_0/synth/ulp_inst_0_const_1_0.v:53]
+INFO: [Synth 8-6157] synthesizing module 'ulp_inst_0_dwc_setup_aie_0_s_0' [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.runs/my_rm_synth_1/.Xil/Vivado-2546409-nags27/realtime/ulp_inst_0_dwc_setup_aie_0_s_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'ulp_inst_0_dwc_setup_aie_0_s_0' (0#1) [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.runs/my_rm_synth_1/.Xil/Vivado-2546409-nags27/realtime/ulp_inst_0_dwc_setup_aie_0_s_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'ulp_inst_0_gate_dbgfw_or_0' [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.runs/my_rm_synth_1/.Xil/Vivado-2546409-nags27/realtime/ulp_inst_0_gate_dbgfw_or_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'ulp_inst_0_gate_dbgfw_or_0' (0#1) [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.runs/my_rm_synth_1/.Xil/Vivado-2546409-nags27/realtime/ulp_inst_0_gate_dbgfw_or_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'ulp_inst_0_ip_gnd_ext_tog_kernel_00_null_0' [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_ip_gnd_ext_tog_kernel_00_null_0/synth/ulp_inst_0_ip_gnd_ext_tog_kernel_00_null_0.v:53]
+INFO: [Synth 8-6157] synthesizing module 'xlconstant_v1_1_7_xlconstant__parameterized0' [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/badb/hdl/xlconstant_v1_1_vl_rfs.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'xlconstant_v1_1_7_xlconstant__parameterized0' (0#1) [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/badb/hdl/xlconstant_v1_1_vl_rfs.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'ulp_inst_0_ip_gnd_ext_tog_kernel_00_null_0' (0#1) [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_ip_gnd_ext_tog_kernel_00_null_0/synth/ulp_inst_0_ip_gnd_ext_tog_kernel_00_null_0.v:53]
+INFO: [Synth 8-6157] synthesizing module 'ulp_inst_0_ip_gnd_ext_tog_kernel_01_null_0' [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_ip_gnd_ext_tog_kernel_01_null_0/synth/ulp_inst_0_ip_gnd_ext_tog_kernel_01_null_0.v:53]
+INFO: [Synth 8-6155] done synthesizing module 'ulp_inst_0_ip_gnd_ext_tog_kernel_01_null_0' (0#1) [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_ip_gnd_ext_tog_kernel_01_null_0/synth/ulp_inst_0_ip_gnd_ext_tog_kernel_01_null_0.v:53]
+INFO: [Synth 8-6157] synthesizing module 'ulp_inst_0_ip_pipe_dbg_hub_fw_00_0' [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.runs/my_rm_synth_1/.Xil/Vivado-2546409-nags27/realtime/ulp_inst_0_ip_pipe_dbg_hub_fw_00_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'ulp_inst_0_ip_pipe_dbg_hub_fw_00_0' (0#1) [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.runs/my_rm_synth_1/.Xil/Vivado-2546409-nags27/realtime/ulp_inst_0_ip_pipe_dbg_hub_fw_00_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'ulp_inst_0_ip_pipe_ext_tog_kernel_00_null_0' [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.runs/my_rm_synth_1/.Xil/Vivado-2546409-nags27/realtime/ulp_inst_0_ip_pipe_ext_tog_kernel_00_null_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'ulp_inst_0_ip_pipe_ext_tog_kernel_00_null_0' (0#1) [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.runs/my_rm_synth_1/.Xil/Vivado-2546409-nags27/realtime/ulp_inst_0_ip_pipe_ext_tog_kernel_00_null_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'ulp_inst_0_ip_pipe_ext_tog_kernel_01_null_0' [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.runs/my_rm_synth_1/.Xil/Vivado-2546409-nags27/realtime/ulp_inst_0_ip_pipe_ext_tog_kernel_01_null_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'ulp_inst_0_ip_pipe_ext_tog_kernel_01_null_0' (0#1) [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.runs/my_rm_synth_1/.Xil/Vivado-2546409-nags27/realtime/ulp_inst_0_ip_pipe_ext_tog_kernel_01_null_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'ulp_inst_0_irq_const_tieoff_0' [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_irq_const_tieoff_0/synth/ulp_inst_0_irq_const_tieoff_0.v:53]
+INFO: [Synth 8-6155] done synthesizing module 'ulp_inst_0_irq_const_tieoff_0' (0#1) [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_irq_const_tieoff_0/synth/ulp_inst_0_irq_const_tieoff_0.v:53]
+INFO: [Synth 8-6157] synthesizing module 'kernel_interrupt_imp_1VOEG4V' [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/synth/ulp_inst_0.v:12]
+INFO: [Synth 8-6157] synthesizing module 'ulp_inst_0_xlconcat_0_0' [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_xlconcat_0_0/synth/ulp_inst_0_xlconcat_0_0.v:53]
+INFO: [Synth 8-6157] synthesizing module 'xlconcat_v2_1_4_xlconcat' [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/4b67/hdl/xlconcat_v2_1_vl_rfs.v:14]
+INFO: [Synth 8-6155] done synthesizing module 'xlconcat_v2_1_4_xlconcat' (0#1) [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/4b67/hdl/xlconcat_v2_1_vl_rfs.v:14]
+INFO: [Synth 8-6155] done synthesizing module 'ulp_inst_0_xlconcat_0_0' (0#1) [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_xlconcat_0_0/synth/ulp_inst_0_xlconcat_0_0.v:53]
+INFO: [Synth 8-6157] synthesizing module 'ulp_inst_0_xlconstant_0_0' [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_xlconstant_0_0/synth/ulp_inst_0_xlconstant_0_0.v:53]
+INFO: [Synth 8-6157] synthesizing module 'xlconstant_v1_1_7_xlconstant__parameterized1' [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/badb/hdl/xlconstant_v1_1_vl_rfs.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'xlconstant_v1_1_7_xlconstant__parameterized1' (0#1) [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/badb/hdl/xlconstant_v1_1_vl_rfs.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'ulp_inst_0_xlconstant_0_0' (0#1) [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_xlconstant_0_0/synth/ulp_inst_0_xlconstant_0_0.v:53]
+INFO: [Synth 8-6155] done synthesizing module 'kernel_interrupt_imp_1VOEG4V' (0#1) [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/synth/ulp_inst_0.v:12]
+INFO: [Synth 8-6157] synthesizing module 'ulp_inst_0_kernel_interrupt_xlconcat_0_In0_1_interrupt_concat_0' [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_kernel_interrupt_xlconcat_0_In0_1_interrupt_concat_0/synth/ulp_inst_0_kernel_interrupt_xlconcat_0_In0_1_interrupt_concat_0.v:53]
+INFO: [Synth 8-6157] synthesizing module 'xlconcat_v2_1_4_xlconcat__parameterized0' [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/4b67/hdl/xlconcat_v2_1_vl_rfs.v:14]
+INFO: [Synth 8-6155] done synthesizing module 'xlconcat_v2_1_4_xlconcat__parameterized0' (0#1) [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/4b67/hdl/xlconcat_v2_1_vl_rfs.v:14]
+INFO: [Synth 8-6155] done synthesizing module 'ulp_inst_0_kernel_interrupt_xlconcat_0_In0_1_interrupt_concat_0' (0#1) [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_kernel_interrupt_xlconcat_0_In0_1_interrupt_concat_0/synth/ulp_inst_0_kernel_interrupt_xlconcat_0_In0_1_interrupt_concat_0.v:53]
+INFO: [Synth 8-6157] synthesizing module 'ulp_inst_0_plram_ctrl_0' [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.runs/my_rm_synth_1/.Xil/Vivado-2546409-nags27/realtime/ulp_inst_0_plram_ctrl_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'ulp_inst_0_plram_ctrl_0' (0#1) [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.runs/my_rm_synth_1/.Xil/Vivado-2546409-nags27/realtime/ulp_inst_0_plram_ctrl_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'ulp_inst_0_plram_ctrl_bram_0' [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.runs/my_rm_synth_1/.Xil/Vivado-2546409-nags27/realtime/ulp_inst_0_plram_ctrl_bram_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'ulp_inst_0_plram_ctrl_bram_0' (0#1) [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.runs/my_rm_synth_1/.Xil/Vivado-2546409-nags27/realtime/ulp_inst_0_plram_ctrl_bram_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'reset_controllers_imp_1KQP16U' [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/synth/ulp_inst_0.v:32]
+INFO: [Synth 8-6157] synthesizing module 'ulp_inst_0_pipereg_kernel0_0' [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.runs/my_rm_synth_1/.Xil/Vivado-2546409-nags27/realtime/ulp_inst_0_pipereg_kernel0_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'ulp_inst_0_pipereg_kernel0_0' (0#1) [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.runs/my_rm_synth_1/.Xil/Vivado-2546409-nags27/realtime/ulp_inst_0_pipereg_kernel0_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'ulp_inst_0_pipereg_kernel1_0' [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.runs/my_rm_synth_1/.Xil/Vivado-2546409-nags27/realtime/ulp_inst_0_pipereg_kernel1_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'ulp_inst_0_pipereg_kernel1_0' (0#1) [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.runs/my_rm_synth_1/.Xil/Vivado-2546409-nags27/realtime/ulp_inst_0_pipereg_kernel1_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'ulp_inst_0_pipereg_pcie0_0' [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.runs/my_rm_synth_1/.Xil/Vivado-2546409-nags27/realtime/ulp_inst_0_pipereg_pcie0_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'ulp_inst_0_pipereg_pcie0_0' (0#1) [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.runs/my_rm_synth_1/.Xil/Vivado-2546409-nags27/realtime/ulp_inst_0_pipereg_pcie0_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'ulp_inst_0_pipereg_pl_axi0_0' [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.runs/my_rm_synth_1/.Xil/Vivado-2546409-nags27/realtime/ulp_inst_0_pipereg_pl_axi0_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'ulp_inst_0_pipereg_pl_axi0_0' (0#1) [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.runs/my_rm_synth_1/.Xil/Vivado-2546409-nags27/realtime/ulp_inst_0_pipereg_pl_axi0_0_stub.v:5]
+WARNING: [Synth 8-4446] all outputs are unconnected for this instance and logic may be removed [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/synth/ulp_inst_0.v:109]
+INFO: [Synth 8-6157] synthesizing module 'ulp_inst_0_reset_sync_fixed_0' [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.runs/my_rm_synth_1/.Xil/Vivado-2546409-nags27/realtime/ulp_inst_0_reset_sync_fixed_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'ulp_inst_0_reset_sync_fixed_0' (0#1) [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.runs/my_rm_synth_1/.Xil/Vivado-2546409-nags27/realtime/ulp_inst_0_reset_sync_fixed_0_stub.v:5]
+WARNING: [Synth 8-7071] port 'mb_reset' of module 'ulp_inst_0_reset_sync_fixed_0' is unconnected for instance 'reset_sync_fixed' [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/synth/ulp_inst_0.v:109]
+WARNING: [Synth 8-7071] port 'bus_struct_reset' of module 'ulp_inst_0_reset_sync_fixed_0' is unconnected for instance 'reset_sync_fixed' [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/synth/ulp_inst_0.v:109]
+WARNING: [Synth 8-7071] port 'peripheral_reset' of module 'ulp_inst_0_reset_sync_fixed_0' is unconnected for instance 'reset_sync_fixed' [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/synth/ulp_inst_0.v:109]
+WARNING: [Synth 8-7071] port 'interconnect_aresetn' of module 'ulp_inst_0_reset_sync_fixed_0' is unconnected for instance 'reset_sync_fixed' [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/synth/ulp_inst_0.v:109]
+WARNING: [Synth 8-7071] port 'peripheral_aresetn' of module 'ulp_inst_0_reset_sync_fixed_0' is unconnected for instance 'reset_sync_fixed' [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/synth/ulp_inst_0.v:109]
+WARNING: [Synth 8-7023] instance 'reset_sync_fixed' of module 'ulp_inst_0_reset_sync_fixed_0' has 10 connections declared, but only 5 given [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/synth/ulp_inst_0.v:109]
+INFO: [Synth 8-6157] synthesizing module 'ulp_inst_0_reset_sync_kernel0_0' [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.runs/my_rm_synth_1/.Xil/Vivado-2546409-nags27/realtime/ulp_inst_0_reset_sync_kernel0_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'ulp_inst_0_reset_sync_kernel0_0' (0#1) [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.runs/my_rm_synth_1/.Xil/Vivado-2546409-nags27/realtime/ulp_inst_0_reset_sync_kernel0_0_stub.v:5]
+WARNING: [Synth 8-7071] port 'mb_reset' of module 'ulp_inst_0_reset_sync_kernel0_0' is unconnected for instance 'reset_sync_kernel0' [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/synth/ulp_inst_0.v:115]
+WARNING: [Synth 8-7071] port 'bus_struct_reset' of module 'ulp_inst_0_reset_sync_kernel0_0' is unconnected for instance 'reset_sync_kernel0' [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/synth/ulp_inst_0.v:115]
+WARNING: [Synth 8-7071] port 'peripheral_reset' of module 'ulp_inst_0_reset_sync_kernel0_0' is unconnected for instance 'reset_sync_kernel0' [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/synth/ulp_inst_0.v:115]
+WARNING: [Synth 8-7023] instance 'reset_sync_kernel0' of module 'ulp_inst_0_reset_sync_kernel0_0' has 10 connections declared, but only 7 given [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/synth/ulp_inst_0.v:115]
+INFO: [Synth 8-6157] synthesizing module 'ulp_inst_0_reset_sync_kernel1_0' [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.runs/my_rm_synth_1/.Xil/Vivado-2546409-nags27/realtime/ulp_inst_0_reset_sync_kernel1_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'ulp_inst_0_reset_sync_kernel1_0' (0#1) [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.runs/my_rm_synth_1/.Xil/Vivado-2546409-nags27/realtime/ulp_inst_0_reset_sync_kernel1_0_stub.v:5]
+WARNING: [Synth 8-7071] port 'mb_reset' of module 'ulp_inst_0_reset_sync_kernel1_0' is unconnected for instance 'reset_sync_kernel1' [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/synth/ulp_inst_0.v:123]
+WARNING: [Synth 8-7071] port 'bus_struct_reset' of module 'ulp_inst_0_reset_sync_kernel1_0' is unconnected for instance 'reset_sync_kernel1' [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/synth/ulp_inst_0.v:123]
+WARNING: [Synth 8-7071] port 'peripheral_reset' of module 'ulp_inst_0_reset_sync_kernel1_0' is unconnected for instance 'reset_sync_kernel1' [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/synth/ulp_inst_0.v:123]
+WARNING: [Synth 8-7071] port 'peripheral_aresetn' of module 'ulp_inst_0_reset_sync_kernel1_0' is unconnected for instance 'reset_sync_kernel1' [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/synth/ulp_inst_0.v:123]
+WARNING: [Synth 8-7023] instance 'reset_sync_kernel1' of module 'ulp_inst_0_reset_sync_kernel1_0' has 10 connections declared, but only 6 given [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/synth/ulp_inst_0.v:123]
+INFO: [Synth 8-6157] synthesizing module 'ulp_inst_0_rstn_const_0' [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_rstn_const_0/synth/ulp_inst_0_rstn_const_0.v:53]
+INFO: [Synth 8-6155] done synthesizing module 'ulp_inst_0_rstn_const_0' (0#1) [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_rstn_const_0/synth/ulp_inst_0_rstn_const_0.v:53]
+INFO: [Synth 8-6155] done synthesizing module 'reset_controllers_imp_1KQP16U' (0#1) [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/synth/ulp_inst_0.v:32]
+WARNING: [Synth 8-7071] port 'resetn_kernel1_ic' of module 'reset_controllers_imp_1KQP16U' is unconnected for instance 'reset_controllers' [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/synth/ulp_inst_0.v:1497]
+WARNING: [Synth 8-7023] instance 'reset_controllers' of module 'reset_controllers_imp_1KQP16U' has 12 connections declared, but only 11 given [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/synth/ulp_inst_0.v:1497]
+INFO: [Synth 8-6157] synthesizing module 'ulp_inst_0_setup_aie_0_0' [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.runs/my_rm_synth_1/.Xil/Vivado-2546409-nags27/realtime/ulp_inst_0_setup_aie_0_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'ulp_inst_0_setup_aie_0_0' (0#1) [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.runs/my_rm_synth_1/.Xil/Vivado-2546409-nags27/realtime/ulp_inst_0_setup_aie_0_0_stub.v:5]
+WARNING: [Synth 8-7071] port 'stall_start_ext' of module 'ulp_inst_0_setup_aie_0_0' is unconnected for instance 'setup_aie_0' [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/synth/ulp_inst_0.v:1509]
+WARNING: [Synth 8-7071] port 'stall_done_ext' of module 'ulp_inst_0_setup_aie_0_0' is unconnected for instance 'setup_aie_0' [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/synth/ulp_inst_0.v:1509]
+WARNING: [Synth 8-7071] port 'stall_start_str' of module 'ulp_inst_0_setup_aie_0_0' is unconnected for instance 'setup_aie_0' [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/synth/ulp_inst_0.v:1509]
+WARNING: [Synth 8-7071] port 'stall_done_str' of module 'ulp_inst_0_setup_aie_0_0' is unconnected for instance 'setup_aie_0' [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/synth/ulp_inst_0.v:1509]
+WARNING: [Synth 8-7071] port 'stall_start_int' of module 'ulp_inst_0_setup_aie_0_0' is unconnected for instance 'setup_aie_0' [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/synth/ulp_inst_0.v:1509]
+WARNING: [Synth 8-7071] port 'stall_done_int' of module 'ulp_inst_0_setup_aie_0_0' is unconnected for instance 'setup_aie_0' [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/synth/ulp_inst_0.v:1509]
+WARNING: [Synth 8-7071] port 'event_done' of module 'ulp_inst_0_setup_aie_0_0' is unconnected for instance 'setup_aie_0' [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/synth/ulp_inst_0.v:1509]
+WARNING: [Synth 8-7071] port 'event_start' of module 'ulp_inst_0_setup_aie_0_0' is unconnected for instance 'setup_aie_0' [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/synth/ulp_inst_0.v:1509]
+WARNING: [Synth 8-7071] port 'm_axi_gmem0_WID' of module 'ulp_inst_0_setup_aie_0_0' is unconnected for instance 'setup_aie_0' [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/synth/ulp_inst_0.v:1509]
+WARNING: [Synth 8-7023] instance 'setup_aie_0' of module 'ulp_inst_0_setup_aie_0_0' has 71 connections declared, but only 62 given [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/synth/ulp_inst_0.v:1509]
+INFO: [Synth 8-6157] synthesizing module 'ulp_inst_0_sink_from_aie_0_0' [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.runs/my_rm_synth_1/.Xil/Vivado-2546409-nags27/realtime/ulp_inst_0_sink_from_aie_0_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'ulp_inst_0_sink_from_aie_0_0' (0#1) [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.runs/my_rm_synth_1/.Xil/Vivado-2546409-nags27/realtime/ulp_inst_0_sink_from_aie_0_0_stub.v:5]
+WARNING: [Synth 8-7071] port 'stall_start_ext' of module 'ulp_inst_0_sink_from_aie_0_0' is unconnected for instance 'sink_from_aie_0' [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/synth/ulp_inst_0.v:1572]
+WARNING: [Synth 8-7071] port 'stall_done_ext' of module 'ulp_inst_0_sink_from_aie_0_0' is unconnected for instance 'sink_from_aie_0' [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/synth/ulp_inst_0.v:1572]
+WARNING: [Synth 8-7071] port 'stall_start_str' of module 'ulp_inst_0_sink_from_aie_0_0' is unconnected for instance 'sink_from_aie_0' [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/synth/ulp_inst_0.v:1572]
+WARNING: [Synth 8-7071] port 'stall_done_str' of module 'ulp_inst_0_sink_from_aie_0_0' is unconnected for instance 'sink_from_aie_0' [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/synth/ulp_inst_0.v:1572]
+WARNING: [Synth 8-7071] port 'stall_start_int' of module 'ulp_inst_0_sink_from_aie_0_0' is unconnected for instance 'sink_from_aie_0' [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/synth/ulp_inst_0.v:1572]
+WARNING: [Synth 8-7071] port 'stall_done_int' of module 'ulp_inst_0_sink_from_aie_0_0' is unconnected for instance 'sink_from_aie_0' [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/synth/ulp_inst_0.v:1572]
+WARNING: [Synth 8-7071] port 'event_done' of module 'ulp_inst_0_sink_from_aie_0_0' is unconnected for instance 'sink_from_aie_0' [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/synth/ulp_inst_0.v:1572]
+WARNING: [Synth 8-7071] port 'event_start' of module 'ulp_inst_0_sink_from_aie_0_0' is unconnected for instance 'sink_from_aie_0' [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/synth/ulp_inst_0.v:1572]
+WARNING: [Synth 8-7071] port 'm_axi_gmem1_WID' of module 'ulp_inst_0_sink_from_aie_0_0' is unconnected for instance 'sink_from_aie_0' [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/synth/ulp_inst_0.v:1572]
+WARNING: [Synth 8-7023] instance 'sink_from_aie_0' of module 'ulp_inst_0_sink_from_aie_0_0' has 71 connections declared, but only 62 given [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/synth/ulp_inst_0.v:1572]
+INFO: [Synth 8-6155] done synthesizing module 'ulp_inst_0' (0#1) [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/synth/ulp_inst_0.v:134]
+WARNING: [Synth 8-3848] Net s_axis_aclk in module/entity ai_noc_v1_0_0_ai_noc does not have driver. [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/fc78/hdl/ai_noc_v1_0_rfs.v:92]
+WARNING: [Synth 8-3848] Net s_axis_tready in module/entity ai_noc_v1_0_0_ai_noc does not have driver. [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/fc78/hdl/ai_noc_v1_0_rfs.v:94]
+WARNING: [Synth 8-3848] Net m_axi_aclk in module/entity ai_noc_v1_0_0_ai_noc does not have driver. [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/fc78/hdl/ai_noc_v1_0_rfs.v:108]
+WARNING: [Synth 8-3848] Net m_axi_awid in module/entity ai_noc_v1_0_0_ai_noc does not have driver. [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/fc78/hdl/ai_noc_v1_0_rfs.v:110]
+WARNING: [Synth 8-3848] Net m_axi_awaddr in module/entity ai_noc_v1_0_0_ai_noc does not have driver. [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/fc78/hdl/ai_noc_v1_0_rfs.v:112]
+WARNING: [Synth 8-3848] Net m_axi_awlen in module/entity ai_noc_v1_0_0_ai_noc does not have driver. [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/fc78/hdl/ai_noc_v1_0_rfs.v:113]
+WARNING: [Synth 8-3848] Net m_axi_awsize in module/entity ai_noc_v1_0_0_ai_noc does not have driver. [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/fc78/hdl/ai_noc_v1_0_rfs.v:114]
+WARNING: [Synth 8-3848] Net m_axi_awburst in module/entity ai_noc_v1_0_0_ai_noc does not have driver. [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/fc78/hdl/ai_noc_v1_0_rfs.v:115]
+WARNING: [Synth 8-3848] Net m_axi_awlock in module/entity ai_noc_v1_0_0_ai_noc does not have driver. [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/fc78/hdl/ai_noc_v1_0_rfs.v:116]
+WARNING: [Synth 8-3848] Net m_axi_awcache in module/entity ai_noc_v1_0_0_ai_noc does not have driver. [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/fc78/hdl/ai_noc_v1_0_rfs.v:117]
+WARNING: [Synth 8-3848] Net m_axi_awprot in module/entity ai_noc_v1_0_0_ai_noc does not have driver. [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/fc78/hdl/ai_noc_v1_0_rfs.v:118]
+WARNING: [Synth 8-3848] Net m_axi_awqos in module/entity ai_noc_v1_0_0_ai_noc does not have driver. [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/fc78/hdl/ai_noc_v1_0_rfs.v:119]
+WARNING: [Synth 8-3848] Net m_axi_arregion in module/entity ai_noc_v1_0_0_ai_noc does not have driver. [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/fc78/hdl/ai_noc_v1_0_rfs.v:120]
+WARNING: [Synth 8-3848] Net m_axi_awregion in module/entity ai_noc_v1_0_0_ai_noc does not have driver. [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/fc78/hdl/ai_noc_v1_0_rfs.v:121]
+WARNING: [Synth 8-3848] Net m_axi_awuser in module/entity ai_noc_v1_0_0_ai_noc does not have driver. [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/fc78/hdl/ai_noc_v1_0_rfs.v:122]
+WARNING: [Synth 8-3848] Net m_axi_awvalid in module/entity ai_noc_v1_0_0_ai_noc does not have driver. [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/fc78/hdl/ai_noc_v1_0_rfs.v:123]
+WARNING: [Synth 8-3848] Net m_axi_wdata in module/entity ai_noc_v1_0_0_ai_noc does not have driver. [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/fc78/hdl/ai_noc_v1_0_rfs.v:125]
+WARNING: [Synth 8-3848] Net m_axi_wstrb in module/entity ai_noc_v1_0_0_ai_noc does not have driver. [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/fc78/hdl/ai_noc_v1_0_rfs.v:126]
+WARNING: [Synth 8-3848] Net m_axi_wlast in module/entity ai_noc_v1_0_0_ai_noc does not have driver. [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/fc78/hdl/ai_noc_v1_0_rfs.v:127]
+WARNING: [Synth 8-3848] Net m_axi_wuser in module/entity ai_noc_v1_0_0_ai_noc does not have driver. [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/fc78/hdl/ai_noc_v1_0_rfs.v:128]
+WARNING: [Synth 8-3848] Net m_axi_wvalid in module/entity ai_noc_v1_0_0_ai_noc does not have driver. [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/fc78/hdl/ai_noc_v1_0_rfs.v:129]
+WARNING: [Synth 8-3848] Net m_axi_bready in module/entity ai_noc_v1_0_0_ai_noc does not have driver. [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/fc78/hdl/ai_noc_v1_0_rfs.v:135]
+WARNING: [Synth 8-3848] Net m_axi_arid in module/entity ai_noc_v1_0_0_ai_noc does not have driver. [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/fc78/hdl/ai_noc_v1_0_rfs.v:136]
+WARNING: [Synth 8-3848] Net m_axi_araddr in module/entity ai_noc_v1_0_0_ai_noc does not have driver. [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/fc78/hdl/ai_noc_v1_0_rfs.v:137]
+WARNING: [Synth 8-3848] Net m_axi_arlen in module/entity ai_noc_v1_0_0_ai_noc does not have driver. [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/fc78/hdl/ai_noc_v1_0_rfs.v:138]
+WARNING: [Synth 8-3848] Net m_axi_arsize in module/entity ai_noc_v1_0_0_ai_noc does not have driver. [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/fc78/hdl/ai_noc_v1_0_rfs.v:139]
+WARNING: [Synth 8-3848] Net m_axi_arburst in module/entity ai_noc_v1_0_0_ai_noc does not have driver. [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/fc78/hdl/ai_noc_v1_0_rfs.v:140]
+WARNING: [Synth 8-3848] Net m_axi_arlock in module/entity ai_noc_v1_0_0_ai_noc does not have driver. [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/fc78/hdl/ai_noc_v1_0_rfs.v:141]
+WARNING: [Synth 8-3848] Net m_axi_arcache in module/entity ai_noc_v1_0_0_ai_noc does not have driver. [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/fc78/hdl/ai_noc_v1_0_rfs.v:142]
+WARNING: [Synth 8-3848] Net m_axi_arprot in module/entity ai_noc_v1_0_0_ai_noc does not have driver. [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/fc78/hdl/ai_noc_v1_0_rfs.v:143]
+WARNING: [Synth 8-3848] Net m_axi_arqos in module/entity ai_noc_v1_0_0_ai_noc does not have driver. [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/fc78/hdl/ai_noc_v1_0_rfs.v:144]
+WARNING: [Synth 8-3848] Net m_axi_aruser in module/entity ai_noc_v1_0_0_ai_noc does not have driver. [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/fc78/hdl/ai_noc_v1_0_rfs.v:145]
+WARNING: [Synth 8-3848] Net m_axi_arvalid in module/entity ai_noc_v1_0_0_ai_noc does not have driver. [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/fc78/hdl/ai_noc_v1_0_rfs.v:146]
+WARNING: [Synth 8-3848] Net m_axi_rready in module/entity ai_noc_v1_0_0_ai_noc does not have driver. [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/fc78/hdl/ai_noc_v1_0_rfs.v:154]
+WARNING: [Synth 8-3848] Net m_axi_destid_wr in module/entity ai_noc_v1_0_0_ai_noc does not have driver. [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/fc78/hdl/ai_noc_v1_0_rfs.v:156]
+WARNING: [Synth 8-3848] Net m_axi_destmode_wr in module/entity ai_noc_v1_0_0_ai_noc does not have driver. [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/fc78/hdl/ai_noc_v1_0_rfs.v:157]
+WARNING: [Synth 8-3848] Net m_axi_destid_rd in module/entity ai_noc_v1_0_0_ai_noc does not have driver. [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/fc78/hdl/ai_noc_v1_0_rfs.v:158]
+WARNING: [Synth 8-3848] Net m_axi_destmode_rd in module/entity ai_noc_v1_0_0_ai_noc does not have driver. [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/fc78/hdl/ai_noc_v1_0_rfs.v:159]
+WARNING: [Synth 8-3848] Net m_axis_aclk in module/entity ai_noc_v1_0_0_ai_noc does not have driver. [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/fc78/hdl/ai_noc_v1_0_rfs.v:161]
+WARNING: [Synth 8-3848] Net m_axis_tvalid in module/entity ai_noc_v1_0_0_ai_noc does not have driver. [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/fc78/hdl/ai_noc_v1_0_rfs.v:163]
+WARNING: [Synth 8-3848] Net m_axis_tid in module/entity ai_noc_v1_0_0_ai_noc does not have driver. [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/fc78/hdl/ai_noc_v1_0_rfs.v:164]
+WARNING: [Synth 8-3848] Net m_axis_tdest in module/entity ai_noc_v1_0_0_ai_noc does not have driver. [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/fc78/hdl/ai_noc_v1_0_rfs.v:165]
+WARNING: [Synth 8-3848] Net m_axis_tdata in module/entity ai_noc_v1_0_0_ai_noc does not have driver. [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/fc78/hdl/ai_noc_v1_0_rfs.v:166]
+WARNING: [Synth 8-3848] Net m_axis_tkeep in module/entity ai_noc_v1_0_0_ai_noc does not have driver. [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/fc78/hdl/ai_noc_v1_0_rfs.v:167]
+WARNING: [Synth 8-3848] Net m_axis_tlast in module/entity ai_noc_v1_0_0_ai_noc does not have driver. [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/fc78/hdl/ai_noc_v1_0_rfs.v:168]
+WARNING: [Synth 8-3848] Net qsfp0_4x_gtx_n in module/entity ulp_inst_0 does not have driver. [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/synth/ulp_inst_0.v:234]
+WARNING: [Synth 8-3848] Net qsfp0_4x_gtx_p in module/entity ulp_inst_0 does not have driver. [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/synth/ulp_inst_0.v:235]
+WARNING: [Synth 8-3848] Net qsfp1_4x_gtx_n in module/entity ulp_inst_0 does not have driver. [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/synth/ulp_inst_0.v:240]
+WARNING: [Synth 8-3848] Net qsfp1_4x_gtx_p in module/entity ulp_inst_0 does not have driver. [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/synth/ulp_inst_0.v:241]
+WARNING: [Synth 8-7129] Port In32[0] in module xlconcat_v2_1_4_xlconcat__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In33[0] in module xlconcat_v2_1_4_xlconcat__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In34[0] in module xlconcat_v2_1_4_xlconcat__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In35[0] in module xlconcat_v2_1_4_xlconcat__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In36[0] in module xlconcat_v2_1_4_xlconcat__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In37[0] in module xlconcat_v2_1_4_xlconcat__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In38[0] in module xlconcat_v2_1_4_xlconcat__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In39[0] in module xlconcat_v2_1_4_xlconcat__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In40[0] in module xlconcat_v2_1_4_xlconcat__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In41[0] in module xlconcat_v2_1_4_xlconcat__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In42[0] in module xlconcat_v2_1_4_xlconcat__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In43[0] in module xlconcat_v2_1_4_xlconcat__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In44[0] in module xlconcat_v2_1_4_xlconcat__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In45[0] in module xlconcat_v2_1_4_xlconcat__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In46[0] in module xlconcat_v2_1_4_xlconcat__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In47[0] in module xlconcat_v2_1_4_xlconcat__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In48[0] in module xlconcat_v2_1_4_xlconcat__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In49[0] in module xlconcat_v2_1_4_xlconcat__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In50[0] in module xlconcat_v2_1_4_xlconcat__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In51[0] in module xlconcat_v2_1_4_xlconcat__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In52[0] in module xlconcat_v2_1_4_xlconcat__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In53[0] in module xlconcat_v2_1_4_xlconcat__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In54[0] in module xlconcat_v2_1_4_xlconcat__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In55[0] in module xlconcat_v2_1_4_xlconcat__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In56[0] in module xlconcat_v2_1_4_xlconcat__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In57[0] in module xlconcat_v2_1_4_xlconcat__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In58[0] in module xlconcat_v2_1_4_xlconcat__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In59[0] in module xlconcat_v2_1_4_xlconcat__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In60[0] in module xlconcat_v2_1_4_xlconcat__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In61[0] in module xlconcat_v2_1_4_xlconcat__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In62[0] in module xlconcat_v2_1_4_xlconcat__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In63[0] in module xlconcat_v2_1_4_xlconcat__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In64[0] in module xlconcat_v2_1_4_xlconcat__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In65[0] in module xlconcat_v2_1_4_xlconcat__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In66[0] in module xlconcat_v2_1_4_xlconcat__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In67[0] in module xlconcat_v2_1_4_xlconcat__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In68[0] in module xlconcat_v2_1_4_xlconcat__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In69[0] in module xlconcat_v2_1_4_xlconcat__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In70[0] in module xlconcat_v2_1_4_xlconcat__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In71[0] in module xlconcat_v2_1_4_xlconcat__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In72[0] in module xlconcat_v2_1_4_xlconcat__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In73[0] in module xlconcat_v2_1_4_xlconcat__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In74[0] in module xlconcat_v2_1_4_xlconcat__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In75[0] in module xlconcat_v2_1_4_xlconcat__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In76[0] in module xlconcat_v2_1_4_xlconcat__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In77[0] in module xlconcat_v2_1_4_xlconcat__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In78[0] in module xlconcat_v2_1_4_xlconcat__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In79[0] in module xlconcat_v2_1_4_xlconcat__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In80[0] in module xlconcat_v2_1_4_xlconcat__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In81[0] in module xlconcat_v2_1_4_xlconcat__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In82[0] in module xlconcat_v2_1_4_xlconcat__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In83[0] in module xlconcat_v2_1_4_xlconcat__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In84[0] in module xlconcat_v2_1_4_xlconcat__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In85[0] in module xlconcat_v2_1_4_xlconcat__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In86[0] in module xlconcat_v2_1_4_xlconcat__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In87[0] in module xlconcat_v2_1_4_xlconcat__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In88[0] in module xlconcat_v2_1_4_xlconcat__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In89[0] in module xlconcat_v2_1_4_xlconcat__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In90[0] in module xlconcat_v2_1_4_xlconcat__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In91[0] in module xlconcat_v2_1_4_xlconcat__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In92[0] in module xlconcat_v2_1_4_xlconcat__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In93[0] in module xlconcat_v2_1_4_xlconcat__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In94[0] in module xlconcat_v2_1_4_xlconcat__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In95[0] in module xlconcat_v2_1_4_xlconcat__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In96[0] in module xlconcat_v2_1_4_xlconcat__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In97[0] in module xlconcat_v2_1_4_xlconcat__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In98[0] in module xlconcat_v2_1_4_xlconcat__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In99[0] in module xlconcat_v2_1_4_xlconcat__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In100[0] in module xlconcat_v2_1_4_xlconcat__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In101[0] in module xlconcat_v2_1_4_xlconcat__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In102[0] in module xlconcat_v2_1_4_xlconcat__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In103[0] in module xlconcat_v2_1_4_xlconcat__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In104[0] in module xlconcat_v2_1_4_xlconcat__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In105[0] in module xlconcat_v2_1_4_xlconcat__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In106[0] in module xlconcat_v2_1_4_xlconcat__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In107[0] in module xlconcat_v2_1_4_xlconcat__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In108[0] in module xlconcat_v2_1_4_xlconcat__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In109[0] in module xlconcat_v2_1_4_xlconcat__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In110[0] in module xlconcat_v2_1_4_xlconcat__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In111[0] in module xlconcat_v2_1_4_xlconcat__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In112[0] in module xlconcat_v2_1_4_xlconcat__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In113[0] in module xlconcat_v2_1_4_xlconcat__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In114[0] in module xlconcat_v2_1_4_xlconcat__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In115[0] in module xlconcat_v2_1_4_xlconcat__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In116[0] in module xlconcat_v2_1_4_xlconcat__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In117[0] in module xlconcat_v2_1_4_xlconcat__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In118[0] in module xlconcat_v2_1_4_xlconcat__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In119[0] in module xlconcat_v2_1_4_xlconcat__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In120[0] in module xlconcat_v2_1_4_xlconcat__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In121[0] in module xlconcat_v2_1_4_xlconcat__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In122[0] in module xlconcat_v2_1_4_xlconcat__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In123[0] in module xlconcat_v2_1_4_xlconcat__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In124[0] in module xlconcat_v2_1_4_xlconcat__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In125[0] in module xlconcat_v2_1_4_xlconcat__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In126[0] in module xlconcat_v2_1_4_xlconcat__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In127[0] in module xlconcat_v2_1_4_xlconcat__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In2[0] in module xlconcat_v2_1_4_xlconcat is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In3[0] in module xlconcat_v2_1_4_xlconcat is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In4[0] in module xlconcat_v2_1_4_xlconcat is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In5[0] in module xlconcat_v2_1_4_xlconcat is either unconnected or has no load
+INFO: [Common 17-14] Message 'Synth 8-7129' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:13 ; elapsed = 00:00:22 . Memory (MB): peak = 3250.449 ; gain = 443.641 ; free physical = 81640 ; free virtual = 108646
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2462.853; parent = 2332.886; children = 130.115
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4216.047; parent = 3250.453; children = 965.594
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:14 ; elapsed = 00:00:23 . Memory (MB): peak = 3268.262 ; gain = 461.453 ; free physical = 81635 ; free virtual = 108641
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2462.853; parent = 2332.886; children = 130.115
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4233.859; parent = 3268.266; children = 965.594
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:14 ; elapsed = 00:00:23 . Memory (MB): peak = 3268.262 ; gain = 461.453 ; free physical = 81634 ; free virtual = 108640
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2462.853; parent = 2332.886; children = 130.115
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4233.859; parent = 3268.266; children = 965.594
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00.07 ; elapsed = 00:00:00.07 . Memory (MB): peak = 3274.199 ; gain = 0.000 ; free physical = 81594 ; free virtual = 108606
+INFO: [Chipscope 16-579] Latest version is versal_cips_v3_3 for versal_cips_v3_2
+INFO: [Constraints 18-6359] No Clock Expansion Window constraints config file entry for device xcvc1902.  GCLK Deskew mode will be Off and cannot be enabled via GCLK_DESKEW override.
+INFO: [Constraints 18-5720] The default GCLK Deskew mode is Off.
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_ip_pipe_dbg_hub_fw_00_0/ulp_inst_0_ip_pipe_dbg_hub_fw_00_0/ulp_inst_0_ip_pipe_dbg_hub_fw_00_0_in_context.xdc] for cell 'ip_pipe_dbg_hub_fw_00'
+Finished Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_ip_pipe_dbg_hub_fw_00_0/ulp_inst_0_ip_pipe_dbg_hub_fw_00_0/ulp_inst_0_ip_pipe_dbg_hub_fw_00_0_in_context.xdc] for cell 'ip_pipe_dbg_hub_fw_00'
+Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_noc_h2c_0/ulp_inst_0_axi_noc_h2c_0/ulp_inst_0_axi_noc_h2c_0_in_context.xdc] for cell 'axi_noc_h2c'
+Finished Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_noc_h2c_0/ulp_inst_0_axi_noc_h2c_0/ulp_inst_0_axi_noc_h2c_0_in_context.xdc] for cell 'axi_noc_h2c'
+Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_noc_kernel0_0/ulp_inst_0_axi_noc_kernel0_0/ulp_inst_0_axi_noc_kernel0_0_in_context.xdc] for cell 'axi_noc_kernel0'
+Finished Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_noc_kernel0_0/ulp_inst_0_axi_noc_kernel0_0/ulp_inst_0_axi_noc_kernel0_0_in_context.xdc] for cell 'axi_noc_kernel0'
+Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_plram_ctrl_0/ulp_inst_0_plram_ctrl_0/ulp_inst_0_plram_ctrl_0_in_context.xdc] for cell 'plram_ctrl'
+create_clock: Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 3427.508 ; gain = 13.469 ; free physical = 81218 ; free virtual = 108232
+Finished Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_plram_ctrl_0/ulp_inst_0_plram_ctrl_0/ulp_inst_0_plram_ctrl_0_in_context.xdc] for cell 'plram_ctrl'
+Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_ic_user_extend_0/ulp_inst_0_axi_ic_user_extend_0/ulp_inst_0_axi_ic_user_extend_0_in_context.xdc] for cell 'axi_ic_user_extend'
+Finished Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_ic_user_extend_0/ulp_inst_0_axi_ic_user_extend_0/ulp_inst_0_axi_ic_user_extend_0_in_context.xdc] for cell 'axi_ic_user_extend'
+Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_ip_pipe_ext_tog_kernel_01_null_0/ulp_inst_0_ip_pipe_ext_tog_kernel_01_null_0/ulp_inst_0_ip_pipe_ext_tog_kernel_01_null_0_in_context.xdc] for cell 'ip_pipe_ext_tog_kernel_01_null'
+Finished Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_ip_pipe_ext_tog_kernel_01_null_0/ulp_inst_0_ip_pipe_ext_tog_kernel_01_null_0/ulp_inst_0_ip_pipe_ext_tog_kernel_01_null_0_in_context.xdc] for cell 'ip_pipe_ext_tog_kernel_01_null'
+Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_ip_pipe_ext_tog_kernel_00_null_0/ulp_inst_0_ip_pipe_ext_tog_kernel_00_null_0/ulp_inst_0_ip_pipe_ext_tog_kernel_00_null_0_in_context.xdc] for cell 'ip_pipe_ext_tog_kernel_00_null'
+Finished Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_ip_pipe_ext_tog_kernel_00_null_0/ulp_inst_0_ip_pipe_ext_tog_kernel_00_null_0/ulp_inst_0_ip_pipe_ext_tog_kernel_00_null_0_in_context.xdc] for cell 'ip_pipe_ext_tog_kernel_00_null'
+Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_pipereg_kernel0_0/ulp_inst_0_pipereg_kernel0_0/ulp_inst_0_pipereg_kernel0_0_in_context.xdc] for cell 'reset_controllers/pipereg_kernel0'
+Finished Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_pipereg_kernel0_0/ulp_inst_0_pipereg_kernel0_0/ulp_inst_0_pipereg_kernel0_0_in_context.xdc] for cell 'reset_controllers/pipereg_kernel0'
+Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_gpio_null_user_0/ulp_inst_0_axi_gpio_null_user_0/ulp_inst_0_axi_gpio_null_user_0_in_context.xdc] for cell 'axi_gpio_null_user'
+Finished Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_gpio_null_user_0/ulp_inst_0_axi_gpio_null_user_0/ulp_inst_0_axi_gpio_null_user_0_in_context.xdc] for cell 'axi_gpio_null_user'
+Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_dbg_hub_0/ulp_inst_0_axi_dbg_hub_0/ulp_inst_0_axi_dbg_hub_0_in_context.xdc] for cell 'axi_dbg_hub'
+Finished Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_dbg_hub_0/ulp_inst_0_axi_dbg_hub_0/ulp_inst_0_axi_dbg_hub_0_in_context.xdc] for cell 'axi_dbg_hub'
+Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_ic_user_0/ulp_inst_0_axi_ic_user_0/ulp_inst_0_axi_ic_user_0_in_context.xdc] for cell 'axi_ic_user'
+Finished Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_ic_user_0/ulp_inst_0_axi_ic_user_0/ulp_inst_0_axi_ic_user_0_in_context.xdc] for cell 'axi_ic_user'
+Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_gate_dbgfw_or_0/ulp_inst_0_gate_dbgfw_or_0/ulp_inst_0_gate_dbgfw_or_0_in_context.xdc] for cell 'gate_dbgfw_or'
+Finished Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_gate_dbgfw_or_0/ulp_inst_0_gate_dbgfw_or_0/ulp_inst_0_gate_dbgfw_or_0_in_context.xdc] for cell 'gate_dbgfw_or'
+Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_plram_ctrl_bram_0/ulp_inst_0_plram_ctrl_bram_0/ulp_inst_0_plram_ctrl_bram_0_in_context.xdc] for cell 'plram_ctrl_bram'
+Finished Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_plram_ctrl_bram_0/ulp_inst_0_plram_ctrl_bram_0/ulp_inst_0_plram_ctrl_bram_0_in_context.xdc] for cell 'plram_ctrl_bram'
+Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_reset_sync_kernel1_0/ulp_inst_0_reset_sync_kernel1_0/ulp_inst_0_reset_sync_kernel1_0_in_context.xdc] for cell 'reset_controllers/reset_sync_kernel1'
+Finished Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_reset_sync_kernel1_0/ulp_inst_0_reset_sync_kernel1_0/ulp_inst_0_reset_sync_kernel1_0_in_context.xdc] for cell 'reset_controllers/reset_sync_kernel1'
+Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_pipereg_pcie0_0/ulp_inst_0_pipereg_pcie0_0/ulp_inst_0_pipereg_pcie0_0_in_context.xdc] for cell 'reset_controllers/pipereg_pcie0'
+Finished Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_pipereg_pcie0_0/ulp_inst_0_pipereg_pcie0_0/ulp_inst_0_pipereg_pcie0_0_in_context.xdc] for cell 'reset_controllers/pipereg_pcie0'
+Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_pipereg_kernel1_0/ulp_inst_0_pipereg_kernel1_0/ulp_inst_0_pipereg_kernel1_0_in_context.xdc] for cell 'reset_controllers/pipereg_kernel1'
+Finished Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_pipereg_kernel1_0/ulp_inst_0_pipereg_kernel1_0/ulp_inst_0_pipereg_kernel1_0_in_context.xdc] for cell 'reset_controllers/pipereg_kernel1'
+Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_sc_plram_0/ulp_inst_0_axi_sc_plram_0/ulp_inst_0_axi_sc_plram_0_in_context.xdc] for cell 'axi_sc_plram'
+Finished Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_sc_plram_0/ulp_inst_0_axi_sc_plram_0/ulp_inst_0_axi_sc_plram_0_in_context.xdc] for cell 'axi_sc_plram'
+Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_noc_aie_prog_0/ulp_inst_0_axi_noc_aie_prog_0/ulp_inst_0_axi_noc_aie_prog_0_in_context.xdc] for cell 'axi_noc_aie_prog'
+Finished Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_noc_aie_prog_0/ulp_inst_0_axi_noc_aie_prog_0/ulp_inst_0_axi_noc_aie_prog_0_in_context.xdc] for cell 'axi_noc_aie_prog'
+Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_reset_sync_kernel0_0/ulp_inst_0_reset_sync_kernel0_0/ulp_inst_0_reset_sync_kernel0_0_in_context.xdc] for cell 'reset_controllers/reset_sync_kernel0'
+Finished Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_reset_sync_kernel0_0/ulp_inst_0_reset_sync_kernel0_0/ulp_inst_0_reset_sync_kernel0_0_in_context.xdc] for cell 'reset_controllers/reset_sync_kernel0'
+Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_pipereg_pl_axi0_0/ulp_inst_0_pipereg_pl_axi0_0/ulp_inst_0_pipereg_pl_axi0_0_in_context.xdc] for cell 'reset_controllers/pipereg_pl_axi0'
+Finished Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_pipereg_pl_axi0_0/ulp_inst_0_pipereg_pl_axi0_0/ulp_inst_0_pipereg_pl_axi0_0_in_context.xdc] for cell 'reset_controllers/pipereg_pl_axi0'
+Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_reset_sync_fixed_0/ulp_inst_0_reset_sync_fixed_0/ulp_inst_0_reset_sync_fixed_0_in_context.xdc] for cell 'reset_controllers/reset_sync_fixed'
+Finished Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_reset_sync_fixed_0/ulp_inst_0_reset_sync_fixed_0/ulp_inst_0_reset_sync_fixed_0_in_context.xdc] for cell 'reset_controllers/reset_sync_fixed'
+Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_setup_aie_0_0/ulp_inst_0_setup_aie_0_0/ulp_inst_0_setup_aie_0_0_in_context.xdc] for cell 'setup_aie_0'
+Finished Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_setup_aie_0_0/ulp_inst_0_setup_aie_0_0/ulp_inst_0_setup_aie_0_0_in_context.xdc] for cell 'setup_aie_0'
+Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_dbg_fw_0/ulp_inst_0_axi_dbg_fw_0/ulp_inst_0_axi_dbg_fw_0_in_context.xdc] for cell 'axi_dbg_fw'
+Finished Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_dbg_fw_0/ulp_inst_0_axi_dbg_fw_0/ulp_inst_0_axi_dbg_fw_0_in_context.xdc] for cell 'axi_dbg_fw'
+Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_sink_from_aie_0_0/ulp_inst_0_sink_from_aie_0_0/ulp_inst_0_sink_from_aie_0_0_in_context.xdc] for cell 'sink_from_aie_0'
+Finished Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_sink_from_aie_0_0/ulp_inst_0_sink_from_aie_0_0/ulp_inst_0_sink_from_aie_0_0_in_context.xdc] for cell 'sink_from_aie_0'
+Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_dwc_setup_aie_0_s_0/ulp_inst_0_dwc_setup_aie_0_s_0/ulp_inst_0_dwc_setup_aie_0_s_0_in_context.xdc] for cell 'dwc_setup_aie_0_s'
+Finished Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_dwc_setup_aie_0_s_0/ulp_inst_0_dwc_setup_aie_0_s_0/ulp_inst_0_dwc_setup_aie_0_s_0_in_context.xdc] for cell 'dwc_setup_aie_0_s'
+Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ulp_inst_0_ooc.xdc]
+Finished Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ulp_inst_0_ooc.xdc]
+Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.runs/my_rm_synth_1/dont_touch.xdc]
+Finished Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.runs/my_rm_synth_1/dont_touch.xdc]
+Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/output/ulp_inst_0_ooc_copy.xdc]
+WARNING: [Constraints 18-619] A clock with name 'blp_s_aclk_ctrl_00' already exists, overwriting the previous clock with the same name. [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/output/ulp_inst_0_ooc_copy.xdc:9]
+WARNING: [Constraints 18-619] A clock with name 'blp_s_aclk_kernel_00' already exists, overwriting the previous clock with the same name. [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/output/ulp_inst_0_ooc_copy.xdc:10]
+WARNING: [Constraints 18-619] A clock with name 'blp_s_aclk_kernel_01' already exists, overwriting the previous clock with the same name. [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/output/ulp_inst_0_ooc_copy.xdc:11]
+WARNING: [Constraints 18-619] A clock with name 'blp_s_aclk_pcie_00' already exists, overwriting the previous clock with the same name. [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/output/ulp_inst_0_ooc_copy.xdc:12]
+WARNING: [Constraints 18-619] A clock with name 'blp_s_aclk_ext_tog_kernel_00' already exists, overwriting the previous clock with the same name. [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/output/ulp_inst_0_ooc_copy.xdc:13]
+WARNING: [Constraints 18-619] A clock with name 'blp_s_aclk_ext_tog_kernel_01' already exists, overwriting the previous clock with the same name. [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/output/ulp_inst_0_ooc_copy.xdc:14]
+CRITICAL WARNING: [Constraints 18-1056] Clock 'USER_blp_s_aclk_kernel_00' completely overrides clock 'blp_s_aclk_kernel_00'.
+New: create_clock -period 5.000 -name USER_blp_s_aclk_kernel_00 [get_ports blp_s_aclk_kernel_00], [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/output/ulp_inst_0_ooc_copy.xdc:18]
+Previous: create_clock -period 3.333 -name blp_s_aclk_kernel_00 [get_ports blp_s_aclk_kernel_00], [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/output/ulp_inst_0_ooc_copy.xdc:10]
+Resolution: Review the constraint files and remove the redundant clock definition(s). If the clock constraints are not saved in a file, you can first save the constraints to an XDC file and reload the design once the constraints have been corrected.
+Finished Parsing XDC File [/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/output/ulp_inst_0_ooc_copy.xdc]
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3427.508 ; gain = 0.000 ; free physical = 81208 ; free virtual = 108223
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00.12 ; elapsed = 00:00:00.15 . Memory (MB): peak = 3427.508 ; gain = 0.000 ; free physical = 81207 ; free virtual = 108221
+INFO: [Designutils 20-5008] Incremental synthesis strategy off
+INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [/home/xilinx/software/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:42 ; elapsed = 00:00:55 . Memory (MB): peak = 3427.508 ; gain = 620.699 ; free physical = 81171 ; free virtual = 108193
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2485.562; parent = 2355.975; children = 130.115
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4393.105; parent = 3427.512; children = 965.594
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xcvc1902-vsvd1760-2MP-e-S
+INFO: [Synth 8-6742] Reading net delay rules and data
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:42 ; elapsed = 00:00:55 . Memory (MB): peak = 3427.508 ; gain = 620.699 ; free physical = 81168 ; free virtual = 108190
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2485.562; parent = 2355.975; children = 130.115
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4393.105; parent = 3427.512; children = 965.594
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+Applied set_property KEEP_HIERARCHY = SOFT for ip_pipe_dbg_hub_fw_00. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for ip_pipe_ext_tog_kernel_00_null. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for ip_pipe_ext_tog_kernel_01_null. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for ip_gnd_ext_tog_kernel_00_null. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for ip_gnd_ext_tog_kernel_01_null. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for axi_dbg_hub. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for axi_gpio_null_user. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for axi_ic_user. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for axi_ic_user_extend. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for axi_sc_plram. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for kernel_interrupt/xlconcat_0. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for kernel_interrupt/xlconstant_0. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for plram_ctrl. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for plram_ctrl_bram. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for reset_controllers/pipereg_kernel0. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for reset_controllers/pipereg_kernel1. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for reset_controllers/pipereg_pcie0. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for reset_controllers/pipereg_pl_axi0. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for reset_controllers/reset_sync_kernel0. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for reset_controllers/reset_sync_kernel1. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for reset_controllers/reset_sync_fixed. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for reset_controllers/rstn_const. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for ai_engine_0. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for ai_engine_0/inst. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for ai_engine_0/inst/noc_ai_mm_0. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for ai_engine_0/inst/ai_pl_ch_0. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for ai_engine_0/inst/pl_ai_ch_0. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for axi_dbg_fw. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for const_1. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for gate_dbgfw_or. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for axi_noc_kernel0. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for axi_noc_h2c. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for axi_noc_aie_prog. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for setup_aie_0. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for sink_from_aie_0. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for dwc_setup_aie_0_s. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for kernel_interrupt_xlconcat_0_In0_1_interrupt_concat. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for irq_const_tieoff. (constraint file  auto generated constraint).
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:42 ; elapsed = 00:00:55 . Memory (MB): peak = 3427.508 ; gain = 620.699 ; free physical = 81160 ; free virtual = 108182
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2485.562; parent = 2355.975; children = 130.115
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4393.105; parent = 3427.512; children = 965.594
+---------------------------------------------------------------------------------
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'ai_pl_channel_v1_0_reg_slice'
+INFO: [Synth 8-6904] The RAM "ai_pl_channel_v1_0_shim_reg_slice:/regfile_reg" of size (depth=6 x width=34) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                     RST |                               00 |                              000
+                   EMPTY |                               01 |                              110
+                     ONE |                               10 |                              101
+                     TWO |                               11 |                              011
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'ai_pl_channel_v1_0_reg_slice'
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:43 ; elapsed = 00:00:57 . Memory (MB): peak = 3427.508 ; gain = 620.699 ; free physical = 81133 ; free virtual = 108157
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2485.562; parent = 2355.975; children = 130.115
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4393.105; parent = 3427.512; children = 965.594
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input   10 Bit       Adders := 2     
+	   2 Input    3 Bit       Adders := 2     
++---Registers : 
+	               34 Bit    Registers := 3     
+	               32 Bit    Registers := 1     
+	               10 Bit    Registers := 2     
+	                4 Bit    Registers := 1     
+	                1 Bit    Registers := 10    
++---RAMs : 
+	              204 Bit	(6 X 34 bit)          RAMs := 1     
++---Muxes : 
+	   2 Input   34 Bit        Muxes := 1     
+	   2 Input    4 Bit        Muxes := 3     
+	   4 Input    3 Bit        Muxes := 1     
+	   4 Input    2 Bit        Muxes := 1     
+	   2 Input    2 Bit        Muxes := 1     
+	   2 Input    1 Bit        Muxes := 4     
+	   9 Input    1 Bit        Muxes := 1     
+	   4 Input    1 Bit        Muxes := 1     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 1968 (col length:164)
+BRAMs: 1934 (col length: RAMB18 168 RAMB36 84)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+INFO: [Synth 8-6904] The RAM "ai_engine_0/inst/ai_pl_ch_0/inst/\ai2pl_wrapper_32/mrs_s0 /regfile_reg" of size (depth=6 x width=34) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:48 ; elapsed = 00:01:02 . Memory (MB): peak = 3495.539 ; gain = 688.730 ; free physical = 80711 ; free virtual = 107743
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2645.310; parent = 2515.970; children = 130.115
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4461.137; parent = 3495.543; children = 965.594
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+Distributed RAM: Preliminary Mapping Report (see note below)
++-----------------------------------------------------------+-------------+-----------+----------------------+---------------+
+|Module Name                                                | RTL Object  | Inference | Size (Depth x Width) | Primitives    | 
++-----------------------------------------------------------+-------------+-----------+----------------------+---------------+
+|ai_engine_0/inst/ai_pl_ch_0/inst/\ai2pl_wrapper_32/mrs_s0  | regfile_reg | Implied   | 8 x 34               | RAM32M16 x 3  | 
++-----------------------------------------------------------+-------------+-----------+----------------------+---------------+
+
+Note: The table above is a preliminary report that shows the Distributed RAMs at the current stage of the synthesis flow. Some Distributed RAMs may be reimplemented as non Distributed RAM primitives later in the synthesis flow. Multiple instantiated RAMs are reported only once.
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-565] redefining clock 'blp_s_aclk_ctrl_00'
+WARNING: [Synth 8-565] redefining clock 'blp_s_aclk_kernel_00'
+WARNING: [Synth 8-565] redefining clock 'blp_s_aclk_kernel_01'
+WARNING: [Synth 8-565] redefining clock 'blp_s_aclk_pcie_00'
+WARNING: [Synth 8-565] redefining clock 'blp_s_aclk_ext_tog_kernel_00'
+WARNING: [Synth 8-565] redefining clock 'blp_s_aclk_ext_tog_kernel_01'
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:42 ; elapsed = 00:02:09 . Memory (MB): peak = 4055.773 ; gain = 1248.965 ; free physical = 81576 ; free virtual = 108882
+Synthesis current peak Physical Memory [PSS] (MB): peak = 3247.987; parent = 3118.766; children = 130.115
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 5021.371; parent = 4055.777; children = 965.594
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:01:43 ; elapsed = 00:02:10 . Memory (MB): peak = 4085.820 ; gain = 1279.012 ; free physical = 81535 ; free virtual = 108841
+Synthesis current peak Physical Memory [PSS] (MB): peak = 3250.258; parent = 3121.036; children = 130.115
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 5051.418; parent = 4085.824; children = 965.594
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+Distributed RAM: Final Mapping Report
++-----------------------------------------------------------+-------------+-----------+----------------------+---------------+
+|Module Name                                                | RTL Object  | Inference | Size (Depth x Width) | Primitives    | 
++-----------------------------------------------------------+-------------+-----------+----------------------+---------------+
+|ai_engine_0/inst/ai_pl_ch_0/inst/\ai2pl_wrapper_32/mrs_s0  | regfile_reg | Implied   | 8 x 34               | RAM32M16 x 3  | 
++-----------------------------------------------------------+-------------+-----------+----------------------+---------------+
+
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+INFO: [Synth 8-11328] No retiming is needed, due to no register satisfying retiming conditions
+INFO: [Synth 8-5816] Retiming module `ai_pl_channel_v1_0_shim_reg_slice`
+   Worst Slack before retiming is -1222 and worst slack after retiming is -1222
+   Numbers of local forward move = 0, and local backward move = 0
+
+
+INFO: [Synth 8-5816] Retiming module `ai_pl_channel_v1_0_shim_reg_slice' done
+
+
+INFO: [Synth 8-5816] Retiming module `ai_pl_v1_0_6_ai_pl`
+   Worst Slack before retiming is -1222 and worst slack after retiming is -1222
+   Numbers of local forward move = 0, and local backward move = 0
+
+
+INFO: [Synth 8-5816] Retiming module `ai_pl_v1_0_6_ai_pl' done
+
+
+INFO: [Synth 8-11328] No retiming is needed, due to no register satisfying retiming conditions
+INFO: [Synth 8-5816] Retiming module `bd_9d54_ai_pl_ch_0_0`
+   Worst Slack before retiming is -1222 and worst slack after retiming is -1222
+   Numbers of local forward move = 0, and local backward move = 0
+
+
+INFO: [Synth 8-5816] Retiming module `bd_9d54_ai_pl_ch_0_0' done
+
+
+INFO: [Synth 8-11328] No retiming is needed, due to no register satisfying retiming conditions
+INFO: [Synth 8-5816] Retiming module `ai_noc_v1_0_0_ai_noc`
+   Worst Slack before retiming is -1222 and worst slack after retiming is -1222
+   Numbers of local forward move = 0, and local backward move = 0
+
+
+INFO: [Synth 8-5816] Retiming module `ai_noc_v1_0_0_ai_noc' done
+
+
+INFO: [Synth 8-11328] No retiming is needed, due to no register satisfying retiming conditions
+INFO: [Synth 8-5816] Retiming module `bd_9d54_noc_ai_mm_0_0`
+   Worst Slack before retiming is -1222 and worst slack after retiming is -1222
+   Numbers of local forward move = 0, and local backward move = 0
+
+
+INFO: [Synth 8-5816] Retiming module `bd_9d54_noc_ai_mm_0_0' done
+
+
+INFO: [Synth 8-11328] No retiming is needed, due to no register satisfying retiming conditions
+INFO: [Synth 8-5816] Retiming module `ai_pl_channel_v1_0_reg_slice`
+   Worst Slack before retiming is -1222 and worst slack after retiming is -1222
+   Numbers of local forward move = 0, and local backward move = 0
+
+
+INFO: [Synth 8-5816] Retiming module `ai_pl_channel_v1_0_reg_slice' done
+
+
+INFO: [Synth 8-5816] Retiming module `ai_pl_v1_0_6_ai_pl__parameterized0`
+   Worst Slack before retiming is -1222 and worst slack after retiming is -1222
+   Numbers of local forward move = 0, and local backward move = 0
+
+
+INFO: [Synth 8-5816] Retiming module `ai_pl_v1_0_6_ai_pl__parameterized0' done
+
+
+INFO: [Synth 8-11328] No retiming is needed, due to no register satisfying retiming conditions
+INFO: [Synth 8-5816] Retiming module `bd_9d54_pl_ai_ch_0_0`
+   Worst Slack before retiming is -1222 and worst slack after retiming is -1222
+   Numbers of local forward move = 0, and local backward move = 0
+
+
+INFO: [Synth 8-5816] Retiming module `bd_9d54_pl_ai_ch_0_0' done
+
+
+INFO: [Synth 8-11328] No retiming is needed, due to no register satisfying retiming conditions
+INFO: [Synth 8-5816] Retiming module `bd_9d54`
+   Worst Slack before retiming is -1222 and worst slack after retiming is -1222
+   Numbers of local forward move = 0, and local backward move = 0
+
+
+INFO: [Synth 8-5816] Retiming module `bd_9d54' done
+
+
+INFO: [Synth 8-11328] No retiming is needed, due to no register satisfying retiming conditions
+INFO: [Synth 8-5816] Retiming module `ulp_inst_0_ai_engine_0_0`
+   Worst Slack before retiming is -1222 and worst slack after retiming is -1222
+   Numbers of local forward move = 0, and local backward move = 0
+
+
+INFO: [Synth 8-5816] Retiming module `ulp_inst_0_ai_engine_0_0' done
+
+
+INFO: [Synth 8-11328] No retiming is needed, due to no register satisfying retiming conditions
+INFO: [Synth 8-5816] Retiming module `ulp_inst_0_xlconcat_0_0`
+   Worst Slack before retiming is -1222 and worst slack after retiming is -1222
+   Numbers of local forward move = 0, and local backward move = 0
+
+
+INFO: [Synth 8-5816] Retiming module `ulp_inst_0_xlconcat_0_0' done
+
+
+INFO: [Synth 8-11328] No retiming is needed, due to no register satisfying retiming conditions
+INFO: [Synth 8-5816] Retiming module `ulp_inst_0_kernel_interrupt_xlconcat_0_In0_1_interrupt_concat_0`
+   Worst Slack before retiming is -1222 and worst slack after retiming is -1222
+   Numbers of local forward move = 0, and local backward move = 0
+
+
+INFO: [Synth 8-5816] Retiming module `ulp_inst_0_kernel_interrupt_xlconcat_0_In0_1_interrupt_concat_0' done
+
+
+INFO: [Synth 8-11328] No retiming is needed, due to no register satisfying retiming conditions
+INFO: [Synth 8-5816] Retiming module `ulp_inst_0`
+   Worst Slack before retiming is -1222 and worst slack after retiming is -1222
+   Numbers of local forward move = 0, and local backward move = 0
+
+
+INFO: [Synth 8-5816] Retiming module `ulp_inst_0' done
+
+
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:01:43 ; elapsed = 00:02:11 . Memory (MB): peak = 4085.820 ; gain = 1279.012 ; free physical = 81464 ; free virtual = 108769
+Synthesis current peak Physical Memory [PSS] (MB): peak = 3253.508; parent = 3124.329; children = 130.115
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 5051.418; parent = 4085.824; children = 965.594
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-3295] tying undriven pin ai2pl_wrapper_32/bli_s1i_tvalid_1_inferred:in0 to constant 0
+WARNING: [Synth 8-3295] tying undriven pin ai2pl_wrapper_32/bli_s1i_tdata_1_inferred:in0[63] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin ai2pl_wrapper_32/bli_s1i_tdata_1_inferred:in0[62] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin ai2pl_wrapper_32/bli_s1i_tdata_1_inferred:in0[61] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin ai2pl_wrapper_32/bli_s1i_tdata_1_inferred:in0[60] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin ai2pl_wrapper_32/bli_s1i_tdata_1_inferred:in0[59] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin ai2pl_wrapper_32/bli_s1i_tdata_1_inferred:in0[58] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin ai2pl_wrapper_32/bli_s1i_tdata_1_inferred:in0[57] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin ai2pl_wrapper_32/bli_s1i_tdata_1_inferred:in0[56] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin ai2pl_wrapper_32/bli_s1i_tdata_1_inferred:in0[55] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin ai2pl_wrapper_32/bli_s1i_tdata_1_inferred:in0[54] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin ai2pl_wrapper_32/bli_s1i_tdata_1_inferred:in0[53] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin ai2pl_wrapper_32/bli_s1i_tdata_1_inferred:in0[52] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin ai2pl_wrapper_32/bli_s1i_tdata_1_inferred:in0[51] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin ai2pl_wrapper_32/bli_s1i_tdata_1_inferred:in0[50] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin ai2pl_wrapper_32/bli_s1i_tdata_1_inferred:in0[49] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin ai2pl_wrapper_32/bli_s1i_tdata_1_inferred:in0[48] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin ai2pl_wrapper_32/bli_s1i_tdata_1_inferred:in0[47] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin ai2pl_wrapper_32/bli_s1i_tdata_1_inferred:in0[46] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin ai2pl_wrapper_32/bli_s1i_tdata_1_inferred:in0[45] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin ai2pl_wrapper_32/bli_s1i_tdata_1_inferred:in0[44] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin ai2pl_wrapper_32/bli_s1i_tdata_1_inferred:in0[43] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin ai2pl_wrapper_32/bli_s1i_tdata_1_inferred:in0[42] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin ai2pl_wrapper_32/bli_s1i_tdata_1_inferred:in0[41] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin ai2pl_wrapper_32/bli_s1i_tdata_1_inferred:in0[40] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin ai2pl_wrapper_32/bli_s1i_tdata_1_inferred:in0[39] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin ai2pl_wrapper_32/bli_s1i_tdata_1_inferred:in0[38] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin ai2pl_wrapper_32/bli_s1i_tdata_1_inferred:in0[37] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin ai2pl_wrapper_32/bli_s1i_tdata_1_inferred:in0[36] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin ai2pl_wrapper_32/bli_s1i_tdata_1_inferred:in0[35] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin ai2pl_wrapper_32/bli_s1i_tdata_1_inferred:in0[34] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin ai2pl_wrapper_32/bli_s1i_tdata_1_inferred:in0[33] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin ai2pl_wrapper_32/bli_s1i_tdata_1_inferred:in0[32] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin ai2pl_wrapper_32/bli_s1i_tdata_1_inferred:in0[31] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin ai2pl_wrapper_32/bli_s1i_tdata_1_inferred:in0[30] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin ai2pl_wrapper_32/bli_s1i_tdata_1_inferred:in0[29] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin ai2pl_wrapper_32/bli_s1i_tdata_1_inferred:in0[28] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin ai2pl_wrapper_32/bli_s1i_tdata_1_inferred:in0[27] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin ai2pl_wrapper_32/bli_s1i_tdata_1_inferred:in0[26] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin ai2pl_wrapper_32/bli_s1i_tdata_1_inferred:in0[25] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin ai2pl_wrapper_32/bli_s1i_tdata_1_inferred:in0[24] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin ai2pl_wrapper_32/bli_s1i_tdata_1_inferred:in0[23] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin ai2pl_wrapper_32/bli_s1i_tdata_1_inferred:in0[22] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin ai2pl_wrapper_32/bli_s1i_tdata_1_inferred:in0[21] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin ai2pl_wrapper_32/bli_s1i_tdata_1_inferred:in0[20] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin ai2pl_wrapper_32/bli_s1i_tdata_1_inferred:in0[19] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin ai2pl_wrapper_32/bli_s1i_tdata_1_inferred:in0[18] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin ai2pl_wrapper_32/bli_s1i_tdata_1_inferred:in0[17] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin ai2pl_wrapper_32/bli_s1i_tdata_1_inferred:in0[16] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin ai2pl_wrapper_32/bli_s1i_tdata_1_inferred:in0[15] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin ai2pl_wrapper_32/bli_s1i_tdata_1_inferred:in0[14] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin ai2pl_wrapper_32/bli_s1i_tdata_1_inferred:in0[13] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin ai2pl_wrapper_32/bli_s1i_tdata_1_inferred:in0[12] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin ai2pl_wrapper_32/bli_s1i_tdata_1_inferred:in0[11] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin ai2pl_wrapper_32/bli_s1i_tdata_1_inferred:in0[10] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin ai2pl_wrapper_32/bli_s1i_tdata_1_inferred:in0[9] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin ai2pl_wrapper_32/bli_s1i_tdata_1_inferred:in0[8] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin ai2pl_wrapper_32/bli_s1i_tdata_1_inferred:in0[7] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin ai2pl_wrapper_32/bli_s1i_tdata_1_inferred:in0[6] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin ai2pl_wrapper_32/bli_s1i_tdata_1_inferred:in0[5] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin ai2pl_wrapper_32/bli_s1i_tdata_1_inferred:in0[4] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin ai2pl_wrapper_32/bli_s1i_tdata_1_inferred:in0[3] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin ai2pl_wrapper_32/bli_s1i_tdata_1_inferred:in0[2] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin ai2pl_wrapper_32/bli_s1i_tdata_1_inferred:in0[1] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin ai2pl_wrapper_32/bli_s1i_tdata_1_inferred:in0[0] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin ai2pl_wrapper_32/bli_s1i_tready_1_inferred:in0 to constant 0
+WARNING: [Synth 8-3295] tying undriven pin ai2pl_wrapper_32/bli_s1i_tlast_1_inferred:in0 to constant 0
+WARNING: [Synth 8-3295] tying undriven pin ai2pl_wrapper_32/bli_s1i_tkeep_1_inferred:in0 to constant 0
+WARNING: [Synth 8-3295] tying undriven pin pl2ai_wrapper_32/bli_s1o_tvalid_1_inferred:in0 to constant 0
+WARNING: [Synth 8-3295] tying undriven pin pl2ai_wrapper_32/bli_s1o_tready_1_inferred:in0 to constant 0
+WARNING: [Synth 8-3295] tying undriven pin pl2ai_wrapper_32/bli_s1o_tdata_1_inferred:in0[65] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin pl2ai_wrapper_32/bli_s1o_tdata_1_inferred:in0[64] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin pl2ai_wrapper_32/bli_s1o_tdata_1_inferred:in0[63] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin pl2ai_wrapper_32/bli_s1o_tdata_1_inferred:in0[62] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin pl2ai_wrapper_32/bli_s1o_tdata_1_inferred:in0[61] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin pl2ai_wrapper_32/bli_s1o_tdata_1_inferred:in0[60] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin pl2ai_wrapper_32/bli_s1o_tdata_1_inferred:in0[59] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin pl2ai_wrapper_32/bli_s1o_tdata_1_inferred:in0[58] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin pl2ai_wrapper_32/bli_s1o_tdata_1_inferred:in0[57] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin pl2ai_wrapper_32/bli_s1o_tdata_1_inferred:in0[56] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin pl2ai_wrapper_32/bli_s1o_tdata_1_inferred:in0[55] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin pl2ai_wrapper_32/bli_s1o_tdata_1_inferred:in0[54] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin pl2ai_wrapper_32/bli_s1o_tdata_1_inferred:in0[53] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin pl2ai_wrapper_32/bli_s1o_tdata_1_inferred:in0[52] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin pl2ai_wrapper_32/bli_s1o_tdata_1_inferred:in0[51] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin pl2ai_wrapper_32/bli_s1o_tdata_1_inferred:in0[50] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin pl2ai_wrapper_32/bli_s1o_tdata_1_inferred:in0[49] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin pl2ai_wrapper_32/bli_s1o_tdata_1_inferred:in0[48] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin pl2ai_wrapper_32/bli_s1o_tdata_1_inferred:in0[47] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin pl2ai_wrapper_32/bli_s1o_tdata_1_inferred:in0[46] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin pl2ai_wrapper_32/bli_s1o_tdata_1_inferred:in0[45] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin pl2ai_wrapper_32/bli_s1o_tdata_1_inferred:in0[44] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin pl2ai_wrapper_32/bli_s1o_tdata_1_inferred:in0[43] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin pl2ai_wrapper_32/bli_s1o_tdata_1_inferred:in0[42] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin pl2ai_wrapper_32/bli_s1o_tdata_1_inferred:in0[41] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin pl2ai_wrapper_32/bli_s1o_tdata_1_inferred:in0[40] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin pl2ai_wrapper_32/bli_s1o_tdata_1_inferred:in0[39] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin pl2ai_wrapper_32/bli_s1o_tdata_1_inferred:in0[38] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin pl2ai_wrapper_32/bli_s1o_tdata_1_inferred:in0[37] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin pl2ai_wrapper_32/bli_s1o_tdata_1_inferred:in0[36] to constant 0
+INFO: [Common 17-14] Message 'Synth 8-3295' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:01:51 ; elapsed = 00:02:20 . Memory (MB): peak = 4088.789 ; gain = 1281.980 ; free physical = 81384 ; free virtual = 108726
+Synthesis current peak Physical Memory [PSS] (MB): peak = 3253.612; parent = 3124.521; children = 130.115
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 5054.387; parent = 4088.793; children = 965.594
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:51 ; elapsed = 00:02:20 . Memory (MB): peak = 4088.789 ; gain = 1281.980 ; free physical = 81498 ; free virtual = 108793
+Synthesis current peak Physical Memory [PSS] (MB): peak = 3253.612; parent = 3124.521; children = 130.115
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 5054.387; parent = 4088.793; children = 965.594
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:51 ; elapsed = 00:02:21 . Memory (MB): peak = 4088.789 ; gain = 1281.980 ; free physical = 81509 ; free virtual = 108804
+Synthesis current peak Physical Memory [PSS] (MB): peak = 3253.676; parent = 3124.661; children = 130.115
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 5054.387; parent = 4088.793; children = 965.594
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:01:51 ; elapsed = 00:02:21 . Memory (MB): peak = 4088.789 ; gain = 1281.980 ; free physical = 81507 ; free virtual = 108802
+Synthesis current peak Physical Memory [PSS] (MB): peak = 3253.676; parent = 3124.661; children = 130.115
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 5054.387; parent = 4088.793; children = 965.594
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:51 ; elapsed = 00:02:21 . Memory (MB): peak = 4088.789 ; gain = 1281.980 ; free physical = 81511 ; free virtual = 108806
+Synthesis current peak Physical Memory [PSS] (MB): peak = 3253.697; parent = 3124.687; children = 130.115
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 5054.387; parent = 4088.793; children = 965.594
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:01:51 ; elapsed = 00:02:22 . Memory (MB): peak = 4088.789 ; gain = 1281.980 ; free physical = 81510 ; free virtual = 108805
+Synthesis current peak Physical Memory [PSS] (MB): peak = 3253.741; parent = 3124.734; children = 130.115
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 5054.387; parent = 4088.793; children = 965.594
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++------+--------------------------------------------+----------+
+|      |BlackBox name                               |Instances |
++------+--------------------------------------------+----------+
+|1     |ulp_inst_0_axi_dbg_fw_0                     |         1|
+|2     |ulp_inst_0_axi_dbg_hub_0                    |         1|
+|3     |ulp_inst_0_axi_gpio_null_user_0             |         1|
+|4     |ulp_inst_0_axi_ic_user_0                    |         1|
+|5     |ulp_inst_0_axi_ic_user_extend_0             |         1|
+|6     |ulp_inst_0_axi_noc_aie_prog_0               |         1|
+|7     |ulp_inst_0_axi_noc_h2c_0                    |         1|
+|8     |ulp_inst_0_axi_noc_kernel0_0                |         1|
+|9     |ulp_inst_0_axi_sc_plram_0                   |         1|
+|10    |ulp_inst_0_dwc_setup_aie_0_s_0              |         1|
+|11    |ulp_inst_0_gate_dbgfw_or_0                  |         1|
+|12    |ulp_inst_0_ip_pipe_dbg_hub_fw_00_0          |         1|
+|13    |ulp_inst_0_ip_pipe_ext_tog_kernel_00_null_0 |         1|
+|14    |ulp_inst_0_ip_pipe_ext_tog_kernel_01_null_0 |         1|
+|15    |ulp_inst_0_plram_ctrl_0                     |         1|
+|16    |ulp_inst_0_plram_ctrl_bram_0                |         1|
+|17    |ulp_inst_0_setup_aie_0_0                    |         1|
+|18    |ulp_inst_0_sink_from_aie_0_0                |         1|
+|19    |ulp_inst_0_pipereg_kernel0_0                |         1|
+|20    |ulp_inst_0_pipereg_kernel1_0                |         1|
+|21    |ulp_inst_0_pipereg_pcie0_0                  |         1|
+|22    |ulp_inst_0_pipereg_pl_axi0_0                |         1|
+|23    |ulp_inst_0_reset_sync_fixed_0               |         1|
+|24    |ulp_inst_0_reset_sync_kernel0_0             |         1|
+|25    |ulp_inst_0_reset_sync_kernel1_0             |         1|
++------+--------------------------------------------+----------+
+
+Report Cell Usage: 
++------+------------------------------------------+------+
+|      |Cell                                      |Count |
++------+------------------------------------------+------+
+|1     |ulp_inst_0_axi_dbg_fw                     |     1|
+|2     |ulp_inst_0_axi_dbg_hub                    |     1|
+|3     |ulp_inst_0_axi_gpio_null_user             |     1|
+|4     |ulp_inst_0_axi_ic_user                    |     1|
+|5     |ulp_inst_0_axi_ic_user_extend             |     1|
+|6     |ulp_inst_0_axi_noc_aie_prog               |     1|
+|7     |ulp_inst_0_axi_noc_h2c                    |     1|
+|8     |ulp_inst_0_axi_noc_kernel0                |     1|
+|9     |ulp_inst_0_axi_sc_plram                   |     1|
+|10    |ulp_inst_0_dwc_setup_aie_0_s              |     1|
+|11    |ulp_inst_0_gate_dbgfw_or                  |     1|
+|12    |ulp_inst_0_ip_pipe_dbg_hub_fw_00          |     1|
+|13    |ulp_inst_0_ip_pipe_ext_tog_kernel_00_null |     1|
+|14    |ulp_inst_0_ip_pipe_ext_tog_kernel_01_null |     1|
+|15    |ulp_inst_0_pipereg_kernel0                |     1|
+|16    |ulp_inst_0_pipereg_kernel1                |     1|
+|17    |ulp_inst_0_pipereg_pcie0                  |     1|
+|18    |ulp_inst_0_pipereg_pl_axi0                |     1|
+|19    |ulp_inst_0_plram_ctrl                     |     1|
+|20    |ulp_inst_0_plram_ctrl_bram                |     1|
+|21    |ulp_inst_0_reset_sync_fixed               |     1|
+|22    |ulp_inst_0_reset_sync_kernel0             |     1|
+|23    |ulp_inst_0_reset_sync_kernel1             |     1|
+|24    |ulp_inst_0_setup_aie_0                    |     1|
+|25    |ulp_inst_0_sink_from_aie_0                |     1|
+|26    |AIE_NOC_S_AXI                             |     1|
+|27    |AIE_PL_M_AXIS32                           |     1|
+|28    |AIE_PL_S_AXIS32                           |     1|
+|29    |LUT1                                      |   203|
+|30    |LUT2                                      |     6|
+|31    |LUT3                                      |     2|
+|32    |LUT4                                      |    39|
+|33    |LUT6                                      |     5|
+|34    |RAM32M                                    |     1|
+|35    |RAM32M16                                  |     2|
+|36    |FDRE                                      |   154|
++------+------------------------------------------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:51 ; elapsed = 00:02:22 . Memory (MB): peak = 4088.789 ; gain = 1281.980 ; free physical = 81509 ; free virtual = 108804
+Synthesis current peak Physical Memory [PSS] (MB): peak = 3253.754; parent = 3124.748; children = 130.115
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 5054.387; parent = 4088.793; children = 965.594
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 1815 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:01:34 ; elapsed = 00:02:03 . Memory (MB): peak = 4088.789 ; gain = 1122.734 ; free physical = 81578 ; free virtual = 108875
+Synthesis Optimization Complete : Time (s): cpu = 00:01:51 ; elapsed = 00:02:23 . Memory (MB): peak = 4088.797 ; gain = 1281.980 ; free physical = 81575 ; free virtual = 108870
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00.07 ; elapsed = 00:00:00.07 . Memory (MB): peak = 4091.758 ; gain = 0.000 ; free physical = 81671 ; free virtual = 108976
+INFO: [Netlist 29-17] Analyzing 3 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Chipscope 16-579] Latest version is versal_cips_v3_3 for versal_cips_v3_2
+INFO: [Constraints 18-6359] No Clock Expansion Window constraints config file entry for device xcvc1902.  GCLK Deskew mode will be Off and cannot be enabled via GCLK_DESKEW override.
+INFO: [Constraints 18-5720] The default GCLK Deskew mode is Off.
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 4125.445 ; gain = 0.000 ; free physical = 81510 ; free virtual = 108817
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 3 instances were transformed.
+  RAM32M => RAM32M (RAMD32(x6), RAMS32(x2)): 1 instance 
+  RAM32M16 => RAM32M16 (RAMD32(x14), RAMS32(x2)): 2 instances
+
+Synth Design complete, checksum: 34a0c746
+INFO: [Common 17-83] Releasing license: Synthesis
+178 Infos, 386 Warnings, 1 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:02:18 ; elapsed = 00:02:59 . Memory (MB): peak = 4125.445 ; gain = 2094.184 ; free physical = 81709 ; free virtual = 109016
+INFO: [Common 17-600] The following parameters have non-default value.
+general.maxThreads
+INFO: [runtcl-6] Synthesis results are not added to the cache due to CRITICAL_WARNING
+INFO: [Coretcl 2-1174] Renamed 13 cell refs.
+INFO: [Common 17-1381] The checkpoint '/home/users/eleonora.cabai/Documents/K-Means-AIE/hw/_x/link/vivado/vpl/prj/prj.runs/my_rm_synth_1/ulp_inst_0.dcp' has been generated.
+INFO: [Common 17-206] Exiting Vivado at Fri Jun 28 10:41:09 2024...

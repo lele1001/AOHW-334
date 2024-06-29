@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xd:repository xd:vendor="xilinx.com" xd:library="ip" xd:name="ai_engine" xd:version="1.0" xmlns:xd="http://www.xilinx.com/xd">
+  <xd:component xd:vendor="xilinx.com" xd:library="ip" xd:name="ai_engine" xd:version="1.0" xd:type="accelerator">
+    <xd:busInterface xd:name="aclk0" xd:busTypeRef="clock" xd:mode="slave" xd:direction="in" xd:library="signal" xd:port="aclk0"/>
+    <xd:busInterface xd:name="S00_AXIS" xd:dataWidth="32" xd:clockRef="aclk0" xd:hasTlast="true" xd:busTypeRef="axis" xd:direction="in" xd:mode="slave"/>
+    <xd:busInterface xd:name="M00_AXIS" xd:dataWidth="32" xd:clockRef="aclk0" xd:hasTlast="true" xd:busTypeRef="axis" xd:direction="out" xd:mode="master"/>
+  </xd:component>
+</xd:repository>

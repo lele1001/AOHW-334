@@ -1,0 +1,18 @@
+{
+    "Placement": [
+        {
+            "LogicalInstance": "in_plio_kmeans",
+            "PhysicalInstance": [
+                "AIE_PL_X23Y0_AIE_PL_S_AXIS_2"
+            ],
+            "IsSoft": false
+        },
+        {
+            "LogicalInstance": "out_plio_kmeans",
+            "PhysicalInstance": [
+                "AIE_PL_X23Y0_AIE_PL_M_AXIS_0"
+            ],
+            "IsSoft": false
+        }
+    ]
+}

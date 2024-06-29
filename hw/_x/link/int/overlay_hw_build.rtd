@@ -1,0 +1,202 @@
+{
+    "schema_version": {
+        "major": "1",
+        "minor": "0",
+        "patch": "0"
+    },
+    "build_metadata": {
+        "dsa": {
+            "vendor": "xilinx",
+            "board_id": "vck5000",
+            "name": "gen4x8_qdma_2",
+            "version_major": "202220",
+            "version_minor": "1",
+            "description": "",
+            "generated_by": {
+                "name": "Vivado",
+                "version": "2022.2",
+                "cl": "3671981",
+                "time_stamp": "Mon Dec  5 02:05:54 2022"
+            },
+            "board": {
+                "name": "xilinx.com:vck5000:1.0",
+                "vendor": "xilinx.com",
+                "part": "xcvc1902-vsvd1760-2MP-e-S",
+                "board_part": "xilinx.com:vck5000:part0:1.0"
+            },
+            "feature_roms": [
+                {
+                    "time_epoch": "0"
+                }
+            ]
+        },
+        "xclbin": {
+            "generated_by": {
+                "name": "v++",
+                "version": "2022.2.2",
+                "cl": "3716524",
+                "time_stamp": "2023-02-17-15:43:22",
+                "options": "\/home\/xilinx\/software\/Vitis\/2022.2\/bin\/unwrapped\/lnx64.o\/v++ --config xclbin_overlay.cfg --connectivity.nk setup_aie:1:setup_aie_0 --connectivity.nk sink_from_aie:1:sink_from_aie_0 --connectivity.slr setup_aie_0:SLR0 --connectivity.slr sink_from_aie_0:SLR0 --connectivity.sp sink_from_aie_0.m_axi_gmem1:MC_NOC0 --connectivity.sp setup_aie_0.m_axi_gmem0:MC_NOC0 --connectivity.stream_connect setup_aie_0.s:ai_engine_0.in_plio_kmeans --connectivity.stream_connect ai_engine_0.out_plio_kmeans:sink_from_aie_0.input_stream --debug --input_files ..\/data_movers\/setup_aie_hw.xo --input_files ..\/data_movers\/sink_from_aie_hw.xo --input_files ..\/aie\/libadf.a --kernel_frequency 200 --link --optimize 0 --output overlay_hw.xsa --platform xilinx_vck5000_gen4x8_qdma_2_202220_1 --report_level 0 --save-temps --target hw --vivado.prop fileset.sim_1.xsim.elaborate.xelab.more_options={-override_timeprecision -timescale=1ns\/1ps} "
+            },
+            "user_regions": [
+                {
+                    "name": "OCL_REGION_0",
+                    "type": "clc_region",
+                    "instance_path": "top_i\/ulp",
+                    "base_address": "",
+                    "kernels": [
+                        {
+                            "name": "sink_from_aie",
+                            "ports": [
+                                {
+                                    "name": "M_AXI_GMEM1",
+                                    "mode": "master",
+                                    "range": "0xFFFFFFFF",
+                                    "data_width": "32",
+                                    "port_type": "addressable",
+                                    "base": "0x0"
+                                },
+                                {
+                                    "name": "INPUT_STREAM",
+                                    "mode": "read_only",
+                                    "range": "",
+                                    "data_width": "32",
+                                    "port_type": "stream",
+                                    "base": ""
+                                },
+                                {
+                                    "name": "S_AXI_CONTROL",
+                                    "mode": "slave",
+                                    "range": "0x24",
+                                    "data_width": "32",
+                                    "port_type": "addressable",
+                                    "base": "0x0"
+                                }
+                            ],
+                            "arguments": [
+                                {
+                                    "name": "input_stream",
+                                    "address_qualifier": "4",
+                                    "id": "0",
+                                    "port": "INPUT_STREAM",
+                                    "size": "0x0",
+                                    "offset": "0x0",
+                                    "host_offset": "0x0",
+                                    "host_size": "0x8",
+                                    "type": "stream<int, 0>&"
+                                },
+                                {
+                                    "name": "output",
+                                    "address_qualifier": "1",
+                                    "id": "1",
+                                    "port": "M_AXI_GMEM1",
+                                    "size": "0x8",
+                                    "offset": "0x10",
+                                    "host_offset": "0x0",
+                                    "host_size": "0x8",
+                                    "type": "void*"
+                                },
+                                {
+                                    "name": "size",
+                                    "address_qualifier": "0",
+                                    "id": "2",
+                                    "port": "S_AXI_CONTROL",
+                                    "size": "0x4",
+                                    "offset": "0x1C",
+                                    "host_offset": "0x0",
+                                    "host_size": "0x4",
+                                    "type": "unsigned int"
+                                }
+                            ],
+                            "instances": [
+                                {
+                                    "name": "sink_from_aie_0"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "setup_aie",
+                            "ports": [
+                                {
+                                    "name": "M_AXI_GMEM0",
+                                    "mode": "master",
+                                    "range": "0xFFFFFFFF",
+                                    "data_width": "128",
+                                    "port_type": "addressable",
+                                    "base": "0x0"
+                                },
+                                {
+                                    "name": "S",
+                                    "mode": "write_only",
+                                    "range": "",
+                                    "data_width": "128",
+                                    "port_type": "stream",
+                                    "base": ""
+                                },
+                                {
+                                    "name": "S_AXI_CONTROL",
+                                    "mode": "slave",
+                                    "range": "0x2C",
+                                    "data_width": "32",
+                                    "port_type": "addressable",
+                                    "base": "0x0"
+                                }
+                            ],
+                            "arguments": [
+                                {
+                                    "name": "num_clusters",
+                                    "address_qualifier": "0",
+                                    "id": "0",
+                                    "port": "S_AXI_CONTROL",
+                                    "size": "0x4",
+                                    "offset": "0x10",
+                                    "host_offset": "0x0",
+                                    "host_size": "0x4",
+                                    "type": "unsigned int"
+                                },
+                                {
+                                    "name": "num_points",
+                                    "address_qualifier": "0",
+                                    "id": "1",
+                                    "port": "S_AXI_CONTROL",
+                                    "size": "0x4",
+                                    "offset": "0x18",
+                                    "host_offset": "0x0",
+                                    "host_size": "0x4",
+                                    "type": "unsigned int"
+                                },
+                                {
+                                    "name": "input",
+                                    "address_qualifier": "1",
+                                    "id": "2",
+                                    "port": "M_AXI_GMEM0",
+                                    "size": "0x8",
+                                    "offset": "0x20",
+                                    "host_offset": "0x0",
+                                    "host_size": "0x8",
+                                    "type": "void*"
+                                },
+                                {
+                                    "name": "s",
+                                    "address_qualifier": "4",
+                                    "id": "3",
+                                    "port": "S",
+                                    "size": "0x0",
+                                    "offset": "0x0",
+                                    "host_offset": "0x0",
+                                    "host_size": "0x8",
+                                    "type": "stream<ap_int<128>, 0>&"
+                                }
+                            ],
+                            "instances": [
+                                {
+                                    "name": "setup_aie_0"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

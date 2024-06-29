@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xd:repository xmlns:xd="http://www.xilinx.com/xd">
+  <xd:fcnMap xd:fcnName="aieip" xd:componentRef="ai_engine" xd:type="rtl" xd:clockId="0" xd:flow="aie">
+    <xd:arg xd:name="in_plio_kmeans" xd:swRootName="in_plio_kmeans" xd:offset="0x0" xd:dataWidth="32" xd:portInterfaceType="axis" xd:direction="in" xd:busInterfaceRef="S00_AXIS"/>
+    <xd:arg xd:name="out_plio_kmeans" xd:swRootName="out_plio_kmeans" xd:offset="0x0" xd:dataWidth="32" xd:portInterfaceType="axis" xd:direction="out" xd:busInterfaceRef="M00_AXIS"/>
+  </xd:fcnMap>
+</xd:repository>

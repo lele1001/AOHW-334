@@ -1,0 +1,29 @@
+{
+  "NodeConstraints": {
+    "aie_graph.kmeans_kernel": {
+      "tile": {
+        "column": 24,
+        "row": 0,
+        "tile_type": "core"
+      },
+      "reserved_memory": {
+        "column": 24,
+        "row": 0,
+        "bankId": 0,
+        "offset": 0
+      }
+    },
+    "in_plio_kmeans": {
+      "shim": {
+        "column": 24,
+        "channel": 2
+      }
+    },
+    "out_plio_kmeans": {
+      "shim": {
+        "column": 24,
+        "channel": 0
+      }
+    }
+  }
+}

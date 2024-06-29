@@ -1,0 +1,19 @@
+#-----------------------------------------------------------
+# Vivado v2022.2.2 (64-bit)
+# SW Build 3788238 on Tue Feb 21 19:59:23 MST 2023
+# IP Build 3783773 on Tue Feb 21 23:41:56 MST 2023
+# Start of session at: Fri Jun 28 08:26:52 2024
+# Process ID: 2277666
+# Current directory: /home/users/eleonora.cabai/Documents/K-Means-AIE/data_movers/_x/setup_aie_hw/setup_aie/setup_aie/solution/impl/ip
+# Command line: vivado -notrace -mode batch -source run_ippack.tcl
+# Log file: /home/users/eleonora.cabai/Documents/K-Means-AIE/data_movers/_x/setup_aie_hw/setup_aie/setup_aie/solution/impl/ip/vivado.log
+# Journal file: /home/users/eleonora.cabai/Documents/K-Means-AIE/data_movers/_x/setup_aie_hw/setup_aie/setup_aie/solution/impl/ip/vivado.jou
+# Running On: nags27, OS: Linux, CPU Frequency: 3099.930 MHz, CPU Physical cores: 20, Host memory: 405693 MB
+#-----------------------------------------------------------
+source run_ippack.tcl -notrace
+ipx::create_core: Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 1859.293 ; gain = 86.992 ; free physical = 27782 ; free virtual = 45626
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/home/xilinx/software/Vivado/2022.2/data/ip'.
+Running package_xo -xo_path /home/users/eleonora.cabai/Documents/K-Means-AIE/data_movers/_x/setup_aie_hw/setup_aie/setup_aie/solution/impl/export.xo -kernel_name setup_aie -kernel_xml /home/users/eleonora.cabai/Documents/K-Means-AIE/data_movers/_x/setup_aie_hw/setup_aie/setup_aie/solution/impl/ip/../kernel/kernel.xml -kernel_files /home/users/eleonora.cabai/Documents/K-Means-AIE/data_movers/setup_aie.cpp -ip_directory /home/users/eleonora.cabai/Documents/K-Means-AIE/data_movers/_x/setup_aie_hw/setup_aie/setup_aie/solution/impl/ip/ip_unzip_dir -design_xml /home/users/eleonora.cabai/Documents/K-Means-AIE/data_movers/_x/setup_aie_hw/setup_aie/setup_aie/solution/.autopilot/db/setup_aie.design.xml -debug_directory /home/users/eleonora.cabai/Documents/K-Means-AIE/data_movers/_x/setup_aie_hw/setup_aie/setup_aie/solution/.debug -hls_directory /home/users/eleonora.cabai/Documents/K-Means-AIE/data_movers/_x/setup_aie_hw/setup_aie/setup_aie/solution/impl/ip/hls_files
+INFO: [Common 17-206] Exiting Vivado at Fri Jun 28 08:27:26 2024...

@@ -1,0 +1,59 @@
+new_bif:
+{
+ id_code = 0x14ca8093
+ extended_id_code = 0x01
+ id = 0x2
+ image
+ {
+  name = pl_cfi
+  id = 0x18700002
+  partition
+  {
+   id = 0x103
+   type = cdo
+   file = top_i_ulp_my_rm_partial_unmask.rcdo
+  }
+  partition
+  {
+   id = 0x105
+   type = cdo
+   file = top_i_ulp_my_rm_partial_unmask.rnpi
+  }
+  partition
+  {
+   id = 0x205
+   type = cdo
+   file = top_i_ulp_my_rm_partial_shutdown.rnpi
+  }
+  partition
+  {
+   id = 0x203
+   type = cdo
+   file = top_i_ulp_my_rm_partial_clear.rcdo
+  }
+  partition
+  {
+   id = 0x303
+   type = cdo
+   file = top_i_ulp_my_rm_partial.rcdo
+  }
+  partition
+  {
+   id = 0x305
+   type = cdo
+   file = top_i_ulp_my_rm_partial.rnpi
+  }
+  partition
+  {
+   id = 0x403
+   type = cdo
+   file = top_i_ulp_my_rm_partial_mask.rcdo
+  }
+  partition
+  {
+   id = 0x405
+   type = cdo
+   file = top_i_ulp_my_rm_partial_mask.rnpi
+  }
+ }
+}

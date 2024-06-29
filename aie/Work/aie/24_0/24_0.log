@@ -1,0 +1,3751 @@
+Release: ASIP Programmer R-2021.03-TGT-220608
+Tool: chessmk version R-2021.03#6beb14dd34#220609
+Copyright 2014-2021 Synopsys, Inc.
+This Synopsys software and all associated documentation are proprietary to
+Synopsys, Inc. and may only be used pursuant to the terms and conditions of a
+written license agreement with Synopsys, Inc. All other use, reproduction,
+modification, or distribution of the Synopsys software or the associated
+documentation is strictly prohibited.
+
+Configuration: Release_LLVM
+Compiling "24_0.ll"
+chess-clang --chess-verbose -I/home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib --chess-proc-dir=/home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib -S -nostdlibinc -D__chess__ -D__tct_release__=2103 -g -I/home/xilinx/software/Vitis/2022.2/aietools/include -I../common -I/home/users/eleonora.cabai/Documents/K-Means-AIE/aie/. -I/home/users/eleonora.cabai/Documents/K-Means-AIE/aie/./src -I/home/users/eleonora.cabai/Documents/K-Means-AIE/aie/../common -I/home/users/eleonora.cabai/Documents/K-Means-AIE/aie/src -Isrc -I/home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/runtime_cxx/libcxx-lite/include -I/home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/runtime_cxx/libs/libcxx-9.0.0/include-lite -I/home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/runtime/include -D__AIENGINE__ -D__AIEARCH__=10 -DDEPLOYMENT_ELF=1 -DAIE_OPTION_SCALAR_FLOAT_ON_VECTOR -D__tct_tgt__=220608 -O2 -include aie_core.h -std=c++2a -fno-builtin-memcpy -mllvm -disable-lsr -mllvm -replexitval=never -mllvm -enable-load-pre=false -mllvm -chess-disable-add-to-or -mllvm -chess-combine-gep-indices=none -mllvm -chess-disable-fold-phi-of-loads -mllvm -chess-aainfo2chains-algo=4 -mllvm -chess-aggressive-aainfo=false -mllvm -chess-enable-indvarsimplify=0 -fchess-register-c++-static-destructors-as-global-dtors -Werror=return-type -mllvm -chess-disable-cse-across-loopboundary -mllvm -chess-tbaa-detect-common-underlying-object=true -mllvm -chess-protect-llvm-global-reg-access=true -mllvm -chess-enable-c-pragma-protect -fno-jump-tables -fno-discard-value-names -mllvm -chess-collapse-struct-types-during-linking=0 ../../ir/24_0.ll -o../Release/chesswork/24_0.sfg --chess-proc-name=me
+chess-clang: warning: argument unused during compilation: '-I /home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib' [-Wunused-command-line-argument]
+chess-clang: warning: argument unused during compilation: '-I /home/xilinx/software/Vitis/2022.2/aietools/include' [-Wunused-command-line-argument]
+chess-clang: warning: argument unused during compilation: '-I ../common' [-Wunused-command-line-argument]
+chess-clang: warning: argument unused during compilation: '-I /home/users/eleonora.cabai/Documents/K-Means-AIE/aie/.' [-Wunused-command-line-argument]
+chess-clang: warning: argument unused during compilation: '-I /home/users/eleonora.cabai/Documents/K-Means-AIE/aie/./src' [-Wunused-command-line-argument]
+chess-clang: warning: argument unused during compilation: '-I /home/users/eleonora.cabai/Documents/K-Means-AIE/aie/../common' [-Wunused-command-line-argument]
+chess-clang: warning: argument unused during compilation: '-I /home/users/eleonora.cabai/Documents/K-Means-AIE/aie/src' [-Wunused-command-line-argument]
+chess-clang: warning: argument unused during compilation: '-I src' [-Wunused-command-line-argument]
+chess-clang: warning: argument unused during compilation: '-I /home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/runtime_cxx/libcxx-lite/include' [-Wunused-command-line-argument]
+chess-clang: warning: argument unused during compilation: '-I /home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/runtime_cxx/libs/libcxx-9.0.0/include-lite' [-Wunused-command-line-argument]
+chess-clang: warning: argument unused during compilation: '-I /home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/runtime/include' [-Wunused-command-line-argument]
+chess-clang: warning: argument unused during compilation: '-include aie_core.h' [-Wunused-command-line-argument]
+Release: ipp R-2021.03-TGT-220608 
+Tool: chess-clang version R-2021.03#e1852b6954#220608
+Copyright 2014-2021 Synopsys, Inc.
+This Synopsys software and all associated documentation are proprietary to
+Synopsys, Inc. and may only be used pursuant to the terms and conditions of a
+written license agreement with Synopsys, Inc. All other use, reproduction,
+modification, or distribution of the Synopsys software or the associated
+documentation is strictly prohibited.
+
+Reading processor configuration from: /home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/isg/me_chess_llvm.cfg
+
+
+chess-clang user time   =    0.64 s  /     0.63 s 	24_0
+chess-clang system time =    0.02 s  /     0.02 s 	24_0
+chess-clang real time   =    1.60 s  /     1.58 s 	24_0
+
+noodle -v -I/home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib -I/home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/isg -I/home/xilinx/software/Vitis/2022.2/aietools/include -I../common -I/home/users/eleonora.cabai/Documents/K-Means-AIE/aie/. -I/home/users/eleonora.cabai/Documents/K-Means-AIE/aie/./src -I/home/users/eleonora.cabai/Documents/K-Means-AIE/aie/../common -I/home/users/eleonora.cabai/Documents/K-Means-AIE/aie/src -Isrc -I/home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/runtime_cxx/libcxx-lite/include -I/home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/runtime_cxx/libs/libcxx-9.0.0/include-lite -I/home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/runtime/include -D__AIENGINE__ -D__AIEARCH__=10 -DDEPLOYMENT_ELF=1 -DAIE_OPTION_SCALAR_FLOAT_ON_VECTOR -D__tct_tgt__=220608 +Oitm -iaie_core.h +Sinl +Olbb=200 +Opmsa +Olzyinl +w../Release/chesswork ../Release/chesswork/24_0.sfg +Q1=+Sinl,+Olbb=200,+Opmsa,+Olzyinl +Q2=+Sinl,+Olbb=200,+Opmsa,+Olzyinl +Q3=+Sinl,+Olbb=1000,+Opmsa,+Olzyinl +Qfast=+Sinl,+Olbb=1000,+Opmsa,+Olzyinl,+Opfp +Qs=+Sinl,+Olbb=200,+Opmsa,+Olzyinl +Qz=+Sinl,+Olbb=200,+Opmsa,+Olzyinl me
+Release: ASIP Programmer  R-2021.03-TGT-220608 
+Tool: noodle version R-2021.03#6beb14dd34#220609
+Copyright 2014-2021 Synopsys, Inc.
+This Synopsys software and all associated documentation are proprietary to
+Synopsys, Inc. and may only be used pursuant to the terms and conditions of a
+written license agreement with Synopsys, Inc. All other use, reproduction,
+modification, or distribution of the Synopsys software or the associated
+documentation is strictly prohibited.
+
+Reading enablings from: /home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/isg/me_chess.ena
+Reading LIB/ISG from: /home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/isg/me.isb
+Reading LIB/ISG from: /home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/isg/me_chess.lib
+
+Translating source file ...
+
+
+Checking ...
+
+Reading DSFG from: ../Release/chesswork/24_0.sfg
+
+Translating ...
+
+        void kmeans_function(unsigned, unsigned)
+Warning in "/home/users/eleonora.cabai/Documents/K-Means-AIE/aie/src/kmeans_kernel.cpp", line 17: (approximate): ignoring `chess_prepare_for_pipelining', neither a hardware nor counting loop [-Wfewer-loop-levels]
+        unsigned main()
+        v32int8 euclidean_distance(void *, unsigned, unsigned, unsigned, unsigned)
+        unsigned assignment_function(v32int8, unsigned, unsigned, unsigned, void *, unsigned)
+Warning in "/home/users/eleonora.cabai/Documents/K-Means-AIE/aie/src/kmeans_kernel.cpp", line 142: (approximate): ignoring `chess_prepare_for_pipelining', neither a hardware nor counting loop [-Wfewer-loop-levels]
+
+Finishing ...
+
+
+noodle user time   =    4.00 s  /     3.85 s 	24_0
+noodle system time =    0.56 s  /     0.51 s 	24_0
+noodle real time   =    6.50 s  /     5.85 s 	24_0
+
+chess-backend 24_0-F_Z15kmeans_functionP12input_streamIiEP13output_streamIiE_ me /home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib +H/home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/elongation -x --print-subtools --cosel -v -m +ef -M3 -S1024 --amnesia -v -p12 -q2 -eAM -rCLH -fR=2 +Oexcf +Oearly-fanout-complex +Odhls -Ono-prune-mappings +Oexcc +Oprefer-local-reg-moves -Ono-collapse-bundles --mist1 -v -k110 --showcolor -v -b --mist2 -v +Omodo -k110 +Omsbr=2000 +Opnll +A +pnopALU +pnopLDA +pnopLDB +pnopSTS +pnopVEC +Ofexm +Onzmem +Ono-mapping-backtracking +Oalways-check-exec-paths +Omodulo-scheduling-minimize-folding-index +Omodulo-scheduling-lookahead-critical-transitory-class=AcqLdaRsrc_ID,AcqLdbRsrc_ID:2 +Odisable-spill-instr-class=LR_short_spill +Odisaggr-record-accesses --tale -v -g -D__AIENGINE__ -D__AIEARCH__=10 -DDEPLOYMENT_ELF=1 -DAIE_OPTION_SCALAR_FLOAT_ON_VECTOR -D__tct_tgt__=220608 -V24_0 -L
+chess-backend 24_0-F_Z18euclidean_distanceP7Clusteri5Point_ me /home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib +H/home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/elongation -x --print-subtools --cosel -v -m +ef -M3 -S1024 --amnesia -v -p12 -q2 -eAM -rCLH -fR=2 +Oexcf +Oearly-fanout-complex +Odhls -Ono-prune-mappings +Oexcc +Oprefer-local-reg-moves -Ono-collapse-bundles --mist1 -v -k110 --showcolor -v -b --mist2 -v +Omodo -k110 +Omsbr=2000 +Opnll +A +pnopALU +pnopLDA +pnopLDB +pnopSTS +pnopVEC +Ofexm +Onzmem +Ono-mapping-backtracking +Oalways-check-exec-paths +Omodulo-scheduling-minimize-folding-index +Omodulo-scheduling-lookahead-critical-transitory-class=AcqLdaRsrc_ID,AcqLdbRsrc_ID:2 +Odisable-spill-instr-class=LR_short_spill +Odisaggr-record-accesses --tale -v -g -D__AIENGINE__ -D__AIEARCH__=10 -DDEPLOYMENT_ELF=1 -DAIE_OPTION_SCALAR_FLOAT_ON_VECTOR -D__tct_tgt__=220608 -V24_0 -L
+chess-backend 24_0-F_Z19assignment_functionN3aie6detail6vectorIiLj8EEE5PointP7Clusteri_ me /home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib +H/home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/elongation -x --print-subtools --cosel -v -m +ef -M3 -S1024 --amnesia -v -p12 -q2 -eAM -rCLH -fR=2 +Oexcf +Oearly-fanout-complex +Odhls -Ono-prune-mappings +Oexcc +Oprefer-local-reg-moves -Ono-collapse-bundles --mist1 -v -k110 --showcolor -v -b --mist2 -v +Omodo -k110 +Omsbr=2000 +Opnll +A +pnopALU +pnopLDA +pnopLDB +pnopSTS +pnopVEC +Ofexm +Onzmem +Ono-mapping-backtracking +Oalways-check-exec-paths +Omodulo-scheduling-minimize-folding-index +Omodulo-scheduling-lookahead-critical-transitory-class=AcqLdaRsrc_ID,AcqLdbRsrc_ID:2 +Odisable-spill-instr-class=LR_short_spill +Odisaggr-record-accesses --tale -v -g -D__AIENGINE__ -D__AIEARCH__=10 -DDEPLOYMENT_ELF=1 -DAIE_OPTION_SCALAR_FLOAT_ON_VECTOR -D__tct_tgt__=220608 -V24_0 -L
+chess-backend --gvt me /home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib +H/home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/elongation --tale -v -g -D__AIENGINE__ -D__AIEARCH__=10 -DDEPLOYMENT_ELF=1 -DAIE_OPTION_SCALAR_FLOAT_ON_VECTOR -D__tct_tgt__=220608 -V24_0 -L
+NOTICE : reserve 2 fields of register R in leaf loops (to favor software pipelining)
+
+--cosel -v -m +ef -M3 -S1024 --common 24_0-F_Z19assignment_functionN3aie6detail6vectorIiLj8EEE5PointP7Clusteri_ me /home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib +H/home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/elongation -x
+Release: ASIP Programmer  R-2021.03-TGT-220608 
+Tool: cosel version R-2021.03#6beb14dd34#220609
+Copyright 2014-2021 Synopsys, Inc.
+This Synopsys software and all associated documentation are proprietary to
+Synopsys, Inc. and may only be used pursuant to the terms and conditions of a
+written license agreement with Synopsys, Inc. All other use, reproduction,
+modification, or distribution of the Synopsys software or the associated
+documentation is strictly prohibited.
+
+
+Reading enablings from: /home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/isg/me_chess.ena
+NOTICE : reserve 2 fields of register R in leaf loops (to favor software pipelining)
+
+--cosel -v -m +ef -M3 -S1024 --common 24_0-F_Z18euclidean_distanceP7Clusteri5Point_ me /home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib +H/home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/elongation -x
+Release: ASIP Programmer  R-2021.03-TGT-220608 
+Tool: cosel version R-2021.03#6beb14dd34#220609
+Copyright 2014-2021 Synopsys, Inc.
+This Synopsys software and all associated documentation are proprietary to
+Synopsys, Inc. and may only be used pursuant to the terms and conditions of a
+written license agreement with Synopsys, Inc. All other use, reproduction,
+modification, or distribution of the Synopsys software or the associated
+documentation is strictly prohibited.
+
+
+Reading enablings from: /home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/isg/me_chess.ena
+NOTICE : reserve 2 fields of register R in leaf loops (to favor software pipelining)
+
+--cosel -v -m +ef -M3 -S1024 --common 24_0-F_Z15kmeans_functionP12input_streamIiEP13output_streamIiE_ me /home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib +H/home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/elongation -x
+Release: ASIP Programmer  R-2021.03-TGT-220608 
+Tool: cosel version R-2021.03#6beb14dd34#220609
+Copyright 2014-2021 Synopsys, Inc.
+This Synopsys software and all associated documentation are proprietary to
+Synopsys, Inc. and may only be used pursuant to the terms and conditions of a
+written license agreement with Synopsys, Inc. All other use, reproduction,
+modification, or distribution of the Synopsys software or the associated
+documentation is strictly prohibited.
+
+
+Reading enablings from: /home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/isg/me_chess.ena
+Release: ASIP Programmer  R-2021.03-TGT-220608 
+Tool: tale version R-2021.03#6beb14dd34#220609
+Copyright 2014-2021 Synopsys, Inc.
+This Synopsys software and all associated documentation are proprietary to
+Synopsys, Inc. and may only be used pursuant to the terms and conditions of a
+written license agreement with Synopsys, Inc. All other use, reproduction,
+modification, or distribution of the Synopsys software or the associated
+documentation is strictly prohibited.
+
+Reading enablings from: /home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib//isg/me_chess.ena
+Reading LIB/ISG from: /home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/isg/me.isb
+Reading LIB/ISG from: /home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/isg/me.isb
+Reading LIB/ISG from: /home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib//isg/me.isb
+Reading LIB/ISG from: /home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/isg/me.isb
+Reading LIB/ISG from: /home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/isg/me_chess.lib
+Reading LIB/ISG from: /home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/isg/me_chess_bndl.isg
+Reading LIB/ISG from: /home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/isg/me_chess_dr.isg
+Reading DSFG from: 24_0-F_Z19assignment_functionN3aie6detail6vectorIiLj8EEE5PointP7Clusteri_.sfg
+Collecting static variable register operations...
+
+
+**** Bundling `F_Z19assignment_functionN3aie6detail6vectorIiLj8EEE5PointP7Clusteri' ****
+Applying long jump data
+Reading LIB/ISG from: /home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/isg/me_chess.lib
+Reading LIB/ISG from: /home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib//isg/me_chess.lib
+Reading LIB/ISG from: /home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/isg/me_chess_bndl.isg
+Reading LIB/ISG from: /home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/isg/me_chess_dr.isg
+Reading DSFG from: 24_0-F_Z18euclidean_distanceP7Clusteri5Point_.sfg
+Reading LIB/ISG from: 24_0.lib
+Reading elongation rules from: /home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/elongation
+Collecting static variable register operations...
+
+
+
+   macro #70 (4 opn)
+      matching... **** Bundling `F_Z18euclidean_distanceP7Clusteri5Point' ****
+Applying long jump data
+Reading relocators from: /home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib//isg/me.rlo with command tct_gcpp3 -nostdinc -nostdinc++ -lang-asm  -D'__AIENGINE__' -D'__AIEARCH__=10' -D'DEPLOYMENT_ELF=1' -D'AIE_OPTION_SCALAR_FLOAT_ON_VECTOR' -D'__tct_tgt__=220608' -I'/home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/' -I'/home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib//isg/'
+Reading DSFG from: 24_0.gvt
+Reading initial values from: 24_0.ini
+Reading initial values from: 24_0.sfg
+(4 p) (7 P)
+      covering... (4 its) (cost 3509.952)
+
+   macro #663 (2 opn)
+      matching... (3 p) (3 P)
+      covering... (2 its) (cost 1170.020)
+
+   macro #40 (5 opn)
+      matching... (5 p) (8 P)
+Reading LIB/ISG from: /home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/isg/me_chess.lib
+      covering... (5 its) (cost 3540.162)
+
+   macro #72 (1 opn)
+      matching... (2 p) (2 P)
+      covering... (2 its) (cost 1180.020)
+
+   macro #234 (8 opn)
+      matching... (5 p) (13 P)
+      covering... (5 its) (cost 4721.083)
+
+   macro #649 (3 opn)
+      matching... Reading Dwarf register-list from file '/home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/isg/me_regs.txt' ...
+Reading Dwarf register ID's from file '/home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/isg/me_regid.txt' ...
+
+Dumping object file '24_0.gvt.o' in ELF format with DWARF debug information (1)
+
+   macro #111 (69 opn)
+      matching... Reading LIB/ISG from: /home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/isg/me_chess_bndl.isg
+Reading LIB/ISG from: /home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/isg/me_chess_dr.isg
+
+tale user time   =    0.11 s  /     0.02 s 	24_0
+tale system time =    0.05 s  /     0.01 s 	24_0
+tale real time   =    0.77 s  /     0.10 s 	24_0
+
+(3 p) (4 P)
+      covering... (3 its) (cost 2360.041)
+
+   macro #652 (2 opn)
+      matching... Reading DSFG from: 24_0-F_Z15kmeans_functionP12input_streamIiEP13output_streamIiE_.sfg
+(1 p) (2 P)
+      covering... (1 its) (cost 1180.021)
+
+   macro #237 (6 opn)
+      matching... (4 p) (9 P)
+      covering... (4 its) (cost 3540.052)
+
+   macro #454 (61 opn)
+      matching... Collecting static variable register operations...
+
+
+**** Bundling `F_Z15kmeans_functionP12input_streamIiEP13output_streamIiE' ****
+Applying long jump data
+(18 p) (71 P)
+      covering... (12 its) (cost 11714.419)
+
+   macro #662 (2 opn)
+      matching... (3 p) (3 P)
+      covering... (2 its) (cost 1170.020)
+
+   macro #661 (2 opn)
+      matching... (3 p) (3 P)
+      covering... (2 its) (cost 1170.020)
+
+   macro #494 (2 opn)
+      matching... (2 p) (2 P)
+      covering... (2 its) (cost 1180.121)
+
+   macro #492 (8 opn)
+      matching... (5 p) (11 P)
+      covering... (3 its) (cost 2360.991)
+
+   macro #491 (6 opn)
+      matching... (2 p) (8 P)
+      covering... (1 its) (cost 1180.971)
+
+   macro #614 (7 opn)
+      matching... (6 p) (10 P)
+      covering... (4 its) (cost 3540.052)
+
+   macro #496 (7 opn)
+      matching... (10 p) (11 P)
+      covering... (5 its) (cost 3511.073)
+
+   macro #194 (2 opn)
+      matching... (2 p) (2 P)
+      covering... (2 its) (cost 1180.121)
+
+   macro #201 (7 opn)
+      matching... (4 p) (10 P)
+      covering... (3 its) (cost 2360.991)
+
+   macro #200 (6 opn)
+      matching... (2 p) (8 P)
+      covering... (1 its) (cost 1180.971)
+
+   macro #599 (6 opn)
+      matching... (5 p) (9 P)
+      covering... (4 its) (cost 3540.052)
+
+   macro #660 (5 opn)
+      matching... (7 p) (8 P)
+      covering... (5 its) (cost 3511.053)
+
+   macro #7 (8 opn)
+      matching... (7 p) (12 P)
+      covering... (6 its) (cost 5850.074)
+
+   macro #182 (15 opn)
+      matching... 
+   macro #378 (8 opn)
+      matching... (14 p) (20 P)
+      covering... (11 its) (cost 10530.138)
+
+
+Total cost = 75182.418
+
+cosel user time   =    0.42 s  /     0.35 s 	24_0-F_Z19assignment_functionN3aie6detail6vectorIiLj8EEE5PointP7Clusteri_
+cosel system time =    0.06 s  /     0.01 s 	24_0-F_Z19assignment_functionN3aie6detail6vectorIiLj8EEE5PointP7Clusteri_
+cosel real time   =    1.76 s  /     1.45 s 	24_0-F_Z19assignment_functionN3aie6detail6vectorIiLj8EEE5PointP7Clusteri_
+
+--amnesia -v -p12 -q2 -eAM -rCLH -fR=2 +Oexcf +Oearly-fanout-complex +Odhls -Ono-prune-mappings +Oexcc +Oprefer-local-reg-moves -Ono-collapse-bundles --common 24_0-F_Z19assignment_functionN3aie6detail6vectorIiLj8EEE5PointP7Clusteri_ me /home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib +H/home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/elongation -x
+Release: ASIP Programmer  R-2021.03-TGT-220608 
+Tool: amnesia version R-2021.03#6beb14dd34#220609
+Copyright 2014-2021 Synopsys, Inc.
+This Synopsys software and all associated documentation are proprietary to
+Synopsys, Inc. and may only be used pursuant to the terms and conditions of a
+written license agreement with Synopsys, Inc. All other use, reproduction,
+modification, or distribution of the Synopsys software or the associated
+documentation is strictly prohibited.
+
+Reading interprocedural optimisation data from: 24_0-F_Z19assignment_functionN3aie6detail6vectorIiLj8EEE5PointP7Clusteri_.flc
+Reading pattern DSFGs from: /home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/isg/me_chess_dr.sfg
+
+application DSFG routing:
+
+**** Routing 'F_Z19assignment_functionN3aie6detail6vectorIiLj8EEE5PointP7Clusteri' ****
+(6 p) (11 P)
+      covering... (6 its) (cost 4679.983)
+
+   macro #3732 (2 opn)
+      matching... (3 p) (3 P)
+      covering... (2 its) (cost 1170.020)
+
+   macro #1519 (74 opn)
+      matching... analysing connectivity in ISG
+(22 p) (115 P)
+      covering... (17 its) (cost 17569.514)
+
+   macro #946 (2 opn)
+      matching... (3 p) (3 P)
+      covering... (2 its) (cost 1170.020)
+
+   macro #945 (2 opn)
+      matching... (3 p) (3 P)
+      covering... (2 its) (cost 1170.020)
+
+   macro #596 (2 opn)
+      matching... (2 p) (2 P)
+      covering... (2 its) (cost 1180.121)
+
+   macro #594 (8 opn)
+      matching... (5 p) (12 P)
+      covering... (3 its) (cost 2360.991)
+
+   macro #593 (6 opn)
+      matching... (2 p) (9 P)
+      covering... (1 its) (cost 1180.971)
+
+   macro #862 (10 opn)
+      matching... (9 p) (13 P)
+      covering... (6 its) (cost 4719.084)
+
+   macro #598 (7 opn)
+      matching... (10 p) (10 P)
+      covering... (5 its) (cost 3510.073)
+
+   macro #189 (2 opn)
+      matching... (2 p) (2 P)
+      covering... (2 its) (cost 1180.121)
+
+   macro #196 (7 opn)
+      matching... (4 p) (11 P)
+      covering... (3 its) (cost 2360.991)
+
+   macro #195 (6 opn)
+      matching... (2 p) (9 P)
+      covering... (1 its) (cost 1180.971)
+
+   macro #828 (9 opn)
+      matching... (8 p) (12 P)
+      covering... (6 its) (cost 4719.084)
+
+   macro #943 (5 opn)
+      matching... (7 p) (7 P)
+      covering... (5 its) (cost 3510.053)
+initial DSFG transformations
+
+   macro #494 (39 opn)
+      matching... initial timing
+initialise routing
+dependency hazard solving
+
+1 of 11: (199 200 201 202)
+
+2 of 11: (194 18 599 9)
+
+3 of 11: (490 491 492 493)
+
+4 of 11: (486 614 494 495)
+
+5 of 11: (480 496 483 660 661 664)
+(fanout-hzds) (splits:2) 
+6 of 11: (4 5 662 7 20)
+
+7 of 11: (248 649 652 239)
+
+8 of 11: (34 37 38 72)
+
+9 of 11: (40 234 29 237 46)
+
+10 of 11: (663 24 25 424 47)
+
+11 of 11: (48 182 454 70 665)
+
+sync/offset hazards solving
+
+
+time (after hazard solving) =   0.240 s
+
+routing control inputs
+
+routing
+
+1 of 11 ( 29 237 239 652 248 234 34 37 38 40 46 )
+# uses: 18 +4 +1 +1 +2 +1 +18 +2 +1 +2 +1 +2 +1 +1 +1 +3 +1 +1 +1 (check) (sync) 
+
+
+2 of 11 ( 649 )
+# uses: 9 +1 +3 +3 +1 +1 +1 +1 +1 +1 (check) (sync) 
+
+
+3 of 11 ( 72 )
+# uses: 1 +1 (check) (sync) 
+
+
+4 of 11 ( 182 4 5 20 454 24 424 663 47 665 70 )
+# uses: 55 +1 +1 +2 +1 +1 +1 +1 +1 +1 +1 +1 +2 +1 +2 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +2 +1 +1 +1 +9 +2 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +3 +1 +3 +4 +4 (47 p) (161 P)
+      covering... +(37 its) (cost 22229.388)
+3 +19 
+   macro #3730 (2 opn)
+      matching... (3 p) (3 P)
+      covering... (2 its) (cost 1170.020)
+
+   macro #3729 (2 opn)
+      matching... (3 p) (3 P)
+      covering... (2 its) (cost 1170.020)
+
+   macro #2849 (20 opn)
+      matching... +4 +3 +3 (check) (sync) 
+# floating moves to bind: 1
+
+
+
+5 of 11 ( 486 614 490 492 493 494 495 )
+# uses: 10 +(14 p) (40 P)
+      covering... (11 its) (cost 9438.280)
+
+   macro #2851 (7 opn)
+      matching... (10 p) (11 P)
+      covering... (5 its) (cost 3511.073)
+
+   macro #1494 (20 opn)
+      matching... (14 p) (41 P)
+      covering... (11 its) (cost 9438.280)
+
+   macro #3716 (5 opn)
+      matching... 4 +1 +2 +(7 p) (8 P)
+      covering... (5 its) (cost 3511.053)
+8 +1 
+   macro #771 (5 opn)
+      matching... +1 (5 p) (9 P)
+      covering... (4 its) (cost 3511.052)
+
+   macro #3718 (3 opn)
+      matching... (3 p) (6 P)
+      covering... (2 its) (cost 1171.030)
+
+   macro #146 (5 opn)
+      matching... (4 p) (8 P)
+      covering... (3 its) (cost 2341.041)
+
+   macro #2701 (165 opn)
+      matching... +1 +1 +1 +1 (check) (sync) 
+
+
+6 of 11 ( 491 )
+# uses: 8 +1 +4 +1 +1 ++1 +1 +1 (check) (sync) 
+
+
+7 of 11 ( 7 480 496 661 483 662 )
+# uses: 24 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +4 +4 +4 +1 +3 +1 (check) (sync) 
+
+
+8 of 11 ( 9 599 199 201 202 194 18 )
+# uses: 10 +4 +2 +1 +8 +1 +1 +1 +1 +1 +1 (check) (sync) 
+
+
+9 of 11 ( 200 )
+# uses: 8 +1 +4 +1 +1 ++1 +1 +1 (check) (sync) 
+
+
+10 of 11 ( 660 664 )
+# uses: 17 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +4 +1 +3 +1 (check) (sync) 
+
+
+11 of 11 ( 25 )
+# uses: 6 +1 +1 +1 +1 +1 +1 (check) (sync) 
+
+
+final flow graph transformations
+Removing dead operations ...Expanding complex patterns ...expanding 3 complex patterns (3 constants )
+Creating 'dr_move' opns ...
+number of 'reduced cluster size' : 0
+
+amnesia user time   =    0.34 s  /     0.33 s 	24_0-F_Z19assignment_functionN3aie6detail6vectorIiLj8EEE5PointP7Clusteri_
+amnesia system time =    0.01 s  /     0.01 s 	24_0-F_Z19assignment_functionN3aie6detail6vectorIiLj8EEE5PointP7Clusteri_
+amnesia real time   =    1.26 s  /     1.24 s 	24_0-F_Z19assignment_functionN3aie6detail6vectorIiLj8EEE5PointP7Clusteri_
+
+--mist1 -v -k110 --common 24_0-F_Z19assignment_functionN3aie6detail6vectorIiLj8EEE5PointP7Clusteri_ me /home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib +H/home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/elongation -x
+Release: ASIP Programmer  R-2021.03-TGT-220608 
+Tool: mist version R-2021.03#6beb14dd34#220609
+Copyright 2014-2021 Synopsys, Inc.
+This Synopsys software and all associated documentation are proprietary to
+Synopsys, Inc. and may only be used pursuant to the terms and conditions of a
+written license agreement with Synopsys, Inc. All other use, reproduction,
+modification, or distribution of the Synopsys software or the associated
+documentation is strictly prohibited.
+
+Mist1 : side effect checking is disabled
+Using nop instruction classes specified in me_chess.lib
+
+NOTICE: no instructions are printed in error nor debugfile,
+        because the instruction length > 100
+
+
+NOTE : maximum range of occupy-stages for transitories = 2
+
+looking up standalone NOP instruction
+
+Compiling all mappings: 0%..10%..20%..30%..40%..50%..60%..70%..80%..90%..100%
+
+adding manifest flow nodes ...
+
+Constructing flow graphs ...
+Scheduling basic blocks ...
+scheduling macro #599     	-> # cycles: 8 
+scheduling macro #200     	-> # cycles: 1 
+scheduling macro #201     	-> # cycles: 7 
+scheduling macro #194     	-> # cycles: 1 
+scheduling macro #614     	-> # cycles: 8 
+scheduling macro #491     	-> # cycles: 1 
+scheduling macro #492     	-> # cycles: 7 
+scheduling macro #494     	-> # cycles: 1 
+scheduling macro #237     	-> # cycles: 8 
+scheduling macro #652     	-> # cycles: 1 
+scheduling macro #649     	-> # cycles: 7 
+scheduling macro #234     	-> # cycles: 9 
+scheduling macro #72     	-> # cycles: 6 
+scheduling macro #40     	-> # cycles: 8 
+scheduling macro #182     	-> # cycles: 8 
+scheduling macro #7     	-> # cycles: 9 
+scheduling macro #660     	-> # cycles: 2 
+scheduling macro #496     	-> # cycles: 2 
+scheduling macro #661     	-> # cycles: 6 
+scheduling macro #662     	-> # cycles: 6 
+scheduling macro #454     	-> # cycles: (100 p) (335 P)
+      covering... (73 its) (cost 43342.577)
+
+   macro #2206 (5 opn)
+      matching... (4 p) (8 P)
+      covering... (3 its) (cost 2341.041)
+
+   macro #3728 (2 opn)
+      matching... (3 p) (3 P)
+      covering... (2 its) (cost 1170.020)
+
+   macro #3379 (12 opn)
+      matching... (9 p) (22 P)
+      covering... (7 its) (cost 7083.016)
+
+   macro #2460 (15 opn)
+      matching... (11 p) (32 P)
+      covering... (11 its) (cost 10626.039)
+20 
+scheduling macro #663     	-> # cycles: 6 
+scheduling macro #665     	-> # cycles: 1 
+
+   macro #2430 (35 opn)
+      matching... (14 p) (66 P)
+      covering... (11 its) (cost 9369.317)
+
+   macro #944 (2 opn)
+      matching... (3 p) (3 P)
+      covering... (2 its) (cost 1170.020)
+
+   macro #578 (2 opn)
+      matching... (2 p) (2 P)
+      covering... (2 its) (cost 1180.121)
+
+   macro #576 (8 opn)
+      matching... scheduling macro #70     	-> # cycles: 7 
+
+Total number of cycles = 140
+
+Checking data/anti-dependencies beyond basic block boundaries
+Checking resource conflicts beyond basic block boundaries
+
+mist1 user time   =    0.11 s  /     0.10 s 	24_0-F_Z19assignment_functionN3aie6detail6vectorIiLj8EEE5PointP7Clusteri_
+mist1 system time =    0.00 s  /     0.00 s 	24_0-F_Z19assignment_functionN3aie6detail6vectorIiLj8EEE5PointP7Clusteri_
+mist1 real time   =    0.40 s  /     0.40 s 	24_0-F_Z19assignment_functionN3aie6detail6vectorIiLj8EEE5PointP7Clusteri_
+
+--showcolor -v -b --common 24_0-F_Z19assignment_functionN3aie6detail6vectorIiLj8EEE5PointP7Clusteri_ me /home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib +H/home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/elongation -x
+Release: ASIP Programmer  R-2021.03-TGT-220608 
+Tool: showcolor version R-2021.03#6beb14dd34#220609
+Copyright 2014-2021 Synopsys, Inc.
+This Synopsys software and all associated documentation are proprietary to
+Synopsys, Inc. and may only be used pursuant to the terms and conditions of a
+written license agreement with Synopsys, Inc. All other use, reproduction,
+modification, or distribution of the Synopsys software or the associated
+documentation is strictly prohibited.
+
+Reading pattern DSFGs from: /home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/isg/me_chess_dr.sfg
+(42 p) (223 P)
+initialisation
+      covering... upgraded carrier of signal __arg1.96 to R
+upgraded carrier of signal __arg2.98 to R
+(384 its) (cost 22421.436)
+
+   macro #3726 (1 opn)
+      matching... (2 p) (2 P)
+      covering... (2 its) (cost 1180.020)
+
+   macro #122 (5 opn)
+      matching... (5 p) (9 P)
+      covering... (5 its) (cost 3571.162)
+
+   macro #380 (1 opn)
+      matching... (2 p) (2 P)
+      covering... (2 its) (cost 1190.020)
+
+   macro #1134 (8 opn)
+      matching... (5 p) (13 P)
+      covering... (5 its) (cost 4761.083)
+
+   macro #3679 (3 opn)
+      matching... upgraded carrier of signal __tmp.1361,__rt.1824 to R
+(5 p) (12 P)
+      covering... (3 its) (cost 2360.991)
+
+   macro #575 (6 opn)
+      matching... (3 p) (4 P)
+      covering... (3 its) (cost 2380.041)
+
+   macro #3670 (2 opn)
+      matching... (2 p) (9 P)
+      covering... (1 its) (cost 1180.971)
+
+   macro #845 (10 opn)
+      matching... (9 p) (13 P)
+      covering... (6 its) (cost 4719.084)
+
+   macro #580 (7 opn)
+      matching... (10 p) (10 P)
+      covering... (5 its) (cost 3510.073)
+
+   macro #156 (2 opn)
+      matching... (2 p) (2 P)
+      covering... (2 its) (cost 1180.121)
+
+   macro #163 (7 opn)
+      matching... (1 p) (2 P)
+      covering... upgraded carrier of signal _cst.1867 to CLH
+(1 its) (cost 1190.021)
+
+   macro #1137 (6 opn)
+      matching... (4 p) (9 P)
+      covering... (4 its) (cost 3570.052)
+
+   macro #2596 (51 opn)
+      matching... (4 p) (11 P)
+      covering... (3 its) (cost 2360.991)
+
+   macro #162 (6 opn)
+      matching... upgraded carrier of signal __ct_34717696.1871 to CLH
+collect coupled operands: ...................(2 p) (9 P)
+      covering... (1 its) (cost 1180.971)
+
+   macro #811 (9 opn)
+      matching... (8 p) (12 P)
+      covering... (6 its) (cost 4719.084)
+
+   macro #941 (5 opn)
+      matching... (7 p) (7 P)
+      covering... (5 its) (cost 3510.053)
+
+   macro #8 (8 opn)
+      matching... .(9 p) (62 P)
+      covering... (8 its) (cost 7095.375)
+
+   macro #3725 (1 opn)
+      matching... (2 p) (2 P)
+      covering... (2 its) (cost 1180.020)
+
+   macro #3724 (1 opn)
+      matching... (2 p) (2 P)
+      covering... (2 its) (cost 1180.020)
+
+   macro #2838 (2 opn)
+      matching... (2 p) (2 P)
+      covering... (2 its) (cost 1190.121)
+
+   macro #2836 (8 opn)
+      matching... (8 p) (11 P)
+      covering... (6 its) (cost 5850.074)
+
+   macro #484 (32 opn)
+      matching... ........................................................
+  16 couplings found
+collect RMW pairs: C(5 p) (11 P)
+      covering... (3 its) (cost 2380.991)
+ LC
+   macro #2835 (6 opn)
+      matching...  LE LR LS M P R(2 p) (8 P)
+      covering... (1 its) (cost 1190.971)
+
+   macro #3428 (7 opn)
+      matching... (6 p) (10 P)
+      covering... (4 its) (cost 3570.052)
+
+   macro #3656 (5 opn)
+      matching... (7 p) (11 P)
+      covering... (7 its) (cost 4722.994)
+
+   macro #1089 (2 opn)
+      matching... (2 p) (2 P)
+      covering... (2 its) (cost 1190.121)
+
+   macro #1096 (7 opn)
+      matching... (4 p) (10 P)
+      covering... (3 its) (cost 2380.991)
+
+   macro #1095 (6 opn)
+      matching...  SP W(2 p) (8 P)
+      covering... (1 its) (cost 1190.971)
+
+   macro #3361 (6 opn)
+      matching... (5 p) (9 P)
+      covering... (4 its) (cost 3570.052)
+
+   macro #3648 (5 opn)
+      matching... (6 p) (9 P)
+      covering... (6 its) (cost 4723.074)
+
+   macro #767 (3 opn)
+      matching... (3 p) (7 P)
+      covering... (3 its) (cost 2361.041)
+
+   macro #88 (2 opn)
+      matching... (1 p) (3 P)
+      covering... (1 its) (cost 1182.021)
+
+   macro #2578 (58 opn)
+      matching...  mcCarry
+register: C {CL CH}
+	rmw pairs: 2
+	coalescing      : ..
+                          0 rmw fanout splits
+	assigning fields: CL[0] CH[0] CH[1] CL[1]
+	postbalancing   : none
+	rematerialising : 0 moves
+
+register: LC
+	assigning fields:
+	rematerialising : 0 moves
+
+register: LE
+	assigning fields:
+	rematerialising : 0 moves
+
+register: LR
+	assigning fields:
+	postbalancing   : none
+	rematerialising : 0 moves
+
+register: LS
+	assigning fields:
+	rematerialising : 0 moves
+
+register: M
+	rmw pairs: 0
+	assigning fields: 0
+	postbalancing   : none
+	rematerialising : 0 moves
+
+register: P
+	rmw pairs: 0
+	assigning fields: 6 7
+	postbalancing   : none
+	rematerialising : 0 moves
+
+register: R
+	rmw pairs: 1
+	coalescing      : .
+                          0 rmw fanout splits
+	solving hazards : +
+	  -> 2 splits
+	assigning fields: 10 11 9 8 12 13 14 15 7 4 0 1 2 6
+	postbalancing   : none
+	rematerialising : 0 moves
+
+register: SP
+	assigning fields:
+	rematerialising : 0 moves
+
+register: W {VL VH}
+	rmw pairs: 4
+	coalescing      : ....
+                          0 rmw fanout splits
+	  -> 1 splits  (1 for sub offset hazards)
+	assigning fields: VL[6] VH[2] VH[4] VH[6] VL[0]
+	postbalancing   : none
+	rematerialising : 0 moves
+
+register: mcCarry
+	assigning fields:
+	postbalancing   : none
+	rematerialising : 0 moves
+
+align offsets:
+	computing ideal alignment on mergeable borders: 
+	handle assignment constraints
+	reassign aligned offsets: CH CL M P R {VH VL}(!)
+	updating reassigned offsets in sfg
+
+collect coupled operands: ....................(16 p) (106 P)
+      covering... (11 its) (cost 10641.938)
+
+   macro #3723 (1 opn)
+      matching... (2 p) (2 P)
+      covering... (2 its) (cost 1180.020)
+
+   macro #3722 (1 opn)
+      matching... (2 p) (2 P)
+      covering... (2 its) (cost 1180.020)
+
+   macro #2820 (2 opn)
+      matching... (2 p) (2 P)
+      covering... (2 its) (cost 1190.121)
+
+   macro #2818 (8 opn)
+      matching... .(5 p) (12 P)
+      covering... (3 its) (cost 2380.991)
+
+   macro #2817 (6 opn)
+      matching... ..........................................................
+  9 couplings found
+solving cycles: none
+(2 p) (9 P)
+      covering... (1 its) (cost 1190.971)
+
+   macro #3413 (10 opn)
+      matching... (9 p) (13 P)
+      covering... (6 its) (cost 4759.084)
+
+   macro #3714 (3 opn)
+      matching... (6 p) (14 P)
+      covering... (6 its) (cost 3540.973)
+
+   macro #1052 (2 opn)
+      matching... (2 p) (2 P)
+      covering... (2 its) (cost 1190.121)
+
+   macro #1059 (7 opn)
+      matching... (4 p) (11 P)
+      covering... (3 its) (cost 2380.991)
+
+   macro #1058 (6 opn)
+      matching... (2 p) (9 P)
+      covering... (1 its) (cost 1190.971)
+
+   macro #3346 (9 opn)
+      matching... (8 p) (12 P)
+      covering... (6 its) (cost 4759.084)
+
+   macro #3712 (3 opn)
+      matching... (5 p) (6 P)
+      covering... (5 its) (cost 3541.053)
+
+   macro #2562 (37 opn)
+      matching... 
+solving cycles: none
+
+3 ra_moves inserted
+
+Writing LIB (with interprocedural optimisation data) to: 24_0-F_Z19assignment_functionN3aie6detail6vectorIiLj8EEE5PointP7Clusteri__ra.lib
+
+showcolor user time   =    0.34 s  /     0.33 s 	24_0-F_Z19assignment_functionN3aie6detail6vectorIiLj8EEE5PointP7Clusteri_
+showcolor system time =    0.02 s  /     0.02 s 	24_0-F_Z19assignment_functionN3aie6detail6vectorIiLj8EEE5PointP7Clusteri_
+showcolor real time   =    1.34 s  /     1.30 s 	24_0-F_Z19assignment_functionN3aie6detail6vectorIiLj8EEE5PointP7Clusteri_
+
+--mist2 -v +Omodo -k110 +Omsbr=2000 +Opnll +A +pnopALU +pnopLDA +pnopLDB +pnopSTS +pnopVEC +Ofexm +Onzmem +Ono-mapping-backtracking +Oalways-check-exec-paths +Omodulo-scheduling-minimize-folding-index +Omodulo-scheduling-lookahead-critical-transitory-class=AcqLdaRsrc_ID,AcqLdbRsrc_ID:2 +Odisable-spill-instr-class=LR_short_spill +Odisaggr-record-accesses --common 24_0-F_Z19assignment_functionN3aie6detail6vectorIiLj8EEE5PointP7Clusteri_ me /home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib +H/home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/elongation -x
+Release: ASIP Programmer  R-2021.03-TGT-220608 
+Tool: mist version R-2021.03#6beb14dd34#220609
+Copyright 2014-2021 Synopsys, Inc.
+This Synopsys software and all associated documentation are proprietary to
+Synopsys, Inc. and may only be used pursuant to the terms and conditions of a
+written license agreement with Synopsys, Inc. All other use, reproduction,
+modification, or distribution of the Synopsys software or the associated
+documentation is strictly prohibited.
+
+Mist2 : side effect checking is enabled
+Using nop instruction classes specified in me_chess.lib
+
+NOTICE: no instructions are printed in error nor debugfile,
+        because the instruction length > 100
+
+Reading elongation rules from: /home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/elongation
+
+NOTE : maximum range of occupy-stages for transitories = 2
+
+looking up standalone NOP instruction
+(8 p) (59 P)
+      covering... (6 its) (cost 4689.244)
+
+   macro #476 (20 opn)
+      matching... 
+Compiling all mappings: 0%..10%..20%..30%..40%..50%..60%..70%..80%..90%..100%
+
+review chess_separator_scheduler(offset > 0)
+removing chess_separator blocks up to strength 2in foldable loops
+removing chess_separator blocks up to strength 2(all)
+
+jump threading ...
+adding manifest flow nodes ...
+
+Constructing flow graphs ...
+Scheduling basic blocks ...
+scheduling macro #599     	-> # cycles: (18 p) (26 P)
+      covering... (12 its) (cost 11701.159)
+
+
+Total cost = 104494.288
+
+cosel user time   =    1.31 s  /     1.20 s 	24_0-F_Z18euclidean_distanceP7Clusteri5Point_
+cosel system time =    0.04 s  /     0.01 s 	24_0-F_Z18euclidean_distanceP7Clusteri5Point_
+cosel real time   =    5.18 s  /     4.64 s 	24_0-F_Z18euclidean_distanceP7Clusteri5Point_
+
+--amnesia -v -p12 -q2 -eAM -rCLH -fR=2 +Oexcf +Oearly-fanout-complex +Odhls -Ono-prune-mappings +Oexcc +Oprefer-local-reg-moves -Ono-collapse-bundles --common 24_0-F_Z18euclidean_distanceP7Clusteri5Point_ me /home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib +H/home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/elongation -x
+Release: ASIP Programmer  R-2021.03-TGT-220608 
+Tool: amnesia version R-2021.03#6beb14dd34#220609
+Copyright 2014-2021 Synopsys, Inc.
+This Synopsys software and all associated documentation are proprietary to
+Synopsys, Inc. and may only be used pursuant to the terms and conditions of a
+written license agreement with Synopsys, Inc. All other use, reproduction,
+modification, or distribution of the Synopsys software or the associated
+documentation is strictly prohibited.
+
+Reading interprocedural optimisation data from: 24_0-F_Z18euclidean_distanceP7Clusteri5Point_.flc
+Reading pattern DSFGs from: /home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/isg/me_chess_dr.sfg
+7
+application DSFG routing:
+ 
+**** Routing 'F_Z18euclidean_distanceP7Clusteri5Point' ****
+
+scheduling macro #200     	-> # cycles: 1 
+scheduling macro #201     	-> # cycles: 6 
+scheduling macro #194     	-> # cycles: 1 
+scheduling macro #614     	-> # cycles: 7 
+scheduling macro #491     	-> # cycles: 1 
+scheduling macro #492     	-> # cycles: 6 
+scheduling macro #494     	-> # cycles: 1 
+scheduling macro #237     	-> # cycles: 8 
+scheduling macro #652     	-> # cycles: 1 
+scheduling macro #649     	-> # cycles: 6 
+scheduling macro #234     	-> # cycles: 9 (12 p) (73 P)
+      covering... (10 its) (cost 8271.306)
+
+   macro #3721 (1 opn)
+      matching... (2 p) (2 P)
+      covering... (2 its) (cost 1180.020)
+
+   macro #2802 (2 opn)
+      matching... (2 p) (2 P)
+      covering... (2 its) (cost 1190.121)
+
+   macro #2800 (8 opn)
+      matching... (5 p) (12 P)
+
+scheduling macro #40     	-> # cycles:       covering... 8(3 its) (cost 2380.991)
+
+   macro #2799 (6 opn)
+      matching...  
+(2 p) (9 P)
+      covering... (1 its) (cost 1190.971)
+
+   macro #3396 (10 opn)
+      matching... (9 p) (13 P)
+      covering... (6 its) (cost 4759.084)
+
+   macro #3710 (3 opn)
+      matching... (6 p) (12 P)
+      covering... (6 its) (cost 3540.973)
+
+   macro #1019 (2 opn)
+      matching... (2 p) (2 P)
+      covering... (2 its) (cost 1190.121)
+
+   macro #1026 (7 opn)
+      matching... analysing connectivity in ISG
+scheduling macro #182     	-> # cycles: (4 p) (11 P)
+      covering... (3 its) (cost 2380.991)
+
+   macro #1025 (6 opn)
+      matching... (2 p) (9 P)
+      covering... (1 its) (cost 1190.971)
+
+   macro #3329 (9 opn)
+      matching... (8 p) (12 P)
+      covering... (6 its) (cost 4759.084)
+8 
+scheduling macro #7     	-> # cycles: 
+   macro #3708 (3 opn)
+      matching... (5 p) (6 P)
+      covering... (5 its) (cost 3541.053)
+
+   macro #765 (3 opn)
+      matching... (3 p) (7 P)
+      covering... (3 its) (cost 2361.041)
+
+   macro #2552 (30 opn)
+      matching... 9 
+initial DSFG transformations
+scheduling macro #660     	-> # cycles: initial timing
+initialise routing
+dependency hazard solving
+
+1 of 12: (161 162 163 164)
+
+2 of 12: (19 10 811 156)
+
+3 of 12: (576 577 574 575)
+
+4 of 12: (578 579 570 845)
+
+5 of 12: (944 947 564 580 567 941)
+(fanout-hzds) (splits:2) (fanout-hzds) (splits:2) 
+6 of 12: (194 195 196 197)
+
+7 of 12: (22 828 189 31)
+
+8 of 12: (592 593 594 595)
+
+9 of 12: (596 597 588 862)
+
+10 of 12: (945 948 582 598 585 943)
+(fanout-hzds) (splits:2) 
+11 of 12: (33 946 4 484 8 494)
+
+12 of 12: (476 111)
+
+sync/offset hazards solving
+
+
+time (after hazard solving) =   0.220 s
+
+routing control inputs
+
+routing
+
+1 of 12 ( 570 845 574 576 577 578 579 )
+# uses: 11 +4 +1 +2 +2 +8 +1 +1 +1 +1 +1 +1 (check) 
+
+
+2 of 12 ( 575 )
+# uses: 8 +1 +1 +4 +1 +1 +1 +1 +1 (check) 
+
+
+3 of 12 ( 588 862 592 594 595 596 597 )
+# uses: 11 +4 +1 +2 +2 +8 +1 +1 +1 +1 +1 +1 (check) 
+
+
+4 of 12 ( 593 )
+# uses: 8 +1 +1 +4 +1 +1 +1 +1 +1 (check) 
+
+
+5 of 12 ( 476 4 8 564 580 944 567 494 582 598 945 585 946 33 111 )
+# uses: 98 +1 +1 +2 +1 3 
++3 +2 +1 +1 +1 +1 +1 +2 +1 +1 +1 +1 +1 +1 +1 +2 +2 scheduling macro #496     	-> # cycles: +1 +1 +1 +1 +1 +4 +36 (rlx +1)336  
+scheduling macro #661     	-> # cycles: 6 
+scheduling macro #454     	-> # cycles: (6 p) (53 P)
+      covering... (4 its) (cost 3549.223)
+
+   macro #2545 (10 opn)
+      matching... (10 p) (21 P)
+      covering... (7 its) (cost 4738.104)
+
+   macro #934 (21 opn)
+      matching... +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +2 +1 +2 +1 +1 +1 +1 +4 +36 (18 p) (28 P)
+      covering... (15 its) (cost 15214.263)
+
+   macro #916 (11 opn)
+      matching... 14 
+scheduling macro #665     	-> # cycles: (9 p) (16 P)
+      covering... (8 its) (cost 8192.096)
+
+   macro #3720 (2 opn)
+      matching... (3 p) (3 P)
+      covering... (2 its) (cost 1170.020)
+
+   macro #3719 (2 opn)
+      matching... 6(3 p) (3 P)
+      covering... (2 its) (cost 1170.020)
+
+   macro #2784 (2 opn)
+      matching... (2 p) (2 P)
+      covering... (2 its) (cost 1180.121)
+
+   macro #2782 (22 opn)
+      matching... +1 +1 +1 +1 +1  
++1 +1 +1 +1 +2 (VRH0)+1 +1 scheduling macro #70     	-> # cycles: +61  
+
+Total number of cycles = 117
+
+Checking data/anti-dependencies beyond basic block boundaries
+Checking resource conflicts beyond basic block boundaries
+Checking pipeline hazards ...
++1 +1 +2 +1 +1 +4 +10 ++15 +(21 p) (27 P)
+      covering... (14 its) (cost 8258.214)
+
+   macro #2781 (36 opn)
+      matching... 8 ++++2 ++1 +(20 p) (40 P)
+      covering... (10 its) (cost 11794.258)
+
+   macro #2778 (21 opn)
+      matching... 2 +++++1 +1 +3 +1 +4 +4 +4 +3 +(13 p) (40 P)
+      covering... (12 its) (cost 8260.198)
+
+   macro #2786 (7 opn)
+      matching... 4 +1 +1 +1 ++3 +(10 p) (11 P)
+      covering... (5 its) (cost 3511.073)
+
+   macro #33 (2 opn)
+      matching... 1 +3 +1 (check) (2 p) (2 P)
+      covering... (2 its) (cost 1180.121)
+
+   macro #2118 (21 opn)
+      matching... 
+# floating moves to bind: 1
+
+
+
+6 of 12 ( 10 811 161 163 164 156 19 )
+# uses: 11 +4 (20 p) (26 P)
+      covering... (14 its) (cost 8258.214)
+
+   macro #2082 (36 opn)
+      matching... +(20 p) (40 P)
+      covering... 2 (10 its) (cost 11794.258)
++1 +2 
+   macro #987 (20 opn)
+      matching... +8 +1 +1 +1 +1 +1 +1 (check) 
+
+
+7 of 12 ( 162 )
+# uses: 8 +1 +1 +4 +1 +1 +1 +1 +1 (check) 
+
+
+8 of 12 ( 941 947 )
+# uses: 29 +1 +1 +1 +1 +1 +1 +1 +1 +(12 p) (39 P)
+      covering... (12 its) (cost 8260.198)
+
+   macro #3706 (5 opn)
+      matching... (7 p) (8 P)
+      covering... (5 its) (cost 3511.053)
+
+   macro #908 (31 opn)
+      matching... 1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +5 +17 +15 +4 +3 +1 +3 +1 (check) 
+
+
+9 of 12 ( 22 828 194 196 197 189 31 )
+# uses: 11 +4 +2 +1 +2 +8 +1 +1 +1 +1 +1 +1 (check) 
+
+
+10 of 12 ( 195 )
+# uses: 8 +1 +(29 p) (66 P)
+1 +4 +      covering... (27 its) (cost 30432.305)
+1 
+   macro #895 (17 opn)
+      matching... +1 +1 +1 +1 (check) 
+
+
+11 of 12 ( 943 948 )
+# uses: 24 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 (check) 
+
+
+12 of 12 ( 484 )
+# uses: 38 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +2 +1 +(16 p) (35 P)
+1 +2       covering... (14 its) (cost 15216.162)
++
+   macro #2038 (96 opn)
+      matching... 1 +1 +1 +1 +2 +1 +4 +272 (95 p) (461 P)
+      covering... (48 its) (cost 28296.784)
+
+   macro #2159 (13 opn)
+      matching... (rlx +1)(16 p) (19 P)
+272       covering... (13 its) (cost 11701.140)
+
+   macro #971 (32 opn)
+      matching... (26 p) (52 P)
+      covering... (20 its) (cost 17549.277)
+
+
+Total cost = 487576.750
+
+cosel user time   =    2.48 s  /     2.36 s 	24_0-F_Z15kmeans_functionP12input_streamIiEP13output_streamIiE_
+cosel system time =    0.07 s  /     0.03 s 	24_0-F_Z15kmeans_functionP12input_streamIiEP13output_streamIiE_
+cosel real time   =    7.42 s  /     6.45 s 	24_0-F_Z15kmeans_functionP12input_streamIiEP13output_streamIiE_
+
+--amnesia -v -p12 -q2 -eAM -rCLH -fR=2 +Oexcf +Oearly-fanout-complex +Odhls -Ono-prune-mappings +Oexcc +Oprefer-local-reg-moves -Ono-collapse-bundles --common 24_0-F_Z15kmeans_functionP12input_streamIiEP13output_streamIiE_ me /home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib +H/home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/elongation -x
+Release: ASIP Programmer  R-2021.03-TGT-220608 
+Tool: amnesia version R-2021.03#6beb14dd34#220609
+Copyright 2014-2021 Synopsys, Inc.
+This Synopsys software and all associated documentation are proprietary to
+Synopsys, Inc. and may only be used pursuant to the terms and conditions of a
+written license agreement with Synopsys, Inc. All other use, reproduction,
+modification, or distribution of the Synopsys software or the associated
+documentation is strictly prohibited.
+
+Reading interprocedural optimisation data from: 24_0-F_Z15kmeans_functionP12input_streamIiEP13output_streamIiE_.flc
+Reading pattern DSFGs from: /home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/isg/me_chess_dr.sfg
+
+application DSFG routing:
+
+**** Routing 'F_Z15kmeans_functionP12input_streamIiEP13output_streamIiE' ****
++1 +1 +1 +1 ++17 +analysing connectivity in ISG
+15 +8 ++1 +1 +1 +1 +1 +1 +1 (check) 
+
+
+final flow graph transformations
+Removing dead operations ...Expanding complex patterns ...expanding 4 complex patterns (4 constants )
+Creating 'dr_move' opns ...
+number of 'reduced cluster size' : 0
+
+amnesia user time   =    0.79 s  /     0.79 s 	24_0-F_Z18euclidean_distanceP7Clusteri5Point_
+amnesia system time =    0.00 s  /     0.00 s 	24_0-F_Z18euclidean_distanceP7Clusteri5Point_
+amnesia real time   =    2.61 s  /     2.59 s 	24_0-F_Z18euclidean_distanceP7Clusteri5Point_
+
+--mist1 -v -k110 --common 24_0-F_Z18euclidean_distanceP7Clusteri5Point_ me /home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib +H/home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/elongation -x
+Release: ASIP Programmer  R-2021.03-TGT-220608 
+Tool: mist version R-2021.03#6beb14dd34#220609
+Copyright 2014-2021 Synopsys, Inc.
+This Synopsys software and all associated documentation are proprietary to
+Synopsys, Inc. and may only be used pursuant to the terms and conditions of a
+written license agreement with Synopsys, Inc. All other use, reproduction,
+modification, or distribution of the Synopsys software or the associated
+documentation is strictly prohibited.
+
+Mist1 : side effect checking is disabled
+Using nop instruction classes specified in me_chess.lib
+
+NOTICE: no instructions are printed in error nor debugfile,
+        because the instruction length > 100
+
+
+NOTE : maximum range of occupy-stages for transitories = 8
+
+looking up standalone NOP instruction
+
+Compiling all mappings: 0%..initial DSFG transformations
+initial timing
+initialise routing
+dependency hazard solving
+
+1 of 38: (4 13 2038)
+
+2 of 38: (2082 2118 26 31)
+
+3 of 38: (33 21 39 987)
+
+4 of 38: (2780 2781 2782 2783)
+
+5 of 38: (2784 2785 2776 2778)
+
+6 of 38: (2770 2786 3733 2773 3719 3706)
+(fanout-hzds) (splits:2) (fanout-hzds) (splits:2) (fanout-hzds) (splits:2) (fanout-hzds) (splits:2) 
+7 of 38: (16 17 3720 40 908)
+
+8 of 38: (1024 1025 1026 1027)
+
+9 of 38: (3329 69 1019 60)
+
+10 of 38: (2800 2801 2798 2799)
+
+11 of 38: (2802 2803 3396 2794)
+
+12 of 38: (2788 3734 2791 3721 3708 3710)
+(fanout-hzds) (splits:2) (fanout-hzds) (splits:2) (fanout-hzds) (splits:2) 
+13 of 38: (1057 1058 1059 1060)
+
+14 of 38: (81 3346 72 1052)
+
+15 of 38: (2816 2817 2818 2819)
+
+16 of 38: (2820 3413 2821 2812)
+
+17 of 38: (3712 3714 2806 3735 2809 3722)
+(fanout-hzds) (splits:2) 
+18 of 38: (2562 83 54 2552 3723 765)
+(fanout-hzds) (splits:1) 
+19 of 38: (1094 1095 1096 1097)
+
+20 of 38: (3361 1089 101 92)
+
+21 of 38: (2834 2835 2836 2837)
+
+22 of 38: (3428 2838 2839 2830)
+
+23 of 38: (3648 2824 3736 3656 2827 3724)
+(fanout-hzds) (splits:2) 
+24 of 38: (102 87 88 3725 767)
+
+25 of 38: (1139 3670 1148 3679)
+
+26 of 38: (116 119 120 380)
+
+27 of 38: (128 1137 122 1134 111)
+
+28 of 38: (129 3737 106 107 3726)
+(fanout-hzds) (splits:1) 
+29 of 38: (2460 2461 2431)
+
+30 of 38: (3379 2461 2431 2460 2430 49 2545 130 2596 2578 137 3738)
+(fanout-hzds) (splits:1) (fanout-hzds) (splits:1) 
+31 of 38: (3728 934 138 44 45)
+
+32 of 38: (157 1494 166)
+(seq:2) 
+33 of 38: (2848 2849 2850)
+(seq:2) 
+34 of 38: (3729 2851 3716 2842 3739 2845)
+
+35 of 38: (3730 771 152 153 168)
+
+36 of 38: (148 3718 3740 173 1519)
+
+37 of 38: (146 3732 2701 142 174)
+
+38 of 38: (895 674 916 378 971 2206 2159)
+(fanout-hzds) (splits:1) (fanout-hzds) (splits:1) 
+sync/offset hazards solving
+10%..20%..30%..
+
+time (after hazard solving) =   0.550 s
+
+routing control inputs
+
+routing
+
+1 of 37 ( 4 2038 13 )
+# uses: 48 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +9 +9 +9 +9 +9 +9 +9 +9 +9 +9 +9 +9 +9 +9 +9 +3 +9 +9 +9 +9 +9 +9 +9 +3 (check) (sync) 
+
+
+2 of 37 ( 2776 2778 2780 2781 2783 2784 2785 )
+# uses: 40 +12 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 (P)-1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 (P)-1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 (P)+1 (P)-1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 (P)+1 +1 +1 ++++++++++9 +9 +9 +9 +9 +3 +1 +1 (check) (sync) 
+# floating moves to bind: 1
+
+
+
+3 of 37 ( 2782 )
+# uses: 27 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 (P)+1 (P:t)-1 1 1 1 (P:t)-1 1 1 1 (P:t)-1 1 1 1 (rlx +1)1 1 1 1 (P)(rlx +1)(P)+1 (P:t)-1 1 1 1 (P)(rlx +2)(P)+1 +1 (P:t)-1 1 1 1 (P)(rlx +2)(P)+1 +1 (P:t)-1 1 1 1 (P)(rlx +1)(P)(rlx +2)(P)+1 (P:t)-1 1 1 1 (P)(rlx +1)(P)(rlx +2)(P)+1 +1 (P:t)-1 1 1 1 (P)(rlx +1)(P)(rlx +2)(P)+1 +9 +3 +1 +1 +1 +1 (check) (sync) 
+
+Filling in loop counts in instruction enabling ...
+Re-filling in 'a', 'r' values in instruction enabling ...
+Adjusting target addresses ...
+Filling in target addresses in instruction enabling ...
+Writing micro-code to ``24_0-F_Z19assignment_functionN3aie6detail6vectorIiLj8EEE5PointP7Clusteri_.mic'' ...
+
+mist2 user time   =    1.49 s  /     1.49 s 	24_0-F_Z19assignment_functionN3aie6detail6vectorIiLj8EEE5PointP7Clusteri_
+mist2 system time =    0.01 s  /     0.01 s 	24_0-F_Z19assignment_functionN3aie6detail6vectorIiLj8EEE5PointP7Clusteri_
+mist2 real time   =    4.87 s  /     4.87 s 	24_0-F_Z19assignment_functionN3aie6detail6vectorIiLj8EEE5PointP7Clusteri_
+
+--tale -v -g -D__AIENGINE__ -D__AIEARCH__=10 -DDEPLOYMENT_ELF=1 -DAIE_OPTION_SCALAR_FLOAT_ON_VECTOR -D__tct_tgt__=220608 -V24_0 -L --common 24_0-F_Z19assignment_functionN3aie6detail6vectorIiLj8EEE5PointP7Clusteri_ me /home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib +H/home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/elongation -x
+Release: ASIP Programmer  R-2021.03-TGT-220608 
+Tool: tale version R-2021.03#6beb14dd34#220609
+Copyright 2014-2021 Synopsys, Inc.
+This Synopsys software and all associated documentation are proprietary to
+Synopsys, Inc. and may only be used pursuant to the terms and conditions of a
+written license agreement with Synopsys, Inc. All other use, reproduction,
+modification, or distribution of the Synopsys software or the associated
+documentation is strictly prohibited.
+
+Reading elongation rules from: /home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/elongation
+
+4 of 37 ( 2794 3396 2798 2800 2801 2802 2803 )
+# uses: 11 +4 +1 +2 +2 +8 +1 +1 +1 +1 +1 +1 (check) (sync) 
+
+Reading relocators from: /home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib//isg/me.rlo with command tct_gcpp3 -nostdinc -nostdinc++ -lang-asm  -D'__AIENGINE__' -D'__AIEARCH__=10' -D'DEPLOYMENT_ELF=1' -D'AIE_OPTION_SCALAR_FLOAT_ON_VECTOR' -D'__tct_tgt__=220608' -I'/home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/' -I'/home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib//isg/'
+
+5 of 37 ( 2799 )
+# uses: 8 +1 +1 +4 +1 +1 +1 +1 +1 (check) (sync) 
+
+
+6 of 37 ( 2812 3413 2816 2818 2819 2820 2821 )
+# uses: 11 Reading DSFG from: 24_0.gvt
+Reading Dwarf register-list from file '/home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/isg/me_regs.txt' ...
+Reading Dwarf register ID's from file '/home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/isg/me_regid.txt' ...
+
+Dumping object file '24_0-F_Z19assignment_functionN3aie6detail6vectorIiLj8EEE5PointP7Clusteri_.o' in ELF format with DWARF debug information (1)
++4 +1 +2 +2 +8 +1 +1 +1 +1 +1 +1 (check) (sync) 
+
+
+7 of 37 ( 2817 )
+# uses: 8 +1 +1 +4 +1 +1 +1 +1 +1 (check) (sync) 
+
+
+8 of 37 ( 2830 3428 2834 2836 2837 2838 2839 )
+# uses: 10 +4 +1 +2 +8 +1 +1 +1 +1 +1 +1 (check) (sync) 
+
+
+9 of 37 ( 2835 )
+# uses: 8 +1 +4 +1 +1 ++1 +1 +1 (check) (sync) 
+
+
+10 of 37 ( 111 1137 1139 3670 1148 1134 116 119 120 122 128 )
+# uses: 18 +4 
+tale user time   =    0.02 s  /     0.01 s 	24_0-F_Z19assignment_functionN3aie6detail6vectorIiLj8EEE5PointP7Clusteri_
+tale system time =    0.01 s  /     0.01 s 	24_0-F_Z19assignment_functionN3aie6detail6vectorIiLj8EEE5PointP7Clusteri_
+tale real time   =    0.18 s  /     0.10 s 	24_0-F_Z19assignment_functionN3aie6detail6vectorIiLj8EEE5PointP7Clusteri_
+
++1 +1 +2 +1 +18 +2 +1 +2 +1 +2 +1 +1 +1 +3 +1 +1 +1 (check) (sync) 
+
+
+11 of 37 ( 3679 )
+# uses: 9 +1 +3 +3 +1 +1 +1 +1 +1 +1 (check) (sync) 
+
+
+12 of 37 ( 380 )
+# uses: 5 +1 +1 +1 +1 +1 (check) (sync) 
+
+
+13 of 37 ( 49 2545 54 765 2788 3710 3721 2791 2562 2806 3714 3722 2809 3723 83 2578 87 767 2824 3656 3724 2827 3725 102 2596 106 3737 3726 129 3738 2430 2460 3379 137 )
+# splits : 1
+1 # output branches    : 1
+# uses: 227 +1 +1 +1 +1 +3 +2 +1 +1 +2 +1 +1 +2 +1 +4 +2 +20 +1 +1 +2 +2 +1 +1 +4 +8 (rlx +1)8 +1 +1 +1 +4 +2 +1 +2 +1 +4 +8 (rlx +1)8 +1 +1 +1 +1 +2 (VRH0)+1 +1 +2 +1 +2 +2 +1 +1 +1 +1 +1 +2 +2 +20 +4 +2 +1 +1 +1 +1 +4 +2 +1 +1 +1 +1 +2 +1 +1 +1 +1 +2 +2 +1 +1 +1 +1 +2 +4 +1 +2 +1 +1 +1 (R0)+2 +1 +1 +1 +1 +1 +2 +8 +1 +1 +1 +1 +1 +4 +1 +1 +2 +1 +2 +1 +1 +1 (R0)+1 +1 +1 +2 +1 +1 +2 +1 +2 +1 +1 +1 +1 +1 +1 +1 +1 ++++2 +1 +1 +1 ++++++++++++++++++++++++1 +1 +1 +1 ++++++++++++++1 +1 ++1 +1 +1 +1 +1 ++1 ++1 +1 +1 ++++++1 +1 +1 +1 +1 ++++1 +++1 (R:t)-1 4 6 1 3 6 2 1 40%..3 50%..60%..5 1 1 3 4 2 8 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 2 1 ++1 +1 +1 ++1 ++1 ++1 (R:t)-1 4 6 1 2 4 1 1 3 4 2 8 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 2 1 ++1 (R:t)-1 2 4 1 1 3 1 1 4 4 2 8 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 2 1 +1 (VRH)-1 1 2 1 +1 (R:t)-1 2 4 1 1 3 1 1 4 4 2 8 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 2 1 +1 (R:t)-1 2 4 1 1 3 1 1 4 4 2 8 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 2 1 +1 +1 (R:t)-1 2 4 1 1 3 4 2 8 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 2 1 +1 (R:t)-1 1 3 1 1 4 4 2 8 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 2 1 +1 (R:t)-1 1 3 4 2 8 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 2 1 (R:t)-4 1 4 6 7 9 4 4 16 4 1 1 2 1 1 1 1 1 1 1 1 1 1 1 1 1 2 1 1 1 70%..80%..90%..100%
+
+adding manifest flow nodes ...
+1 1 1 1 +1 (R:t)-1 1 
+Constructing flow graphs ...
+Scheduling basic blocks ...
+scheduling macro #811     	-> # cycles: 4 4 8 
+scheduling macro #162     	-> # cycles: 1 
+scheduling macro #163     	-> # cycles: 7 
+scheduling macro #156     	-> # cycles: 1 
+scheduling macro #845     	-> # cycles: 8 
+scheduling macro #575     	-> # cycles: 1 
+scheduling macro #576     	-> # cycles: 7 
+scheduling macro #578     	-> # cycles: 1 
+scheduling macro #828     	-> # cycles: 8 
+scheduling macro #195     	-> # cycles: 1 
+scheduling macro #196     	-> # cycles: 7 
+scheduling macro #189     	-> # cycles: 1 
+scheduling macro #862     	-> # cycles: 82 8  
+scheduling macro #593     	-> # cycles: 1 
+scheduling macro #594     	-> # cycles: 7 
+scheduling macro #596     	-> # cycles: 1 
+scheduling macro #476     	-> # cycles: 1 1 1 16 
+scheduling macro #484     	-> # cycles: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 2 1 9+ 
+1 scheduling macro #8     	-> # cycles: 8 
+scheduling macro #941     	-> # cycles: (R:t)-1 1 4 4 2 8 1 1 1 1 1 1 1 1 1 1 1 1 4 
+1 scheduling macro #580     	-> # cycles: 1 1 1 1 1 1 1 1 1 1 1 4 
+1 scheduling macro #944     	-> # cycles: 6 
+scheduling macro #494     	-> # cycles: 12 
+scheduling macro #943     	-> # cycles: 2 
+scheduling macro #598     	-> # cycles: 2 
+scheduling macro #945     	-> # cycles: 6 
+scheduling macro #946     	-> # cycles: 6 
+1 1 1 2 1 +1 (R:t)-1 1 3 4 2 8 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 2 1 +1 (R:t)-1 1 3 4 2 8 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 2 1 +1 (R:t)-1 1 4 4 2 8 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 2 1 (R:t)-4 1 4 6 7 9 4 4 16 scheduling macro #111     	-> # cycles: 4 1 1 2 1 1 1 23 
+
+Total number of cycles = 166
+
+Checking data/anti-dependencies beyond basic block boundaries
+Checking resource conflicts beyond basic block boundaries
+1 1 1 1 1 1 1 1 1 1 
+mist1 user time   =    1.13 s  /     1.13 s 	24_0-F_Z18euclidean_distanceP7Clusteri5Point_
+mist1 system time =    0.01 s  /     0.01 s 	24_0-F_Z18euclidean_distanceP7Clusteri5Point_
+mist1 real time   =    3.76 s  /     3.76 s 	24_0-F_Z18euclidean_distanceP7Clusteri5Point_
+
+--showcolor -v -b --common 24_0-F_Z18euclidean_distanceP7Clusteri5Point_ me /home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib +H/home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/elongation -x
+Release: ASIP Programmer  R-2021.03-TGT-220608 
+Tool: showcolor version R-2021.03#6beb14dd34#220609
+Copyright 2014-2021 Synopsys, Inc.
+This Synopsys software and all associated documentation are proprietary to
+Synopsys, Inc. and may only be used pursuant to the terms and conditions of a
+written license agreement with Synopsys, Inc. All other use, reproduction,
+modification, or distribution of the Synopsys software or the associated
+documentation is strictly prohibited.
+
+Reading pattern DSFGs from: /home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/isg/me_chess_dr.sfg
+2 1 1 1 1 1 1 1 (R:t)-4 initialisation
+10 upgraded carrier of signal num_clusters.249,num_clusters.3118 to R
+upgraded carrier of signal __arg2.251 to R
+8 4 1 4 1 1 4 1 1 1 1 1 1 1 1 2 1 1 1 1 1 1 2 1 1 1 1 1 1 1 1 1 (R)+1 +1 +1 (check) (P)(R)
+# splits: 4 +1 +1 +1 +1 (check) (sync) 
+# splits: 4 (sync) 
+# floating moves to bind: 5
+
+
+
+14 of 37 ( 60 3329 1024 1026 1027 1019 69 )
+# uses: 11 +4 +2 +1 +2 +8 +1 +1 +1 +1 +1 +1 (check) (sync) 
+
+
+15 of 37 ( 1025 )
+# uses: 8 +1 +1 +4 +1 +1 +1 +1 +1 (check) (sync) 
+
+
+16 of 37 ( 3708 3734 )
+# uses: 40 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 (R:t)-1 1 3 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 (R:t)-1 1 3 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 (check) (sync) 
+
+
+17 of 37 ( 72 3346 1057 1059 1060 1052 81 )
+# uses: 11 +4 +2 +1 +2 +8 +1 +1 +1 +1 +1 +1 (check) (sync) 
+
+
+18 of 37 ( 1058 )
+# uses: 8 +1 +1 +4 +1 +1 +1 +1 +1 (check) (sync) 
+
+
+19 of 37 ( 3712 3735 )
+# uses: 38 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 upgraded carrier of signal __tmp.2275,__rt.3110 to WR
++1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 (check) (sync) 
+
+
+20 of 37 ( 2552 )
+# uses: 53 +1 +1 +1 +1 +1 +1 +1 +2 (rlx +2)2 +1 +4 +16 (rlx +1)16 +1 +1 ++++++++1 (R:t)-12 1 3 +1 +1 +1 ++++1 ++1 ++1 ++1 ++1 +1 +1 +1 +1 +1 (R:t)-10 1 3 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 (check) (sync) 
+
+
+21 of 37 ( 92 3361 1094 1096 1097 1089 101 )
+# uses: 10 +4 +2 +1 +8 +1 +1 +1 +1 +1 +1 (check) (sync) 
+
+
+22 of 37 ( 1095 )
+# uses: 8 +1 +4 +1 +1 ++1 +1 +1 (check) (sync) 
+
+
+23 of 37 ( 3648 3736 )
+# uses: 40 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 (R:t)-1 1 3 +1 +1 +1 (check) (sync) 
+
+
+24 of 37 ( 88 )
+# uses: 33 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 (R:t)-10 1 3 +1 +1 +1 (check) (sync) 
+
+
+25 of 37 ( 107 )
+# uses: 28 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 (check) (sync) 
+
+
+26 of 37 ( 2848 2849 2850 )
+# uses: 16 +8 +4 +4 +1 +2 +6 +6 +6 +1 +1 +1 (R5)+1 +1 +1 ++1 (check) (sync) 
+
+
+27 of 37 ( 971 2159 895 16 908 2770 2786 3719 2773 3720 40 916 44 934 3728 138 2206 142 146 148 3718 152 771 2842 2851 3729 2845 3730 168 3740 173 3732 174 378 )
+# output branches    : 1
+# uses: 156 +1 +1 +37 +37 +1 +1 +14 +1 +51 +14 +14 +14 +9 +9 +1 +9 +9 +9 +9 +1 +1 +1 +1 +1 +1 +51 (P:t)-1 1 1 1 +1 +1 +1 +7 (P:t)-1 1 1 1 (CLH:t)-1 1 +1 +1 +1 +3 (P:t)-1 1 1 1 +96 +1 +1 +1 (R:t)-1 1 1 (CLH:t)-1 1 +1 (R:t)-1 1 1 (CLH:t)-1 1 +1 (R:t)-1 1 1 (CLH:t)-1 1 +1 (P:t)-1 1 1 1 (CLH:t)-1 1 +1 (P:t)-1 1 1 1 (CLH:t)-1 1 +1 +1 +48 +1 +1 +12 +1 +1 +2 +2 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +8 +1 +4 +4 +48 +1 +6 +1 +1 +1 +1 +1 +1 +1 +8 +1 (LR:t)-1 1 1 (R:t)-1 1 1 +1 +1 +1 (R:t)-2 1 1 1 1 1 1 1 +1 +1 +1 (R:t)-1 1 1 1 1 1 1 1 +1 ++1 (P:t)-2 1 1 1 1 1 (CLH:t)-1 1 ++++++++++++4 +1 (mdMS:t)-4 20 +1 (mdSS:t)-4 16 +1 +1 (P:t)-2 1 1 1 1 1 +6 +1 +1 +1 +2 +1 +1 +1 +1 +4 +1 +1 +1 +1 +2 +1 +1 +1 +4 +4 +4 +3 ++1 (R)++3 +4 +29 +27 (R)+24 +1 +1 (R:t)-4 24 12 +4 (R)+9 +5 ++15 +4 +3 (R)+1 (R:t)-3 9 12 (R:t)-3 9 12 +4 +1 (R:t)-4 9 16 +4 +4 +3 +1 +1 +3 +1 +3 (check) (P)(R)(sync) 
+# floating moves to bind: 20
+
+
+
+28 of 37 ( 21 987 26 2082 31 33 39 )
+# uses: 40 +12 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 (P)-1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 (P)-1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 (P)+1 (P)-1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 (P)+1 +1 +1 ++++++++++9 +9 +9 +9 +9 +3 +1 +1 (check) (sync) 
+# floating moves to bind: 1
+
+
+
+29 of 37 ( 2118 )
+# uses: 27 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 (P)+1 (P:t)-1 1 1 1 (P:t)-1 1 1 1 (P:t)-1 1 1 1 (rlx +1)1 1 1 1 (P)(rlx +1)(P)+1 (P:t)-1 1 1 1 (P)(rlx +2)(P)+1 +1 (P:t)-1 1 1 1 (P)(rlx +2)(P)+1 +1 (P:t)-1 1 1 1 (P)(rlx +1)(P)(rlx +2)(P)+1 (P:t)-1 1 1 1 (P)(rlx +1)(P)(rlx +2)(P)+1 +1 (P:t)-1 1 1 1 (P)(rlx +1)(P)(rlx +2)(P)+1 +9 +3 +1 +1 +1 +1 (check) (sync) 
+
+
+30 of 37 ( 3706 3733 )
+# uses: 41 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +6 +6 +3 +1 +3 +1 (check) (sync) 
+
+
+31 of 37 ( 17 )
+# uses: 14 +1 +1 +1 (rlx +1)1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +6 +1 (check) (sync) 
+
+
+32 of 37 ( 45 )
+# uses: 13 +1 +1 +1 (rlx +1)1 +1 +1 +1 +1 +1 +1 +1 +1 +4 +4 (check) (sync) 
+
+
+33 of 37 ( 157 1494 166 )
+# uses: 16 +8 +4 +2 +4 +6 +6 +6 +1 +1 +1 (R5)+1 +1 +1 +1 ++1 (check) (sync) 
+
+
+34 of 37 ( 3716 3739 )
+# uses: 13 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 (check) (sync) 
+
+
+35 of 37 ( 153 )
+# uses: 7 +1 (rlx +1)1 +1 +1 +1 +1 +1 +1 (check) (sync) 
+
+
+36 of 37 ( 1519 )
+# uses: 26 +/ +/ +/ +1088 / +80 +/ +/ +/ +1024 / +64 +1 +/ +/ +/ +1024 / +64 +1 +/ +/ +/ +1024 / +64 +1 +/ +/ +/ +1024 / +upgraded carrier of signal _cst.3160 to CLH
+64 +1 +/ +/ +upgraded carrier of signal _cst.3162 to CLH
+upgraded carrier of signal __ct_1048576.3164 to CLH
+/ +512 +1 +upgraded carrier of signal __ct_1687552.3166 to CLH
+collect coupled operands: ....512 / +512 / +512 / +512 / +...................................64 +1 +128 +1 +32 +1 +8 +1 +1 +1 +1 +1 +1 +1 +4 (check) (VRH)(sync) 
+
+
+37 of 37 ( 2701 )
+# uses: 48 +4 +8 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +2 +1 +..............................8 +1 +16 +1 +16 +1 +.....................16 +1 +......................
+  32 couplings found
+collect RMW pairs: BM C LC LE LR LS M MD0 P R16 +1 +16 +1 +16 +1 +16 +1 +16 +1 +16 +16 +8 +1 (VRH0)+1 +1 +1 +1 +1 +1 +4 (R)+1 +1 (check) (sync) 
+
+
+final flow graph transformations
+Removing dead operations ...Expanding complex patterns ...expanding 8 complex patterns (1 load 1 store 6 constants )
+Creating 'dr_move' opns ...
+number of 'reduced cluster size' : 9
+
+amnesia user time   =    6.99 s  /     6.99 s 	24_0-F_Z15kmeans_functionP12input_streamIiEP13output_streamIiE_
+amnesia system time =    0.11 s  /     0.11 s 	24_0-F_Z15kmeans_functionP12input_streamIiEP13output_streamIiE_
+amnesia real time   =   17.27 s  /    17.25 s 	24_0-F_Z15kmeans_functionP12input_streamIiEP13output_streamIiE_
+
+--mist1 -v -k110 --common 24_0-F_Z15kmeans_functionP12input_streamIiEP13output_streamIiE_ me /home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib +H/home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/elongation -x
+Release: ASIP Programmer  R-2021.03-TGT-220608 
+Tool: mist version R-2021.03#6beb14dd34#220609
+Copyright 2014-2021 Synopsys, Inc.
+This Synopsys software and all associated documentation are proprietary to
+Synopsys, Inc. and may only be used pursuant to the terms and conditions of a
+written license agreement with Synopsys, Inc. All other use, reproduction,
+modification, or distribution of the Synopsys software or the associated
+documentation is strictly prohibited.
+
+Mist1 : side effect checking is disabled
+Using nop instruction classes specified in me_chess.lib
+
+NOTICE: no instructions are printed in error nor debugfile,
+        because the instruction length > 100
+
+
+NOTE : maximum range of occupy-stages for transitories = 8
+
+looking up standalone NOP instruction
+
+Compiling all mappings: 0%..10%..20%..30%.. S SP W40%.. mcCarry
+register: BM {AML AMH}
+	rmw pairs: 0
+	assigning fields: AML[0] AMH[0] AML[1]
+	postbalancing   : none
+	rematerialising : 0 moves
+
+register: C {CL CH}
+	rmw pairs: 4
+	coalescing      : ....
+                          0 rmw fanout splits
+	assigning fields: CL[0] CH[0] CH[1]50%.. CL[1]60%.. CH[2] CL[2] CL[3]
+70%..80%..	postbalancing   : none
+	rematerialising : + 1 dr_move
+
+register: LC
+90%..	assigning fields:
+100%
+
+	rematerialising : 0 moves
+
+register: LE
+	assigning fields:
+	rematerialising : 0 moves
+
+register: LR
+	assigning fields:
+	postbalancing   : none
+	rematerialising : 0 moves
+
+register: LS
+	assigning fields:
+	rematerialising : adding manifest flow nodes ...
+0 moves
+
+register: M
+	rmw pairs: 0
+	assigning fields: 0
+	postbalancing   : none
+	rematerialising : 0 moves
+
+register: MD0 {mdQ mdR mdRdx mdSQ mdSPARE0 mdFPAddMask mdFPMulMask}
+
+Constructing flow graphs ...
+	assigning fields:
+	rematerialising : 0 moves
+
+register: P
+	rmw pairs: 5
+	coalescing      : .....
+                          0 rmw fanout splits
+	solving hazards : +
+	  -> 2 splits
+	assigning fields: 6 7 0 1
+	postbalancing   : none
+Scheduling basic blocks ...
+	rematerialising : 0 moves
+
+
+HW do-loop #2038 in "/home/users/eleonora.cabai/Documents/K-Means-AIE/aie/src/kmeans_kernel.cpp", line 28: (loop #3) :
+critical cycle of length 24 : b906 -> b907 -> b908 -> b909 -> b910 -> b911 -> b912 -> b913 -> b914 -> b915 -> b916 -> b917 -> b918 -> b919 -> b920 -> b921 -> b922 -> b923 -> b924 -> b925 -> b926 -> b927 -> b928 -> b929 -> b906
+minimum length due to resources: 24
+register: R
+	rmw pairs: 0
+scheduling HW do-loop #2038     	-> # cycles: 24 
+  -> HW do-loop #2038 in "/home/users/eleonora.cabai/Documents/K-Means-AIE/aie/src/kmeans_kernel.cpp", line 28: (loop #3) : 24 cycles
+	solving hazards : 
+HW do-loop #1494 in "/home/users/eleonora.cabai/Documents/K-Means-AIE/aie/src/kmeans_kernel.cpp", line 100: (loop #156) :
+critical cycle of length 2 : b578 -> b579 -> b578
+minimum length due to resources: 4
+scheduling HW do-loop #1494     	-> # cycles: +10 
+
+	  -> 2 splits  -> HW do-loop #1494 in "/home/users/eleonora.cabai/Documents/K-Means-AIE/aie/src/kmeans_kernel.cpp", line 100: (loop #156) : 10 cycles
+
+
+HW do-loop #2849 in "/home/users/eleonora.cabai/Documents/K-Means-AIE/aie/src/kmeans_kernel.cpp", line 100: (loop #2847) :
+critical cycle of length 2 : b567 -> b568 -> b567
+minimum length due to resources: 4
+scheduling HW do-loop #2849     	-> # cycles: 10 
+  -> HW do-loop #2849 in "/home/users/eleonora.cabai/Documents/K-Means-AIE/aie/src/kmeans_kernel.cpp", line 100: (loop #2847) : 10 cycles
+scheduling macro #987     	-> # cycles: 	assigning fields: 1012 
+scheduling macro #2082     	-> # cycles: 11 
+scheduling macro #2118     	-> # cycles: 32 
+scheduling macro #33     	-> # cycles: 1 
+scheduling macro #2778     	-> # cycles: 12 
+scheduling macro #2781     	-> # cycles: 11 
+scheduling macro #2782     	-> # cycles: 32 
+scheduling macro #2784     	-> # cycles: 1 
+scheduling macro #3329     	-> # cycles: 8 
+scheduling macro #1025     	-> # cycles: 1 
+scheduling macro #1026     	-> # cycles: 7 
+scheduling macro #1019     	-> # cycles: 1 
+scheduling macro #3396     	-> # cycles: 8 
+scheduling macro #2799     	-> # cycles: 1 
+scheduling macro #2800     	-> # cycles: 7 
+scheduling macro #2802     	-> # cycles: 1 
+scheduling macro #3346     	-> # cycles: 8 
+scheduling macro #1058     	-> # cycles: 1 
+scheduling macro #1059     	-> # cycles: 7 
+scheduling macro #1052     	-> # cycles: 1 
+scheduling macro #3413     	-> # cycles: 8 
+scheduling macro #2817     	-> # cycles: 1 
+ 11 9 8 12 13 14 15 6scheduling macro #2818     	-> # cycles: 7 
+scheduling macro #2820     	-> # cycles: 1 
+scheduling macro #3361     	-> # cycles: 8 
+scheduling macro #1095     	-> # cycles: 1 
+scheduling macro #1096     	-> # cycles: 7 
+scheduling macro #1089     	-> # cycles: 1 
+scheduling macro #3428     	-> # cycles: 8 
+scheduling macro #2835     	-> # cycles: 1 
+scheduling macro #2836     	-> # cycles: 7 
+scheduling macro #2838     	-> # cycles: 1 
+scheduling macro #1137     	-> # cycles: 8 
+scheduling macro #3670     	-> # cycles: 1 
+scheduling macro #3679     	-> # cycles: 7 
+scheduling macro #1134     	-> # cycles: 9 
+scheduling macro #380     	-> # cycles: 6 
+scheduling macro #122     	-> # cycles: 8 
+scheduling macro #2545     	-> # cycles: 15 
+scheduling macro #2552     	-> # cycles:  7 4 0
+	postbalancing   : none
+13 
+scheduling macro #765     	-> # cycles: 7 
+scheduling macro #3708     	-> # cycles: 2 
+scheduling macro #3710     	-> # cycles: 2 
+scheduling macro #3721     	-> # cycles: 6 
+scheduling macro #2562     	-> # cycles: 	rematerialising : 11 
+scheduling macro #3712     	-> # cycles: 2 
+scheduling macro #3714     	-> # cycles: 2 
+scheduling macro #3722     	-> # cycles: 6 
+scheduling macro #3723     	-> # cycles: 6 
+scheduling macro #2578     	-> # cycles: + 2 ra_moves
+
+register: S
+	rmw pairs: 0
+	assigning fields: 0
+	postbalancing   : none
+21 
+scheduling macro #88     	-> # cycles: 1 
+scheduling macro #767     	-> # cycles: 7 
+scheduling macro #3648     	-> # cycles: 3 
+scheduling macro #3656     	-> # cycles: 3 
+scheduling macro #3724     	-> # cycles: 6 
+scheduling macro #3725     	-> # cycles: 6 
+scheduling macro #2596     	-> # cycles: 	rematerialising : 0 moves
+
+register: SP
+	assigning fields:15 
+scheduling macro #3726     	-> # cycles: 6 
+scheduling macro #3738     	-> # cycles: 1 
+
+	rematerialising : 0 moves
+
+register: W {VL VH}
+	rmw pairs: 8
+	coalescing      : ........
+                          0 rmw fanout splits
+scheduling macro #2430     	-> # cycles: 	assigning fields: VL[7] VL[2]45 
+ VH[2] VL[3] VH[3] VL[6]scheduling macro #2460     	-> # cycles: 12 
+scheduling macro #3379     	-> # cycles: 10 
+ VL[1] VL[4] VL[0]
+	postbalancing   : none
+	rematerialising : 0 moves
+
+register: mcCarry
+	assigning fields:
+	postbalancing   : none
+	rematerialising : 0 moves
+
+align offsets:
+	computing ideal alignment on mergeable borders: 
+	handle assignment constraints
+	reassign aligned offsets: {AMH AML} CH CL M P R S {VH VL}
+	updating reassigned offsets in sfg
+
+collect coupled operands: ....scheduling macro #971     	-> # cycles: 19 
+scheduling macro #2159     	-> # cycles: 6 
+scheduling macro #895     	-> # cycles: 13 
+scheduling macro #17     	-> # cycles: 1 
+scheduling macro #908     	-> # cycles: 20 
+scheduling macro #3706     	-> # cycles: 3 
+scheduling macro #2786     	-> # cycles: 3 
+scheduling macro #3719     	-> # cycles: 6 
+scheduling macro #3720     	-> # cycles: 6 
+scheduling macro #916     	-> # cycles: 9 
+scheduling macro #45     	-> # cycles: 1 
+scheduling macro #934     	-> # cycles: 18 
+scheduling macro #3728     	-> # cycles: 6 
+scheduling macro #2206     	-> # cycles: 7 
+scheduling macro #2701     	-> # cycles: 44 
+scheduling macro #146     	-> # cycles: 7 
+scheduling macro #3718     	-> # cycles: 6 
+scheduling macro #153     	-> # cycles: 1 
+scheduling macro #771     	-> # cycles: 8 
+scheduling macro #3716     	-> # cycles: 2 
+scheduling macro #2851     	-> # cycles: 2 
+scheduling macro #3729     	-> # cycles: 6 
+scheduling macro #3732     	-> # cycles: 6 
+scheduling macro #3730     	-> # cycles: 6 
+scheduling macro #1519     	-> # cycles: 24 
+scheduling macro #378     	-> # cycles: 14 
+
+Total number of cycles = 749
+
+Checking data/anti-dependencies beyond basic block boundaries
+Checking resource conflicts beyond basic block boundaries
+
+mist1 user time   =    1.53 s  /     1.52 s 	24_0-F_Z15kmeans_functionP12input_streamIiEP13output_streamIiE_
+mist1 system time =    0.00 s  /     0.00 s 	24_0-F_Z15kmeans_functionP12input_streamIiEP13output_streamIiE_
+mist1 real time   =    3.61 s  /     3.60 s 	24_0-F_Z15kmeans_functionP12input_streamIiEP13output_streamIiE_
+
+--showcolor -v -b --common 24_0-F_Z15kmeans_functionP12input_streamIiEP13output_streamIiE_ me /home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib +H/home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/elongation -x
+Release: ASIP Programmer  R-2021.03-TGT-220608 
+Tool: showcolor version R-2021.03#6beb14dd34#220609
+Copyright 2014-2021 Synopsys, Inc.
+This Synopsys software and all associated documentation are proprietary to
+Synopsys, Inc. and may only be used pursuant to the terms and conditions of a
+written license agreement with Synopsys, Inc. All other use, reproduction,
+modification, or distribution of the Synopsys software or the associated
+documentation is strictly prohibited.
+
+Reading pattern DSFGs from: /home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/isg/me_chess_dr.sfg
+initialisation
+upgraded carrier of signal __arg0.897 to R
+upgraded carrier of signal __arg1.899 to R
+.................................................................upgraded carrier of signal __apl_ub.13477,__apl_ub.18460,__apl_ub.18465 to R
+upgraded carrier of signal __apl_ua.13478,__apl_ua.18459 to R
+upgraded carrier of signal __apl_ua.13507,__apl_ua.18464 to R
+...............................................
+  15 couplings found
+
+violated couplings: 1
+
+Iteration required: enforce operand locations to satisfy coupled operand constraints
+Please run RA1 again.
+
+showcolor user time   =   10.90 s  /    10.89 s 	24_0-F_Z18euclidean_distanceP7Clusteri5Point_
+showcolor system time =    0.04 s  /     0.04 s 	24_0-F_Z18euclidean_distanceP7Clusteri5Point_
+showcolor real time   =   19.75 s  /    19.74 s 	24_0-F_Z18euclidean_distanceP7Clusteri5Point_
+
+--amnesia -v -p12 -q2 -eAM -rCLH -fR=2 +Oexcf +Oearly-fanout-complex +Odhls -Ono-prune-mappings +Oexcc +Oprefer-local-reg-moves -Ono-collapse-bundles --common 24_0-F_Z18euclidean_distanceP7Clusteri5Point_ me /home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib +H/home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/elongation -x
+Release: ASIP Programmer  R-2021.03-TGT-220608 
+Tool: amnesia version R-2021.03#6beb14dd34#220609
+Copyright 2014-2021 Synopsys, Inc.
+This Synopsys software and all associated documentation are proprietary to
+Synopsys, Inc. and may only be used pursuant to the terms and conditions of a
+written license agreement with Synopsys, Inc. All other use, reproduction,
+modification, or distribution of the Synopsys software or the associated
+documentation is strictly prohibited.
+
+Reading interprocedural optimisation data from: 24_0-F_Z18euclidean_distanceP7Clusteri5Point_.flc
+Reading pattern DSFGs from: /home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/isg/me_chess_dr.sfg
+
+application DSFG routing:
+
+**** Routing 'F_Z18euclidean_distanceP7Clusteri5Point' ****
+analysing connectivity in ISG
+initial DSFG transformations
+initial timing
+initialise routing
+dependency hazard solving
+
+1 of 12: (161 162 163 164)
+
+2 of 12: (19 10 811 156)
+
+3 of 12: (576 577 574 575)
+
+4 of 12: (578 579 570 845)
+
+5 of 12: (944 947 564 580 567 941)
+(fanout-hzds) (splits:2) (fanout-hzds) (splits:2) 
+6 of 12: (194 195 196 197)
+
+7 of 12: (22 828 189 31)
+
+8 of 12: (592 593 594 595)
+
+9 of 12: (596 597 588 862)
+
+10 of 12: (945 948 582 598 585 943)
+(fanout-hzds) (splits:2) 
+11 of 12: (33 946 4 484 8 494)
+
+12 of 12: (476 111)
+
+sync/offset hazards solving
+
+
+time (after hazard solving) =   0.240 s
+
+routing control inputs
+
+routing
+
+1 of 12 ( 570 845 574 576 577 578 579 )
+# uses: 11 +4 +1 +2 +2 +8 +1 +1 +1 +1 +1 +1 (check) 
+
+
+2 of 12 ( 575 )
+# uses: 8 +1 +1 +4 +1 +1 +1 +1 +1 (check) 
+
+
+3 of 12 ( 588 862 592 594 595 596 597 )
+# uses: 11 +4 +1 +2 +2 +8 +1 +1 +1 +1 +1 +1 (check) 
+
+
+4 of 12 ( 593 )
+# uses: 8 +1 +1 +4 +1 +1 +1 +1 +1 (check) 
+
+
+5 of 12 ( 476 4 8 564 580 944 567 494 582 598 945 585 946 33 111 )
+# uses: 98 +1 +1 +2 +1 +3 +2 +1 +1 +1 +1 +1 +2 +1 +1 +1 +1 +1 +1 +1 +2 +6 +24 (rlx +1)24 +24 +24 +24 upgraded carrier of signal _cst.17002 to R
+upgraded carrier of signal __ct_0.17007,__val.18456 to R
+upgraded carrier of signal _cst.17009,__sz.18457 to R
++3 +40 / +40 +8 +1 +8 +1 +9 +1 +1 +1 +1 +1 +1 +2 +24 / +12 +6 +24 +24 upgraded carrier of signal _cst.18560 to CLH
++320 / +24 +3 +40 / +40 / +40 / +4 +36 +1 +9 upgraded carrier of signal _cst.18562 to CLH
+upgraded carrier of signal __ct_1048576.18566 to CLH
++9 +40 +1 +1 +1 +1 +40 +2 (VRH0)+40 upgraded carrier of signal __ct_1687552.18568 to CLH
+upgraded carrier of signal __ct_34717696.18570 to CLH
++40 collect coupled operands: ................................................+40 .................................................................................................................................+40 +1 +2 +1 +1 +4 +190 / +10 ++30 ++++10 +2 ++2 +2 +++2 ++1 +1 +3 +1 +4 +4 +4 +3 +4 +1 (CL1)+1 +1 ++3 +1 +3 +1 (check) 
+# floating moves to bind: 1
+
+
+
+6 of 12 ( 10 811 161 163 164 156 19 )
+# uses: 11 +4 +2 +1 +2 +8 +1 +1 +1 +1 +1 +1 (check) 
+
+
+7 of 12 ( 162 )
+# uses: 8 +1 +1 +4 +1 +1 +1 +1 +1 (check) 
+
+
+8 of 12 ( 941 947 )
+# uses: 29 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +5 +17 +3 +3 +1 +3 +1 +1 (check) 
+
+
+9 of 12 ( 22 828 194 196 197 189 31 )
+# uses: 11 +4 +2 +1 +2 +8 +1 +1 +1 +1 +1 +1 (check) 
+
+
+10 of 12 ( 195 )
+# uses: 8 +1 +1 +4 +1 +1 +1 +1 +1 (check) 
+
+
+11 of 12 ( 943 948 )
+# uses: 25 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 (check) 
+
+
+12 of 12 ( 484 )
+# uses: 39 +1 +1 +1 +1 +1 +1 +2 +2 +8 +8 +8 +16 (rlx +1)16 +1 +2 +64 +64 +64 +288 / +64 +16 +8 +144 ..............................+272 ...+2 +2 +2 +2 ++95 +30 +8 ++5 +5 +1 +1 +1 +1 +1 +1 (check) 
+
+
+final flow graph transformations
+Removing dead operations ...Expanding complex patterns ...expanding 4 complex patterns (4 constants )
+Creating 'dr_move' opns ...
+number of 'reduced cluster size' : 7
+
+amnesia user time   =    4.89 s  /     4.88 s 	24_0-F_Z18euclidean_distanceP7Clusteri5Point_
+amnesia system time =    0.01 s  /     0.01 s 	24_0-F_Z18euclidean_distanceP7Clusteri5Point_
+amnesia real time   =   11.03 s  /    11.02 s 	24_0-F_Z18euclidean_distanceP7Clusteri5Point_
+
+--mist1 -v -k110 --common 24_0-F_Z18euclidean_distanceP7Clusteri5Point_ me /home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib +H/home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/elongation -x
+Release: ASIP Programmer  R-2021.03-TGT-220608 
+Tool: mist version R-2021.03#6beb14dd34#220609
+Copyright 2014-2021 Synopsys, Inc.
+This Synopsys software and all associated documentation are proprietary to
+Synopsys, Inc. and may only be used pursuant to the terms and conditions of a
+written license agreement with Synopsys, Inc. All other use, reproduction,
+modification, or distribution of the Synopsys software or the associated
+documentation is strictly prohibited.
+
+Mist1 : side effect checking is disabled
+Using nop instruction classes specified in me_chess.lib
+
+NOTICE: no instructions are printed in error nor debugfile,
+        because the instruction length > 100
+
+
+NOTE : maximum range of occupy-stages for transitories = 8
+
+looking up standalone NOP instruction
+
+Compiling all mappings: 0%..10%..20%..30%...............................40%..50%..60%..70%..80%..90%..100%
+
+adding manifest flow nodes ...
+
+Constructing flow graphs ...
+Scheduling basic blocks ...
+scheduling macro #811     	-> # cycles: 8 
+scheduling macro #162     	-> # cycles: 1 
+scheduling macro #163     	-> # cycles: 7 
+scheduling macro #156     	-> # cycles: 1 
+scheduling macro #845     	-> # cycles: 8 
+scheduling macro #575     	-> # cycles: 1 
+scheduling macro #576     	-> # cycles: 7 
+scheduling macro #578     	-> # cycles: 1 
+scheduling macro #828     	-> # cycles: 8 
+scheduling macro #195     	-> # cycles: 1 
+scheduling macro #196     	-> # cycles: 7 
+scheduling macro #189     	-> # cycles: 1 
+scheduling macro #862     	-> # cycles: 8 
+scheduling macro #593     	-> # cycles: 1 
+scheduling macro #594     	-> # cycles: 7 
+scheduling macro #596     	-> # cycles: 1 
+scheduling macro #476     	-> # cycles: 16 
+scheduling macro #484     	-> # cycles: 9 
+scheduling macro #8     	-> # cycles: 8 
+scheduling macro #941     	-> # cycles: 4 
+scheduling macro #580     	-> # cycles: 4 
+scheduling macro #944     	-> # cycles: 6 
+scheduling macro #494     	-> # cycles: 12 
+scheduling macro #943     	-> # cycles: 2 
+scheduling macro #598     	-> # cycles: 2 
+scheduling macro #945     	-> # cycles: 6 
+scheduling macro #946     	-> # cycles: 6 
+scheduling macro #111     	-> # cycles: 23 
+
+Total number of cycles = 166
+
+Checking data/anti-dependencies beyond basic block boundaries
+Checking resource conflicts beyond basic block boundaries
+
+mist1 user time   =    1.43 s  /     1.42 s 	24_0-F_Z18euclidean_distanceP7Clusteri5Point_
+mist1 system time =    0.03 s  /     0.03 s 	24_0-F_Z18euclidean_distanceP7Clusteri5Point_
+mist1 real time   =    3.51 s  /     3.50 s 	24_0-F_Z18euclidean_distanceP7Clusteri5Point_
+
+--showcolor -v -b --common 24_0-F_Z18euclidean_distanceP7Clusteri5Point_ me /home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib +H/home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/elongation -x
+Release: ASIP Programmer  R-2021.03-TGT-220608 
+Tool: showcolor version R-2021.03#6beb14dd34#220609
+Copyright 2014-2021 Synopsys, Inc.
+This Synopsys software and all associated documentation are proprietary to
+Synopsys, Inc. and may only be used pursuant to the terms and conditions of a
+written license agreement with Synopsys, Inc. All other use, reproduction,
+modification, or distribution of the Synopsys software or the associated
+documentation is strictly prohibited.
+
+Reading pattern DSFGs from: /home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/isg/me_chess_dr.sfg
+initialisation
+upgraded carrier of signal num_clusters.249,num_clusters.3170 to R
+upgraded carrier of signal __arg2.251 to R
+........................................................................................................................................................................................................................................................................................................................
+  133 couplings found
+collect RMW pairs: BM C CB CS LC LE LR LS M MD0 P Rupgraded carrier of signal __tmp.2275,__rt.3128 to WR
+ S SP W mdMS mdSS mcCarry
+register: BM {AML AMH}
+	rmw pairs: 0
+	assigning fields: AML[0]
+	postbalancing   : none
+	rematerialising : 0 moves
+
+register: C {CL CH}
+	rmw pairs: 5
+	coalescing      : .....
+                          0 rmw fanout splits
+	assigning fields: CL[0] CH[0] CH[1] CL[1] CH[2] CL[2] CL[3] CH[3] CH[4] CL[4] CL[5]
+	postbalancing   : none
+	rematerialising : 0 moves
+
+register: CB
+	rmw pairs: 0
+	assigning fields: 0
+	postbalancing   : none
+	rematerialising : 0 moves
+
+register: CS
+	rmw pairs: 0
+	assigning fields: 0 1
+	postbalancing   : none
+	rematerialising : 0 moves
+
+register: LC
+	assigning fields:
+	rematerialising : 0 moves
+
+register: LE
+	assigning fields:
+	rematerialising : 0 moves
+
+register: LR
+	assigning fields:
+	postbalancing   : none
+	rematerialising : 0 moves
+
+register: LS
+	assigning fields:
+	rematerialising : 0 moves
+
+register: M
+	rmw pairs: 0
+	assigning fields: 1 0 2
+	postbalancing   : none
+	rematerialising : 0 moves
+
+register: MD0 {mdQ mdR mdRdx mdSQ mdSPARE0 mdFPAddMask mdFPMulMask}
+	assigning fields:
+	rematerialising : 0 moves
+
+register: P
+	rmw pairs: 79
+	coalescing      : ...............................................................................
+                          10 rmw fanout splits
+	solving hazards : +upgraded carrier of signal _cst.2410,_cst.3116,_cst.2753,_cst.3132,_cst.3156,_cst.3146 to CL
+++
+	  -> 13 splits
+	assigning fields: 6 7x 1 0 2 3 4 5
+	extra splits during assignment: 1
+	postbalancing   : none
+	rematerialising : 0 moves
+
+register: R
+	rmw pairs: 1
+	coalescing      : .
+                          0 rmw fanout splits
+	solving hazards : +++
+	  -> 8 splits
+	assigning fields: 15(limit 1)  12(limit 1)  13(limit 1)  14(limit 1)  10(limit 1)  11 8(limit 1)  9(limit 1)  7(limit 1)  4x 1(limit 1)  2(limit 1)  3(limit 1)  6 5 0
+	extra splits during assignment: 1
+	postbalancing   : none
+	rematerialising : ++ 4 ra_moves
+
+register: S
+	rmw pairs: 0
+	assigning fields: 0
+	postbalancing   : none
+	rematerialising : 0 moves
+
+register: SP
+	assigning fields:
+	rematerialising : 0 moves
+
+register: W {VL VH}
+	rmw pairs: 24
+	coalescing      : ........................
+                          0 rmw fanout splits
+	solving hazards : +
+	  -> 3 splits
+	assigning fields: VL[7] VH[7] VL[6] VH[4] VH[2] VL[2] VH[3]xx VL[3] VL[0] VH[0] VL[1]
+	extra splits during assignment: 2
+	postbalancing   : none
+	rematerialising : 0 moves
+
+register: mdMS
+	rmw pairs: 0
+	assigning fields: 0
+	postbalancing   : none
+	rematerialising : 0 moves
+
+register: mdSS
+	rmw pairs: 0
+	assigning fields: 0
+	postbalancing   : none
+	rematerialising : 0 moves
+
+register: mcCarry
+	assigning fields:
+	postbalancing   : none
+	rematerialising : 0 moves
+
+align offsets:
+	computing ideal alignment on mergeable borders: .....
+	handle assignment constraints
+	reassign aligned offsets: {AMH AML} CB CH CL(!) CS M P(!) R(!) S {VH VL}(!) mdMS mdSS
+	updating reassigned offsets in sfg
+
+collect coupled operands: .................................................................................................................................................................................upgraded carrier of signal _cst.2414,_cst.2869,_cst.2672,_cst.3118,_cst.2754,_cst.3133,_cst.3157,_cst.3147 to CH
+.................................upgraded carrier of signal _cst.2420,_cst.3123,_cst.2755,_cst.3138,_cst.3162,_cst.3152 to CH
+upgraded carrier of signal __ct_49152.2468,__ct_49152.3141 to CL
+................................................................................................................................................................................................................................................................................upgraded carrier of signal __ct_65536.2474,__ct_65536.2877,__ct_65536.2674,__ct_65536.3126,__ct_65536.2756,__ct_65536.3134,__ct_65536.3142,__ct_65536.3158,__ct_65536.3148 to CH
+.................................................................................................
+  24 couplings found
+
+violated couplings: 1
+
+Iteration required: enforce operand locations to satisfy coupled operand constraints
+Please run RA1 again.
+
+showcolor user time   =   14.38 s  /    14.37 s 	24_0-F_Z15kmeans_functionP12input_streamIiEP13output_streamIiE_
+showcolor system time =    0.02 s  /     0.02 s 	24_0-F_Z15kmeans_functionP12input_streamIiEP13output_streamIiE_
+showcolor real time   =   34.03 s  /    34.02 s 	24_0-F_Z15kmeans_functionP12input_streamIiEP13output_streamIiE_
+
+--amnesia -v -p12 -q2 -eAM -rCLH -fR=2 +Oexcf +Oearly-fanout-complex +Odhls -Ono-prune-mappings +Oexcc +Oprefer-local-reg-moves -Ono-collapse-bundles --common 24_0-F_Z15kmeans_functionP12input_streamIiEP13output_streamIiE_ me /home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib +H/home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/elongation -x
+Release: ASIP Programmer  R-2021.03-TGT-220608 
+Tool: amnesia version R-2021.03#6beb14dd34#220609
+Copyright 2014-2021 Synopsys, Inc.
+This Synopsys software and all associated documentation are proprietary to
+Synopsys, Inc. and may only be used pursuant to the terms and conditions of a
+written license agreement with Synopsys, Inc. All other use, reproduction,
+modification, or distribution of the Synopsys software or the associated
+documentation is strictly prohibited.
+
+Reading interprocedural optimisation data from: 24_0-F_Z15kmeans_functionP12input_streamIiEP13output_streamIiE_.flc
+Reading pattern DSFGs from: /home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/isg/me_chess_dr.sfg
+
+application DSFG routing:
+
+**** Routing 'F_Z15kmeans_functionP12input_streamIiEP13output_streamIiE' ****
+analysing connectivity in ISG
+initial DSFG transformations
+initial timing
+initialise routing
+dependency hazard solving
+
+1 of 38: (4 13 2038)
+
+2 of 38: (2082 2118 26 31)
+
+3 of 38: (33 21 39 987)
+
+4 of 38: (2780 2781 2782 2783)
+
+5 of 38: (2784 2785 2776 2778)
+
+6 of 38: (2770 2786 3733 2773 3719 3706)
+(fanout-hzds) (splits:2) (fanout-hzds) (splits:2) (fanout-hzds) (splits:2) (fanout-hzds) (splits:2) 
+7 of 38: (16 17 3720 40 908)
+
+8 of 38: (1024 1025 1026 1027)
+
+9 of 38: (3329 69 1019 60)
+
+10 of 38: (2800 2801 2798 2799)
+
+11 of 38: (2802 2803 3396 2794)
+
+12 of 38: (2788 3734 2791 3721 3708 3710)
+(fanout-hzds) (splits:2) (fanout-hzds) (splits:2) (fanout-hzds) (splits:2) 
+13 of 38: (1057 1058 1059 1060)
+
+14 of 38: (81 3346 72 1052)
+
+15 of 38: (2816 2817 2818 2819)
+
+16 of 38: (2820 3413 2821 2812)
+
+17 of 38: (3712 3714 2806 3735 2809 3722)
+(fanout-hzds) (splits:2) 
+18 of 38: (2562 83 54 2552 3723 765)
+(fanout-hzds) (splits:1) 
+19 of 38: (1094 1095 1096 1097)
+
+20 of 38: (3361 1089 101 92)
+
+21 of 38: (2834 2835 2836 2837)
+
+22 of 38: (3428 2838 2839 2830)
+
+23 of 38: (3648 2824 3736 3656 2827 3724)
+(fanout-hzds) (splits:2) 
+24 of 38: (102 87 88 3725 767)
+
+25 of 38: (1139 3670 1148 3679)
+
+26 of 38: (116 119 120 380)
+
+27 of 38: (128 1137 122 1134 111)
+
+28 of 38: (129 3737 106 107 3726)
+(fanout-hzds) (splits:1) 
+29 of 38: (2460 2461 2431)
+
+30 of 38: (3379 2461 2431 2460 2430 49 2545 130 2596 2578 137 3738)
+(fanout-hzds) (splits:1) (fanout-hzds) (splits:1) 
+31 of 38: (3728 934 138 44 45)
+
+32 of 38: (157 1494 166)
+(seq:2) 
+33 of 38: (2848 2849 2850)
+(seq:2) 
+34 of 38: (3729 2851 3716 2842 3739 2845)
+
+35 of 38: (3730 771 152 153 168)
+
+36 of 38: (148 3718 3740 173 1519)
+
+37 of 38: (146 3732 2701 142 174)
+
+38 of 38: (895 674 916 378 971 2206 2159)
+(fanout-hzds) (splits:1) (fanout-hzds) (splits:1) 
+sync/offset hazards solving
+
+
+time (after hazard solving) =   0.600 s
+
+routing control inputs
+
+routing
+
+1 of 37 ( 4 2038 13 )
+# uses: 48 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +9 +9 +9 +9 +9 +9 +9 +9 +9 +9 +9 +9 +9 +9 +9 +3 +9 +9 +9 +9 +9 +9 +9 +3 (check) (sync) 
+
+
+2 of 37 ( 2776 2778 2780 2781 2783 2784 2785 )
+# uses: 40 +12 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 (P)-1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 (P)-1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 (P)+1 (P)-1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 (P)+1 +1 +1 ++++++++++9 +9 +9 +9 +9 +3 +1 +1 (check) (sync) 
+# floating moves to bind: 1
+
+
+
+3 of 37 ( 2782 )
+# uses: 27 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 (P)+1 (P:t)-1 1 1 1 (P:t)-1 1 1 1 (P:t)-1 1 1 1 (rlx +1)1 1 1 1 (P)(rlx +1)(P)+1 (P:t)-1 1 1 1 (P)(rlx +2)(P)+1 +1 (P:t)-1 1 1 1 (P)(rlx +2)(P)+1 +1 (P:t)-1 1 1 1 (P)(rlx +1)(P)(rlx +2)(P)+1 (P:t)-1 1 1 1 (P)(rlx +1)(P)(rlx +2)(P)+1 +1 (P:t)-1 1 1 1 (P)(rlx +1)(P)(rlx +2)(P)+1 +9 +3 +1 +1 +1 +1 (check) (sync) 
+
+
+4 of 37 ( 2794 3396 2798 2800 2801 2802 2803 )
+# uses: 11 +4 +1 +2 +2 +8 +1 +1 +1 +1 +1 +1 (check) (sync) 
+
+
+5 of 37 ( 2799 )
+# uses: 8 +1 +1 +4 +1 +1 +1 +1 +1 (check) (sync) 
+
+
+6 of 37 ( 2812 3413 2816 2818 2819 2820 2821 )
+# uses: 11 +4 +1 +2 +2 +8 +1 +1 +1 +1 +1 +1 (check) (sync) 
+
+
+7 of 37 ( 2817 )
+# uses: 8 +1 +1 +4 +1 +1 +1 +1 +1 (check) (sync) 
+
+
+8 of 37 ( 2830 3428 2834 2836 2837 2838 2839 )
+# uses: 10 +4 +1 +2 +8 +1 +1 +1 +1 +1 +1 (check) (sync) 
+
+
+9 of 37 ( 2835 )
+# uses: 8 +1 +4 +1 +1 ++1 +1 +1 (check) (sync) 
+
+
+10 of 37 ( 111 1137 1139 3670 1148 1134 116 119 120 122 128 )
+# uses: 18 +4 +1 +1 +2 +1 +18 +2 +1 +2 +1 +2 +1 +1 +1 +3 +1 +1 +1 (check) (sync) 
+
+
+11 of 37 ( 3679 )
+# uses: 9 +1 +3 +3 +1 +1 +1 +1 +1 +1 (check) (sync) 
+
+
+12 of 37 ( 380 )
+# uses: 5 +1 +1 +1 +1 +1 (check) (sync) 
+
+
+13 of 37 ( 49 2545 54 765 2788 3710 3721 2791 2562 2806 3714 3722 2809 3723 83 2578 87 767 2824 3656 3724 2827 3725 102 2596 106 3737 3726 129 3738 2430 2460 3379 137 )
+# splits : 1
+1 # output branches    : 1
+# uses: 227 +1 +1 +1 +1 +3 +2 +1 +1 +2 +1 +1 +2 +1 +4 +2 +20 +1 +1 +2 +2 +16 (rlx +1)16 +1 +32 / +4 +16 +1 +1 +1 +4 +2 +1 +2 +1 +4 +16 (rlx +1)16 +1 +1 +1 +1 +2 (VDH0)+1 +1 +2 +1 +2 +2 +1 +1 +1 +1 +1 +2 +2 +20 upgraded carrier of signal __ct_1687552.3129,__ct_1687552.3217,__ct_1687552.3143,__ct_1687552.3153 to CL
++4 +2 +1 +1 +1 +1 +4 +2 +1 +1 +1 +1 +2 +1 +1 +1 +1 +2 +2 +1 +1 +1 +1 +2 +4 +1 +2 +1 +1 +1 (R0)+2 +1 +1 +1 +1 +1 +2 +8 +1 +1 +1 +1 +1 +4 +1 +1 +2 +1 +2 +1 +1 +1 (R0)+1 +1 +1 +2 +1 +1 +2 +1 +2 +1 +1 +1 +1 +1 +1 +1 +1 +++1 +2 +1 +1 +1 +++1 +++1 ++++++++++++++++++1 +1 +1 +4 ++++++++++++++1 +1 ++1 +1 +1 +1 +1 ++1 ++1 +1 +1 ++1 +1 +++1 +1 +1 +1 +1 (CH1:t)-1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 +1 +++1 +++1 (R:t)-1 5 7 1 3 6 2 1 3 5 1 1 3 4 2 8 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 2 1 ++1 +1 +1 ++1 ++1 ++1 (R:t)-1 5 7 1 2 4 1 1 3 4 2 8 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 2 1 ++1 (R:t)-1 2 4 1 1 3 1 1 4 4 2 8 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 2 1 +1 +1 (R:t)-1 2 4 1 1 3 1 1 4 4 2 8 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 2 1 +1 (R:t)-1 2 4 1 1 3 1 1 4 4 2 8 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 2 1 +1 +1 (R:t)-1 2 4 1 1 3 4 2 8 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 2 1 +1 (R:t)-1 1 3 1 1 4 4 2 8 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 2 1 +1 (R:t)-1 1 3 4 2 8 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 2 1 (R:t)-4 1 4 6 7 9 4 4 16 4 1 1 2 1 1 1 1 1 1 1 1 1 1 1 1 1 2 1 1 1 1 1 1 1 +1 (R:t)-1 1 4 4 2 8 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 2 1 +1 (R:t)-1 1 4 4 2 8 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 2 1 +1 (R:t)-1 1 3 4 2 8 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 2 1 +1 (R:t)-1 1 3 4 2 8 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 2 1 +1 (R:t)-1 1 4 4 2 8 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 2 1 (R:t)-4 1 4 6 7 9 4 4 16 4 1 1 2 1 1 1 1 1 1 1 1 1 1 1 1 1 2 1 1 1 1 1 1 1 (R:t)-4 12 8 4 1 4 1 1 4 1 1 1 1 1 1 1 1 2 1 1 1 1 1 1 2 1 1 1 1 1 1 1 1 1 (R)+1 +1 +1 (check) (P)(R)
+# splits: 6 +1 +1 +1 +1 +1 +1 (check) (CH1:t)=1 1 1 1 1 1 1 1 1 1 2 2 2 2 (CH1)(rlx +1)(CH1)(sync) 
+# splits: 6 (sync) 
+# floating moves to bind: 7
+
+
+
+14 of 37 ( 60 3329 1024 1026 1027 1019 69 )
+# uses: 11 +4 +2 +1 +2 +8 +1 +1 +1 +1 +1 +1 (check) (sync) 
+
+
+15 of 37 ( 1025 )
+# uses: 8 +1 +1 +4 +1 +1 +1 +1 +1 (check) (sync) 
+
+
+16 of 37 ( 3708 3734 )
+# uses: 43 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 (R:t)-1 1 3 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 (R:t)-1 1 3 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 (check) (sync) 
+
+
+17 of 37 ( 72 3346 1057 1059 1060 1052 81 )
+# uses: 11 +4 +2 +1 +2 +8 +1 +1 +1 +1 +1 +1 (check) (sync) 
+
+
+18 of 37 ( 1058 )
+# uses: 8 +1 +1 +4 +1 +1 +1 +1 +1 (check) (sync) 
+
+
+19 of 37 ( 3712 3735 )
+# uses: 42 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 (check) (sync) 
+
+
+20 of 37 ( 2552 )
+# uses: 57 +1 +1 +1 +1 +1 +4 +32 upgraded carrier of signal _cst.3130,_cst.3213,_cst.3139,_cst.3144,_cst.3154 to CH
+upgraded carrier of signal __ct_1048576.3135,__ct_1048576.3215,__ct_1048576.3149,__ct_1048576.3159 to CL
+upgraded carrier of signal _cst.3212 to CLH
+upgraded carrier of signal _cst.3214 to CLH
+upgraded carrier of signal __ct_1048576.3216 to CLH
+upgraded carrier of signal __ct_1687552.3218 to CLH
+Reading operand couplings: 7 couplings
+collect coupled operands: ....(rlx +1)32 +2 (rlx +1)2 +1 +32 +64 (rlx +1)64 ...................................+4 +1 ++++++++1 (R:t)-13 1 3 +1 +1 +1 +1 ++++1 ++1 +1 +1 +1 (CH1:t)-1 1 1 +1 +1 ++1 ++1 +1 +1 +1 +1 +1 (R:t)-10 1 3 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 (check) (sync) 
+
+
+21 of 37 ( 92 3361 1094 1096 1097 1089 101 )
+# uses: 10 +4 +2 +1 +8 +1 +1 +1 +1 +1 +1 (check) (sync) 
+
+
+22 of 37 ( 1095 )
+# uses: 8 +1 +4 +1 +1 ++1 +1 +1 (check) (sync) 
+
+
+23 of 37 ( 3648 3736 )
+# uses: 44 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 (R:t)-1 1 3 +1 +1 +1 (check) (sync) 
+
+
+24 of 37 ( 88 )
+# uses: 37 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 (R:t)-10 1 3 +1 +1 +1 (check) (sync) 
+
+
+25 of 37 ( 107 )
+# uses: 31 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 (check) (sync) 
+
+
+26 of 37 ( 2848 2849 2850 )
+# uses: 16 +8 +4 +4 +1 +2 +6 +6 +6 +1 +1 +1 (R5)+1 +1 +1 ++1 (check) (sync) 
+
+
+27 of 37 ( 971 2159 895 16 908 2770 2786 3719 2773 3720 40 916 44 934 3728 138 2206 142 146 148 3718 152 771 2842 2851 3729 2845 3730 168 3740 173 3732 174 378 )
+# output branches    : 1
+# uses: 159 +1 +1 +37 +37 +1 +1 +14 +1 +51 +14 +14 +14 +9 +..............................9 +1 +9 +9 +9 +9 +1 +1 +1 +1 +1 +1 +1 +51 (P:t)-1 1 1 1 +7 (P:t)-1 1 1 1 (CLH:t)-1 1 +1 +3 (P:t)-1 1 1 1 +96 +1 +1 +1 +1 +1 +1 +1 (R:t)-1 1 1 (CLH:t)-1 1 +1 (R:t)-1 1 1 (CLH:t)-1 1 +1 (R:t)-1 1 1 (CLH:t)-1 1 +1 (P:t)-1 1 1 1 (CLH:t)-1 1 +1 (P:t)-1 1 1 1 (CLH:t)-1 1 +1 +1 +48 +1 +1 +12 +1 +1 +2 +2 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +8 +1 +4 +4 +48 +1 +6 +1 +1 +1 +1 +1 +1 +1 +8 +1 (LR:t)-1 1 1 (R:t)-1 1 ..............1 (P:t)-1 1 1 1 (CLH:t)-1 1 +1 +1 +1 (R:t)-2 1 1 1 1 1 1 1 +1 +1 +1 (R:t)-1 1 1 1 1 1 1 1 +1 ++1 ++++++++++++4 +1 (mdMS:t)-4 20 +1 (mdSS:t)-4 16 +1 +1 (P:t)-2 1 1 1 1 1 +6 +1 +1 +1 +2 +1 +1 +1 +1 +4 +1 +1 +1 +1 ........+2 +1 +1 +1 +4 +4 +4 +3 ++1 (R)++3 +4 +29 +27 +5 +35 .............+1 +1 (R:t)-4 28 ..........
+  32 couplings found
+collect RMW pairs: BM C LC LE LR LS M MD0 P R12 +4 (R)+9 +5 ++15 +4 +3 +3 +3 +3 (R)+1 (R:t)-3 9 12 (R:t)-3 9 12 +4 +1 (R:t)-4 9 16 +4 +4 +3 +1 +3 +1 +3 (check) (P)(R)(R)(sync) 
+# floating moves to bind: 22
+
+
+
+28 of 37 ( 21 987 26 2082 31 33 39 )
+# uses: 40 +12 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 (P)-1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 (P)-1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 (P)+1 (P)-1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 (P)+1 +1 +1 ++++++++++9 +9 +9 +9 +9 +3 +1 +1 (check) (sync) 
+# floating moves to bind: 1
+
+
+
+29 of 37 ( 2118 )
+# uses: 27 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 (P)+1 (P:t)-1 1 1 1 (P:t)-1 1 1 1 (P:t)-1 1 1 1 (rlx +1)1 1 1 1 (P)(rlx +1)(P)+1 (P:t)-1 1 1 1 (P)(rlx +2)(P)+1 +1 (P:t)-1 1 1 1 (P)(rlx +2)(P)+1 +1 (P:t)-1 1 1 1 (P)(rlx +1)(P)(rlx +2)(P)+1 (P:t)-1 1 1 1 (P)(rlx +1)(P)(rlx +2)(P)+1 +1 (P:t)-1 1 1 1 (P)(rlx +1)(P)(rlx +2)(P)+1 +9 +3 +1 +1 +1 +1 (check) (sync) 
+
+
+30 of 37 ( 3706 3733 )
+# uses: 42 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +3 +1 +3 +1 (check) (sync) 
+
+
+31 of 37 ( 17 )
+# uses: 15 +1 +1 +1 (rlx +1)1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 (check) (sync) 
+
+
+32 of 37 ( 45 )
+# uses: 13 +1 +1 +1 (rlx +1)1 +1 +1 +1 +1 +1 +1 +1 +1 +4 +4 (check) (sync) 
+
+
+33 of 37 ( 157 1494 166 )
+# uses: 16 +8 +4 +2 +4 +6 +6 +6 +1 +1 +1 (R5)+1 +1 +1 +1 ++1 (check) (sync) 
+
+
+34 of 37 ( 3716 3739 )
+# uses: 13 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 (check) (sync) 
+
+
+35 of 37 ( 153 )
+# uses: 7 +1 (rlx +1)1 +1 +1 +1 +1 +1 +1 (check) (sync) 
+
+
+36 of 37 ( 1519 )
+# uses: 26 +/ +/ +/ +1088 / +80 +/ + S SP W/ +/ +1024 / +64 +1 +/ +/ +/ +1024 / +64 +1 +/ +/ +/ + mcCarry
+register: BM {AML AMH}
+	rmw pairs: 0
+	assigning fields: AML[0] AMH[0] AML[1]
+	postbalancing   : none
+	rematerialising : 0 moves
+
+register: C {CL CH}
+	rmw pairs: 4
+	coalescing      : ....
+                          0 rmw fanout splits
+	assigning fields:
+	postbalancing   : none
+	rematerialising : ++ 3 dr_moves
+
+register: LC
+	assigning fields:
+	rematerialising : 0 moves
+
+register: LE
+	assigning fields:
+	rematerialising : 0 moves
+
+register: LR
+	assigning fields:
+	postbalancing   : none
+	rematerialising : 0 moves
+
+register: LS
+	assigning fields:
+	rematerialising : 0 moves
+
+register: M
+	rmw pairs: 0
+	assigning fields: 0
+	postbalancing   : none
+	rematerialising : 0 moves
+
+register: MD0 {mdQ mdR mdRdx mdSQ mdSPARE0 mdFPAddMask mdFPMulMask}
+	assigning fields:
+	rematerialising : 0 moves
+
+register: P
+	rmw pairs: 5
+	coalescing      : .....
+                          0 rmw fanout splits
+	solving hazards : +
+	  -> 2 splits
+	assigning fields: 6 7 0 1
+	postbalancing   : none
+	rematerialising : 0 moves
+
+register: R
+	rmw pairs: 0
+	solving hazards : +
+	  -> 2 splits
+	assigning fields: 10 11 9 8 12 13 14 15 61024 / +64  7 4 0
+	postbalancing   : none
+	rematerialising : + 2 ra_moves
+
+register: S
+	rmw pairs: 0
+	assigning fields: 0
+	postbalancing   : none
+	rematerialising : 0 moves
+
+register: SP
+	assigning fields:
+	rematerialising : 0 moves
+
+register: W {VL VH}
+	rmw pairs: 8
++1 +	coalescing      : ........
+                          0 rmw fanout splits
+	assigning fields: VL[7] VL[2] VH[2] VL[3] VH[3] VL[6] VL[1] VL[4] VL[0]
+	postbalancing   : none
+	rematerialising : 0 moves
+
+register: mcCarry
+	assigning fields:
+	postbalancing   : none
+	rematerialising : 0 moves
+
+align offsets:
+	computing ideal alignment on mergeable borders: 
+	handle assignment constraints
+	reassign aligned offsets: {AMH AML} CH CL M P R S {VH VL}
+	updating reassigned offsets in sfg
+
+collect coupled operands: ..../ +/ +/ +1024 / +64 +1 +/ +/ +.................................../ +512 +1 +512 / +..............................512 / +512 / +512 / +64 +1 +128 +1 +32 +1 +8 +1 +1 +1 +1 +1 +1 +1 +4 (check) (VRH)(sync) 
+
+
+37 of 37 ( 2701 )
+# uses: 48 +4 +................................8 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +2 +1 +.................
+  15 couplings found
+solving cycles: none
+
+solving cycles: none
+
+2 ra_moves inserted
+3 dr_moves rematerialised
+
+showcolor iterated 1 time to RA1
+
+Writing LIB (with interprocedural optimisation data) to: 24_0-F_Z18euclidean_distanceP7Clusteri5Point__ra.lib
+
+showcolor user time   =   16.53 s  /    16.51 s 	24_0-F_Z18euclidean_distanceP7Clusteri5Point_
+showcolor system time =    0.02 s  /     0.02 s 	24_0-F_Z18euclidean_distanceP7Clusteri5Point_
+showcolor real time   =   39.78 s  /    39.72 s 	24_0-F_Z18euclidean_distanceP7Clusteri5Point_
+
+--mist2 -v +Omodo -k110 +Omsbr=2000 +Opnll +A +pnopALU +pnopLDA +pnopLDB +pnopSTS +pnopVEC +Ofexm +Onzmem +Ono-mapping-backtracking +Oalways-check-exec-paths +Omodulo-scheduling-minimize-folding-index +Omodulo-scheduling-lookahead-critical-transitory-class=AcqLdaRsrc_ID,AcqLdbRsrc_ID:2 +Odisable-spill-instr-class=LR_short_spill +Odisaggr-record-accesses --common 24_0-F_Z18euclidean_distanceP7Clusteri5Point_ me /home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib +H/home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/elongation -x
+Release: ASIP Programmer  R-2021.03-TGT-220608 
+Tool: mist version R-2021.03#6beb14dd34#220609
+Copyright 2014-2021 Synopsys, Inc.
+This Synopsys software and all associated documentation are proprietary to
+Synopsys, Inc. and may only be used pursuant to the terms and conditions of a
+written license agreement with Synopsys, Inc. All other use, reproduction,
+modification, or distribution of the Synopsys software or the associated
+documentation is strictly prohibited.
+
+Mist2 : side effect checking is enabled
+Using nop instruction classes specified in me_chess.lib
+
+NOTICE: no instructions are printed in error nor debugfile,
+        because the instruction length > 100
+
+Reading elongation rules from: /home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/elongation
+
+NOTE : maximum range of occupy-stages for transitories = 8
+
+looking up standalone NOP instruction
+
+Compiling all mappings: 0%..8 +1 +16 +1 +10%..20%..30%..16 +1 +16 +1 +40%..50%..60%..16 +1 +16 +1 +16 +1 +16 +1 +16 +1 +16 +16 +8 +1 (VRH0)+1 +1 +1 +1 +1 +1 +4 (R)+1 +1 (check) (sync) 
+
+
+final flow graph transformations
+Removing dead operations ...Expanding complex patterns ...expanding 8 complex patterns (1 load 1 store 6 constants )
+Creating 'dr_move' opns ...
+number of 'reduced cluster size' : 10
+
+amnesia user time   =   11.32 s  /    11.31 s 	24_0-F_Z15kmeans_functionP12input_streamIiEP13output_streamIiE_
+amnesia system time =    0.05 s  /     0.05 s 	24_0-F_Z15kmeans_functionP12input_streamIiEP13output_streamIiE_
+amnesia real time   =   25.91 s  /    25.88 s 	24_0-F_Z15kmeans_functionP12input_streamIiEP13output_streamIiE_
+
+--mist1 -v -k110 --common 24_0-F_Z15kmeans_functionP12input_streamIiEP13output_streamIiE_ me /home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib +H/home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/elongation -x
+Release: ASIP Programmer  R-2021.03-TGT-220608 
+Tool: mist version R-2021.03#6beb14dd34#220609
+Copyright 2014-2021 Synopsys, Inc.
+This Synopsys software and all associated documentation are proprietary to
+Synopsys, Inc. and may only be used pursuant to the terms and conditions of a
+written license agreement with Synopsys, Inc. All other use, reproduction,
+modification, or distribution of the Synopsys software or the associated
+documentation is strictly prohibited.
+
+Mist1 : side effect checking is disabled
+Using nop instruction classes specified in me_chess.lib
+
+NOTICE: no instructions are printed in error nor debugfile,
+        because the instruction length > 100
+
+
+NOTE : maximum range of occupy-stages for transitories = 8
+
+looking up standalone NOP instruction
+
+Compiling all mappings: 0%..10%..20%..30%..70%..80%..90%..100%
+
+review chess_separator_scheduler(offset > 0)
+removing chess_separator blocks up to strength 2in foldable loops
+removing chess_separator blocks up to strength 2(all)
+
+jump threading ...
+adding manifest flow nodes ...
+
+Constructing flow graphs ...
+Scheduling basic blocks ...
+scheduling macro #811     	-> # cycles: 8 
+scheduling macro #162     	-> # cycles: 1 
+scheduling macro #163     	-> # cycles: 6 
+scheduling macro #156     	-> # cycles: 1 
+scheduling macro #845     	-> # cycles: 8 
+scheduling macro #575     	-> # cycles: 1 
+scheduling macro #576     	-> # cycles: 6 
+scheduling macro #578     	-> # cycles: 1 
+scheduling macro #828     	-> # cycles: 8 
+scheduling macro #195     	-> # cycles: 1 
+scheduling macro #196     	-> # cycles: 6 
+scheduling macro #189     	-> # cycles: 1 
+scheduling macro #862     	-> # cycles: 8 
+scheduling macro #593     	-> # cycles: 1 
+scheduling macro #594     	-> # cycles: 6 
+scheduling macro #596     	-> # cycles: 1 
+scheduling macro #476     	-> # cycles: 11 
+scheduling macro #484     	-> # cycles: 12 
+scheduling macro #8     	-> # cycles: 8 
+scheduling macro #941     	-> # cycles: 5 
+scheduling macro #580     	-> # cycles: 5 
+scheduling macro #944     	-> # cycles: 6 
+scheduling macro #494     	-> # cycles: 8 
+scheduling macro #943     	-> # cycles: 2 
+scheduling macro #598     	-> # cycles: 2 
+40%..scheduling macro #111     	-> # cycles: 18 
+scheduling macro #945     	-> # cycles: 6 
+scheduling macro #946     	-> # cycles: 6 
+
+Total number of cycles = 153
+
+Checking data/anti-dependencies beyond basic block boundaries
+Checking resource conflicts beyond basic block boundaries
+Checking pipeline hazards ...
+50%..60%..70%..80%..90%..100%
+
+adding manifest flow nodes ...
+
+Constructing flow graphs ...
+Scheduling basic blocks ...
+
+HW do-loop #2038 in "/home/users/eleonora.cabai/Documents/K-Means-AIE/aie/src/kmeans_kernel.cpp", line 28: (loop #3) :
+critical cycle of length 24 : b906 -> b907 -> b908 -> b909 -> b910 -> b911 -> b912 -> b913 -> b914 -> b915 -> b916 -> b917 -> b918 -> b919 -> b920 -> b921 -> b922 -> b923 -> b924 -> b925 -> b926 -> b927 -> b928 -> b929 -> b906
+minimum length due to resources: 24
+scheduling HW do-loop #2038     	-> # cycles: 24 
+  -> HW do-loop #2038 in "/home/users/eleonora.cabai/Documents/K-Means-AIE/aie/src/kmeans_kernel.cpp", line 28: (loop #3) : 24 cycles
+
+HW do-loop #1494 in "/home/users/eleonora.cabai/Documents/K-Means-AIE/aie/src/kmeans_kernel.cpp", line 100: (loop #156) :
+critical cycle of length 2 : b578 -> b579 -> b578
+minimum length due to resources: 4
+scheduling HW do-loop #1494     	-> # cycles: 10 
+  -> HW do-loop #1494 in "/home/users/eleonora.cabai/Documents/K-Means-AIE/aie/src/kmeans_kernel.cpp", line 100: (loop #156) : 10 cycles
+
+HW do-loop #2849 in "/home/users/eleonora.cabai/Documents/K-Means-AIE/aie/src/kmeans_kernel.cpp", line 100: (loop #2847) :
+critical cycle of length 2 : b567 -> b568 -> b567
+minimum length due to resources: 4
+scheduling HW do-loop #2849     	-> # cycles: 10 
+  -> HW do-loop #2849 in "/home/users/eleonora.cabai/Documents/K-Means-AIE/aie/src/kmeans_kernel.cpp", line 100: (loop #2847) : 10 cycles
+scheduling macro #987     	-> # cycles: 12 
+scheduling macro #2082     	-> # cycles: 11 
+scheduling macro #2118     	-> # cycles: 32 
+scheduling macro #33     	-> # cycles: 1 
+scheduling macro #2778     	-> # cycles: 12 
+scheduling macro #2781     	-> # cycles: 11 
+scheduling macro #2782     	-> # cycles: 32 
+scheduling macro #2784     	-> # cycles: 1 
+scheduling macro #3329     	-> # cycles: 8 
+scheduling macro #1025     	-> # cycles: 1 
+scheduling macro #1026     	-> # cycles: 7 
+scheduling macro #1019     	-> # cycles: 1 
+scheduling macro #3396     	-> # cycles: 8 
+scheduling macro #2799     	-> # cycles: 1 
+scheduling macro #2800     	-> # cycles: 7 
+scheduling macro #2802     	-> # cycles: 1 
+scheduling macro #3346     	-> # cycles: 8 
+scheduling macro #1058     	-> # cycles: 1 
+scheduling macro #1059     	-> # cycles: 7 
+scheduling macro #1052     	-> # cycles: 1 
+scheduling macro #3413     	-> # cycles: 8 
+scheduling macro #2817     	-> # cycles: 1 
+scheduling macro #2818     	-> # cycles: 7 
+scheduling macro #2820     	-> # cycles: 1 
+scheduling macro #3361     	-> # cycles: 8 
+scheduling macro #1095     	-> # cycles: 1 
+scheduling macro #1096     	-> # cycles: 7 
+scheduling macro #1089     	-> # cycles: 1 
+scheduling macro #3428     	-> # cycles: 8 
+scheduling macro #2835     	-> # cycles: 1 
+scheduling macro #2836     	-> # cycles: 7 
+scheduling macro #2838     	-> # cycles: 1 
+scheduling macro #1137     	-> # cycles: 8 
+scheduling macro #3670     	-> # cycles: 1 
+scheduling macro #3679     	-> # cycles: 7 
+scheduling macro #1134     	-> # cycles: 9 
+scheduling macro #380     	-> # cycles: 6 
+scheduling macro #122     	-> # cycles: 8 
+scheduling macro #2545     	-> # cycles: 15 
+scheduling macro #2552     	-> # cycles: 13 
+scheduling macro #765     	-> # cycles: 7 
+scheduling macro #3708     	-> # cycles: 2 
+scheduling macro #3710     	-> # cycles: 2 
+scheduling macro #3721     	-> # cycles: 6 
+scheduling macro #2562     	-> # cycles: 12 
+scheduling macro #3712     	-> # cycles: 2 
+scheduling macro #3714     	-> # cycles: 2 
+scheduling macro #3722     	-> # cycles: 6 
+scheduling macro #3723     	-> # cycles: 6 
+scheduling macro #2578     	-> # cycles: 22 
+scheduling macro #88     	-> # cycles: 1 
+scheduling macro #767     	-> # cycles: 7 
+scheduling macro #3648     	-> # cycles: 3 
+scheduling macro #3656     	-> # cycles: 3 
+scheduling macro #3724     	-> # cycles: 6 
+scheduling macro #3725     	-> # cycles: 6 
+scheduling macro #2596     	-> # cycles: 15 
+scheduling macro #3726     	-> # cycles: 6 
+scheduling macro #3738     	-> # cycles: 1 
+scheduling macro #2430     	-> # cycles: 45 
+scheduling macro #2460     	-> # cycles: 12 
+scheduling macro #3379     	-> # cycles: 10 
+scheduling macro #971     	-> # cycles: 19 
+scheduling macro #2159     	-> # cycles: 6 
+scheduling macro #895     	-> # cycles: 13 
+scheduling macro #17     	-> # cycles: 1 
+scheduling macro #908     	-> # cycles: 20 
+scheduling macro #3706     	-> # cycles: 3 
+scheduling macro #2786     	-> # cycles: 3 
+scheduling macro #3719     	-> # cycles: 6 
+scheduling macro #3720     	-> # cycles: 6 
+scheduling macro #916     	-> # cycles: 11 
+scheduling macro #45     	-> # cycles: 1 
+scheduling macro #934     	-> # cycles: 20 
+scheduling macro #3728     	-> # cycles: 6 
+scheduling macro #2206     	-> # cycles: 7 
+scheduling macro #2701     	-> # cycles: 44 
+scheduling macro #146     	-> # cycles: 7 
+scheduling macro #3718     	-> # cycles: 6 
+scheduling macro #153     	-> # cycles: 1 
+scheduling macro #771     	-> # cycles: 8 
+scheduling macro #3716     	-> # cycles: 2 
+scheduling macro #2851     	-> # cycles: 2 
+scheduling macro #3729     	-> # cycles: 6 
+scheduling macro #3732     	-> # cycles: 6 
+scheduling macro #3730     	-> # cycles: 6 
+scheduling macro #1519     	-> # cycles: 24 
+scheduling macro #378     	-> # cycles: 14 
+
+Total number of cycles = 755
+
+Checking data/anti-dependencies beyond basic block boundaries
+Checking resource conflicts beyond basic block boundaries
+
+mist1 user time   =    1.63 s  /     1.62 s 	24_0-F_Z15kmeans_functionP12input_streamIiEP13output_streamIiE_
+mist1 system time =    0.01 s  /     0.01 s 	24_0-F_Z15kmeans_functionP12input_streamIiEP13output_streamIiE_
+mist1 real time   =    4.06 s  /     4.05 s 	24_0-F_Z15kmeans_functionP12input_streamIiEP13output_streamIiE_
+
+--showcolor -v -b --common 24_0-F_Z15kmeans_functionP12input_streamIiEP13output_streamIiE_ me /home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib +H/home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/elongation -x
+Release: ASIP Programmer  R-2021.03-TGT-220608 
+Tool: showcolor version R-2021.03#6beb14dd34#220609
+Copyright 2014-2021 Synopsys, Inc.
+This Synopsys software and all associated documentation are proprietary to
+Synopsys, Inc. and may only be used pursuant to the terms and conditions of a
+written license agreement with Synopsys, Inc. All other use, reproduction,
+modification, or distribution of the Synopsys software or the associated
+documentation is strictly prohibited.
+
+Reading pattern DSFGs from: /home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/isg/me_chess_dr.sfg
+initialisation
+upgraded carrier of signal __arg0.897 to R
+upgraded carrier of signal __arg1.899 to R
+Filling in loop counts in instruction enabling ...
+Re-filling in 'a', 'r' values in instruction enabling ...
+Adjusting target addresses ...
+Filling in target addresses in instruction enabling ...
+Writing micro-code to ``24_0-F_Z18euclidean_distanceP7Clusteri5Point_.mic'' ...
+
+mist2 user time   =    3.29 s  /     3.29 s 	24_0-F_Z18euclidean_distanceP7Clusteri5Point_
+mist2 system time =    0.01 s  /     0.01 s 	24_0-F_Z18euclidean_distanceP7Clusteri5Point_
+mist2 real time   =    7.60 s  /     7.60 s 	24_0-F_Z18euclidean_distanceP7Clusteri5Point_
+
+--tale -v -g -D__AIENGINE__ -D__AIEARCH__=10 -DDEPLOYMENT_ELF=1 -DAIE_OPTION_SCALAR_FLOAT_ON_VECTOR -D__tct_tgt__=220608 -V24_0 -L --common 24_0-F_Z18euclidean_distanceP7Clusteri5Point_ me /home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib +H/home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/elongation -x
+Release: ASIP Programmer  R-2021.03-TGT-220608 
+Tool: tale version R-2021.03#6beb14dd34#220609
+Copyright 2014-2021 Synopsys, Inc.
+This Synopsys software and all associated documentation are proprietary to
+Synopsys, Inc. and may only be used pursuant to the terms and conditions of a
+written license agreement with Synopsys, Inc. All other use, reproduction,
+modification, or distribution of the Synopsys software or the associated
+documentation is strictly prohibited.
+
+Reading elongation rules from: /home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/elongation
+Reading relocators from: /home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib//isg/me.rlo with command tct_gcpp3 -nostdinc -nostdinc++ -lang-asm  -D'__AIENGINE__' -D'__AIEARCH__=10' -D'DEPLOYMENT_ELF=1' -D'AIE_OPTION_SCALAR_FLOAT_ON_VECTOR' -D'__tct_tgt__=220608' -I'/home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/' -I'/home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib//isg/'
+Reading DSFG from: 24_0.gvt
+Reading Dwarf register-list from file '/home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/isg/me_regs.txt' ...
+Reading Dwarf register ID's from file '/home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/isg/me_regid.txt' ...
+
+Dumping object file '24_0-F_Z18euclidean_distanceP7Clusteri5Point_.o' in ELF format with DWARF debug information (1)
+
+tale user time   =    0.04 s  /     0.03 s 	24_0-F_Z18euclidean_distanceP7Clusteri5Point_
+tale system time =    0.00 s  /     0.00 s 	24_0-F_Z18euclidean_distanceP7Clusteri5Point_
+tale real time   =    0.12 s  /     0.09 s 	24_0-F_Z18euclidean_distanceP7Clusteri5Point_
+
+upgraded carrier of signal __apl_ub.13477,__apl_ub.18764,__apl_ub.18769 to R
+upgraded carrier of signal __apl_ua.13478,__apl_ua.18763 to R
+upgraded carrier of signal __apl_ua.13507,__apl_ua.18768 to R
+upgraded carrier of signal _cst.13891,_cst.16189,_cst.15268,_cst.18788,_cst.18796,_cst.18811,_cst.18802 to CH
+upgraded carrier of signal _cst.14494,_cst.18772,_cst.18776,_cst.18780 to CH
+upgraded carrier of signal _cst.17237,_cst.18784,_cst.18798,_cst.18808 to CL
+upgraded carrier of signal _cst.17238,_cst.18785,_cst.18799,_cst.18809 to CH
+upgraded carrier of signal _cst.17239,_cst.18790,_cst.18804,_cst.18814 to CH
+upgraded carrier of signal __ct_65536.17271,__ct_65536.18787,__ct_65536.18801,__ct_65536.18813 to CH
+upgraded carrier of signal __ct_65536.17272,__ct_65536.18795 to CH
+upgraded carrier of signal __ct_65536.17274,__ct_65536.18774,__ct_65536.18778,__ct_65536.18782 to CH
+upgraded carrier of signal _cst.17308 to R
+upgraded carrier of signal __ct_0.17313,__val.18760 to R
+upgraded carrier of signal _cst.17315,__sz.18761 to R
+upgraded carrier of signal __ct_49152.17319,__ct_49152.18797 to CL
+upgraded carrier of signal __ct_34717696.18775,__ct_34717696.18919,__ct_34717696.18779,__ct_34717696.18783 to CL
+upgraded carrier of signal __ct_1687552.18789,__ct_1687552.18917,__ct_1687552.18803,__ct_1687552.18812 to CL
+upgraded carrier of signal __ct_1048576.18793,__ct_1048576.18915,__ct_1048576.18807,__ct_1048576.18817 to CL
+upgraded carrier of signal _cst.18910 to CLH
+upgraded carrier of signal __ct_1048576.18916 to CLH
+upgraded carrier of signal __ct_1687552.18918 to CLH
+upgraded carrier of signal __ct_34717696.18920 to CLH
+Reading operand couplings: 10 couplings
+collect coupled operands: ........................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................
+  133 couplings found
+collect RMW pairs: BM C CB CS LC LE LR LS M MD0 P R S SP W mdMS mdSS mcCarry
+register: BM {AML AMH}
+	rmw pairs: 0
+	assigning fields: AML[0]
+	postbalancing   : none
+	rematerialising : 0 moves
+
+register: C {CL CH}
+	rmw pairs: 5
+	coalescing      : .....
+                          0 rmw fanout splits
+	solving hazards : ++
+	  -> 3 splits
+	assigning fields: CL[0] CH[0] CH[2] CH[3] CL[2] CL[3] CL[4] CL[5] CH[4] CH[5] CH[1] CL[6]
+	postbalancing   : none
+	rematerialising : ++ 3 ra_moves
+	                   2 dr_moves
+
+register: CB
+	rmw pairs: 0
+	assigning fields: 0
+	postbalancing   : none
+	rematerialising : 0 moves
+
+register: CS
+	rmw pairs: 0
+	assigning fields: 0 1
+	postbalancing   : none
+	rematerialising : 0 moves
+
+register: LC
+	assigning fields:
+	rematerialising : 0 moves
+
+register: LE
+	assigning fields:
+	rematerialising : 0 moves
+
+register: LR
+	assigning fields:
+	postbalancing   : none
+	rematerialising : 0 moves
+
+register: LS
+	assigning fields:
+	rematerialising : 0 moves
+
+register: M
+	rmw pairs: 0
+	assigning fields: 1 0 2
+	postbalancing   : none
+	rematerialising : 0 moves
+
+register: MD0 {mdQ mdR mdRdx mdSQ mdSPARE0 mdFPAddMask mdFPMulMask}
+	assigning fields:
+	rematerialising : 0 moves
+
+register: P
+	rmw pairs: 79
+	coalescing      : ...............................................................................
+                          10 rmw fanout splits
+	solving hazards : +++
+	  -> 13 splits
+	assigning fields: 6 7x 1 0 2 3 4 5
+	extra splits during assignment: 1
+	postbalancing   : none
+	rematerialising : 0 moves
+
+register: R
+	rmw pairs: 1
+	coalescing      : .
+                          0 rmw fanout splits
+	solving hazards : ++++
+	  -> 10 splits
+	assigning fields: 15(limit 1)  12(limit 1)  13(limit 1)  14(limit 1)  10(limit 1)  11 8(limit 1)  9(limit 1)  7(limit 1)  4x 1(limit 1)  2(limit 1)  3(limit 1)  6 5 0
+	extra splits during assignment: 1
+	postbalancing   : none
+	rematerialising : ++++ 6 ra_moves
+	                   1 dr_move
+
+register: S
+	rmw pairs: 0
+	assigning fields: 0
+	postbalancing   : none
+	rematerialising : 0 moves
+
+register: SP
+	assigning fields:
+	rematerialising : 0 moves
+
+register: W {VL VH}
+	rmw pairs: 24
+	coalescing      : ........................
+                          0 rmw fanout splits
+	solving hazards : +
+	  -> 3 splits
+	assigning fields: VL[7] VH[7] VL[6] VH[4] VH[2] VL[2] VH[3]xx VL[3] VL[0] VH[0] VL[1]
+	extra splits during assignment: 2
+	postbalancing   : none
+	rematerialising : 0 moves
+
+register: mdMS
+	rmw pairs: 0
+	assigning fields: 0
+	postbalancing   : none
+	rematerialising : 0 moves
+
+register: mdSS
+	rmw pairs: 0
+	assigning fields: 0
+	postbalancing   : none
+	rematerialising : 0 moves
+
+register: mcCarry
+	assigning fields:
+	postbalancing   : none
+	rematerialising : 0 moves
+
+align offsets:
+	computing ideal alignment on mergeable borders: .....
+	handle assignment constraints
+	reassign aligned offsets: {AMH AML} CB CH CL(!) CS M P(!) R(!) S {VH VL}(!) mdMS mdSS
+	updating reassigned offsets in sfg
+
+collect coupled operands: .........................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................
+  24 couplings found
+solving cycles: none
+
+memory: __spill_DM_stack
+	assigning field:  0 4 8 12 16 20 24 28 32 36 40 44 48 52 56 60 64 68 72 76 80 84 88 92 96
+
+solving cycles: none
+
+24 ra_moves inserted (1 cyclic)
+3 dr_moves rematerialised
+
+showcolor iterated 1 time to RA1
+
+Writing LIB (with interprocedural optimisation data) to: 24_0-F_Z15kmeans_functionP12input_streamIiEP13output_streamIiE__ra.lib
+
+showcolor user time   =   19.62 s  /    19.54 s 	24_0-F_Z15kmeans_functionP12input_streamIiEP13output_streamIiE_
+showcolor system time =    0.06 s  /     0.06 s 	24_0-F_Z15kmeans_functionP12input_streamIiEP13output_streamIiE_
+showcolor real time   =   23.70 s  /    23.60 s 	24_0-F_Z15kmeans_functionP12input_streamIiEP13output_streamIiE_
+
+--mist2 -v +Omodo -k110 +Omsbr=2000 +Opnll +A +pnopALU +pnopLDA +pnopLDB +pnopSTS +pnopVEC +Ofexm +Onzmem +Ono-mapping-backtracking +Oalways-check-exec-paths +Omodulo-scheduling-minimize-folding-index +Omodulo-scheduling-lookahead-critical-transitory-class=AcqLdaRsrc_ID,AcqLdbRsrc_ID:2 +Odisable-spill-instr-class=LR_short_spill +Odisaggr-record-accesses --common 24_0-F_Z15kmeans_functionP12input_streamIiEP13output_streamIiE_ me /home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib +H/home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/elongation -x
+Release: ASIP Programmer  R-2021.03-TGT-220608 
+Tool: mist version R-2021.03#6beb14dd34#220609
+Copyright 2014-2021 Synopsys, Inc.
+This Synopsys software and all associated documentation are proprietary to
+Synopsys, Inc. and may only be used pursuant to the terms and conditions of a
+written license agreement with Synopsys, Inc. All other use, reproduction,
+modification, or distribution of the Synopsys software or the associated
+documentation is strictly prohibited.
+
+Mist2 : side effect checking is enabled
+Using nop instruction classes specified in me_chess.lib
+
+NOTICE: no instructions are printed in error nor debugfile,
+        because the instruction length > 100
+
+Reading elongation rules from: /home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/elongation
+
+NOTE : maximum range of occupy-stages for transitories = 8
+
+looking up standalone NOP instruction
+
+Compiling all mappings: 0%..10%..20%..30%..40%..50%..60%..70%..80%..90%..100%
+
+review chess_separator_scheduler(offset > 0)
+removing chess_separator blocks up to strength 2in foldable loops
+
+HW do-loop #1494 in "/home/users/eleonora.cabai/Documents/K-Means-AIE/aie/src/kmeans_kernel.cpp", line 100: (loop #156) :
+critical cycle of length 2 : b580 -> b582 -> b580
+minimum length due to resources: 4
+scheduling HW do-loop #1494
+(algo 1a)	-> # cycles: 10 
+(modulo)	-> # cycles: 4p 4c
+NOTICE: Positive cycle for II=4:  with length = 2
+ 5i 6i 7i 8i 9i 10 ok (required budget ratio: 1)  
+(resume algo)	  -> no folding: 10
+  -> HW do-loop #1494 in "/home/users/eleonora.cabai/Documents/K-Means-AIE/aie/src/kmeans_kernel.cpp", line 100: (loop #156) : 10 cycles
+
+HW do-loop #2038 in "/home/users/eleonora.cabai/Documents/K-Means-AIE/aie/src/kmeans_kernel.cpp", line 28: (loop #3) :
+critical cycle of length 24 : b906 -> b907 -> b908 -> b909 -> b910 -> b911 -> b912 -> b913 -> b914 -> b915 -> b916 -> b917 -> b918 -> b919 -> b920 -> b921 -> b922 -> b923 -> b924 -> b925 -> b926 -> b927 -> b928 -> b929 -> b906
+minimum length due to resources: 24
+scheduling HW do-loop #2038
+(algo 1a)	-> # cycles: 24  (== lower bound !)  -> no folding: 24
+  -> HW do-loop #2038 in "/home/users/eleonora.cabai/Documents/K-Means-AIE/aie/src/kmeans_kernel.cpp", line 28: (loop #3) : 24 cycles
+
+HW do-loop #2849 in "/home/users/eleonora.cabai/Documents/K-Means-AIE/aie/src/kmeans_kernel.cpp", line 100: (loop #2847) :
+critical cycle of length 2 : b570 -> b571 -> b570
+minimum length due to resources: 4
+scheduling HW do-loop #2849
+(algo 1a)	-> # cycles: 10 
+(modulo)	-> # cycles: 4 ok (required budget ratio: 1)  
+(resume algo)	  -> after folding: 4  (folded over 2 iterations)
+  -> HW do-loop #2849 in "/home/users/eleonora.cabai/Documents/K-Means-AIE/aie/src/kmeans_kernel.cpp", line 100: (loop #2847) : 4 cycles
+NOTICE: loop #2849 contains folded negative edges
+NOTICE: loop #2849 contains multiply folded data-flow(s)
+NOTICE: postamble created
+removing chess_separator blocks up to strength 2(all)
+
+jump threading ...
+adding manifest flow nodes ...
+
+Constructing flow graphs ...
+Scheduling basic blocks ...
+scheduling macro #987     	-> # cycles: 7 
+scheduling macro #2082     	-> # cycles: 11 
+scheduling macro #2118     	-> # cycles: 27 
+scheduling macro #33     	-> # cycles: 1 
+scheduling macro #2778     	-> # cycles: 7 
+scheduling macro #2781     	-> # cycles: 11 
+scheduling macro #2782     	-> # cycles: 27 
+scheduling macro #2784     	-> # cycles: 1 
+scheduling macro #3329     	-> # cycles: 8 
+scheduling macro #1025     	-> # cycles: 1 
+scheduling macro #1026     	-> # cycles: 6 
+scheduling macro #1019     	-> # cycles: 1 
+scheduling macro #3396     	-> # cycles: 8 
+scheduling macro #2799     	-> # cycles: 1 
+scheduling macro #2800     	-> # cycles: 6 
+scheduling macro #2802     	-> # cycles: 1 
+scheduling macro #3346     	-> # cycles: 8 
+scheduling macro #1058     	-> # cycles: 1 
+scheduling macro #1059     	-> # cycles: 6 
+scheduling macro #1052     	-> # cycles: 1 
+scheduling macro #3413     	-> # cycles: 8 
+scheduling macro #2817     	-> # cycles: 1 
+scheduling macro #2818     	-> # cycles: 6 
+scheduling macro #2820     	-> # cycles: 1 
+scheduling macro #3361     	-> # cycles: 7 
+scheduling macro #1095     	-> # cycles: 1 
+scheduling macro #1096     	-> # cycles: 6 
+scheduling macro #1089     	-> # cycles: 1 
+scheduling macro #3428     	-> # cycles: 7 
+scheduling macro #2835     	-> # cycles: 1 
+scheduling macro #2836     	-> # cycles: 6 
+scheduling macro #2838     	-> # cycles: 1 
+scheduling macro #1137     	-> # cycles: 8 
+scheduling macro #3670     	-> # cycles: 1 
+scheduling macro #3679     	-> # cycles: 6 
+scheduling macro #1134     	-> # cycles: 9 
+scheduling macro #122     	-> # cycles: 8 
+scheduling macro #2545     	-> # cycles: 9 
+scheduling macro #2552     	-> # cycles: 13 
+scheduling macro #765     	-> # cycles: 7 
+scheduling macro #3708     	-> # cycles: 4 
+scheduling macro #3710     	-> # cycles: 4 
+scheduling macro #3721     	-> # cycles: 6 
+scheduling macro #2562     	-> # cycles: 8 
+scheduling macro #3712     	-> # cycles: 2 
+scheduling macro #3714     	-> # cycles: 2 
+scheduling macro #2578     	-> # cycles: 16 
+scheduling macro #3722     	-> # cycles: 6 
+scheduling macro #3723     	-> # cycles: 6 
+scheduling macro #88     	-> # cycles: 2 
+scheduling macro #767     	-> # cycles: 7 
+scheduling macro #3648     	-> # cycles: 4 
+scheduling macro #3656     	-> # cycles: 4 
+scheduling macro #2596     	-> # cycles: 9 
+scheduling macro #3724     	-> # cycles: 6 
+scheduling macro #3725     	-> # cycles: 6 
+scheduling macro #3738     	-> # cycles: 1 
+scheduling macro #2430     	-> # cycles: 43 
+scheduling macro #2460     	-> # cycles: 8 
+scheduling macro #3379     	-> # cycles: 6 
+scheduling macro #971     	-> # cycles: 13 
+scheduling macro #2159     	-> # cycles: 6 
+scheduling macro #895     	-> # cycles: 7 
+scheduling macro #17     	-> # cycles: 1 
+scheduling macro #908     	-> # cycles: 16 
+scheduling macro #3706     	-> # cycles: 3 
+scheduling macro #2786     	-> # cycles: 3 
+scheduling macro #916     	-> # cycles: 7 
+scheduling macro #3719     	-> # cycles: 6 
+scheduling macro #3720     	-> # cycles: 6 
+scheduling macro #45     	-> # cycles: 1 
+scheduling macro #934     	-> # cycles: 20 
+scheduling macro #3728     	-> # cycles: 6 
+scheduling macro #2206     	-> # cycles: 7 
+scheduling macro #2701     	-> # cycles: 36 
+scheduling macro #146     	-> # cycles: 7 
+scheduling macro #3718     	-> # cycles: 6 
+scheduling macro #378     	-> # cycles: 14 
+scheduling macro #153     	-> # cycles: 6 
+scheduling macro #771     	-> # cycles: 8 
+scheduling macro #3716     	-> # cycles: 2 
+scheduling macro #3746     	-> # cycles: 8 
+scheduling macro #3729     	-> # cycles: 
+re-scheduling macro #3729     	-> # cycles:  
+re-scheduling macro #3729     	-> # cycles:  8 
+scheduling macro #3730     	-> # cycles: 6 
+scheduling macro #1519     	-> # cycles: 19 
+
+Total number of cycles = 657
+
+Checking data/anti-dependencies beyond basic block boundaries
+Checking resource conflicts beyond basic block boundaries
+Checking pipeline hazards ...
+Filling in loop counts in instruction enabling ...
+Re-filling in 'a', 'r' values in instruction enabling ...
+Adjusting target addresses ...
+Filling in target addresses in instruction enabling ...
+Writing micro-code to ``24_0-F_Z15kmeans_functionP12input_streamIiEP13output_streamIiE_.mic'' ...
+
+mist2 user time   =   11.65 s  /    11.64 s 	24_0-F_Z15kmeans_functionP12input_streamIiEP13output_streamIiE_
+mist2 system time =    0.04 s  /     0.04 s 	24_0-F_Z15kmeans_functionP12input_streamIiEP13output_streamIiE_
+mist2 real time   =   13.63 s  /    13.62 s 	24_0-F_Z15kmeans_functionP12input_streamIiEP13output_streamIiE_
+
+--tale -v -g -D__AIENGINE__ -D__AIEARCH__=10 -DDEPLOYMENT_ELF=1 -DAIE_OPTION_SCALAR_FLOAT_ON_VECTOR -D__tct_tgt__=220608 -V24_0 -L --common 24_0-F_Z15kmeans_functionP12input_streamIiEP13output_streamIiE_ me /home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib +H/home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/elongation -x
+Release: ASIP Programmer  R-2021.03-TGT-220608 
+Tool: tale version R-2021.03#6beb14dd34#220609
+Copyright 2014-2021 Synopsys, Inc.
+This Synopsys software and all associated documentation are proprietary to
+Synopsys, Inc. and may only be used pursuant to the terms and conditions of a
+written license agreement with Synopsys, Inc. All other use, reproduction,
+modification, or distribution of the Synopsys software or the associated
+documentation is strictly prohibited.
+
+Reading elongation rules from: /home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/elongation
+Reading relocators from: /home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib//isg/me.rlo with command tct_gcpp3 -nostdinc -nostdinc++ -lang-asm  -D'__AIENGINE__' -D'__AIEARCH__=10' -D'DEPLOYMENT_ELF=1' -D'AIE_OPTION_SCALAR_FLOAT_ON_VECTOR' -D'__tct_tgt__=220608' -I'/home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/' -I'/home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib//isg/'
+Reading DSFG from: 24_0.gvt
+Reading Dwarf register-list from file '/home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/isg/me_regs.txt' ...
+Reading Dwarf register ID's from file '/home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/isg/me_regid.txt' ...
+
+Dumping object file '24_0-F_Z15kmeans_functionP12input_streamIiEP13output_streamIiE_.o' in ELF format with DWARF debug information (1)
+
+tale user time   =    0.25 s  /     0.24 s 	24_0-F_Z15kmeans_functionP12input_streamIiEP13output_streamIiE_
+tale system time =    0.00 s  /     0.00 s 	24_0-F_Z15kmeans_functionP12input_streamIiEP13output_streamIiE_
+tale real time   =    0.31 s  /     0.26 s 	24_0-F_Z15kmeans_functionP12input_streamIiEP13output_streamIiE_
+
+chess-backend 24_0-F_main_ me /home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib +H/home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/elongation -x --print-subtools --cosel -v -m +ef -M3 -S1024 --amnesia -v -p12 -q2 -eAM -rCLH -fR=2 +Oexcf +Oearly-fanout-complex +Odhls -Ono-prune-mappings +Oexcc +Oprefer-local-reg-moves -Ono-collapse-bundles --mist1 -v -k110 --showcolor -v -b --mist2 -v +Omodo -k110 +Omsbr=2000 +Opnll +A +pnopALU +pnopLDA +pnopLDB +pnopSTS +pnopVEC +Ofexm +Onzmem +Ono-mapping-backtracking +Oalways-check-exec-paths +Omodulo-scheduling-minimize-folding-index +Omodulo-scheduling-lookahead-critical-transitory-class=AcqLdaRsrc_ID,AcqLdbRsrc_ID:2 +Odisable-spill-instr-class=LR_short_spill +Odisaggr-record-accesses --tale -v -g -D__AIENGINE__ -D__AIEARCH__=10 -DDEPLOYMENT_ELF=1 -DAIE_OPTION_SCALAR_FLOAT_ON_VECTOR -D__tct_tgt__=220608 -V24_0 -L
+NOTICE : reserve 2 fields of register R in leaf loops (to favor software pipelining)
+
+--cosel -v -m +ef -M3 -S1024 --common 24_0-F_main_ me /home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib +H/home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/elongation -x
+Release: ASIP Programmer  R-2021.03-TGT-220608 
+Tool: cosel version R-2021.03#6beb14dd34#220609
+Copyright 2014-2021 Synopsys, Inc.
+This Synopsys software and all associated documentation are proprietary to
+Synopsys, Inc. and may only be used pursuant to the terms and conditions of a
+written license agreement with Synopsys, Inc. All other use, reproduction,
+modification, or distribution of the Synopsys software or the associated
+documentation is strictly prohibited.
+
+
+Reading enablings from: /home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/isg/me_chess.ena
+Reading LIB/ISG from: /home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/isg/me.isb
+Reading LIB/ISG from: /home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/isg/me_chess.lib
+Reading LIB/ISG from: /home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/isg/me_chess_bndl.isg
+Reading LIB/ISG from: /home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/isg/me_chess_dr.isg
+Reading DSFG from: 24_0-F_main_.sfg
+Collecting static variable register operations...
+
+
+**** Bundling `F_main' ****
+Applying long jump data
+
+   macro #47 (4 opn)
+      matching... (4 p) (7 P)
+      covering... (4 its) (cost 3509.952)
+
+   macro #259 (7 opn)
+      matching... (7 p) (19 P)
+      covering... (5 its) (cost 3541.075)
+
+   macro #43 (2 opn)
+      matching... (1 p) (2 P)
+      covering... (1 its) (cost 1180.021)
+
+   macro #686 (1 opn)
+      matching... (2 p) (2 P)
+      covering... (2 its) (cost 1180.020)
+
+   macro #646 (5 opn)
+      matching... (5 p) (8 P)
+      covering... (4 its) (cost 3570.052)
+
+   macro #36 (1 opn)
+      matching... (2 p) (2 P)
+      covering... (2 its) (cost 1190.021)
+
+   macro #631 (5 opn)
+      matching... (5 p) (7 P)
+      covering... (3 its) (cost 2359.064)
+
+   macro #428 (13 opn)
+      matching... (12 p) (17 P)
+      covering... (7 its) (cost 5849.097)
+
+
+Total cost = 22379.302
+
+cosel user time   =    0.21 s  /     0.11 s 	24_0-F_main_
+cosel system time =    0.04 s  /     0.01 s 	24_0-F_main_
+cosel real time   =    0.39 s  /     0.20 s 	24_0-F_main_
+
+--amnesia -v -p12 -q2 -eAM -rCLH -fR=2 +Oexcf +Oearly-fanout-complex +Odhls -Ono-prune-mappings +Oexcc +Oprefer-local-reg-moves -Ono-collapse-bundles --common 24_0-F_main_ me /home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib +H/home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/elongation -x
+Release: ASIP Programmer  R-2021.03-TGT-220608 
+Tool: amnesia version R-2021.03#6beb14dd34#220609
+Copyright 2014-2021 Synopsys, Inc.
+This Synopsys software and all associated documentation are proprietary to
+Synopsys, Inc. and may only be used pursuant to the terms and conditions of a
+written license agreement with Synopsys, Inc. All other use, reproduction,
+modification, or distribution of the Synopsys software or the associated
+documentation is strictly prohibited.
+
+Reading interprocedural optimisation data from: 24_0-F_main_.flc
+Reading pattern DSFGs from: /home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/isg/me_chess_dr.sfg
+
+application DSFG routing:
+
+**** Routing 'F_main' ****
+analysing connectivity in ISG
+initial DSFG transformations
+initial timing
+initialise routing
+dependency hazard solving
+
+1 of 4: (36 37 646 23 14)
+
+2 of 4: (24 9 10 686 687)
+
+3 of 4: (4 631 259 32 40 44 39 43)
+
+4 of 4: (428 47)
+
+sync/offset hazards solving
+
+
+time (after hazard solving) =   0.170 s
+
+routing control inputs
+
+routing
+
+1 of 4 ( 14 36 646 23 )
+# uses: 7 +1 +1 +1 +1 +1 +1 +1 (check) 
+
+
+2 of 4 ( 4 631 9 687 686 24 39 43 259 32 )
+# uses: 8 +4 +2 +1 +1 +1 +1 +1 +1 (check) 
+
+
+3 of 4 ( 10 )
+# uses: 2 +1 +1 (check) 
+
+
+4 of 4 ( 428 47 )
+# uses: 13 +1 +1 +1 (R:t)-1 1 1 1 +1 (R:t)-1 1 1 1 +1 +1 (P:t)-1 1 1 1 +1 (LR:t)-1 1 +3 +5 +5 +3 (rlx +1)3 +1 +3 (check) 
+
+
+final flow graph transformations
+Removing dead operations ...Expanding complex patterns ...Creating 'dr_move' opns ...
+number of 'reduced cluster size' : 0
+
+amnesia user time   =    0.19 s  /     0.19 s 	24_0-F_main_
+amnesia system time =    0.01 s  /     0.01 s 	24_0-F_main_
+amnesia real time   =    0.30 s  /     0.28 s 	24_0-F_main_
+
+--mist1 -v -k110 --common 24_0-F_main_ me /home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib +H/home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/elongation -x
+Release: ASIP Programmer  R-2021.03-TGT-220608 
+Tool: mist version R-2021.03#6beb14dd34#220609
+Copyright 2014-2021 Synopsys, Inc.
+This Synopsys software and all associated documentation are proprietary to
+Synopsys, Inc. and may only be used pursuant to the terms and conditions of a
+written license agreement with Synopsys, Inc. All other use, reproduction,
+modification, or distribution of the Synopsys software or the associated
+documentation is strictly prohibited.
+
+Mist1 : side effect checking is disabled
+Using nop instruction classes specified in me_chess.lib
+
+NOTICE: no instructions are printed in error nor debugfile,
+        because the instruction length > 100
+
+
+NOTE : maximum range of occupy-stages for transitories = 8
+
+looking up standalone NOP instruction
+
+Compiling all mappings: 0%..100%
+
+adding manifest flow nodes ...
+
+Constructing flow graphs ...
+Scheduling basic blocks ...
+scheduling macro #36     	-> # cycles: 6 
+scheduling macro #646     	-> # cycles: 8 
+scheduling macro #631     	-> # cycles: 14 
+scheduling macro #686     	-> # cycles: 6 
+scheduling macro #43     	-> # cycles: 9 
+scheduling macro #259     	-> # cycles: 20 
+scheduling macro #428     	-> # cycles: 7 
+scheduling macro #47     	-> # cycles: 14 
+
+Total number of cycles = 84
+
+Checking data/anti-dependencies beyond basic block boundaries
+Checking resource conflicts beyond basic block boundaries
+
+mist1 user time   =    0.12 s  /     0.12 s 	24_0-F_main_
+mist1 system time =    0.00 s  /     0.00 s 	24_0-F_main_
+mist1 real time   =    0.19 s  /     0.18 s 	24_0-F_main_
+
+--showcolor -v -b --common 24_0-F_main_ me /home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib +H/home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/elongation -x
+Release: ASIP Programmer  R-2021.03-TGT-220608 
+Tool: showcolor version R-2021.03#6beb14dd34#220609
+Copyright 2014-2021 Synopsys, Inc.
+This Synopsys software and all associated documentation are proprietary to
+Synopsys, Inc. and may only be used pursuant to the terms and conditions of a
+written license agreement with Synopsys, Inc. All other use, reproduction,
+modification, or distribution of the Synopsys software or the associated
+documentation is strictly prohibited.
+
+Reading pattern DSFGs from: /home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/isg/me_chess_dr.sfg
+initialisation
+upgraded carrier of signal _cst.785,__rt.850 to R
+collect coupled operands: ............................
+  3 couplings found
+collect RMW pairs: LR M P R SP mcCarry
+register: LR
+	assigning fields:
+	postbalancing   : none
+	rematerialising : 0 moves
+
+register: M
+	rmw pairs: 0
+	assigning fields: 0
+	postbalancing   : none
+	rematerialising : 0 moves
+
+register: P
+	rmw pairs: 3
+	coalescing      : ...
+                          0 rmw fanout splits
+	assigning fields: 6 7x 0
+	extra splits during assignment: 1
+	postbalancing   : none
+	rematerialising : 0 moves
+
+register: R
+	rmw pairs: 0
+	assigning fields: 12 13 14 15 10 11 8 9 5 6 7 4x 0
+	extra splits during assignment: 1
+	postbalancing   : none
+	rematerialising : + 1 ra_move
+
+register: SP
+	assigning fields:
+	rematerialising : 0 moves
+
+register: mcCarry
+	assigning fields:
+	postbalancing   : none
+	rematerialising : 0 moves
+
+align offsets:
+	computing ideal alignment on mergeable borders: 
+	handle assignment constraints
+	reassign aligned offsets: M P R
+	updating reassigned offsets in sfg
+
+collect coupled operands: ..............................
+  0 couplings found
+solving cycles: none
+
+memory: __spill_DM_stack
+	assigning field:  0 4 8 12
+
+solving cycles: none
+
+1 ra_move inserted
+
+Writing LIB (with interprocedural optimisation data) to: 24_0-F_main__ra.lib
+
+showcolor user time   =    0.07 s  /     0.07 s 	24_0-F_main_
+showcolor system time =    0.00 s  /     0.00 s 	24_0-F_main_
+showcolor real time   =    0.15 s  /     0.14 s 	24_0-F_main_
+
+--mist2 -v +Omodo -k110 +Omsbr=2000 +Opnll +A +pnopALU +pnopLDA +pnopLDB +pnopSTS +pnopVEC +Ofexm +Onzmem +Ono-mapping-backtracking +Oalways-check-exec-paths +Omodulo-scheduling-minimize-folding-index +Omodulo-scheduling-lookahead-critical-transitory-class=AcqLdaRsrc_ID,AcqLdbRsrc_ID:2 +Odisable-spill-instr-class=LR_short_spill +Odisaggr-record-accesses --common 24_0-F_main_ me /home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib +H/home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/elongation -x
+Release: ASIP Programmer  R-2021.03-TGT-220608 
+Tool: mist version R-2021.03#6beb14dd34#220609
+Copyright 2014-2021 Synopsys, Inc.
+This Synopsys software and all associated documentation are proprietary to
+Synopsys, Inc. and may only be used pursuant to the terms and conditions of a
+written license agreement with Synopsys, Inc. All other use, reproduction,
+modification, or distribution of the Synopsys software or the associated
+documentation is strictly prohibited.
+
+Mist2 : side effect checking is enabled
+Using nop instruction classes specified in me_chess.lib
+
+NOTICE: no instructions are printed in error nor debugfile,
+        because the instruction length > 100
+
+Reading elongation rules from: /home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/elongation
+
+NOTE : maximum range of occupy-stages for transitories = 8
+
+looking up standalone NOP instruction
+
+Compiling all mappings: 0%..100%
+
+review chess_separator_scheduler(offset > 0)
+removing chess_separator blocks up to strength 2in foldable loops
+removing chess_separator blocks up to strength 2(all)
+
+jump threading ...
+adding manifest flow nodes ...
+
+Constructing flow graphs ...
+Scheduling basic blocks ...
+scheduling macro #36     	-> # cycles: 6 
+scheduling macro #646     	-> # cycles: 8 
+scheduling macro #631     	-> # cycles: 14 
+scheduling macro #689     	-> # cycles: 8 
+scheduling macro #43     	-> # cycles: 1 
+scheduling macro #691     	-> # cycles: 5 
+scheduling macro #259     	-> # cycles: 15 
+scheduling macro #428     	-> # cycles: 7 
+scheduling macro #47     	-> # cycles: 18 
+
+Total number of cycles = 82
+
+Checking data/anti-dependencies beyond basic block boundaries
+Checking resource conflicts beyond basic block boundaries
+Checking pipeline hazards ...
+Filling in loop counts in instruction enabling ...
+Re-filling in 'a', 'r' values in instruction enabling ...
+Adjusting target addresses ...
+Filling in target addresses in instruction enabling ...
+Writing micro-code to ``24_0-F_main_.mic'' ...
+
+mist2 user time   =    0.46 s  /     0.46 s 	24_0-F_main_
+mist2 system time =    0.00 s  /     0.00 s 	24_0-F_main_
+mist2 real time   =    0.60 s  /     0.60 s 	24_0-F_main_
+
+--tale -v -g -D__AIENGINE__ -D__AIEARCH__=10 -DDEPLOYMENT_ELF=1 -DAIE_OPTION_SCALAR_FLOAT_ON_VECTOR -D__tct_tgt__=220608 -V24_0 -L --common 24_0-F_main_ me /home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib +H/home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/elongation -x
+Release: ASIP Programmer  R-2021.03-TGT-220608 
+Tool: tale version R-2021.03#6beb14dd34#220609
+Copyright 2014-2021 Synopsys, Inc.
+This Synopsys software and all associated documentation are proprietary to
+Synopsys, Inc. and may only be used pursuant to the terms and conditions of a
+written license agreement with Synopsys, Inc. All other use, reproduction,
+modification, or distribution of the Synopsys software or the associated
+documentation is strictly prohibited.
+
+Reading elongation rules from: /home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/elongation
+Reading relocators from: /home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib//isg/me.rlo with command tct_gcpp3 -nostdinc -nostdinc++ -lang-asm  -D'__AIENGINE__' -D'__AIEARCH__=10' -D'DEPLOYMENT_ELF=1' -D'AIE_OPTION_SCALAR_FLOAT_ON_VECTOR' -D'__tct_tgt__=220608' -I'/home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/' -I'/home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib//isg/'
+Reading DSFG from: 24_0.gvt
+Reading Dwarf register-list from file '/home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/isg/me_regs.txt' ...
+Reading Dwarf register ID's from file '/home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/isg/me_regid.txt' ...
+
+Dumping object file '24_0-F_main_.o' in ELF format with DWARF debug information (1)
+
+tale user time   =    0.01 s  /     0.01 s 	24_0-F_main_
+tale system time =    0.00 s  /     0.00 s 	24_0-F_main_
+tale real time   =    0.06 s  /     0.02 s 	24_0-F_main_
+
+bridge -v -I/home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib -I/home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/isg -i -g -I/home/xilinx/software/Vitis/2022.2/aietools/include -I../../scripts/../common -I/home/users/eleonora.cabai/Documents/K-Means-AIE/aie/. -I/home/users/eleonora.cabai/Documents/K-Means-AIE/aie/./src -I/home/users/eleonora.cabai/Documents/K-Means-AIE/aie/../common -I/home/users/eleonora.cabai/Documents/K-Means-AIE/aie/src -I../../scripts/src -I/home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/runtime_cxx/libcxx-lite/include -I/home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/runtime_cxx/libs/libcxx-9.0.0/include-lite -I/home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/runtime/include -D__AIENGINE__ -D__AIEARCH__=10 -DDEPLOYMENT_ELF=1 -DAIE_OPTION_SCALAR_FLOAT_ON_VECTOR -D__tct_tgt__=220608 24_0.objlist -o../24_0.o -pme
+Release: ASIP Programmer  R-2021.03-TGT-220608 
+Tool: bridge version R-2021.03#6beb14dd34#220609
+Copyright 2014-2021 Synopsys, Inc.
+This Synopsys software and all associated documentation are proprietary to
+Synopsys, Inc. and may only be used pursuant to the terms and conditions of a
+written license agreement with Synopsys, Inc. All other use, reproduction,
+modification, or distribution of the Synopsys software or the associated
+documentation is strictly prohibited.
+
+Reading enablings from: /home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/isg/me_das.ena
+Reading LIB/ISG from: /home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/isg/me_das.isb
+Reading LIB/ISG from: /home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/isg/me_chess_types.lib
+Reading relocator definitions in file '/home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/isg/me.rlo'...
+Creating link-memory
+Reading '24_0.objlist' ...
+    Adding '24_0-F_Z15kmeans_functionP12input_streamIiEP13output_streamIiE_.o' with source reference offset 0
+    Adding '24_0-F_main_.o' with source reference offset 0
+    Adding '24_0-F_Z18euclidean_distanceP7Clusteri5Point_.o' with source reference offset 0
+    Adding '24_0-F_Z19assignment_functionN3aie6detail6vectorIiLj8EEE5PointP7Clusteri_.o' with source reference offset 0
+    Adding '24_0.gvt.o' with source reference offset 0
+Reading objectfile '24_0-F_Z15kmeans_functionP12input_streamIiEP13output_streamIiE_.o' with Dwarf info...
+Reading objectfile '24_0-F_main_.o' with Dwarf info...
+Reading objectfile '24_0-F_Z18euclidean_distanceP7Clusteri5Point_.o' with Dwarf info...
+Reading objectfile '24_0-F_Z19assignment_functionN3aie6detail6vectorIiLj8EEE5PointP7Clusteri_.o' with Dwarf info...
+Reading objectfile '24_0.gvt.o' with Dwarf info...
+Library search path: .
+Library search path: 
+Loading aliases information from file '24_0.aliases'
+Creating object file '../24_0.o'...
+    Adding '24_0.gvt.o'...
+    Adding '24_0-F_Z15kmeans_functionP12input_streamIiEP13output_streamIiE_.o'...
+    Adding '24_0-F_main_.o'...
+    Adding '24_0-F_Z18euclidean_distanceP7Clusteri5Point_.o'...
+    Adding '24_0-F_Z19assignment_functionN3aie6detail6vectorIiLj8EEE5PointP7Clusteri_.o'...
+Writing object file '../24_0.o' (1) ...
+
+bridge user time   =    0.32 s  /     0.07 s 	../24_0.o
+bridge system time =    0.08 s  /     0.01 s 	../24_0.o
+bridge real time   =    0.63 s  /     0.12 s 	../24_0.o
+
+darts -v -I/home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib -d -h -I/home/xilinx/software/Vitis/2022.2/aietools/include -I../common -I/home/users/eleonora.cabai/Documents/K-Means-AIE/aie/. -I/home/users/eleonora.cabai/Documents/K-Means-AIE/aie/./src -I/home/users/eleonora.cabai/Documents/K-Means-AIE/aie/../common -I/home/users/eleonora.cabai/Documents/K-Means-AIE/aie/src -Isrc -I/home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/runtime_cxx/libcxx-lite/include -I/home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/runtime_cxx/libs/libcxx-9.0.0/include-lite -I/home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/runtime/include -D__AIENGINE__ -D__AIEARCH__=10 -DDEPLOYMENT_ELF=1 -DAIE_OPTION_SCALAR_FLOAT_ON_VECTOR -D__tct_tgt__=220608 -L +Ihex +nanno ../Release/24_0.o me
+Release: ASIP Programmer  R-2021.03-TGT-220608 
+Tool: darts version R-2021.03#6beb14dd34#220609
+Copyright 2014-2021 Synopsys, Inc.
+This Synopsys software and all associated documentation are proprietary to
+Synopsys, Inc. and may only be used pursuant to the terms and conditions of a
+written license agreement with Synopsys, Inc. All other use, reproduction,
+modification, or distribution of the Synopsys software or the associated
+documentation is strictly prohibited.
+
+Include paths: /home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib:/home/xilinx/software/Vitis/2022.2/aietools/include:../common:/home/users/eleonora.cabai/Documents/K-Means-AIE/aie:/home/users/eleonora.cabai/Documents/K-Means-AIE/aie/src:/home/users/eleonora.cabai/Documents/K-Means-AIE/common:/home/users/eleonora.cabai/Documents/K-Means-AIE/aie/src:src:/home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/runtime_cxx/libcxx-lite/include:/home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/runtime_cxx/libs/libcxx-9.0.0/include-lite:/home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/runtime/include:.:/home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/isg
+Reading enablings from: /home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/isg/me_das.ena
+Reading binary LIB/ISG from: /home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/isg/me_das.isb
+Parsing binary ISG
+Parsing binary NML
+Building ISG done.
+Reading chess types from: /home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/isg/me_chess_types.lib
+Reading LIB/ISG from: /home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/isg/me_chess_types.lib
+Loading chess_types.lib file done.
+Reading relocators from: /home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/isg/me.rlo
+
+Disassembling code of ``../Release/24_0.o''
+Writing results to ``../Release/24_0.o.lst''
+
+darts user time   =    1.37 s  /     0.93 s 	../Release/24_0.o
+darts system time =    0.06 s  /     0.01 s 	../Release/24_0.o
+darts real time   =    1.82 s  /     1.17 s 	../Release/24_0.o
+
+Linking "../Release/24_0"
+bridge -o../Release/24_0 ../Release/24_0.o -v -I/home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib -I/home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/isg -g -I/home/xilinx/software/Vitis/2022.2/aietools/include -I../common -I/home/users/eleonora.cabai/Documents/K-Means-AIE/aie/. -I/home/users/eleonora.cabai/Documents/K-Means-AIE/aie/./src -I/home/users/eleonora.cabai/Documents/K-Means-AIE/aie/../common -I/home/users/eleonora.cabai/Documents/K-Means-AIE/aie/src -Isrc -I/home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/runtime_cxx/libcxx-lite/include -I/home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/runtime_cxx/libs/libcxx-9.0.0/include-lite -I/home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/runtime/include -D__AIENGINE__ -D__AIEARCH__=10 -DDEPLOYMENT_ELF=1 -DAIE_OPTION_SCALAR_FLOAT_ON_VECTOR -D__tct_tgt__=220608 -c24_0.bcf -L/home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/Release -L/home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/runtime/lib/Release -L/home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/softfloat/lib/Release -L/home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/runtime_cxx/libcxx-lite/lib/Release_LLVM -lme -lc -lm -lc++lite -lsoftfloat -S -export-locals -yMSMEM,SSMEM,SSMEM_tlast,WSSMEM_tlast,SSMEM_nb_sc,MSMEM_nb_sc -iconfig extra_memories.bcf -m -fC -fS -fH +m -T +work ../Release/chesswork -pme
+Release: ASIP Programmer  R-2021.03-TGT-220608 
+Tool: bridge version R-2021.03#6beb14dd34#220609
+Copyright 2014-2021 Synopsys, Inc.
+This Synopsys software and all associated documentation are proprietary to
+Synopsys, Inc. and may only be used pursuant to the terms and conditions of a
+written license agreement with Synopsys, Inc. All other use, reproduction,
+modification, or distribution of the Synopsys software or the associated
+documentation is strictly prohibited.
+
+Reading enablings from: /home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/isg/me_das.ena
+Reading LIB/ISG from: /home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/isg/me_das.isb
+Reading LIB/ISG from: /home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/isg/me_chess_types.lib
+Reading configuration in file '24_0.bcf'...
+Reading relocator definitions in file '/home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/isg/me.rlo'...
+Creating link-memory
+Reading objectfile '../Release/24_0.o' with Dwarf info...
+Library search path: .
+Library search path: /home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/Release:/home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/runtime/lib/Release:/home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/softfloat/lib/Release:/home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/runtime_cxx/libcxx-lite/lib/Release_LLVM
+Reading archive '/home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/Release/libme.a'...
+Reading archive '/home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/runtime/lib/Release/libc.a'...
+Reading archive '/home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/runtime/lib/Release/libm.a'...
+Reading archive '/home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/runtime_cxx/libcxx-lite/lib/Release_LLVM/libc++lite.a'...
+Reading archive '/home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/softfloat/lib/Release/libsoftfloat.a'...
+Collecting symbols from object files...
+Collecting absolute symbols...
+Collecting stack range symbols...
+Mapping _after chains...
+Mapping after chain ...
+    '_main_init' (258) at address 0x0
+    '_main' (312) at address 0x110
+Mapping and reserving symbols with fixed addresses...
+    '_ZL11sync_buffer' (32) at address 0x38000
+    '_ZN12me_primitive3ss0E' (1, WSS_rsrc1) at address 0x0
+    '_ZN12me_primitive3ss1E' (1, WSS_rsrc2) at address 0x1
+    '_ZN12me_primitive4sst0E' (1, SSMEM_tlast) at address 0x0
+    '_ZN12me_primitive4sst1E' (1, SSMEM_tlast) at address 0x1
+    '_ZN12me_primitive4ssc0E' (1, SSMEM_nb_sc) at address 0x0
+    '_ZN12me_primitive4ssc1E' (1, SSMEM_nb_sc) at address 0x1
+    '_ZN12me_primitive5wsst0E' (1, WSSMEM_tlast) at address 0x0
+    '_ZN12me_primitive5wsst1E' (1, WSSMEM_tlast) at address 0x1
+    '_ZN12me_primitive3ms0E' (1, WMS_rsrc1) at address 0x0
+    '_ZN12me_primitive3ms1E' (1, WMS_rsrc2) at address 0x1
+    '_ZN12me_primitive4msc0E' (1, MSMEM_nb_sc) at address 0x0
+    '_ZN12me_primitive4msc1E' (1, MSMEM_nb_sc) at address 0x1
+Mapping _after chains...
+Mapping and reserving overlays...
+Overlaying pseudo-static stack-frame sections...
+Mapping defined and space (bss) symbols...
+Mapping read-only symbols...
+Creating call-tree...
+Mapping constructor and destructor sections...
+Looking for duplicate symbols...
+Creating call-tree...
+Reserving text, data and space symbols found in 0 _mapping statements ...
+Mapping and reserving global memory...
+Reserving 35 text and data symbol(s) and 1 space symbol(s)...
+    '_Z15kmeans_functionP12input_streamIiEP13output_streamIiE' (4868, PM)
+    '_Z18euclidean_distanceP7Clusteri5Point' (skipped)
+    '_Z19assignment_functionN3aie6detail6vectorIiLj8EEE5PointP7Clusteri' (skipped)
+    '_ZN12me_primitive10div_calledEjjRj' (skipped)
+    '_ZN12me_primitive10div_calledEiiRi' (skipped)
+    '_ZN12me_primitive10udiv_dstepEjjRjS0_' (142, PM)
+    'ZERO' (32, DMb)
+    'ONES' (skipped)
+    '_fini' (190, PM)
+    '_ZZ6strtokPcPKcE4last' (skipped)
+    '_ZL13__str0001003f' (skipped)
+    'memcpy' (skipped)
+    'memmove' (skipped)
+    'strcpy' (skipped)
+    'strncpy' (skipped)
+    'strcat' (skipped)
+    'strncat' (skipped)
+    'memcmp' (skipped)
+    'strcmp' (skipped)
+    'strncmp' (skipped)
+    'strxfrm' (skipped)
+    'memchr' (skipped)
+    'strchr' (skipped)
+    'strcspn' (skipped)
+    'strpbrk' (skipped)
+    'strrchr' (skipped)
+    'strspn' (skipped)
+    'strstr' (skipped)
+    'strtok' (skipped)
+    'memset' (172, PM)
+    'strerror' (skipped)
+    'strlen' (skipped)
+    '_ZL7atexits' (32, DM_bankA)
+    '_ZL10atexit_cnt' (4, DM_bankA)
+    '__cxa_atexit' (skipped)
+    '__cxa_finalize' (148, PM)
+Applying relocators found in objectfiles...
+    '../Release/24_0.o' (3743)
+    '../Release/chesswork/.ear.work.1NAFKUN' (137)
+    '../Release/chesswork/.ear.work.2VzoykQ' (6)
+    '../Release/chesswork/.ear.work.3QBjBVP' (26)
+    '../Release/chesswork/.ear.work.4evxS9O' (89)
+    '../Release/chesswork/.ear.work.3j8euKN' (1097)
+    '../Release/chesswork/.ear.work.9LNF6aM' (86)
+Creating physical data...
+Creating executable file '../Release/24_0'...
+Skipping memory 'MSMEM'
+Skipping memory 'MSMEM_nb_sc'
+Skipping memory 'SSMEM'
+Skipping memory 'SSMEM_nb_sc'
+Skipping memory 'SSMEM_tlast'
+Skipping memory 'WSSMEM_tlast'
+Creating memory-map
+
+bridge user time   =    2.24 s  /     0.37 s 	../Release/24_0
+bridge system time =    0.45 s  /     0.01 s 	../Release/24_0
+bridge real time   =    3.59 s  /     0.55 s 	../Release/24_0
+
+darts -v -I/home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib -d -h -I/home/xilinx/software/Vitis/2022.2/aietools/include -I../common -I/home/users/eleonora.cabai/Documents/K-Means-AIE/aie/. -I/home/users/eleonora.cabai/Documents/K-Means-AIE/aie/./src -I/home/users/eleonora.cabai/Documents/K-Means-AIE/aie/../common -I/home/users/eleonora.cabai/Documents/K-Means-AIE/aie/src -Isrc -I/home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/runtime_cxx/libcxx-lite/include -I/home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/runtime_cxx/libs/libcxx-9.0.0/include-lite -I/home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/runtime/include -D__AIENGINE__ -D__AIEARCH__=10 -DDEPLOYMENT_ELF=1 -DAIE_OPTION_SCALAR_FLOAT_ON_VECTOR -D__tct_tgt__=220608 -L +Ihex +nanno +u ../Release/24_0 me
+Release: ASIP Programmer  R-2021.03-TGT-220608 
+Tool: darts version R-2021.03#6beb14dd34#220609
+Copyright 2014-2021 Synopsys, Inc.
+This Synopsys software and all associated documentation are proprietary to
+Synopsys, Inc. and may only be used pursuant to the terms and conditions of a
+written license agreement with Synopsys, Inc. All other use, reproduction,
+modification, or distribution of the Synopsys software or the associated
+documentation is strictly prohibited.
+
+Include paths: /home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib:/home/xilinx/software/Vitis/2022.2/aietools/include:../common:/home/users/eleonora.cabai/Documents/K-Means-AIE/aie:/home/users/eleonora.cabai/Documents/K-Means-AIE/aie/src:/home/users/eleonora.cabai/Documents/K-Means-AIE/common:/home/users/eleonora.cabai/Documents/K-Means-AIE/aie/src:src:/home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/runtime_cxx/libcxx-lite/include:/home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/runtime_cxx/libs/libcxx-9.0.0/include-lite:/home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/runtime/include:.:/home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/isg
+Reading enablings from: /home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/isg/me_das.ena
+Reading binary LIB/ISG from: /home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/isg/me_das.isb
+Parsing binary ISG
+Parsing binary NML
+Building ISG done.
+Reading chess types from: /home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/isg/me_chess_types.lib
+Reading LIB/ISG from: /home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/isg/me_chess_types.lib
+Loading chess_types.lib file done.
+Reading relocators from: /home/xilinx/software/Vitis/2022.2/aietools/data/versal_prod/lib/isg/me.rlo
+
+Disassembling code of ``../Release/24_0''
+Writing results to ``../Release/24_0.lst''
+Writing results to ``../Release/24_0.srv''
+
+darts user time   =    1.29 s  /     0.86 s 	../Release/24_0
+darts system time =    0.06 s  /     0.01 s 	../Release/24_0
+darts real time   =    1.74 s  /     1.14 s 	../Release/24_0
+
+Compilation finished successfully (0 errors, 14 warnings) (150.75 s)
+/home/xilinx/software/Vitis/2022.2/aietools/bin/unwrapped/lnx64.o/coreverify -obj 24_0 -s 4096 -pm 16384

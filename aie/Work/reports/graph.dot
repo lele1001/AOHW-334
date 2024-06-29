@@ -1,0 +1,8 @@
+digraph root {
+"PT0:i0[0.90]" [style=filled, fillcolor=aquamarine];
+"i1" [shape=box style=filled, fillcolor=lightgrey];
+"i2" [shape=box style=filled, fillcolor=lightgrey];
+"ps_i3[0.00]";
+"i1" -> "PT0:i0[0.90]" [label="stream"];
+"PT0:i0[0.90]" -> "i2" [label="stream"];
+}

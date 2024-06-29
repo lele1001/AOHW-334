@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="setup_aie_hw" dir="">
+  <FileSets>
+    <FileSet Name="kernel_setup_aie" Type="DesignSrcs">
+      <File Path="/home/users/eleonora.cabai/Documents/K-Means-AIE/data_movers/setup_aie.cpp"/>
+      <Config/>
+    </FileSet>
+  </FileSets>
+  <Runs/>
+</project>
