@@ -24,7 +24,7 @@ int main(int argc, char* argv[])
     hls::stream<ap_int<sizeof(int32_t) * 8 * 4> s;
     std::srand(time(nullptr));
 
-    // size := points coordinates (x,y) + clusters coordinates (x,y)
+    // size := clusters coordinates (x,y) + points coordinates (x,y)
     int32_t size = NUM_CLUSTERS * 2 + NUM_POINTS * 2;
     int32_t *input = new int32_t[size];
     int32_t i, j, random;
