@@ -104,21 +104,23 @@ void kmeans_function(input_stream<int32_t> *restrict input, output_stream<int32_
             // Assign the point to the closest cluster and update the cluster coordinates
             cluster_index = assignment_function(distances, num_clusters);
             clusters[cluster_index].addPoint(points[j]);
-            
+
             // std::cout << "Cluster " << cluster_index << " coordinates are (" << clusters[cluster_index].getX() << ", " << clusters[cluster_index].getY() << ")" << std::endl;
             j++;
         }
     }
 
-    aie::vector<int32_t, 16> result = aie::zeros<int32_t, 16>();
+    aie::vector<int32_t, 4> result = aie::zeros<int32_t, 4>();
 
-    for (i = 0; i < num_clusters; i++)
+    for (i = 0; i < num_clusters / 2; i += 2)
     {
-        result[i * 2] = clusters[i].getX();
-        result[i * 2 + 1] = clusters[i].getY();
-    }
+        result[i] = clusters[i].x;
+        result[i + 1] = clusters[i].y;
+        result[i + 2] = clusters[i + 1].x;
+        result[i + 3] = clusters[i + 1].y;
 
-    writeincr(output, result);
+        writeincr(output, result);
+    }    
 }
 
 // Compute the euclidean distance between a point and all the clusters
@@ -133,18 +135,18 @@ aie::vector<int32_t, 8> euclidean_distance(Cluster *clusters, int32_t num_cluste
 
     for (i = 0; i < num_clusters; i++)
     {
-        clusters_coords[i] = clusters[i].getX();
+        clusters_coords[i] = clusters[i].x;
     }
 
-    diff = aie::sub(clusters_coords, point.getX());
+    diff = aie::sub(clusters_coords, point.x);
     dist_x = aie::mul(diff, diff);
 
     for (i = 0; i < num_clusters; i++)
     {
-        clusters_coords[i] = clusters[i].getY();
+        clusters_coords[i] = clusters[i].y;
     }
 
-    diff = aie::sub(clusters_coords, point.getY());
+    diff = aie::sub(clusters_coords, point.y);
     dist_y = aie::mul(diff, diff);
 
     aie::vector<int32_t, 8> distances = aie::add(dist_x.to_vector<int32_t>(), dist_y.to_vector<int32_t>());
