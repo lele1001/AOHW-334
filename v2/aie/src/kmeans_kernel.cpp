@@ -75,11 +75,11 @@ void kmeans_function(input_stream<int32_t> *restrict input, output_stream<int32_
     int32_t i = 0, j = 0, k = 0;
 
     // Read the coordinates of the clusters
-    for (i = 0; i < num_clusters; i++)
+    for (i = 0; i < num_clusters; i += 2)
     {
         val_in = readincr_v<4>(input);
-        clusters[i * 2] = Cluster(val_in[0], val_in[1]);
-        clusters[i * 2 + 1] = Cluster(val_in[2], val_in[3]);
+        clusters[i] = Cluster(val_in[0], val_in[1]);
+        clusters[i + 1] = Cluster(val_in[2], val_in[3]);
     }
 
     aie::vector<int32_t, 8> distances = aie::zeros<int32_t, 8>();
@@ -109,7 +109,7 @@ void kmeans_function(input_stream<int32_t> *restrict input, output_stream<int32_
     aie::vector<int32_t, 16> result = aie::zeros<int32_t, 16>();
 
     // Write the coordinates of the clusters in the output stream
-    for (i = 0; i < num_clusters; i ++)
+    for (i = 0; i < num_clusters; i++)
     {
         result[i * 2] = clusters[i].x;
         result[i * 2 + 1] = clusters[i].y;
