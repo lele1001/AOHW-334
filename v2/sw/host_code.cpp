@@ -36,6 +36,12 @@ struct Point
         this->x = x;
         this->y = y;
     }
+
+    Point()
+    {
+        this->x = 0;
+        this->y = 0;
+    }
 };
 
 struct Cluster
@@ -43,16 +49,12 @@ struct Cluster
     int32_t x;
     int32_t y;
     int32_t numPoints;
-    int32_t x_accum;
-    int32_t y_accum;
 
     Cluster(int32_t x, int32_t y)
     {
         this->x = x;
         this->y = y;
         this->numPoints = 1;
-        this->x_accum = x;
-        this->y_accum = y;
     }
 
     Cluster()
@@ -60,21 +62,17 @@ struct Cluster
         this->x = 0;
         this->y = 0;
         this->numPoints = 0;
-        this->x_accum = 0;
-        this->y_accum = 0;
     }
 
     void addPoint(Point point)
     {
-        this->x_accum += point.x;
-        this->y_accum += point.y;
-        this->numPoints++;
-    }
+        int32_t x_accum = this->x * this->numPoints + point.x;
+        int32_t y_accum = this->y * this->numPoints + point.y;
 
-    void updateCoordinates()
-    {
-        this->x = (int32_t)this->x_accum / this->numPoints;
-        this->y = (int32_t)this->y_accum / this->numPoints;
+        this->numPoints++;
+
+        this->x = x_accum / this->numPoints;
+        this->y = y_accum / this->numPoints;
     }
 };
 
@@ -184,7 +182,6 @@ void k_means(int32_t input[], int32_t num_clusters, int32_t num_points, int32_t 
 
         // Update the cluster coordinates
         clusters[cluster_index].addPoint(point);
-        clusters[cluster_index].updateCoordinates();
         
         idx += 2;
     }
