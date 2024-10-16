@@ -10,7 +10,7 @@
 #define MAX_CLUSTERS 8
 
 aie::vector<int32_t, 8> euclidean_distance(Cluster *clusters, int32_t num_clusters, Point point);
-int32_t assignment_function(aie::vector<int32_t, 8> distances, Point point, Cluster *clusters, int32_t num_clusters);
+int32_t assignment_function(aie::vector<int32_t, 8> distances, int32_t num_clusters);
 
 void kmeans_function(input_stream<int32_t> *restrict input, output_stream<int32_t> *restrict output)
 {
@@ -117,7 +117,7 @@ aie::vector<int32_t, 8> euclidean_distance(Cluster *clusters, int32_t num_cluste
         clusters_coords[i] = clusters[i].getX();
     }
 
-    diff = aie::sub(clusters_coords, point.x);
+    diff = aie::sub(clusters_coords, point.getX());
     dist_x = aie::mul(diff, diff);
 
     for (i = 0; i < num_clusters; i++)
@@ -125,7 +125,7 @@ aie::vector<int32_t, 8> euclidean_distance(Cluster *clusters, int32_t num_cluste
         clusters_coords[i] = clusters[i].getY();
     }
 
-    diff = aie::sub(clusters_coords, point.y);
+    diff = aie::sub(clusters_coords, point.getY());
     dist_y = aie::mul(diff, diff);
 
     aie::vector<int32_t, 8> distances = aie::add(dist_x.to_vector<int32_t>(), dist_y.to_vector<int32_t>());

@@ -28,10 +28,10 @@
 
 struct Point
 {
-    int32_t x;
-    int32_t y;
+    float x;
+    float y;
 
-    Point(int32_t x, int32_t y)
+    Point(float x, float y)
     {
         this->x = x;
         this->y = y;
@@ -40,13 +40,13 @@ struct Point
 
 struct Cluster
 {
-    int32_t x;
-    int32_t y;
+    float x;
+    float y;
     int32_t numPoints;
-    int32_t x_accum;
-    int32_t y_accum;
+    float x_accum;
+    float y_accum;
 
-    Cluster(int32_t x, int32_t y)
+    Cluster(float x, float y)
     {
         this->x = x;
         this->y = y;
@@ -69,12 +69,10 @@ struct Cluster
         this->x_accum += point.x;
         this->y_accum += point.y;
         this->numPoints++;
-    }
 
-    void updateCoordinates()
-    {
-        this->x = (int32_t)this->x_accum / this->numPoints;
-        this->y = (int32_t)this->y_accum / this->numPoints;
+        // Update the coordinates of the cluster
+        this->x = this->x_accum / this->numPoints;
+        this->y = this->y_accum / this->numPoints;
     }
 };
 
@@ -83,7 +81,7 @@ std::ostream &bold_on(std::ostream &os);
 std::ostream &bold_off(std::ostream &os);
 
 // Print the output
-void printOutput(int32_t *output, int32_t num_clusters)
+void printOutput(float *output, int32_t num_clusters)
 {
     int32_t i = 0;
 
@@ -123,7 +121,7 @@ void printCluster(Cluster *output, int32_t num_clusters)
 }
 
 // Check the results
-int32_t checkResult(int32_t *sw_output, int32_t *output, int32_t num_clusters)
+int32_t checkResult(float *sw_output, float *output, int32_t num_clusters)
 {
     for (int i = 0; i < num_clusters * 2; i++)
     {
@@ -138,12 +136,12 @@ int32_t checkResult(int32_t *sw_output, int32_t *output, int32_t num_clusters)
     return EXIT_SUCCESS;
 }
 
-void k_means(int32_t input[], int32_t num_clusters, int32_t num_points, int32_t result[])
+void k_means(float input[], int32_t num_clusters, int32_t num_points, float result[])
 {
     Cluster clusters[num_clusters];
     int32_t i = 0, j = 0, c_idx = 0;
-    int32_t x_diff = 0, y_diff = 0;
-    int32_t min_distance = 0;
+    float x_diff = 0, y_diff = 0;
+    float min_distance = 0;
     int32_t idx = num_clusters * 2;
 
     // Read the coordinates of the clusters
@@ -152,29 +150,26 @@ void k_means(int32_t input[], int32_t num_clusters, int32_t num_points, int32_t 
         clusters[i] = Cluster(input[i * 2], input[i * 2 + 1]);
     }
 
-    int32_t distances[num_clusters];
+    float distances[num_clusters];
     int32_t cluster_index;
 
     // K-Means algorithm
-    for (i = 0; i < num_points; i++)
+    for (int32_t idx = num_clusters * 2; idx < num_points + num_clusters; idx += 2)
     {
         Point point = Point(input[idx], input[idx + 1]);
         distances[num_clusters] = {0};
 
         // Calculate the distance between the point and each cluster
+        // Assign the point to the nearest cluster
+        cluster_index = -1;
+        min_distance = __FLT_MAX__;
+
         for (j = 0; j < num_clusters; j++)
         {
             x_diff = clusters[j].x - point.x;
             y_diff = clusters[j].y - point.y;
             distances[j] = x_diff * x_diff + y_diff * y_diff;
-        }
 
-        // Assign the point to the nearest cluster
-        cluster_index = -1;
-        min_distance = INT32_MAX;
-
-        for (j = 0; j < num_clusters; j++)
-        {
             if (distances[j] < min_distance)
             {
                 min_distance = distances[j];
@@ -184,9 +179,6 @@ void k_means(int32_t input[], int32_t num_clusters, int32_t num_points, int32_t 
 
         // Update the cluster coordinates
         clusters[cluster_index].addPoint(point);
-        clusters[cluster_index].updateCoordinates();
-        
-        idx += 2;
     }
 
     for (i = 0; i < num_clusters; i++)
@@ -231,18 +223,19 @@ int main(int argc, char *argv[])
     int32_t input_size = num_clusters * 2 + num_points * 2;
     int32_t output_size = num_clusters * 2;
 
-    int32_t input_buffer[input_size] = {0};
-    int32_t output_buffer[output_size] = {0};
-    int32_t sw_result[output_size] = {0};
+    float input_buffer[input_size] = {0};
+    float output_buffer[output_size] = {0};
+    float sw_result[output_size] = {0};
 
     std::srand(time(nullptr));
 
-    int32_t i = 0, j = 0, random_num = 0;
+    int32_t i = 0, j = 0;
+    float random_num = 0;
 
     // Generate random coordinates for points and clusters
     for (i = 0; i < input_size; i++)
     {
-        random_num = std::rand() % 20 - 10;
+        random_num = rand() / (float) RAND_MAX * 10;
         input_buffer[i] = random_num;
 
         if (i % 2 == 0)
@@ -309,8 +302,8 @@ int main(int argc, char *argv[])
 
     auto hw_start = std::chrono::high_resolution_clock::now();
     // run the kernel
-    // for (i = 0; i < 25; i++)
-    // {
+    for (i = 0; i < 25; i++)
+    {
         // std::cout << "Iteration " << i << std::endl;
         run_sink_from_aie.start();
         run_setup_aie.start();
@@ -318,7 +311,7 @@ int main(int argc, char *argv[])
         // wait for the kernel to finish
         run_setup_aie.wait();
         run_sink_from_aie.wait();
-    // }
+    }
 
     auto hw_end = std::chrono::high_resolution_clock::now();
     auto hw_exec = hw_end - hw_start;
@@ -336,10 +329,10 @@ int main(int argc, char *argv[])
 
     auto sw_start = std::chrono::high_resolution_clock::now();
     // run the kernel
-    // for (i = 0; i < 25; i++)
-    // {
+    for (i = 0; i < 25; i++)
+    {
         k_means(input_buffer, num_clusters, num_points, sw_result);
-    // }
+    }
 
     auto sw_end = std::chrono::high_resolution_clock::now();
     auto sw_exec = sw_end - sw_start;

@@ -2,6 +2,7 @@
 #define KMEANS_CLUSTER_H
 
 #define verbose 1
+#include "point.h"
 
 class Cluster {
     public:
@@ -22,12 +23,12 @@ class Cluster {
         }
 
         void addPoint(Point point) {
-            this->x_accum += point.x;
-            this->y_accum += point.y;
+            this->x_accum += point.getX();
+            this->y_accum += point.getY();
             this->numPoints++;
 
             if constexpr (verbose)
-                printf("Point (%d,%d) added to cluster\n", point.x, point.y);
+                printf("Point (%d,%d) added to cluster\n", point.getX(), point.getY());
         }
 
         int32_t getX()
@@ -54,13 +55,4 @@ class Cluster {
         // points coordinates sum
         int32_t x_accum, y_accum;
 };
-
-struct Point
-{
-    int32_t x, y;
-
-    // Constructor
-    Point(int32_t x_coord, int32_t y_coord) : x(x_coord), y(y_coord) {}
-};
-
 #endif
