@@ -75,14 +75,11 @@ void kmeans_function(input_stream<int32_t> *restrict input, output_stream<int32_
     int32_t i = 0, j = 0, k = 0;
 
     // Read the coordinates of the clusters
-    for (i = 0; i < num_clusters; i += 2)
+    for (i = 0; i < num_clusters; i++)
     {
         val_in = readincr_v<4>(input);
-        clusters[i] = Cluster(val_in[0], val_in[1]);
-        clusters[i + 1] = Cluster(val_in[2], val_in[3]);
-        
-        // std::cout << "Cluster " << i << " coordinates are (" << clusters[i].getX() << ", " << clusters[i].getY() << ")" << std::endl;
-        // std::cout << "Cluster " << i + 1 << " coordinates are (" << clusters[i + 1].getX() << ", " << clusters[i + 1].getY() << ")" << std::endl;
+        clusters[i * 2] = Cluster(val_in[0], val_in[1]);
+        clusters[i * 2 + 1] = Cluster(val_in[2], val_in[3]);
     }
 
     aie::vector<int32_t, 8> distances = aie::zeros<int32_t, 8>();
@@ -105,7 +102,6 @@ void kmeans_function(input_stream<int32_t> *restrict input, output_stream<int32_
             cluster_index = assignment_function(distances, num_clusters);
             clusters[cluster_index].addPoint(points[j]);
 
-            // std::cout << "Cluster " << cluster_index << " coordinates are (" << clusters[cluster_index].getX() << ", " << clusters[cluster_index].getY() << ")" << std::endl;
             j++;
         }
     }
@@ -115,8 +111,8 @@ void kmeans_function(input_stream<int32_t> *restrict input, output_stream<int32_
     // Write the coordinates of the clusters in the output stream
     for (i = 0; i < num_clusters; i ++)
     {
-        result[i] = clusters[i].x;
-        result[i + 1] = clusters[i].y;
+        result[i * 2] = clusters[i].x;
+        result[i * 2 + 1] = clusters[i].y;
     }
     
     writeincr(output, result);
@@ -164,7 +160,6 @@ int32_t assignment_function(aie::vector<int32_t, 8> distances, int32_t num_clust
     }
 
     int32_t min_dist = aie::reduce_min(distances);
-    // std::cout << "Min distance: " << min_dist << std::endl;
 
     for (i = 0; i < num_clusters; i++)
     {

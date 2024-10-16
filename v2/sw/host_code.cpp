@@ -80,71 +80,48 @@ bool get_xclbin_path(std::string &xclbin_file);
 std::ostream &bold_on(std::ostream &os);
 std::ostream &bold_off(std::ostream &os);
 
-// Print the output
-void printOutput(int32_t *output, int32_t num_clusters)
+// Print the output of the hardware
+void printOutput(const std::vector<int32_t> &output)
 {
-    int32_t i = 0;
-
-    for (i = 0; i < num_clusters * 2; i++)
+    for (size_t i = 0; i < output.size(); i += 2)
     {
-        if (i % 2 == 0)
-        {
-            std::cout << "Cluster (" << output[i] << ", ";
-        }
-        else
-        {
-            std::cout << output[i] << ") ";
-        }
+        std::cout << "Cluster (" << output[i] << ", " << output[i + 1] << ") ";
     }
 
     std::cout << std::endl;
 }
 
-// Print the output
-void printCluster(Cluster *output, int32_t num_clusters)
+// Print the output of the software
+void printCluster(const std::vector<Cluster> &output)
 {
-    int32_t i = 0;
-
-    for (i = 0; i < num_clusters * 2; i++)
+    for (size_t i = 0; i < output.size(); i++)
     {
-        if (i % 2 == 0)
-        {
-            std::cout << "Cluster (" << output[i].x << ", ";
-        }
-        else
-        {
-            std::cout << output[i].y << ") ";
-        }
+        std::cout << "Cluster (" << output[i].x << ", " << output[i].y << ") ";
     }
 
     std::cout << std::endl;
 }
 
 // Check the results
-int32_t checkResult(Cluster *sw_output, int32_t *hw_output, int32_t num_clusters)
+int32_t checkResult(const std::vector<Cluster> &sw_output, const std::vector<int32_t> &hw_output, int32_t num_clusters)
 {
-    int32_t i = 0, j = 0;
-    bool matched[num_clusters] = {false};
+    std::vector<bool> matched(num_clusters, false);
 
-    // The hw takes 2 cluster at a time and prints them. We need to match them with the sw output
-    for (i = 0; i < num_clusters; i += 2)
+    // Check if the clusters of the software and hardware match
+    for (size_t i = 0; i < num_clusters; i ++)
     {
-        // Compare 4 coordinates at a time (each cluster has 2 coordinates)
-        for (j = 0; j < num_clusters; j += 4)
+        // Each cluster has 2 coordinates (x, y) in the output buffer
+        for (size_t j = 0; j < num_clusters; j++)
         {
-            if (!matched[j] && (sw_output[i].x == hw_output[j] && sw_output[i].j == hw_output[j + 1]))
+            if (!matched[j] && (sw_output[i].x == hw_output[j * 2] && sw_output[i].y == hw_output[j * 2 + 1]))
             {
-                if (!matched[j + 1] && (sw_output[i + 1].x == hw_output[j + 2] && sw_output[i + 1].j == hw_output[j + 3]))
-                {
-                    matched[j] = true;
-                    matched[j + 1] = true;
-                }
+                matched[j] = true;
             }
         }
     }
 
     // Check if all the clusters have been matched
-    for (i = 0; i < num_clusters; i++)
+    for (size_t i = 0; i < matched.size(); i++)
     {
         if (!matched[i])
         {
@@ -157,42 +134,36 @@ int32_t checkResult(Cluster *sw_output, int32_t *hw_output, int32_t num_clusters
     return EXIT_SUCCESS;    
 }
 
-Cluster[] k_means(int32_t input[], int32_t num_clusters, int32_t num_points)
+std::vector<Cluster> k_means(const std::vector<int32_t> &input, int32_t num_clusters, int32_t num_points)
 {
-    Cluster clusters[num_clusters];
-    int32_t i = 0, j = 0, c_idx = 0;
-    int32_t x_diff = 0, y_diff = 0;
-    int32_t min_distance = 0;
+    std::vector<Cluster> clusters(num_clusters);
     int32_t idx = num_clusters * 2;
 
     // Read the coordinates of the clusters
-    for (i = 0; i < num_clusters; i += 2)
+    for (size_t i = 0; i < num_clusters; i ++)
     {
         clusters[i] = Cluster(input[i * 2], input[i * 2 + 1]);
     }
 
-    int32_t distances[num_clusters];
-    int32_t cluster_index;
-
     // K-Means algorithm
-    for (i = 0; i < num_points; i++)
+    for (size_t i = 0; i < num_points; i++)
     {
         Point point = Point(input[idx], input[idx + 1]);
-        distances[num_clusters] = {0};
+        std::vector<int32_t> distances(num_clusters, 0);
 
         // Calculate the distance between the point and each cluster
-        for (j = 0; j < num_clusters; j++)
+        for (size_t j = 0; j < num_clusters; j++)
         {
-            x_diff = clusters[j].x - point.x;
-            y_diff = clusters[j].y - point.y;
+            int32_t x_diff = clusters[j].x - point.x;
+            int32_t y_diff = clusters[j].y - point.y;
             distances[j] = x_diff * x_diff + y_diff * y_diff;
         }
 
         // Assign the point to the nearest cluster
-        cluster_index = -1;
-        min_distance = INT32_MAX;
+        int32_t cluster_index = -1;
+        int32_t min_distance = INT32_MAX;
 
-        for (j = 0; j < num_clusters; j++)
+        for (size_t j = 0; j < num_clusters; j++)
         {
             if (distances[j] < min_distance)
             {
@@ -242,37 +213,30 @@ int main(int argc, char *argv[])
         return EXIT_FAILURE;
     }
 
-    int32_t input_size = num_clusters * 2 + num_points * 2;
-    int32_t output_size = num_clusters * 2;
+    size_t input_size = num_clusters * 2 + num_points * 2;
+    size_t output_size = num_clusters * 2;
 
-    int32_t input_buffer[input_size] = {0};
-    int32_t output_buffer[output_size] = {0};
-
+    std::vector<int32_t> input_buffer(input_size);
+    std::vector<int32_t> output_buffer(output_size);
+    
     std::srand(time(nullptr));
 
-    int32_t i = 0, j = 0, random_num = 0;
-
     // Generate random coordinates for points and clusters
-    for (i = 0; i < input_size; i++)
+    for (size_t i = 0; i < input_size; i += 2)
     {
-        random_num = std::rand() % 20 - 10;
-        input_buffer[i] = random_num;
+        input_buffer[i] = std::rand() % 20 - 10;
+        input_buffer[i + 1] = std::rand() % 20 - 10;
 
-        if (i % 2 == 0)
+        if (i < num_clusters * 2)
         {
-            if (i < num_clusters * 2)
-            {
-                std::cout << "Cluster (" << random_num << ", ";
-            }
-            else
-            {
-                std::cout << "Point (" << random_num << ", ";
-            }
-        }
+            std::cout << "Cluster (" << input_buffer[i] << ", ";
+        } 
         else
         {
-            std::cout << random_num << ") \t";
+            std::cout << "Point (" << input_buffer[i] << ", ";
         }
+        
+        std::cout << input_buffer[i + 1] << ") ";
     }
 
     std::cout << std::endl;
@@ -317,7 +281,7 @@ int main(int argc, char *argv[])
     run_sink_from_aie.set_arg(arg_sink_from_aie_size, output_size);
 
     // write data into the input buffer
-    buffer_setup_aie.write(input_buffer);
+    buffer_setup_aie.write(input_buffer.data());
     buffer_setup_aie.sync(XCL_BO_SYNC_BO_TO_DEVICE);
 
     auto hw_start = std::chrono::high_resolution_clock::now();
@@ -340,31 +304,30 @@ int main(int argc, char *argv[])
 
     // read the output buffer
     buffer_sink_from_aie.sync(XCL_BO_SYNC_BO_FROM_DEVICE);
-    buffer_sink_from_aie.read(output_buffer);
+    buffer_sink_from_aie.read(output_buffer.data());
 
     // print the output
     std::cout << "Hardware output: ";
-    printOutput(output_buffer, num_clusters);
+    printOutput(output_buffer);
     std::cout << std::endl;
 
     auto sw_start = std::chrono::high_resolution_clock::now();
     // run the kernel
     // for (i = 0; i < 25; i++)
     // {
-        Cluster sw_result[num_clusters];
-        sw_result = k_means(input_buffer, num_clusters, num_points);
+    std::vector<Cluster> sw_result = k_means(input_buffer, num_clusters, num_points);
     // }
 
     auto sw_end = std::chrono::high_resolution_clock::now();
-    auto sw_exec = sw_end - sw_start;
-    auto sw_exec_ms = sw_exec / std::chrono::microseconds(1);
+    auto sw_exec_ms = std::chrono::duration_cast<std::chrono::microseconds>(sw_end - sw_start).count();
+    
     std::cout << "Software execution took " << sw_exec_ms << " microseconds." << std::endl;
 
     // print the output
     std::cout << "Expected results: ";
-    printCluster(sw_result, num_clusters);
+    printCluster(sw_result);
     std::cout << std::endl;
-    
+
     // ------------------------------------------------CHECKING THE RESULTS------------------------------------------
     return checkResult(sw_result, output_buffer, num_clusters);
 }
