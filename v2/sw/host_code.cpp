@@ -121,22 +121,43 @@ void printCluster(Cluster *output, int32_t num_clusters)
 }
 
 // Check the results
-int32_t checkResult(int32_t *sw_output, int32_t *output, int32_t num_clusters)
+int32_t checkResult(Cluster *sw_output, int32_t *hw_output, int32_t num_clusters)
 {
-    for (int i = 0; i < num_clusters * 2; i++)
+    int32_t i = 0, j = 0;
+    bool matched[num_clusters] = {false};
+
+    // The hw takes 2 cluster at a time and prints them. We need to match them with the sw output
+    for (i = 0; i < num_clusters; i += 2)
     {
-        if (sw_output[i] != output[i])
+        // Compare 4 coordinates at a time (each cluster has 2 coordinates)
+        for (j = 0; j < num_clusters; j += 4)
         {
-            std::cout << "Error in cluster " << i / 2 << ": " << sw_output[i] << " != " << output[i] << std::endl;
+            if (!matched[j] && (sw_output[i].x == hw_output[j] && sw_output[i].j == hw_output[j + 1]))
+            {
+                if (!matched[j + 1] && (sw_output[i + 1].x == hw_output[j + 2] && sw_output[i + 1].j == hw_output[j + 3]))
+                {
+                    matched[j] = true;
+                    matched[j + 1] = true;
+                }
+            }
+        }
+    }
+
+    // Check if all the clusters have been matched
+    for (i = 0; i < num_clusters; i++)
+    {
+        if (!matched[i])
+        {
+            std::cout << "Error: The cluster " << i << " does not match" << std::endl;
             return EXIT_FAILURE;
         }
     }
 
-    std::cout << "Test passed!" << std::endl;
-    return EXIT_SUCCESS;
+    std::cout << "All the clusters match" << std::endl;
+    return EXIT_SUCCESS;    
 }
 
-void k_means(int32_t input[], int32_t num_clusters, int32_t num_points, int32_t result[])
+Cluster[] k_means(int32_t input[], int32_t num_clusters, int32_t num_points)
 {
     Cluster clusters[num_clusters];
     int32_t i = 0, j = 0, c_idx = 0;
@@ -186,11 +207,7 @@ void k_means(int32_t input[], int32_t num_clusters, int32_t num_points, int32_t 
         idx += 2;
     }
 
-    for (i = 0; i < num_clusters; i++)
-    {
-        result[i * 2] = clusters[i].x;
-        result[i * 2 + 1] = clusters[i].y;
-    }
+    return clusters;
 }
 
 bool checkConstraints(int num_clusters)
@@ -230,7 +247,6 @@ int main(int argc, char *argv[])
 
     int32_t input_buffer[input_size] = {0};
     int32_t output_buffer[output_size] = {0};
-    int32_t sw_result[output_size] = {0};
 
     std::srand(time(nullptr));
 
@@ -335,7 +351,8 @@ int main(int argc, char *argv[])
     // run the kernel
     // for (i = 0; i < 25; i++)
     // {
-        k_means(input_buffer, num_clusters, num_points, sw_result);
+        Cluster sw_result[num_clusters];
+        sw_result = k_means(input_buffer, num_clusters, num_points);
     // }
 
     auto sw_end = std::chrono::high_resolution_clock::now();
@@ -345,7 +362,7 @@ int main(int argc, char *argv[])
 
     // print the output
     std::cout << "Expected results: ";
-    printOutput(sw_result, num_clusters);
+    printCluster(sw_result, num_clusters);
     std::cout << std::endl;
     
     // ------------------------------------------------CHECKING THE RESULTS------------------------------------------
