@@ -62,20 +62,20 @@ int32_t assignment_function(aie::vector<int32_t, 8> distances, int32_t num_clust
 
 void kmeans_function(input_stream<int32_t> *restrict input, output_stream<int32_t> *restrict output)
 {
-    int32_t loops = 0, num_clusters = 0, num_points = 0;
+    int32_t num_clusters = 0, num_points = 0;
     aie::vector<int32_t, 4> val_in = aie::zeros<int32_t, 4>();
 
-    // Read the number of loops, clusters and points
+    // Read the number of clusters and points
     val_in = readincr_v<4>(input);
     num_clusters = val_in[0];
     num_points = val_in[1];
 
     Cluster clusters[num_clusters];
     Point points[2];
-    int32_t i = 0, j = 0, k = 0;
+    int32_t j = 0, k = 0;
 
     // Read the coordinates of the clusters
-    for (i = 0; i < num_clusters; i += 2)
+    for (size_t i = 0; i < num_clusters; i += 2)
     {
         val_in = readincr_v<4>(input);
         clusters[i] = Cluster(val_in[0], val_in[1]);
@@ -85,13 +85,13 @@ void kmeans_function(input_stream<int32_t> *restrict input, output_stream<int32_
     aie::vector<int32_t, 8> distances = aie::zeros<int32_t, 8>();
     int32_t cluster_index = -1;
 
-    for (i = 0; i < num_points; i+= 2)
+    for (size_t i = 0; i < num_points; i += 2)
     {
         // Read the coordinates of the two points
         val_in = readincr_v<4>(input);
         points[0] = Point(val_in[0], val_in[1]);
         points[1] = Point(val_in[2], val_in[3]);
-        j = 0;
+        size_t j = 0;
 
         // Compute the algorithm for each point
         while (j < 2) {
@@ -106,16 +106,19 @@ void kmeans_function(input_stream<int32_t> *restrict input, output_stream<int32_
         }
     }
 
-    aie::vector<int32_t, 16> result = aie::zeros<int32_t, 16>();
+    aie::vector<int32_t, 4> result = aie::zeros<int32_t, 4>();
 
     // Write the coordinates of the clusters in the output stream
-    for (i = 0; i < num_clusters; i++)
+    for (size_t i = 0; i < num_clusters % 2; i++)
     {
-        result[i * 2] = clusters[i].x;
-        result[i * 2 + 1] = clusters[i].y;
+        result[0] = clusters[i * 2].x;
+        result[1] = clusters[i * 2].y;
+
+        result[2] = clusters[i * 2+ 1].x;
+        result[3] = clusters[i * 2 + 1].y;
+
+        writeincr(output, result);
     }
-    
-    writeincr(output, result);
 }
 
 // Compute the euclidean distance between a point and all the clusters
