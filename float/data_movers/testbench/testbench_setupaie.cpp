@@ -11,7 +11,7 @@
 #define NUM_CLUSTERS 2
 #define NUM_POINTS 10
 
-void read_from_stream(int32_t *buffer, hls::stream<int32_t> &stream, size_t size)
+void read_from_stream(float *buffer, hls::stream<float> &stream, size_t size)
 {
     for (int32_t i = 0; i < size; i++)
     {
@@ -43,7 +43,7 @@ int main(int argc, char* argv[])
     
     if (file.is_open()) 
     {
-        ap_int<sizeof(int32_t) * 8 * 4> tmp;
+        ap_int<sizeof(float) * 8 * 8> tmp;
 
         for (i = 0; i < (size / 4) + 3; i++) 
         {
