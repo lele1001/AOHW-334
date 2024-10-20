@@ -202,7 +202,8 @@ int main(int argc, char *argv[])
 {
     // int num_clusters = 0, num_points = 0;
 
-    std::vector<int32_t> clusters = {2, 4, 8};
+    std::vector<int32_t> clusters = {2};
+    
     std::vector<int32_t> points = {128, 512, 2048, 8192, 32768, 131072};
 
     // std::cout << "Enter the number of clusters: ";
@@ -309,7 +310,7 @@ int main(int argc, char *argv[])
                 run_sink_from_aie.wait();
             }
 
-            auto sw_end = std::chrono::high_resolution_clock::now();
+            auto hw_end = std::chrono::high_resolution_clock::now();
             auto hw_exec_ms = std::chrono::duration_cast<std::chrono::microseconds>(hw_end - hw_start).count() / 25;
             std::cout << "Hardware execution took " << hw_exec_ms << " microseconds." << std::endl;
 
@@ -322,11 +323,13 @@ int main(int argc, char *argv[])
             printOutput(output_buffer);
             std::cout << std::endl;
 
+            std::vector<Cluster> sw_result;
             auto sw_start = std::chrono::high_resolution_clock::now();
+
             // run the kernel
             for (size_t i = 0; i < 25; i++)
             {
-                std::vector<Cluster> sw_result = k_means(input_buffer, num_clusters, num_points);
+                sw_result = k_means(input_buffer, num_clusters, num_points);
             }
 
             auto sw_end = std::chrono::high_resolution_clock::now();
