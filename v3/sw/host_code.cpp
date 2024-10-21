@@ -214,6 +214,12 @@ int main(int argc, char *argv[])
             clusters_buffer[i * 2 + 1] = std::rand() % 100;
         }
 
+        for (size_t i = 0; i < num_points; i++)
+        {
+            points_buffer[i * 2] = std::rand() % 100;
+            points_buffer[i * 2 + 1] = std::rand() % 100;
+        }
+
         std::cout << std::endl;
 
         //------------------------------------------------LOADING XCLBIN------------------------------------------
