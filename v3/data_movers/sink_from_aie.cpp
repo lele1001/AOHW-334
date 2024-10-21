@@ -19,12 +19,19 @@ extern "C"
 #pragma HLS interface s_axilite port = size bundle = control
 #pragma HLS interface s_axilite port = return bundle = control
 
-        int32_t i, x;
+        // Create a temporary variable to store the data (8 integers at a time)
+        std::vector<int32_t> tmp(MAX_CLUSTERS * 2);
 
-        for (i = 0; i < size; i++)
+        for (size_t i = 0; i < MAX_CLUSTERS; i += 2)
         {
-            x = input_stream.read();
-            output[i] = x;
+            tmp[i] = input_stream.read();
+            tmp[i + 1] = input_stream.read();
+
+            if (i + 1 < size)
+            {
+                output[i] = tmp[i];
+                output[i + 1] = tmp[i + 1];
+            }
         }
     }
 }
