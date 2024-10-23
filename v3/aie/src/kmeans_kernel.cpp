@@ -14,12 +14,6 @@ struct Point
         this->x = x;
         this->y = y;
     }
-
-    Point()
-    {
-        this->x = 0;
-        this->y = 0;
-    }
 };
 
 struct Cluster
@@ -33,13 +27,6 @@ struct Cluster
         this->x = x;
         this->y = y;
         this->numPoints = 1;
-    }
-
-    Cluster()
-    {
-        this->x = 0;
-        this->y = 0;
-        this->numPoints = 0;
     }
 
     void addPoint(Point point)
@@ -69,14 +56,14 @@ void kmeans_function(input_stream<int32_t> *restrict input, output_stream<int32_
     Cluster clusters[MAX_CLUSTERS];
     Point points[4];
 
-    // Read the coordinates of the clusters
-    for (size_t i = 0; i < num_clusters; i += 4)
+    // Read the coordinates of the clusters, assuming that the number of clusters is a multiple of 4
+    for (size_t i = 0; i < num_clusters / 4; i++)
     {
         val_in = readincr_v<8>(input);
-        clusters[i] = Cluster(val_in[0], val_in[1]);
-        clusters[i + 1] = Cluster(val_in[2], val_in[3]);
-        clusters[i + 2] = Cluster(val_in[4], val_in[5]);
-        clusters[i + 3] = Cluster(val_in[6], val_in[7]);
+        clusters[i * 4] = Cluster(val_in[0], val_in[1]);
+        clusters[i * 4 + 1] = Cluster(val_in[2], val_in[3]);
+        clusters[i * 4 + 2] = Cluster(val_in[4], val_in[5]);
+        clusters[i * 4 + 3] = Cluster(val_in[6], val_in[7]);
     }
 
     aie::vector<int32_t, 16> distances = aie::zeros<int32_t, 16>();
@@ -84,7 +71,7 @@ void kmeans_function(input_stream<int32_t> *restrict input, output_stream<int32_
 
     for (size_t i = 0; i < num_points; i += 4)
     {
-        // Read the coordinates of the two points
+        // Read the coordinates of the points, assuming that the number of points is a multiple of 4
         val_in = readincr_v<8>(input);
         points[0] = Point(val_in[0], val_in[1]);
         points[1] = Point(val_in[2], val_in[3]);

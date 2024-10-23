@@ -18,7 +18,8 @@
 // args indexes for setup_aie kernel
 #define arg_setup_aie_num_clusters 0
 #define arg_setup_aie_num_points 1
-#define arg_setup_aie_input 2
+#define arg_setup_aie_clusters_input 2
+#define arg_setup_aie_points_input 3
 
 // args indexes for sink_from_aie kernel
 #define arg_sink_from_aie_output 1
@@ -121,21 +122,20 @@ int32_t checkResult(const std::vector<Cluster> &sw_output, const std::vector<Clu
     return EXIT_SUCCESS;    
 }
 
-std::vector<Cluster> k_means(const std::vector<int32_t> &input, int32_t num_clusters, int32_t num_points)
+std::vector<Cluster> k_means(const std::vector<int32_t> &clusters_input, const std::vector<int32_t> &points_input, int32_t num_clusters, int32_t num_points)
 {
     std::vector<Cluster> clusters(num_clusters);
-    int32_t idx = num_clusters * 2;
 
     // Read the coordinates of the clusters
     for (size_t i = 0; i < num_clusters; i ++)
     {
-        clusters[i] = Cluster(input[i * 2], input[i * 2 + 1]);
+        clusters[i] = Cluster(clusters_input[i * 2], clusters_input[i * 2 + 1]);
     }
 
     // K-Means algorithm
-    for (size_t i = 0; i < num_points; i++)
+    for (size_t i = 0; i < num_points * 2; i += 2)
     {
-        Point point = Point(input[idx], input[idx + 1]);
+        Point point = Point(points_input[i], points_input[i + 1]);
         std::vector<int32_t> distances(num_clusters, 0);
 
         // Calculate the distance between the point and each cluster
@@ -161,24 +161,28 @@ std::vector<Cluster> k_means(const std::vector<int32_t> &input, int32_t num_clus
 
         // Update the cluster coordinates
         clusters[cluster_index].addPoint(point);
-        
-        idx += 2;
     }
 
     return clusters;
 }
 
-bool checkConstraints(int num_clusters)
+bool checkConstraints(int num_clusters, int num_points)
 {
-    if (num_clusters % 2 != 0)
+    if (num_clusters % 4 != 0)
     {
-        std::cout << "Error: The number of clusters must be even" << std::endl;
+        std::cout << "Error: The number of clusters must be a multiple of 4" << std::endl;
         return false;
     }
 
     if (num_clusters > MAX_CLUSTERS)
     {
         std::cout << "Error: The number of clusters must be less than or equal to 8" << std::endl;
+        return false;
+    }
+
+    if (num_points % 4 != 0)
+    {
+        std::cout << "Error: The number of points must be a multiple of 4" << std::endl;
         return false;
     }
 
@@ -194,16 +198,18 @@ int main(int argc, char *argv[])
 
     std::cout << "Enter the number of points: ";
     std::cin >> num_points;
-
-    std::cout << "Number of clusters: " << num_clusters << std::endl;
-    std::cout << "Number of points: " << num_points << std::endl;
+    
+    if (!checkConstraints(num_clusters, num_points))
+    {
+        return EXIT_FAILURE;
+    }
 
     std::vector<int32_t> clusters_buffer(num_clusters * 2);
     std::vector<int32_t> points_buffer(num_points * 2);
     std::vector<int32_t> output_buffer(num_clusters * 2);
 
-    std::vector<Cluster> sw_result;
-    std::vector<Cluster> hw_result;
+    std::vector<Cluster> sw_result(num_clusters);
+    std::vector<Cluster> hw_result(num_clusters);
 
     std::srand(time(nullptr));
 
@@ -242,11 +248,12 @@ int main(int argc, char *argv[])
 
         // get memory bank groups for device buffer - required for axi master input/ouput
         xrtMemoryGroup bank_output = krnl_sink_from_aie.group_id(arg_sink_from_aie_output);
-        xrtMemoryGroup bank_input = krnl_setup_aie.group_id(arg_setup_aie_input);
+        xrtMemoryGroup bank_clusters_input = krnl_setup_aie.group_id(arg_setup_aie_clusters_input);
+        xrtMemoryGroup bank_points_input = krnl_setup_aie.group_id(arg_setup_aie_points_input);
 
         // create device buffers - if you have to load some data, here they are
-        xrt::bo clusters_buffer_setup_aie = xrt::bo(device, num_clusters * 2 * sizeof(int32_t), xrt::bo::flags::normal, bank_input);
-        xrt::bo points_buffer_setup_aie = xrt::bo(device, num_points * 2 * sizeof(int32_t), xrt::bo::flags::normal, bank_input);
+        xrt::bo clusters_buffer_setup_aie = xrt::bo(device, num_clusters * 2 * sizeof(int32_t), xrt::bo::flags::normal, bank_clusters_input);
+        xrt::bo points_buffer_setup_aie = xrt::bo(device, num_points * 2 * sizeof(int32_t), xrt::bo::flags::normal, bank_points_input);
         xrt::bo buffer_sink_from_aie = xrt::bo(device, num_clusters * 2 * sizeof(int32_t), xrt::bo::flags::normal, bank_output);
 
         // create runner instances
@@ -256,8 +263,8 @@ int main(int argc, char *argv[])
         // set setup_aie kernel arguments
         run_setup_aie.set_arg(arg_setup_aie_num_clusters, num_clusters);
         run_setup_aie.set_arg(arg_setup_aie_num_points, num_points);
-        run_setup_aie.set_arg(arg_setup_aie_input, clusters_buffer_setup_aie);
-        run_setup_aie.set_arg(arg_setup_aie_input, points_buffer_setup_aie);
+        run_setup_aie.set_arg(arg_setup_aie_clusters_input, clusters_buffer_setup_aie);
+        run_setup_aie.set_arg(arg_setup_aie_points_input, points_buffer_setup_aie);
 
         // set sink_from_aie kernel arguments
         run_sink_from_aie.set_arg(arg_sink_from_aie_output, buffer_sink_from_aie);
@@ -300,7 +307,7 @@ int main(int argc, char *argv[])
 
         auto sw_start = std::chrono::high_resolution_clock::now();
         // run the kernel
-        sw_result = k_means(input_buffer, num_clusters, num_points);
+        sw_result = k_means(clusters_buffer, points_buffer, num_clusters, num_points);
 
         auto sw_end = std::chrono::high_resolution_clock::now();
         auto sw_exec_ms = std::chrono::duration_cast<std::chrono::microseconds>(sw_end - sw_start).count();
