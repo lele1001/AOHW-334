@@ -3,10 +3,11 @@
 #include <hls_math.h>
 #include <ap_axi_sdata.h>
 #include "../common/common.h"
+#include <random> // Add this line for mt19937 and uniform distributions
 
 extern "C"
 {
-    void sink_from_aie(hls::stream<int32_t> &input_stream, int32_t *output, int32_t size)
+    void sink_from_aie(hls::stream<int32_t> &input_stream,int32_t *output,  int32_t size)
     {
 // PRAGMA for stream
 #pragma HLS interface axis port = input_stream
@@ -22,17 +23,24 @@ extern "C"
         // Create a temporary variable to store the data
         int32_t tmp[MAX_CLUSTERS * 2];
 
-        for (size_t i = 0; i < MAX_CLUSTERS; i += 2)
+        for (size_t i = 0; i < MAX_CLUSTERS * 2; i++)
         {
             tmp[i] = input_stream.read();
-            tmp[i + 1] = input_stream.read();
         }
 
+        /*
         // Write the coordinates of the clusters in the output stream
         for (size_t i = 0; i < size; i++)
         {
             output[i * 2] = tmp[i * 2];
             output[i * 2 + 1] = tmp[i * 2 + 1];
+        }
+        */
+
+        // Write the coordinates of the clusters in the output stream
+        for (size_t i = 0; i < size * 2; i++)
+        {
+            output[i] = tmp[i];
         }
     }
 }

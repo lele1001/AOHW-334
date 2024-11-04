@@ -8,8 +8,8 @@
 int main(int argc, char *argv[])
 {
     hls::stream<int32_t> s;
-    int32_t size = 4;
-    int32_t *buffer = new int32_t[size];
+    int32_t num_clusters = 4;
+    std::vector<int32_t> buffer(num_clusters * 2);
 
     // Read the output of the AIE kernel from a file
     std::ifstream file;
@@ -21,21 +21,18 @@ int main(int argc, char *argv[])
         return 1;
     }
 
-    int32_t i, x;
-
-    for (i = 0; i < size; i++)
+    for (int32_t i = 0; i < num_clusters * 2; i++)
     {
+        int32_t x;
         file >> x;
         s.write(x);
     }
 
-    sink_from_aie(s, buffer, size);
+    sink_from_aie(s, buffer.data(), num_clusters);
 
     // Print the output of the AIE kernel
-    for (i = 0; i < size; i++)
+    for (int32_t i = 0; i < num_clusters * 2; i++)
     {
         std::cout << buffer[i] << std::endl;
     }
-
-    delete[] buffer;
 }

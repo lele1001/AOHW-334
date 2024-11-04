@@ -151,6 +151,8 @@ std::vector<Cluster> k_means(const std::vector<int32_t> &input, int32_t num_clus
         Point point = Point(input[idx], input[idx + 1]);
         std::vector<int32_t> distances(num_clusters, 0);
 
+        std::cout << "Point: (" << point.x << ", " << point.y << ")" << std::endl;
+
         // Calculate the distance between the point and each cluster
         for (size_t j = 0; j < num_clusters; j++)
         {

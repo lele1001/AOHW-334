@@ -14,6 +14,12 @@ struct Point
         this->x = x;
         this->y = y;
     }
+
+    Point()
+    {
+        this->x = 0;
+        this->y = 0;
+    }
 };
 
 struct Cluster
@@ -27,6 +33,13 @@ struct Cluster
         this->x = x;
         this->y = y;
         this->numPoints = 1;
+    }
+
+    Cluster()
+    {
+        this->x = 0;
+        this->y = 0;
+        this->numPoints = 0;
     }
 
     void addPoint(Point point)
@@ -64,6 +77,11 @@ void kmeans_function(input_stream<int32_t> *restrict input, output_stream<int32_
         clusters[i * 4 + 1] = Cluster(val_in[2], val_in[3]);
         clusters[i * 4 + 2] = Cluster(val_in[4], val_in[5]);
         clusters[i * 4 + 3] = Cluster(val_in[6], val_in[7]);
+
+        // std::cout << "Cluster " << i * 4 << ": (" << clusters[i * 4].x << ", " << clusters[i * 4].y << ")" << std::endl;
+        // std::cout << "Cluster " << i * 4 + 1 << ": (" << clusters[i * 4 + 1].x << ", " << clusters[i * 4 + 1].y << ")" << std::endl;
+        // std::cout << "Cluster " << i * 4 + 2 << ": (" << clusters[i * 4 + 2].x << ", " << clusters[i * 4 + 2].y << ")" << std::endl;
+        // std::cout << "Cluster " << i * 4 + 3 << ": (" << clusters[i * 4 + 3].x << ", " << clusters[i * 4 + 3].y << ")" << std::endl;
     }
 
     aie::vector<int32_t, 16> distances = aie::zeros<int32_t, 16>();
@@ -77,6 +95,11 @@ void kmeans_function(input_stream<int32_t> *restrict input, output_stream<int32_
         points[1] = Point(val_in[2], val_in[3]);
         points[2] = Point(val_in[4], val_in[5]);
         points[3] = Point(val_in[6], val_in[7]);
+
+        // std::cout << "Point " << i << ": (" << points[0].x << ", " << points[0].y << ")" << std::endl;
+        // std::cout << "Point " << i + 1 << ": (" << points[1].x << ", " << points[1].y << ")" << std::endl;
+        // std::cout << "Point " << i + 2 << ": (" << points[2].x << ", " << points[2].y << ")" << std::endl;
+        // std::cout << "Point " << i + 3 << ": (" << points[3].x << ", " << points[3].y << ")" << std::endl;
 
         size_t j = 0;
 
