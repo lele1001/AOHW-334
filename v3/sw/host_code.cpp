@@ -65,7 +65,7 @@ struct Cluster
 
     void addPoint(Point point)
     {
-        // std::cout << "Cluster (" << this->x << ", " << this->y << ") has " << this->numPoints << " points" << std::endl;
+        std::cout << "Cluster (" << this->x << ", " << this->y << ") has " << this->numPoints << " points" << std::endl;
         int32_t x_accum = this->x * this->numPoints + point.x;
         int32_t y_accum = this->y * this->numPoints + point.y;
 
@@ -74,7 +74,7 @@ struct Cluster
         this->x = x_accum / this->numPoints;
         this->y = y_accum / this->numPoints;
 
-        // std::cout << "Cluster (" << this->x << ", " << this->y << ") has " << this->numPoints << " points" << std::endl << std::endl;
+        std::cout << "Cluster (" << this->x << ", " << this->y << ") has " << this->numPoints << " points" << std::endl << std::endl;
     }
 };
 
@@ -136,43 +136,44 @@ std::vector<Cluster> k_means(const std::vector<int32_t> &clusters_input, const s
     }
 
     // K-Means algorithm
-    for (size_t i = 0; i < num_points * 2; i += 2)
+    for (size_t i = 0; i < num_points; i ++)
     {
-        Point point = Point(points_input[i], points_input[i + 1]);
+        Point point = Point(points_input[i * 2], points_input[i * 2 + 1]);
         std::vector<int32_t> distances(num_clusters, 0);
 
-        // std::cout << "Point: (" << point.x << ", " << point.y << ")" << std::endl;
+        std::cout << "Point: (" << point.x << ", " << point.y << ")" << std::endl;
 
         // Calculate the distance between the point and each cluster
         for (size_t j = 0; j < num_clusters; j++)
         {
             int32_t x_diff = clusters[j].x - point.x;
             int32_t y_diff = clusters[j].y - point.y;
-            distances[j] = x_diff * x_diff + y_diff * y_diff;
+            distances[j] = std::pow(x_diff, 2) + std::pow(y_diff, 2);
+            // std::cout << "Distance to cluster " << j << ": " << distances[j] << std::endl;
         }
 
         // Assign the point to the nearest cluster
-        int32_t cluster_index = -1;
-        int32_t min_distance = INT32_MAX;
-
-        for (size_t j = 0; j < num_clusters; j++)
+        if (distances.size() > 0)
         {
-            if (distances[j] < min_distance)
-            {
-                min_distance = distances[j];
-                cluster_index = j;
-            }
+            auto min_iter = std::min_element(distances.begin(), distances.end());
+            int32_t min_distance = *min_iter;
+            int cluster_index = std::distance(distances.begin(), min_iter);
+        }
+        else 
+        {
+            std::cout << "Error: The distances vector is empty" << std::endl;
+            return nullptr;
         }
 
         // Update the cluster coordinates
         if (cluster_index != -1 && cluster_index < num_clusters)
         {
             clusters[cluster_index].addPoint(point);
-            // std::cout << "Point assigned to cluster " << cluster_index << " with distance " << min_distance << std::endl;
+            std::cout << "Point assigned to cluster " << cluster_index << " with distance " << min_distance << std::endl;
         }
         else
         {
-            // std::cout << "Error: The cluster index is out of bounds" << std::endl;
+            std::cout << "Error: The cluster index is out of bounds" << std::endl;
         }
     }
 
@@ -206,10 +207,10 @@ int main(int argc, char *argv[])
 {
     int num_clusters = 4, num_points = 8;
 
-    std::cout << "Enter the number of clusters: ";
+    // std::cout << "Enter the number of clusters: ";
     // std::cin >> num_clusters;
 
-    std::cout << "Enter the number of points: ";
+    // std::cout << "Enter the number of points: ";
     // std::cin >> num_points;
 
     if (!checkConstraints(num_clusters, num_points))
@@ -224,9 +225,6 @@ int main(int argc, char *argv[])
     std::vector<int32_t> points_buffer(num_points * 2);
     std::vector<int32_t> input_buffer(input_size);
     std::vector<int32_t> output_buffer(output_size);
-
-    input_buffer.assign(input_size, 0);
-    output_buffer.assign(output_size, 0);
 
     std::vector<Cluster> sw_result(num_clusters);
     std::vector<Cluster> hw_result(num_clusters);
@@ -325,10 +323,7 @@ int main(int argc, char *argv[])
 
     for (size_t i = 0; i < num_clusters; i++)
     {
-        int x = output_buffer[i * 2];
-        int y = output_buffer[i * 2 + 1];
-        hw_result[i] = Cluster(x, y);
-        std::cout << "Cluster " << i << ": (" << x << ", " << y << ")" << std::endl;
+        hw_result[i] = Cluster(output_buffer[i * 2], output_buffer[i * 2 + 1]);
     }
 
     // print the output
