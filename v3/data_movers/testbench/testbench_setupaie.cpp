@@ -18,7 +18,7 @@ void read_from_stream(int32_t *buffer, hls::stream<int32_t> &stream, size_t size
 
 int main(int argc, char* argv[]) 
 {
-    hls::stream<ap_int<sizeof(int32_t) * 8 * 8> s;
+    hls::stream<ap_int<sizeof(int32_t) * 8 * 8>> s;
     std::srand(time(nullptr));
 
     // size := clusters coordinates (x,y) + points coordinates (x,y)
@@ -30,10 +30,10 @@ int main(int argc, char* argv[])
     std::vector<int32_t> points_buffer(num_points * 2);
     std::vector<int32_t> input_buffer(input_size);
 
-    clusters_buffer = {0, -1, 0, 4, -3, -3, -2, -2};
-    points_buffer = {-2, -3, 5, 5, 1, -1, 5, 0, 5, -1, 3, 2, -4, 0, 2, -3};
-    input_buffer.insert(input_buffer.end(), clusters_buffer.begin(), clusters_buffer.end());
-    input_buffer.insert(input_buffer.end(), points_buffer.begin(), points_buffer.end());
+    clusters_buffer = {3, -7, -8, 5, 10, -3, -4, -6};
+    points_buffer = {7, 9, -2, 0, 5, 4, -10, -8, 6, -2, -3, 7, 1, -9, 9, 3};
+    input_buffer = {3, -7, -8, 5, 10, -3, -4, -6, 7, 9, -2, 0, 5, 4, -10, -8, 6, -2, -3, 7, 1, -9, 9, 3};
+    // Expected result: 
 
     setup_aie(num_clusters, num_points, input_buffer.data(), s);
 
@@ -45,7 +45,7 @@ int main(int argc, char* argv[])
     {
         ap_int<sizeof(int32_t) * 8 * 8> tmp;
 
-        for (int32_t i = 0; i < (size / 8); i++) 
+        for (int32_t i = 0; i < (input_size / 8); i++)
         {
             tmp = s.read();
 
@@ -55,7 +55,10 @@ int main(int argc, char* argv[])
                 file << x << std::endl;
                 std::cout << x << std::endl;
             }
-        }        
+        }
+
+        // Read the last element
+        tmp = s.read();
 
         file.close();
     } 

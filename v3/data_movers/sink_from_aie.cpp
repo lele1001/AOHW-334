@@ -26,21 +26,13 @@ extern "C"
         for (size_t i = 0; i < MAX_CLUSTERS * 2; i++)
         {
             tmp[i] = input_stream.read();
+            // std::cout << "Read sink " << tmp[i] << std::endl;
         }
 
-        /*
-        // Write the coordinates of the clusters in the output stream
-        for (size_t i = 0; i < size; i++)
-        {
-            output[i * 2] = tmp[i * 2];
-            output[i * 2 + 1] = tmp[i * 2 + 1];
-        }
-        */
-
-        // Write the coordinates of the clusters in the output stream
         for (size_t i = 0; i < size * 2; i++)
         {
             output[i] = tmp[i];
+            // std::cout << "Sink " << output[i] << std::endl;
         }
     }
 }

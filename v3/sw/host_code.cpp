@@ -153,16 +153,18 @@ std::vector<Cluster> k_means(const std::vector<int32_t> &clusters_input, const s
         }
 
         // Assign the point to the nearest cluster
+        int32_t min_distance = INT32_MAX;
+        int cluster_index = -1;
+        
         if (distances.size() > 0)
         {
             auto min_iter = std::min_element(distances.begin(), distances.end());
-            int32_t min_distance = *min_iter;
-            int cluster_index = std::distance(distances.begin(), min_iter);
+            min_distance = *min_iter;
+            cluster_index = std::distance(distances.begin(), min_iter);
         }
         else 
         {
             std::cout << "Error: The distances vector is empty" << std::endl;
-            return nullptr;
         }
 
         // Update the cluster coordinates
@@ -229,7 +231,12 @@ int main(int argc, char *argv[])
     std::vector<Cluster> sw_result(num_clusters);
     std::vector<Cluster> hw_result(num_clusters);
 
+    clusters_buffer = {3, -7, -8, 5, 10, -3, -4, -6};
+    points_buffer = {7, 9, -2, 0, 5, 4, -10, -8, 6, -2, -3, 7, 1, -9, 9, 3};
+    input_buffer = {3, -7, -8, 5, 10, -3, -4, -6, 7, 9, -2, 0, 5, 4, -10, -8, 6, -2, -3, 7, 1, -9, 9, 3};
+    // Expected output: (2, -8), (-5, 6), (6, 1), (-5, -4)
 
+    /*
     // Generate random coordinates for points and clusters using random number generator
     std::mt19937 rng(static_cast<unsigned int>(time(nullptr)));
     std::uniform_int_distribution<int32_t> dist(-5, 5);
@@ -259,8 +266,7 @@ int main(int argc, char *argv[])
         input_buffer[(num_clusters + i) * 2] = points_buffer[i * 2];
         input_buffer[(num_clusters + i) * 2 + 1] = points_buffer[i * 2 + 1];
     }
-
-    std::cout << std::endl << std::endl;
+    */
     //------------------------------------------------LOADING XCLBIN------------------------------------------
     std::string xclbin_file;
     if (!get_xclbin_path(xclbin_file))
