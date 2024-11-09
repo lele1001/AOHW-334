@@ -27,12 +27,12 @@ extern "C"
         {
             tmp[i] = input_stream.read();
             // std::cout << "Read sink " << tmp[i] << std::endl;
-        }
 
-        for (size_t i = 0; i < size * 2; i++)
-        {
-            output[i] = tmp[i];
-            // std::cout << "Sink " << output[i] << std::endl;
+            if (i < size * 2)
+            {
+                output[i] = tmp[i];
+                // std::cout << "Sink " << output[i] << std::endl;
+            }
         }
     }
 }

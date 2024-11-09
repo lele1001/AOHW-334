@@ -31,13 +31,7 @@ extern "C"
 		tmp.range(159, 128) = 0;
 		tmp.range(191, 160) = 0;
 		tmp.range(223, 192) = 0;
-		tmp.range(255, 224) = 0;
-
-		for (int i = 0; i < 8; i++)
-		{
-			std::cout << "tmp[" << i << "] = " << tmp.range((i + 1) * 32 - 1, i * 32) << std::endl;
-		}
-		
+		tmp.range(255, 224) = 0;		
 		s.write(tmp);
 
 		// Write the clusters and points coordinates, assuming that their number is a multiple of 4
@@ -48,7 +42,7 @@ extern "C"
 
 			for (int j = 0; j < 8; j++)
 			{
-				std::cout << "input[" << i + j << "] = " << input[i + j] << std::endl;
+				// std::cout << "input[" << i + j << "] = " << input[i + j] << std::endl;
 				tmp.range((j + 1) * 32 - 1, j * 32) = input[i + j];
 			}
 
