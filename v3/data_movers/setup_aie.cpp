@@ -6,7 +6,7 @@
 
 extern "C"
 {
-	void setup_aie(int32_t num_clusters, int32_t num_points, int32_t *input, hls::stream<ap_int<sizeof(int32_t) * 8 * 8>> &s)
+	void setup_aie(int16_t num_clusters, int16_t num_points, int16_t *input, hls::stream<ap_int<sizeof(int16_t) * 8 * 8>> &s)
 	{
 // PRAGMA for stream
 #pragma HLS interface axis port = s
@@ -21,7 +21,7 @@ extern "C"
 #pragma HLS interface s_axilite port = return bundle = control
 
 		// Create a temporary variable to store the data (8 integers at a time = 4 points)
-		ap_int<sizeof(int32_t) * 8 * 8> tmp;
+		ap_int<sizeof(int16_t) * 8 * 8> tmp;
 
 		// Write the number of clusters and the number of points
 		tmp.range(31, 0) = num_clusters;
@@ -35,7 +35,7 @@ extern "C"
 		s.write(tmp);
 
 		// Write the clusters and points coordinates, assuming that their number is a multiple of 4
-		for (int32_t i = 0; i < (num_clusters + num_points) * 2; i += 8)
+		for (int16_t i = 0; i < (num_clusters + num_points) * 2; i += 8)
 		{
 			// Clear the temporary variable
 			tmp = 0;
