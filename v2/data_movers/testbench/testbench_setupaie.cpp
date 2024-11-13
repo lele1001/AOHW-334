@@ -8,9 +8,6 @@
 #include <stdlib.h>
 #include <time.h>
 
-#define NUM_CLUSTERS 2
-#define NUM_POINTS 10
-
 void read_from_stream(int32_t *buffer, hls::stream<int32_t> &stream, size_t size)
 {
     for (int32_t i = 0; i < size; i++)
@@ -21,41 +18,47 @@ void read_from_stream(int32_t *buffer, hls::stream<int32_t> &stream, size_t size
 
 int main(int argc, char* argv[]) 
 {
-    hls::stream<ap_int<sizeof(int32_t) * 8 * 4> s;
+    hls::stream<ap_int<sizeof(int32_t) * 8 * 8>> s;
     std::srand(time(nullptr));
 
     // size := clusters coordinates (x,y) + points coordinates (x,y)
-    int32_t size = NUM_CLUSTERS * 2 + NUM_POINTS * 2;
-    int32_t *input = new int32_t[size];
-    int32_t i, j, random;
+    int32_t num_clusters = 4;
+    int32_t num_points = 8;
+    int32_t input_size = num_clusters * 2 + num_points * 2;
 
-    for (i = 0; i < size; i++) 
-    {
-        random = std::rand() % 20 - 10;
-        input[i] = random;
-    }
+    std::vector<int32_t> clusters_buffer(num_clusters * 2);
+    std::vector<int32_t> points_buffer(num_points * 2);
+    std::vector<int32_t> input_buffer(input_size);
 
-    setup_aie(NUM_CLUSTERS, NUM_POINTS, input, s);
-    
+    clusters_buffer = {3, -7, -8, 5, 10, -3, -4, -6};
+    points_buffer = {7, 9, -2, 0, 5, 4, -10, -8, 6, -2, -3, 7, 1, -9, 9, 3};
+    input_buffer = {3, -7, -8, 5, 10, -3, -4, -6, 7, 9, -2, 0, 5, 4, -10, -8, 6, -2, -3, 7, 1, -9, 9, 3};
+    // Expected result: 
+
+    setup_aie(num_clusters, num_points, input_buffer.data(), s);
+
     // Read the stream and write to file
     std::ofstream file;
     file.open("../../aie/data/in_plio_source_1.txt");
     
     if (file.is_open()) 
     {
-        ap_int<sizeof(int32_t) * 8 * 4> tmp;
+        ap_int<sizeof(int32_t) * 8 * 8> tmp;
 
-        for (i = 0; i < (size / 4) + 3; i++) 
+        for (int32_t i = 0; i < (input_size / 8); i++)
         {
             tmp = s.read();
 
-            for (j = 0; j < 4; j++) 
+            for (int32_t j = 0; j < 8; j++) 
             {
                 int32_t x = tmp.range(j * 32 + 31, j * 32);
                 file << x << std::endl;
                 std::cout << x << std::endl;
             }
-        }        
+        }
+
+        // Read the last element
+        tmp = s.read();
 
         file.close();
     } 

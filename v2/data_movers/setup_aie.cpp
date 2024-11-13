@@ -6,40 +6,46 @@
 
 extern "C"
 {
-	void setup_aie(int32_t num_clusters, int32_t num_points, int32_t *input, hls::stream<ap_int<sizeof(int32_t) * 8 * 4>> &s)
+	void setup_aie(int32_t num_clusters, int32_t num_points, int32_t *input, hls::stream<ap_int<sizeof(int32_t) * 8 * 8>> &s)
 	{
-		// PRAGMA for stream
-		#pragma HLS interface axis port = s
+// PRAGMA for stream
+#pragma HLS interface axis port = s
 
-		// PRAGMA for memory interation - AXI master-slave
-		#pragma HLS interface m_axi port = input depth = 100 offset = slave bundle = gmem0
-		#pragma HLS interface s_axilite port = input bundle = control
+// PRAGMA for memory interation - AXI master-slave
+#pragma HLS interface m_axi port = input depth = 100 offset = slave bundle = gmem0
+#pragma HLS interface s_axilite port = input bundle = control
 
-		// PRAGMA for AXI-LITE : required to move params from host to PL
-		#pragma HLS interface s_axilite port = num_clusters bundle = control
-		#pragma HLS interface s_axilite port = num_points bundle = control
-		#pragma HLS interface s_axilite port = return bundle = control
+// PRAGMA for AXI-LITE : required to move params from host to PL
+#pragma HLS interface s_axilite port = num_clusters bundle = control
+#pragma HLS interface s_axilite port = num_points bundle = control
+#pragma HLS interface s_axilite port = return bundle = control
 
-		// Create a temporary variable to store the data (4 integers at a time)
-		ap_int<sizeof(int32_t) * 8 * 4> tmp;
+		// Create a temporary variable to store the data (8 integers at a time = 4 points)
+		ap_int<sizeof(int32_t) * 8 * 8> tmp;
 
-		// Calculate the size of the input data
-		int32_t size = num_clusters * 2 + num_points * 2;
-
-		// Write the number of clusters and the number of points		
+		// Write the number of clusters and the number of points
 		tmp.range(31, 0) = num_clusters;
 		tmp.range(63, 32) = num_points;
 		tmp.range(95, 64) = 0;
 		tmp.range(127, 96) = 0;
+		tmp.range(159, 128) = 0;
+		tmp.range(191, 160) = 0;
+		tmp.range(223, 192) = 0;
+		tmp.range(255, 224) = 0;		
 		s.write(tmp);
 
-		// Write the input data
-		for (int32_t i = 0; i < (int32_t) (size / 4); i++)
+		// Write the clusters and points coordinates, assuming that their number is a multiple of 4
+		for (int32_t i = 0; i < (num_clusters + num_points) * 2; i += 8)
 		{
-			tmp.range(31, 0) = input[i * 4];
-			tmp.range(63, 32) = input[i * 4 + 1];
-			tmp.range(95, 64) = input[i * 4 + 2];
-			tmp.range(127, 96) = input[i * 4 + 3];
+			// Clear the temporary variable
+			tmp = 0;
+
+			for (int j = 0; j < 8; j++)
+			{
+				// std::cout << "input[" << i + j << "] = " << input[i + j] << std::endl;
+				tmp.range((j + 1) * 32 - 1, j * 32) = input[i + j];
+			}
+
 			s.write(tmp);
 		}
 	}

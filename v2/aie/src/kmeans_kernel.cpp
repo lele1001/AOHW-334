@@ -104,8 +104,7 @@ void kmeans_function(input_stream<int32_t> *restrict input, output_stream<int32_
         size_t j = 0;
 
         // Compute the algorithm for each point
-        while (j < 4)
-        {
+        while (j < 4) {
             // Compute the euclidean distance between the point and all the clusters
             distances = euclidean_distance(clusters, num_clusters, points[j]);
 
@@ -132,27 +131,20 @@ void kmeans_function(input_stream<int32_t> *restrict input, output_stream<int32_
 // Compute the euclidean distance between a point and all the clusters
 aie::vector<int32_t, 16> euclidean_distance(Cluster *clusters, int32_t num_clusters, Point point)
 {
-    aie::vector<int32_t, 16> clusters_coords = aie::zeros<int32_t, 16>();
-    aie::vector<int32_t, 16> diff = aie::zeros<int32_t, 16>();
-
-    aie::accum<acc64, 16> dist_x = aie::zeros<acc64, 16>();
-    aie::accum<acc64, 16> dist_y = aie::zeros<acc64, 16>();
+    aie::vector<int32_t, 16> clusters_x = aie::zeros<int32_t, 16>();
+    aie::vector<int32_t, 16> clusters_y = aie::zeros<int32_t, 16>();
 
     for (size_t i = 0; i < num_clusters; i++)
     {
-        clusters_coords[i] = clusters[i].x;
+        clusters_x[i] = clusters[i].x;
+        clusters_y[i] = clusters[i].y;
     }
 
-    diff = aie::sub(clusters_coords, point.x);
-    dist_x = aie::mul(diff, diff);
+    aie::vector<int32_t, 16> diff_x = aie::sub(clusters_x, point.x);
+    aie::vector<int32_t, 16> diff_y = aie::sub(clusters_y, point.y);
 
-    for (size_t i = 0; i < num_clusters; i++)
-    {
-        clusters_coords[i] = clusters[i].y;
-    }
-
-    diff = aie::sub(clusters_coords, point.y);
-    dist_y = aie::mul(diff, diff);
+    aie::accum<acc64, 16> dist_x = aie::mul(diff_x, diff_x);
+    aie::accum<acc64, 16> dist_y = aie::mul(diff_y, diff_y);
 
     aie::vector<int32_t, 16> distances = aie::add(dist_x.to_vector<int32_t>(), dist_y.to_vector<int32_t>());
     return distances;
@@ -171,10 +163,8 @@ int32_t assignment_function(aie::vector<int32_t, 16> distances, int32_t num_clus
 
     for (size_t i = 0; i < num_clusters; i++)
     {
-        std::cout << "Distance " << i << ": " << distances[i] << std::endl;
         if (distances[i] == min_dist)
         {
-            std::cout << "Point assigned to cluster " << i << " with distance " << min_dist << std::endl;
             return i;
         }
     }
