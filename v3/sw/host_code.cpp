@@ -197,9 +197,9 @@ int main(int argc, char *argv[])
     // points_vec is a vector of the number of points to test
     // Powers of 2 from 2^10 with a step of 4
     int step = 4;
-    int max_pow = 4;
+    int max_pow = 8;
     // int max_pow = 22;
-    std::vector<int16_t> clusters_vec = {4, 8};
+    std::vector<int16_t> clusters_vec = {4, 8, 12, 16, 20, 24, 28, 32};
     int num_clusters, num_points;
 
     std::ofstream csv_file;
@@ -261,6 +261,8 @@ int main(int argc, char *argv[])
                 input_buffer[(num_clusters + i) * 2] = points_buffer[i * 2];
                 input_buffer[(num_clusters + i) * 2 + 1] = points_buffer[i * 2 + 1];
             }
+
+            std::cout << std::endl;
 
             //------------------------------------------------LOADING XCLBIN------------------------------------------
             std::string xclbin_file;
