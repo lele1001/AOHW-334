@@ -149,7 +149,7 @@ std::vector<Cluster> k_means(const std::vector<int16_t> &input, int16_t num_clus
         }
 
         // Assign the point to the nearest cluster
-        int16_t min_distance = INT32_MAX;
+        int16_t min_distance = INT16_MAX;
         int cluster_index = -1;
 
         if (distances.size() > 0)
@@ -199,7 +199,7 @@ int main(int argc, char *argv[])
     int step = 4;
     int max_pow = 4;
     // int max_pow = 22;
-    std::vector<int16_t> clusters_vec = {4, 8, 12, 16, 20, 32};
+    std::vector<int16_t> clusters_vec = {4, 8};
     int num_clusters, num_points;
 
     std::ofstream csv_file;
@@ -241,7 +241,7 @@ int main(int argc, char *argv[])
             {
                 clusters_buffer[i * 2] = dist(rng);
                 clusters_buffer[i * 2 + 1] = dist(rng);
-                // std::cout << "Cluster " << i << ": (" << clusters_buffer[i * 2] << ", " << clusters_buffer[i * 2 + 1] << ")\t";
+                std::cout << "Cluster " << i << ": (" << clusters_buffer[i * 2] << ", " << clusters_buffer[i * 2 + 1] << ")\t";
 
                 // Copy the cluster coordinates to the input buffer
                 input_buffer[i * 2] = clusters_buffer[i * 2];
@@ -255,7 +255,7 @@ int main(int argc, char *argv[])
             {
                 points_buffer[i * 2] = dist(rng);
                 points_buffer[i * 2 + 1] = dist(rng);
-                // std::cout << "Point " << i << ": (" << points_buffer[i * 2] << ", " << points_buffer[i * 2 + 1] << ")\t";
+                std::cout << "Point " << i << ": (" << points_buffer[i * 2] << ", " << points_buffer[i * 2 + 1] << ")\t";
 
                 // Copy the point coordinates to the input buffer
                 input_buffer[(num_clusters + i) * 2] = points_buffer[i * 2];
