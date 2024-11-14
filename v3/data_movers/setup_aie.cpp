@@ -24,14 +24,14 @@ extern "C"
 		ap_int<sizeof(int16_t) * 8 * 8> tmp;
 
 		// Write the number of clusters and the number of points
-		tmp.range(31, 0) = num_clusters;
-		tmp.range(63, 32) = num_points;
-		tmp.range(95, 64) = 0;
-		tmp.range(127, 96) = 0;
-		tmp.range(159, 128) = 0;
-		tmp.range(191, 160) = 0;
-		tmp.range(223, 192) = 0;
-		tmp.range(255, 224) = 0;		
+		tmp.range(15, 0) = num_clusters;
+		tmp.range(31, 16) = num_points;
+		tmp.range(47, 32) = 0;
+		tmp.range(63, 48) = 0;
+		tmp.range(79, 64) = 0;
+		tmp.range(95, 80) = 0;
+		tmp.range(111, 96) = 0;
+		tmp.range(127, 112) = 0;
 		s.write(tmp);
 
 		// Write the clusters and points coordinates, assuming that their number is a multiple of 4
@@ -43,7 +43,7 @@ extern "C"
 			for (int j = 0; j < 8; j++)
 			{
 				// std::cout << "input[" << i + j << "] = " << input[i + j] << std::endl;
-				tmp.range((j + 1) * 32 - 1, j * 32) = input[i + j];
+				tmp.range((j + 1) * 16 - 1, j * 16) = input[i + j];
 			}
 
 			s.write(tmp);
