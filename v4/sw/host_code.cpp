@@ -196,10 +196,14 @@ int main(int argc, char *argv[])
     // Powers of 2 from 2^10 with a step of 4
     int min_pow = 2;
     int step = 4;
-    int max_pow = 22;
+    int max_pow = 5;
     // std::vector<int32_t> points_vec = {1024, 16384, 262144, 4194304};
-    std::vector<int32_t> clusters_vec = {4, 8};
+    std::vector<int32_t> clusters_vec = {32};
     int num_clusters, num_points;
+
+    std::ofstream csv_file;
+    csv_file.open("time.csv", std::ios_base::app);
+    csv_file << "Number of clusters, Number of points, Software time (us), Hardware time (us), Timestamp" << std::endl;
 
     for (size_t j = 0; j < clusters_vec.size(); j++)
     {
@@ -231,7 +235,7 @@ int main(int argc, char *argv[])
 
             // Generate random coordinates for points and clusters using random number generator
             std::mt19937 rng(static_cast<unsigned int>(time(nullptr)));
-            std::uniform_int_distribution<int32_t> dist(-5, 5);
+            std::uniform_int_distribution<int32_t> dist(-10, 10);
 
             // Generate random coordinates for clusters
             for (size_t i = 0; i < num_clusters; i++)
@@ -258,6 +262,8 @@ int main(int argc, char *argv[])
                 input_buffer[(num_clusters + i) * 2] = points_buffer[i * 2];
                 input_buffer[(num_clusters + i) * 2 + 1] = points_buffer[i * 2 + 1];
             }
+
+            std::cout << std::endl;
 
             //------------------------------------------------LOADING XCLBIN------------------------------------------
             std::string xclbin_file;
@@ -347,21 +353,9 @@ int main(int argc, char *argv[])
             if (checkResult(sw_result, hw_result, num_clusters) == EXIT_SUCCESS)
             {
                 std::cout << bold_on << "Test passed" << bold_off << std::endl;
-                // Write the time taken by the software and hardware to a file
-                std::ofstream time_file;
-                time_file.open("time.txt", std::ios_base::app);
-                time_file << "Number of clusters: " << num_clusters << ", Number of points: " << num_points << std::endl;
-                time_file << "Software execution took " << sw_exec_ms << " microseconds." << std::endl;
-                time_file << "Hardware execution took " << hw_exec_ms << " microseconds." << std::endl;
-                time_file.close();
 
-                // Write the time and the timestamp to a csv
-                // if the file does not exist, create it and write the header
-                // if the file exists, clear the content and write the header
-                std::ofstream csv_file;
-                csv_file.open("time.csv", std::ios_base::app);
-                csv_file << "Number of clusters, Number of points, Software time (us), Hardware time (us), Timestamp" << std::endl;
-                csv_file << num_clusters << ", " << num_points << ", " << sw_exec_ms << ", " << hw_exec_ms << ", " << timestamp << std::endl;
+                // Write the time and the timestamp to the csv
+                csv_file << num_clusters << ", " << num_points << ", " << sw_exec_ms << ", " << hw_exec_ms << ", " << std::endl;
             }
             else
             {
@@ -371,6 +365,8 @@ int main(int argc, char *argv[])
             timestamp++;
         }
     }
+
+    csv_file.close();
 }
 
 bool get_xclbin_path(std::string &xclbin_file)

@@ -7,9 +7,9 @@
 
 int main(int argc, char *argv[])
 {
-    hls::stream<int16_t> s;
-    int16_t num_clusters = 4;
-    std::vector<int16_t> buffer(num_clusters * 2, 0);
+    hls::stream<float> s;
+    int32_t num_clusters = 4;
+    std::vector<float> buffer(num_clusters * 2, 0);
 
     // Read the output of the AIE kernel from a file
     std::ifstream file;
@@ -23,7 +23,7 @@ int main(int argc, char *argv[])
 
     for (size_t i = 0; i < MAX_CLUSTERS * 2; i++)
     {
-        int16_t x;
+        float x;
         file >> x;
         std::cout << "Read " << x << std::endl;
         s.write(x);

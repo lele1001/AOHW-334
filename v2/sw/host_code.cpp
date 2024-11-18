@@ -197,9 +197,12 @@ int main(int argc, char *argv[])
     int min_pow = 2;
     int step = 4;
     int max_pow = 22;
-    // std::vector<int32_t> points_vec = {1024, 16384, 262144, 4194304};
-    std::vector<int32_t> clusters_vec = {4, 8};
+    std::vector<int32_t> clusters_vec = {4, 8, 12, 16};
     int num_clusters, num_points;
+
+    std::ofstream csv_file;
+    csv_file.open("time.csv", std::ios_base::app);
+    csv_file << "Number of clusters, Number of points, Software time (us), Hardware time (us), Timestamp" << std::endl;
 
     for (size_t j = 0; j < clusters_vec.size(); j++)
     {
@@ -346,22 +349,10 @@ int main(int argc, char *argv[])
             // ------------------------------------------------CHECKING THE RESULTS------------------------------------------
             if (checkResult(sw_result, hw_result, num_clusters) == EXIT_SUCCESS)
             {
-                std::cout << bold_on << "Test passed" << bold_off << std::endl;
-                // Write the time taken by the software and hardware to a file
-                std::ofstream time_file;
-                time_file.open("time.txt", std::ios_base::app);
-                time_file << "Number of clusters: " << num_clusters << ", Number of points: " << num_points << std::endl;
-                time_file << "Software execution took " << sw_exec_ms << " microseconds." << std::endl;
-                time_file << "Hardware execution took " << hw_exec_ms << " microseconds." << std::endl;
-                time_file.close();
+                sstd::cout << bold_on << "Test passed" << bold_off << std::endl;
 
-                // Write the time and the timestamp to a csv
-                // if the file does not exist, create it and write the header
-                // if the file exists, clear the content and write the header
-                std::ofstream csv_file;
-                csv_file.open("time.csv", std::ios_base::app);
-                csv_file << "Number of clusters, Number of points, Software time (us), Hardware time (us), Timestamp" << std::endl;
-                csv_file << num_clusters << ", " << num_points << ", " << sw_exec_ms << ", " << hw_exec_ms << ", " << timestamp << std::endl;
+                // Write the time and the timestamp to the csv
+                csv_file << num_clusters << ", " << num_points << ", " << sw_exec_ms << ", " << hw_exec_ms << ", " << std::endl;
             }
             else
             {
@@ -371,6 +362,8 @@ int main(int argc, char *argv[])
             timestamp++;
         }
     }
+
+    csv_file.close();
 }
 
 bool get_xclbin_path(std::string &xclbin_file)
