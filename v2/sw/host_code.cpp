@@ -196,8 +196,8 @@ int main(int argc, char *argv[])
     // Powers of 2 from 2^10 with a step of 4
     int min_pow = 2;
     int step = 4;
-    int max_pow = 22;
-    std::vector<int32_t> clusters_vec = {4, 8, 12, 16};
+    int max_pow = 5;
+    std::vector<int32_t> clusters_vec = {4};
     int num_clusters, num_points;
 
     std::ofstream csv_file;
