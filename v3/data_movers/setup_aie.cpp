@@ -21,13 +21,18 @@ extern "C"
 #pragma HLS interface s_axilite port = return bundle = control
 
 		// Write the number of clusters and the number of points
-		s.write(num_clusters);
-		s.write(num_points);
+		s.write((float) num_clusters);
+		s.write((float) num_points);
 
-		float size_loop = (num_clusters + num_points) * 2 / 8;
+		for (size_t i = 0; i < 6; i++)
+		{
+			s.write(0.0);
+		}
+
+		int32_t loops = (num_clusters + num_points) * 2 / 8;
 
 		// Write the clusters and points coordinates, assuming that their number is a multiple of 4
-		for (size_t i = 0; i < size_loop; i ++)
+		for (size_t i = 0; i < loops; i++)
 		{
 			s.write(input[i * 8 + 0]);
 			s.write(input[i * 8 + 1]);

@@ -62,8 +62,9 @@ void kmeans_function(input_stream<float> *restrict input, output_stream<float> *
     aie::vector<float, 8> val_in = aie::zeros<float, 8>();
 
     // Read the number of clusters and points
-    int32_t num_clusters = readincr(input);
-    int32_t num_points = readincr(input);
+    val_in = readincr_v<8>(input);
+    int32_t num_clusters = (int32_t) val_in[0];
+    int32_t num_points = (int32_t) val_in[1];
 
     Cluster clusters[MAX_CLUSTERS];
     Point points[4];

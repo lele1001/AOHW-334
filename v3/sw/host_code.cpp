@@ -197,14 +197,13 @@ int main(int argc, char *argv[])
     // points_vec is a vector of the number of points to test
     // Powers of 2 from 2^10 with a step of 4
     int step = 4;
-    // int max_pow = 8;
     int max_pow = 5;
-    std::vector<int32_t> clusters_vec = {4};
+    std::vector<int32_t> clusters_vec = {4, 8};
     int num_clusters, num_points;
 
     std::ofstream csv_file;
     csv_file.open("./results/time.csv", std::ios_base::app);
-    csv_file << "Number of clusters, Number of points, Software time (us), Hardware time (us), Timestamp" << std::endl;
+    csv_file << "Number of clusters, Number of points, Software time (us), Hardware time (us)" << std::endl;
 
     for (size_t j = 0; j < clusters_vec.size(); j++)
     {
@@ -235,35 +234,35 @@ int main(int argc, char *argv[])
             // Generate random float coordinates for points and clusters using random number generator
             std::random_device rd;
             std::mt19937 rng(rd());
-            std::uniform_real_distribution<float> dist(-10.0, 10.0);
-            
+            std::uniform_real_distribution<float> dist(-50.0, 50.0);
+
             // Generate random coordinates for clusters
             for (size_t i = 0; i < num_clusters; i++)
             {
                 clusters_buffer[i * 2] = dist(rng);
                 clusters_buffer[i * 2 + 1] = dist(rng);
-                std::cout << "Cluster " << i << ": (" << clusters_buffer[i * 2] << ", " << clusters_buffer[i * 2 + 1] << ")\t";
+                // std::cout << "Cluster " << i << ": (" << clusters_buffer[i * 2] << ", " << clusters_buffer[i * 2 + 1] << ")\t";
 
                 // Copy the cluster coordinates to the input buffer
                 input_buffer[i * 2] = clusters_buffer[i * 2];
                 input_buffer[i * 2 + 1] = clusters_buffer[i * 2 + 1];
             }
 
-            std::cout << std::endl;
+            // std::cout << std::endl;
 
             // Generate random coordinates for points
             for (size_t i = 0; i < num_points; i++)
             {
                 points_buffer[i * 2] = dist(rng);
                 points_buffer[i * 2 + 1] = dist(rng);
-                std::cout << "Point " << i << ": (" << points_buffer[i * 2] << ", " << points_buffer[i * 2 + 1] << ")\t";
+                // std::cout << "Point " << i << ": (" << points_buffer[i * 2] << ", " << points_buffer[i * 2 + 1] << ")\t";
 
                 // Copy the point coordinates to the input buffer
                 input_buffer[(num_clusters + i) * 2] = points_buffer[i * 2];
                 input_buffer[(num_clusters + i) * 2 + 1] = points_buffer[i * 2 + 1];
             }
 
-            std::cout << std::endl;
+            // std::cout << std::endl;
 
             //------------------------------------------------LOADING XCLBIN------------------------------------------
             std::string xclbin_file;
@@ -355,7 +354,7 @@ int main(int argc, char *argv[])
                 std::cout << bold_on << "Test passed" << bold_off << std::endl;
 
                 // Write the time and the timestamp to the csv
-                csv_file << num_clusters << ", " << num_points << ", " << sw_exec_ms << ", " << hw_exec_ms << ", " << std::endl;
+                csv_file << num_clusters << ", " << num_points << ", " << sw_exec_ms << ", " << hw_exec_ms << std::endl;
             }
             else
             {
