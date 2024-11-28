@@ -27,10 +27,10 @@
 
 struct Point
 {
-    int16_t x;
-    int16_t y;
+    float x;
+    float y;
 
-    Point(int16_t x, int16_t y)
+    Point(float x, float y)
     {
         this->x = x;
         this->y = y;
@@ -45,11 +45,11 @@ struct Point
 
 struct Cluster
 {
-    int16_t x;
-    int16_t y;
-    int16_t numPoints;
+    float x;
+    float y;
+    int32_t numPoints;
 
-    Cluster(int16_t x, int16_t y)
+    Cluster(float x, float y)
     {
         this->x = x;
         this->y = y;
@@ -65,8 +65,8 @@ struct Cluster
 
     void addPoint(Point point)
     {
-        int16_t x_accum = this->x * this->numPoints + point.x;
-        int16_t y_accum = this->y * this->numPoints + point.y;
+        float x_accum = this->x * this->numPoints + point.x;
+        float y_accum = this->y * this->numPoints + point.y;
 
         this->numPoints++;
 
@@ -91,7 +91,7 @@ void printCluster(const std::vector<Cluster> &output)
 }
 
 // Check the results
-int16_t checkResult(const std::vector<Cluster> &sw_output, const std::vector<Cluster> &hw_output, int16_t num_clusters)
+int32_t checkResult(const std::vector<Cluster> &sw_output, const std::vector<Cluster> &hw_output, int32_t num_clusters)
 {
     std::vector<bool> matched(num_clusters, false);
 
@@ -122,7 +122,7 @@ int16_t checkResult(const std::vector<Cluster> &sw_output, const std::vector<Clu
     return EXIT_SUCCESS;
 }
 
-std::vector<Cluster> k_means(const std::vector<int16_t> &input, int16_t num_clusters, int16_t num_points)
+std::vector<Cluster> k_means(const std::vector<float> &input, int32_t num_clusters, int32_t num_points)
 {
     std::vector<Cluster> clusters(num_clusters);
 
@@ -138,18 +138,18 @@ std::vector<Cluster> k_means(const std::vector<int16_t> &input, int16_t num_clus
     for (size_t i = 0; i < num_points; i++)
     {
         Point point = Point(input[start + i * 2], input[start + i * 2 + 1]);
-        std::vector<int16_t> distances(num_clusters, 0);
+        std::vector<float> distances(num_clusters, 0);
 
         // Calculate the distance between the point and each cluster
         for (size_t j = 0; j < num_clusters; j++)
         {
-            int16_t x_diff = clusters[j].x - point.x;
-            int16_t y_diff = clusters[j].y - point.y;
+            float x_diff = clusters[j].x - point.x;
+            float y_diff = clusters[j].y - point.y;
             distances[j] = std::pow(x_diff, 2) + std::pow(y_diff, 2);
         }
 
         // Assign the point to the nearest cluster
-        int16_t min_distance = INT16_MAX;
+        float min_distance = std::numeric_limits<float>::max();
         int cluster_index = -1;
 
         if (distances.size() > 0)
@@ -198,8 +198,8 @@ int main(int argc, char *argv[])
     // Powers of 2 from 2^10 with a step of 4
     int step = 4;
     // int max_pow = 8;
-    int max_pow = 22;
-    std::vector<int16_t> clusters_vec = {4, 8, 12, 16, 20, 24, 28, 32};
+    int max_pow = 5;
+    std::vector<int32_t> clusters_vec = {4};
     int num_clusters, num_points;
 
     std::ofstream csv_file;
@@ -224,45 +224,46 @@ int main(int argc, char *argv[])
             int input_size = (num_clusters + num_points) * 2;
             int output_size = num_clusters * 2;
 
-            std::vector<int16_t> clusters_buffer(num_clusters * 2);
-            std::vector<int16_t> points_buffer(num_points * 2);
-            std::vector<int16_t> input_buffer(input_size);
-            std::vector<int16_t> output_buffer(output_size);
+            std::vector<float> clusters_buffer(num_clusters * 2);
+            std::vector<float> points_buffer(num_points * 2);
+            std::vector<float> input_buffer(input_size);
+            std::vector<float> output_buffer(output_size);
 
             std::vector<Cluster> sw_result(num_clusters);
             std::vector<Cluster> hw_result(num_clusters);
 
-            // Generate random coordinates for points and clusters using random number generator
-            std::mt19937 rng(static_cast<unsigned int>(time(nullptr)));
-            std::uniform_int_distribution<int16_t> dist(-5, 5);
-
+            // Generate random float coordinates for points and clusters using random number generator
+            std::random_device rd;
+            std::mt19937 rng(rd());
+            std::uniform_real_distribution<float> dist(-10.0, 10.0);
+            
             // Generate random coordinates for clusters
             for (size_t i = 0; i < num_clusters; i++)
             {
                 clusters_buffer[i * 2] = dist(rng);
                 clusters_buffer[i * 2 + 1] = dist(rng);
-                // std::cout << "Cluster " << i << ": (" << clusters_buffer[i * 2] << ", " << clusters_buffer[i * 2 + 1] << ")\t";
+                std::cout << "Cluster " << i << ": (" << clusters_buffer[i * 2] << ", " << clusters_buffer[i * 2 + 1] << ")\t";
 
                 // Copy the cluster coordinates to the input buffer
                 input_buffer[i * 2] = clusters_buffer[i * 2];
                 input_buffer[i * 2 + 1] = clusters_buffer[i * 2 + 1];
             }
 
-            // std::cout << std::endl;
+            std::cout << std::endl;
 
             // Generate random coordinates for points
             for (size_t i = 0; i < num_points; i++)
             {
                 points_buffer[i * 2] = dist(rng);
                 points_buffer[i * 2 + 1] = dist(rng);
-                // std::cout << "Point " << i << ": (" << points_buffer[i * 2] << ", " << points_buffer[i * 2 + 1] << ")\t";
+                std::cout << "Point " << i << ": (" << points_buffer[i * 2] << ", " << points_buffer[i * 2 + 1] << ")\t";
 
                 // Copy the point coordinates to the input buffer
                 input_buffer[(num_clusters + i) * 2] = points_buffer[i * 2];
                 input_buffer[(num_clusters + i) * 2 + 1] = points_buffer[i * 2 + 1];
             }
 
-            // std::cout << std::endl;
+            std::cout << std::endl;
 
             //------------------------------------------------LOADING XCLBIN------------------------------------------
             std::string xclbin_file;
@@ -287,8 +288,8 @@ int main(int argc, char *argv[])
             xrtMemoryGroup bank_input = krnl_setup_aie.group_id(arg_setup_aie_input);
 
             // create device buffers - if you have to load some data, here they are
-            xrt::bo buffer_setup_aie = xrt::bo(device, input_size * sizeof(int16_t), xrt::bo::flags::normal, bank_input);
-            xrt::bo buffer_sink_from_aie = xrt::bo(device, output_size * sizeof(int16_t), xrt::bo::flags::normal, bank_output);
+            xrt::bo buffer_setup_aie = xrt::bo(device, input_size * sizeof(float), xrt::bo::flags::normal, bank_input);
+            xrt::bo buffer_sink_from_aie = xrt::bo(device, output_size * sizeof(float), xrt::bo::flags::normal, bank_output);
 
             // create runner instances
             xrt::run run_setup_aie = xrt::run(krnl_setup_aie);

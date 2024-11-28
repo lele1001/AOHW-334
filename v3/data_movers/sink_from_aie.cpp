@@ -7,7 +7,7 @@
 
 extern "C"
 {
-    void sink_from_aie(hls::stream<float> &input_stream,float *output,  int32_t size)
+    void sink_from_aie(hls::stream<float> &input_stream, float *output, int32_t size)
     {
 // PRAGMA for stream
 #pragma HLS interface axis port = input_stream
@@ -20,19 +20,10 @@ extern "C"
 #pragma HLS interface s_axilite port = size bundle = control
 #pragma HLS interface s_axilite port = return bundle = control
 
-        // Create a temporary variable to store the data
-        float tmp[MAX_CLUSTERS * 2];
-
-        for (size_t i = 0; i < MAX_CLUSTERS * 2; i++)
+        for (size_t i = 0; i < size * 2; i++)
         {
-            tmp[i] = input_stream.read();
-            // std::cout << "Read sink " << tmp[i] << std::endl;
-
-            if (i < size * 2)
-            {
-                output[i] = tmp[i];
-                // std::cout << "Sink " << output[i] << std::endl;
-            }
+            output[i] = input_stream.read();
+            // std::cout << "Sink " << output[i] << std::endl;
         }
     }
 }

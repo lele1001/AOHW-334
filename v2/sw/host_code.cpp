@@ -349,7 +349,7 @@ int main(int argc, char *argv[])
             // ------------------------------------------------CHECKING THE RESULTS------------------------------------------
             if (checkResult(sw_result, hw_result, num_clusters) == EXIT_SUCCESS)
             {
-                sstd::cout << bold_on << "Test passed" << bold_off << std::endl;
+                std::cout << bold_on << "Test passed" << bold_off << std::endl;
 
                 // Write the time and the timestamp to the csv
                 csv_file << num_clusters << ", " << num_points << ", " << sw_exec_ms << ", " << hw_exec_ms << ", " << std::endl;

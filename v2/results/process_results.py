@@ -85,5 +85,8 @@ def main():
     for cluster in combined_df_melted["num_clusters"].unique():
         plot_results(combined_df_melted[combined_df_melted["num_clusters"] == cluster], cluster, figsize=(18, 10), num="avg")
 
+        # Create a CSV file with the average results
+        combined_df[combined_df["num_clusters"] == cluster].to_csv(f"{cluster}_clusters_avg.csv", index=False)
+
 if __name__ == '__main__':
     main()
