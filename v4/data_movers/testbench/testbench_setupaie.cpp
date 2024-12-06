@@ -10,7 +10,7 @@
 
 void read_from_stream(int32_t *buffer, hls::stream<int32_t> &stream, size_t size)
 {
-    for (int32_t i = 0; i < size; i++)
+    for (size_t i = 0; i < size; i++)
     {
         buffer[i] = stream.read();
     }
@@ -18,22 +18,17 @@ void read_from_stream(int32_t *buffer, hls::stream<int32_t> &stream, size_t size
 
 int main(int argc, char* argv[]) 
 {
-    hls::stream<ap_int<sizeof(int32_t) * 8 * 8>> s;
+    hls::stream<ap_uint<sizeof(int32_t) * 8 * 8>> s;
     std::srand(time(nullptr));
 
     // size := clusters coordinates (x,y) + points coordinates (x,y)
     int32_t num_clusters = 4;
     int32_t num_points = 8;
-    int32_t input_size = num_clusters * 2 + num_points * 2;
+    int32_t input_size = (num_clusters + num_points) * 2;
 
-    std::vector<int32_t> clusters_buffer(num_clusters * 2);
-    std::vector<int32_t> points_buffer(num_points * 2);
-    std::vector<int32_t> input_buffer(input_size);
-
-    clusters_buffer = {3, -7, -8, 5, 10, -3, -4, -6};
-    points_buffer = {7, 9, -2, 0, 5, 4, -10, -8, 6, -2, -3, 7, 1, -9, 9, 3};
-    input_buffer = {3, -7, -8, 5, 10, -3, -4, -6, 7, 9, -2, 0, 5, 4, -10, -8, 6, -2, -3, 7, 1, -9, 9, 3};
-    // Expected result: 
+    std::vector<float> clusters_buffer = {3.0, -7.0, -8.0, 5.0, 10.0, -3.0, -4.0, -6.0};
+    std::vector<float> points_buffer = {7.0, 9.0, -2.0, 0.0, 5.0, 4.0, -10.0, -8.0, 6.0, -2.0, -3.0, 7.0, 1.0, -9.0, 9.0, 3.0};
+    std::vector<float> input_buffer = {3.0, -7.0, -8.0, 5.0, 10.0, -3.0, -4.0, -6.0, 7.0, 9.0, -2.0, 0.0, 5.0, 4.0, -10.0, -8.0, 6.0, -2.0, -3.0, 7.0, 1.0, -9.0, 9.0, 3.0};
 
     setup_aie(num_clusters, num_points, input_buffer.data(), s);
 
@@ -49,7 +44,7 @@ int main(int argc, char* argv[])
         {
             tmp = s.read();
 
-            for (int32_t j = 0; j < 8; j++) 
+            for (int32_t j = 0; j < 8; j++)
             {
                 int32_t x = tmp.range(j * 32 + 31, j * 32);
                 file << x << std::endl;
@@ -59,12 +54,12 @@ int main(int argc, char* argv[])
 
         // Read the last element
         tmp = s.read();
-
         file.close();
     } 
     else 
     {
         std::cout << "Error opening file" << std::endl;
+        return 1;
     }
 
     return 0;

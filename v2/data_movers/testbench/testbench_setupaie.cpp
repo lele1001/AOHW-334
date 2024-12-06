@@ -18,7 +18,7 @@ void read_from_stream(int32_t *buffer, hls::stream<int32_t> &stream, size_t size
 
 int main(int argc, char* argv[]) 
 {
-    hls::stream<ap_int<sizeof(int32_t) * 8 * 8>> s;
+    hls::stream<ap_int<sizeof(float) * 8 * 8>> s;
     std::srand(time(nullptr));
 
     // size := clusters coordinates (x,y) + points coordinates (x,y)
@@ -59,7 +59,6 @@ int main(int argc, char* argv[])
 
         // Read the last element
         tmp = s.read();
-
         file.close();
     } 
     else 

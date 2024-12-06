@@ -9,7 +9,8 @@ int main(int argc, char *argv[])
 {
     hls::stream<int32_t> s;
     int32_t num_clusters = 4;
-    std::vector<int32_t> buffer(num_clusters * 2, 0);
+    int32_t buffer_size = num_clusters * 2;
+    std::vector<float> buffer(buffer_size, 0);
 
     // Read the output of the AIE kernel from a file
     std::ifstream file;
@@ -17,13 +18,13 @@ int main(int argc, char *argv[])
 
     if (!file)
     {
-        std::cerr << "Unable to open file ../../aie/x86simulator_output/out_plio_sink.txt";
+        std::cerr << "Unable to open file ../../aie/x86simulator_output/data/out_plio_sink.txt";
         return 1;
     }
 
-    for (int32_t i = 0; i < MAX_CLUSTERS * 2; i++)
+    for (size_t i = 0; i < buffer_size; i++)
     {
-        int32_t x;
+        float x;
         file >> x;
         std::cout << "Read " << x << std::endl;
         s.write(x);
@@ -34,7 +35,7 @@ int main(int argc, char *argv[])
     std::cout << "Sink from AIE done" << std::endl;
 
     // Print the output of the AIE kernel
-    for (int32_t i = 0; i < MAX_CLUSTERS * 2; i++)
+    for (size_t i = 0; i < buffer_size; i++)
     {
         std::cout << buffer[i] << std::endl;
     }

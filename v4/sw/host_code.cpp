@@ -27,10 +27,10 @@
 
 struct Point
 {
-    int32_t x;
-    int32_t y;
+    float x;
+    float y;
 
-    Point(int32_t x, int32_t y)
+    Point(float x, float y)
     {
         this->x = x;
         this->y = y;
@@ -45,11 +45,11 @@ struct Point
 
 struct Cluster
 {
-    int32_t x;
-    int32_t y;
+    float x;
+    float y;
     int32_t numPoints;
 
-    Cluster(int32_t x, int32_t y)
+    Cluster(float x, float y)
     {
         this->x = x;
         this->y = y;
@@ -65,8 +65,8 @@ struct Cluster
 
     void addPoint(Point point)
     {
-        int32_t x_accum = this->x * this->numPoints + point.x;
-        int32_t y_accum = this->y * this->numPoints + point.y;
+        float x_accum = this->x * this->numPoints + point.x;
+        float y_accum = this->y * this->numPoints + point.y;
 
         this->numPoints++;
 
@@ -122,32 +122,34 @@ int32_t checkResult(const std::vector<Cluster> &sw_output, const std::vector<Clu
     return EXIT_SUCCESS;
 }
 
-std::vector<Cluster> k_means(const std::vector<int32_t> &clusters_input, const std::vector<int32_t> &points_input, int32_t num_clusters, int32_t num_points)
+std::vector<Cluster> k_means(const std::vector<float> &input, int32_t num_clusters, int32_t num_points)
 {
     std::vector<Cluster> clusters(num_clusters);
 
     // Read the coordinates of the clusters
     for (size_t i = 0; i < num_clusters; i++)
     {
-        clusters[i] = Cluster(clusters_input[i * 2], clusters_input[i * 2 + 1]);
+        clusters[i] = Cluster(input[i * 2], input[i * 2 + 1]);
     }
+
+    size_t start = num_clusters * 2;
 
     // K-Means algorithm
     for (size_t i = 0; i < num_points; i++)
     {
-        Point point = Point(points_input[i * 2], points_input[i * 2 + 1]);
-        std::vector<int32_t> distances(num_clusters, 0);
+        Point point = Point(input[start + i * 2], input[start + i * 2 + 1]);
+        std::vector<float> distances(num_clusters, 0);
 
         // Calculate the distance between the point and each cluster
         for (size_t j = 0; j < num_clusters; j++)
         {
-            int32_t x_diff = clusters[j].x - point.x;
-            int32_t y_diff = clusters[j].y - point.y;
+            float x_diff = clusters[j].x - point.x;
+            float y_diff = clusters[j].y - point.y;
             distances[j] = std::pow(x_diff, 2) + std::pow(y_diff, 2);
         }
 
         // Assign the point to the nearest cluster
-        int32_t min_distance = INT32_MAX;
+        float min_distance = std::numeric_limits<float>::max();
         int cluster_index = -1;
 
         if (distances.size() > 0)
@@ -194,21 +196,17 @@ int main(int argc, char *argv[])
 {
     // points_vec is a vector of the number of points to test
     // Powers of 2 from 2^10 with a step of 4
-    int min_pow = 2;
     int step = 4;
     int max_pow = 5;
-    // std::vector<int32_t> points_vec = {1024, 16384, 262144, 4194304};
-    std::vector<int32_t> clusters_vec = {32};
+    std::vector<int32_t> clusters_vec = {4, 8};
     int num_clusters, num_points;
 
     std::ofstream csv_file;
-    csv_file.open("time.csv", std::ios_base::app);
-    csv_file << "Number of clusters, Number of points, Software time (us), Hardware time (us), Timestamp" << std::endl;
+    csv_file.open("./results/time.csv", std::ios_base::app);
+    csv_file << "Number of clusters, Number of points, Software time (us), Hardware time (us)" << std::endl;
 
     for (size_t j = 0; j < clusters_vec.size(); j++)
     {
-        int timestamp = 0;
-
         for (size_t pow = 2; pow < max_pow + 1; pow += step)
         {
             num_clusters = clusters_vec[j];
@@ -225,45 +223,47 @@ int main(int argc, char *argv[])
             int input_size = (num_clusters + num_points) * 2;
             int output_size = num_clusters * 2;
 
-            std::vector<int32_t> clusters_buffer(num_clusters * 2);
-            std::vector<int32_t> points_buffer(num_points * 2);
-            std::vector<int32_t> input_buffer(input_size);
-            std::vector<int32_t> output_buffer(output_size);
+            std::vector<float> clusters_buffer(num_clusters * 2);
+            std::vector<float> points_buffer(num_points * 2);
+            std::vector<float> input_buffer(input_size);
+            std::vector<float> output_buffer(output_size);
 
             std::vector<Cluster> sw_result(num_clusters);
             std::vector<Cluster> hw_result(num_clusters);
 
-            // Generate random coordinates for points and clusters using random number generator
-            std::mt19937 rng(static_cast<unsigned int>(time(nullptr)));
-            std::uniform_int_distribution<int32_t> dist(-10, 10);
+            // Generate random float coordinates for points and clusters using random number generator
+            std::random_device rd;
+            std::mt19937 rng(rd());
+            std::uniform_real_distribution<float> dist(-50.0, 50.0);
 
             // Generate random coordinates for clusters
             for (size_t i = 0; i < num_clusters; i++)
             {
-                clusters_buffer[i * 2] = dist(rng);
-                clusters_buffer[i * 2 + 1] = dist(rng);
-                std::cout << "Cluster " << i << ": (" << clusters_buffer[i * 2] << ", " << clusters_buffer[i * 2 + 1] << ")\t";
+                // Round the generated coordinates to 4 decimal places
+                clusters_buffer[i * 2] = std::round(dist(rng) * 10000.0) / 10000.0;
+                clusters_buffer[i * 2 + 1] = std::round(dist(rng) * 10000.0) / 10000.0;
+                // std::cout << "Cluster " << i << ": (" << clusters_buffer[i * 2] << ", " << clusters_buffer[i * 2 + 1] << ")\t";
 
                 // Copy the cluster coordinates to the input buffer
                 input_buffer[i * 2] = clusters_buffer[i * 2];
                 input_buffer[i * 2 + 1] = clusters_buffer[i * 2 + 1];
             }
 
-            std::cout << std::endl;
+            // std::cout << std::endl;
 
             // Generate random coordinates for points
             for (size_t i = 0; i < num_points; i++)
             {
                 points_buffer[i * 2] = dist(rng);
                 points_buffer[i * 2 + 1] = dist(rng);
-                std::cout << "Point " << i << ": (" << points_buffer[i * 2] << ", " << points_buffer[i * 2 + 1] << ")\t";
+                // std::cout << "Point " << i << ": (" << points_buffer[i * 2] << ", " << points_buffer[i * 2 + 1] << ")\t";
 
                 // Copy the point coordinates to the input buffer
                 input_buffer[(num_clusters + i) * 2] = points_buffer[i * 2];
                 input_buffer[(num_clusters + i) * 2 + 1] = points_buffer[i * 2 + 1];
             }
 
-            std::cout << std::endl;
+            // std::cout << std::endl;
 
             //------------------------------------------------LOADING XCLBIN------------------------------------------
             std::string xclbin_file;
@@ -288,8 +288,8 @@ int main(int argc, char *argv[])
             xrtMemoryGroup bank_input = krnl_setup_aie.group_id(arg_setup_aie_input);
 
             // create device buffers - if you have to load some data, here they are
-            xrt::bo buffer_setup_aie = xrt::bo(device, input_size * sizeof(int32_t), xrt::bo::flags::normal, bank_input);
-            xrt::bo buffer_sink_from_aie = xrt::bo(device, output_size * sizeof(int32_t), xrt::bo::flags::normal, bank_output);
+            xrt::bo buffer_setup_aie = xrt::bo(device, input_size * sizeof(float), xrt::bo::flags::normal, bank_input);
+            xrt::bo buffer_sink_from_aie = xrt::bo(device, output_size * sizeof(float), xrt::bo::flags::normal, bank_output);
 
             // create runner instances
             xrt::run run_setup_aie = xrt::run(krnl_setup_aie);
@@ -337,7 +337,7 @@ int main(int argc, char *argv[])
 
             auto sw_start = std::chrono::high_resolution_clock::now();
             // run the kernel
-            sw_result = k_means(clusters_buffer, points_buffer, num_clusters, num_points);
+            sw_result = k_means(input_buffer, num_clusters, num_points);
 
             auto sw_end = std::chrono::high_resolution_clock::now();
             auto sw_exec_ms = (sw_end - sw_start) / std::chrono::microseconds(1);
@@ -355,14 +355,12 @@ int main(int argc, char *argv[])
                 std::cout << bold_on << "Test passed" << bold_off << std::endl;
 
                 // Write the time and the timestamp to the csv
-                csv_file << num_clusters << ", " << num_points << ", " << sw_exec_ms << ", " << hw_exec_ms << ", " << std::endl;
+                csv_file << num_clusters << ", " << num_points << ", " << sw_exec_ms << ", " << hw_exec_ms << std::endl;
             }
             else
             {
                 std::cout << bold_on << "Test failed" << bold_off << std::endl;
             }
-
-            timestamp++;
         }
     }
 

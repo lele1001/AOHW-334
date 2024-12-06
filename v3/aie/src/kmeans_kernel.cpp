@@ -116,16 +116,12 @@ void kmeans_function(input_stream<float> *restrict input, output_stream<float> *
         }
     }
 
-    aie::vector<float, MAX_CLUSTERS * 2> result = aie::zeros<float, MAX_CLUSTERS * 2>();
-
     // Write the coordinates of the clusters in the output stream
     for (size_t i = 0; i < num_clusters; i++)
     {
-        result[i * 2] = clusters[i].x;
-        result[i * 2 + 1] = clusters[i].y;
+        writeincr(output, clusters[i].x);
+        writeincr(output, clusters[i].y);
     }
-
-    writeincr(output, result);
 }
 
 // Compute the euclidean distance between a point and all the clusters

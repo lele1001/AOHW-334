@@ -8,40 +8,40 @@ extern "C"
 {
 	void setup_aie(int32_t num_clusters, int32_t num_points, float *input, hls::stream<float> &s)
 	{
-// PRAGMA for stream
+		// PRAGMA for stream
 #pragma HLS interface axis port = s
 
-// PRAGMA for memory interation - AXI master-slave
+		// PRAGMA for memory interation - AXI master-slave
 #pragma HLS interface m_axi port = input depth = 100 offset = slave bundle = gmem0
 #pragma HLS interface s_axilite port = input bundle = control
 
-// PRAGMA for AXI-LITE : required to move params from host to PL
+		// PRAGMA for AXI-LITE : required to move params from host to PL
 #pragma HLS interface s_axilite port = num_clusters bundle = control
 #pragma HLS interface s_axilite port = num_points bundle = control
 #pragma HLS interface s_axilite port = return bundle = control
 
 		// Write the number of clusters and the number of points
-		s.write((float) num_clusters);
-		s.write((float) num_points);
+		s.write(static_cast<float>(num_clusters));
+		s.write(static_cast<float>(num_points));
 
-		for (size_t i = 0; i < 6; i++)
+		// Padding for alignment or unused space (write zeros)
+		for (int i = 0; i < 6; ++i)
 		{
-			s.write(0.0);
+#pragma HLS pipeline
+			s.write(0.0f);
 		}
 
-		int32_t loops = (num_clusters + num_points) * 2 / 8;
+		// Total iterations needed to process all input values in chunks of 8
+		const int32_t num_iterations = (num_clusters + num_points) * 2 / 8;
 
-		// Write the clusters and points coordinates, assuming that their number is a multiple of 4
-		for (size_t i = 0; i < loops; i++)
+		// Stream the input data in chunks of 8 floats
+		for (int i = 0; i < num_iterations; ++i)
 		{
-			s.write(input[i * 8 + 0]);
-			s.write(input[i * 8 + 1]);
-			s.write(input[i * 8 + 2]);
-			s.write(input[i * 8 + 3]);
-			s.write(input[i * 8 + 4]);
-			s.write(input[i * 8 + 5]);
-			s.write(input[i * 8 + 6]);
-			s.write(input[i * 8 + 7]);
+#pragma HLS pipeline
+			for (int j = 0; j < 8; ++j)
+			{
+				s.write(input[i * 8 + j]);
+			}
 		}
 	}
 }

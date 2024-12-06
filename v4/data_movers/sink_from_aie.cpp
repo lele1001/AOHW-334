@@ -7,7 +7,7 @@
 
 extern "C"
 {
-    void sink_from_aie(hls::stream<int32_t> &input_stream,int32_t *output,  int32_t size)
+    void sink_from_aie(hls::stream<int32_t> &input_stream, float *output, int32_t size)
     {
 // PRAGMA for stream
 #pragma HLS interface axis port = input_stream
@@ -20,10 +20,12 @@ extern "C"
 #pragma HLS interface s_axilite port = size bundle = control
 #pragma HLS interface s_axilite port = return bundle = control
 
+        const float scale_factor = 10000.0f; // The same scale factor used in the hardware function
+
         for (size_t i = 0; i < size * 2; i++)
         {
-            output[i] = input_stream.read();
-            // std::cout << "Sink " << output[i] << std::endl;
+            int32_t temp = input_stream.read();
+            output[i] = (float)temp / scale_factor; // Convert int32_t back to float
         }
     }
 }

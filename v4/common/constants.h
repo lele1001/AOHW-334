@@ -7,6 +7,6 @@
 #define CONSTANTS_H
 
 typedef float data_t;
-#define MAX_CLUSTERS 32
+#define MAX_CLUSTERS 16
 
 #endif
