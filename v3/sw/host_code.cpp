@@ -202,7 +202,7 @@ int main(int argc, char *argv[])
     int num_clusters, num_points;
 
     std::ofstream csv_file;
-    csv_file.open("./results/time.csv", std::ios_base::app);
+    csv_file.open(".time.csv", std::ios_base::app);
     csv_file << "Number of clusters, Number of points, Software time (us), Hardware time (us)" << std::endl;
 
     for (size_t j = 0; j < clusters_vec.size(); j++)
