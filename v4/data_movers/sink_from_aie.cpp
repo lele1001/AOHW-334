@@ -24,6 +24,8 @@ extern "C"
 
         for (size_t i = 0; i < size * 2; i++)
         {
+#pragma HLS pipeline II = 1
+
             int32_t temp = input_stream.read();
             output[i] = (float)temp / scale_factor; // Convert int32_t back to float
         }

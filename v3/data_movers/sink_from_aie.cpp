@@ -19,11 +19,14 @@ extern "C"
 #pragma HLS interface s_axilite port = size bundle = control
 #pragma HLS interface s_axilite port = return bundle = control
 
-        // Process all values in the input stream
-        for (int i = 0; i < size * 2; ++i)
+        // Calculate the loop bound only once
+        int total_size = size * 2;
+
+        // Use burst-friendly access pattern
+        for (int i = 0; i < total_size; ++i)
         {
-#pragma HLS pipeline
-            output[i] = input_stream.read();
+#pragma HLS pipeline II = 1
+                output[i] = input_stream.read();
         }
     }
 }
