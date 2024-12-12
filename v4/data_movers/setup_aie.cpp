@@ -35,15 +35,13 @@ extern "C"
 		{
 #pragma HLS pipeline II = 1
 			// Clear the temporary variable
-			tmp = 0;
+			tmp.range(255, 0) = 0;
 
 			for (int j = 0; j < 8; j++)
 			{
-				if (i + j < (num_clusters + num_points) * 2)
-				{
-					float value = input[i + j];
-					tmp.range((j + 1) * 32 - 1, j * 32) = *((ap_uint<32> *)&value);
-				}
+				my_union_t value;
+				value.f = input[i + j];
+				tmp.range(j * 32 + 31, j * 32) = value.i;
 			}
 
 			s.write(tmp);
