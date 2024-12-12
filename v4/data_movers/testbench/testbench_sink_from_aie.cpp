@@ -7,7 +7,7 @@
 
 int main(int argc, char *argv[])
 {
-    hls::stream<int32_t> s;
+    hls::stream<float> s;
     int32_t num_clusters = 4;
     int32_t buffer_size = num_clusters * 2;
     std::vector<float> buffer(buffer_size, 0);
@@ -37,6 +37,6 @@ int main(int argc, char *argv[])
     // Print the output of the AIE kernel
     for (size_t i = 0; i < buffer_size; i++)
     {
-        std::cout << buffer[i] << std::endl;
+        std::cout << "Output " << i << ": " << buffer[i] << std::endl;
     }
 }

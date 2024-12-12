@@ -14,7 +14,7 @@ void kmeans_function(input_stream<int32_t> *restrict input, output_stream<float>
     int32_t num_clusters = val_in[0];
     int32_t num_points = val_in[1];
     Cluster clusters[MAX_CLUSTERS];
-    my_union_t px, py;
+    int32_t px, py;
 
     // Read the coordinates of the clusters, assuming that the number of clusters is a multiple of 4
     for (size_t i = 0; i < num_clusters / 4; i++)
@@ -22,9 +22,9 @@ void kmeans_function(input_stream<int32_t> *restrict input, output_stream<float>
         val_in = readincr_v<8>(input);
         for (size_t j = 0; j < 4; j++)
         {
-            px.i = val_in[j * 2];
-            px.i = val_in[j * 2 + 1];
-            clusters[i * 4 + j] = Cluster(px.f, px.f);
+            px = val_in[j * 2];
+            py = val_in[j * 2 + 1];
+            clusters[i * 4 + j] = Cluster(static_cast<float>(px), static_cast<float>(py));
         }
     }
 
@@ -39,9 +39,9 @@ void kmeans_function(input_stream<int32_t> *restrict input, output_stream<float>
 
         // Compute the algorithm for each of the 4 points
         while (j < 4) {
-            px.i = val_in[j * 2];
-            px.i = val_in[j * 2 + 1];
-            Point point = Point(px.f, py.f);
+            px = val_in[j * 2];
+            py = val_in[j * 2 + 1];
+            Point point = Point(static_cast<float>(px), static_cast<float>(py));
             // std::cout << "Point " << j << ": (" << points[j].x << ", " << points[j].y << ")" << std::endl;
 
             // Compute the euclidean distance between the point and all the clusters

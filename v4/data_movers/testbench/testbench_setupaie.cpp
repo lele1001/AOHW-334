@@ -18,7 +18,7 @@ void read_from_stream(int32_t *buffer, hls::stream<int32_t> &stream, size_t size
 
 int main(int argc, char* argv[]) 
 {
-    hls::stream<ap_uint<sizeof(int32_t) * 8 * 8>> s;
+    hls::stream<ap_uint<sizeof(float) * 8 * 8>> s;
     std::srand(time(nullptr));
 
     // size := clusters coordinates (x,y) + points coordinates (x,y)
@@ -38,13 +38,13 @@ int main(int argc, char* argv[])
     
     if (file.is_open()) 
     {
-        ap_int<sizeof(int32_t) * 8 * 8> tmp;
+        ap_uint<sizeof(float) * 8 * 8> tmp;
 
-        for (int32_t i = 0; i < (input_size / 8); i++)
+        for (size_t i = 0; i < (input_size / 8); i++)
         {
             tmp = s.read();
 
-            for (int32_t j = 0; j < 8; j++)
+            for (size_t j = 0; j < 8; j++)
             {
                 int32_t x = tmp.range(j * 32 + 31, j * 32);
                 file << x << std::endl;
