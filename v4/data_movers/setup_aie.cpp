@@ -36,12 +36,12 @@ extern "C"
 #pragma HLS pipeline II = 1
 			// Clear the temporary variable
 			tmp.range(255, 0) = 0;
+			my_union_t val;
 
 			for (int j = 0; j < 8; j++)
 			{
-				my_union_t value;
-				value.f = input[i + j];
-				tmp.range(j * 32 + 31, j * 32) = value.i;
+				val.f = input[i + j];
+				tmp.range(j * 32 + 31, j * 32) = val.i;
 			}
 
 			s.write(tmp);

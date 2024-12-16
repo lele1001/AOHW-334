@@ -26,9 +26,7 @@ int main(int argc, char* argv[])
     int32_t num_points = 8;
     int32_t input_size = (num_clusters + num_points) * 2;
 
-    std::vector<float> clusters_buffer = {3.0, -7.0, -8.0, 5.0, 10.0, -3.0, -4.0, -6.0};
-    std::vector<float> points_buffer = {7.0, 9.0, -2.0, 0.0, 5.0, 4.0, -10.0, -8.0, 6.0, -2.0, -3.0, 7.0, 1.0, -9.0, 9.0, 3.0};
-    std::vector<float> input_buffer = {3.0, -7.0, -8.0, 5.0, 10.0, -3.0, -4.0, -6.0, 7.0, 9.0, -2.0, 0.0, 5.0, 4.0, -10.0, -8.0, 6.0, -2.0, -3.0, 7.0, 1.0, -9.0, 9.0, 3.0};
+    std::vector<float> input_buffer = {3.0, -7.0, -8.5, 5.0, 10.0, -3.0, -4.0, -6.0, 7.0, 9.0, -2.0, 0.0, 5.0, 4.0, -10.0, -8.0, 6.0, -2.0, -3.0, 7.0, 1.0, -9.0, 9.0, 3.0};
 
     setup_aie(num_clusters, num_points, input_buffer.data(), s);
 
