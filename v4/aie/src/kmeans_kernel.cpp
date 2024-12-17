@@ -7,10 +7,11 @@
 aie::vector<float, MAX_CLUSTERS> euclidean_distance(Cluster *clusters, int32_t num_clusters, Point point);
 int32_t assignment_function(aie::vector<float, MAX_CLUSTERS> distances, int32_t num_clusters);
 
-void kmeans_function(input_stream<float> *restrict input, output_stream<float> *restrict output)
+void kmeans_function(input_stream<int32_t> *restrict input, output_stream<float> *restrict output)
 {
     // Read the number of clusters and points
-    aie::vector<float, 8> val_in = readincr_v<8>(input);
+    aie::vector<int32_t, 8> val_in = readincr_v<8>(input);
+    aie::vector<float, 8> val_fl;
     int32_t num_clusters = (int32_t) val_in[0];
     int32_t num_points = (int32_t) val_in[1];
     Cluster clusters[MAX_CLUSTERS];
@@ -19,10 +20,11 @@ void kmeans_function(input_stream<float> *restrict input, output_stream<float> *
     for (size_t i = 0; i < num_clusters / 4; i++)
     {
         val_in = readincr_v<8>(input);
+        val_fl = aie::vector_cast<float>(val_in);
 
         for (size_t j = 0; j < 4; j++)
         {
-            clusters[i * 4 + j] = Cluster(val_in[j * 2], val_in[j * 2 + 1]);
+            clusters[i * 4 + j] = Cluster(val_fl[j * 2], val_fl[j * 2 + 1]);
             // std::cout << "Cluster " << i * 4 + j << ": (" << clusters[i * 4 + j].x << ", " << clusters[i * 4 + j].y << ")" << std::endl;
         }
     }
@@ -34,11 +36,12 @@ void kmeans_function(input_stream<float> *restrict input, output_stream<float> *
     {
         // Read the coordinates of the points, assuming that the number of points is a multiple of 4
         val_in = readincr_v<8>(input);
+        val_fl = aie::vector_cast<float>(val_in);
         size_t j = 0;
 
         // Compute the algorithm for each of the 4 points
         while (j < 4) {
-            Point point = Point(val_in[j * 2], val_in[j * 2 + 1]);
+            Point point = Point(val_fl[j * 2], val_fl[j * 2 + 1]);
             // std::cout << "Point " << j << ": (" << point.x << ", " << point.y << ")" << std::endl;
 
             // Compute the euclidean distance between the point and all the clusters
