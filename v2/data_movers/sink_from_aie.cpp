@@ -7,7 +7,7 @@
 
 extern "C"
 {
-    void sink_from_aie(hls::stream<int32_t> &input_stream, ap_int<sizeof(int32_t) * 8 * 4> *output, int32_t size)
+    void sink_from_aie(hls::stream<int32_t> &input_stream, int32_t *output, int32_t size)
     {
 // PRAGMA for stream
 #pragma HLS interface axis port = input_stream

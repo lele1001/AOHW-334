@@ -31,7 +31,7 @@ int main(int argc, char *argv[])
     }
 
     std::cout << "Reading done" << std::endl;
-    sink_from_aie(s, buffer.data(), num_clusters);
+    sink_from_aie(s, buffer.data(), buffer_size);
     std::cout << "Sink from AIE done" << std::endl;
 
     // Print the output of the AIE kernel
