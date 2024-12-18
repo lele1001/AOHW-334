@@ -3,10 +3,10 @@
 
 struct Point
 {
-    float x;
-    float y;
+    int32_t x;
+    int32_t y;
 
-    Point(float x, float y)
+    Point(int32_t x, int32_t y)
     {
         this->x = x;
         this->y = y;
@@ -21,11 +21,11 @@ struct Point
 
 struct Cluster
 {
-    float x;
-    float y;
+    int32_t x;
+    int32_t y;
     int32_t numPoints;
 
-    Cluster(float x, float y)
+    Cluster(int32_t x, int32_t y)
     {
         this->x = x;
         this->y = y;
@@ -41,8 +41,8 @@ struct Cluster
 
     void addPoint(Point point)
     {
-        float x_accum = this->x * this->numPoints + point.x;
-        float y_accum = this->y * this->numPoints + point.y;
+        int32_t x_accum = this->x * this->numPoints + point.x;
+        int32_t y_accum = this->y * this->numPoints + point.y;
 
         this->numPoints++;
 
