@@ -51,7 +51,7 @@ def plot_results(df_melted, num_clusters, figsize, num):
 
 
 def main():
-    files = ['time1.csv', 'time2.csv', 'time3.csv', 'time4.csv']
+    files = ['time1.csv', 'time2.csv', 'time3.csv', 'time4.csv', 'time5.csv']
 
     '''
     for file in files:

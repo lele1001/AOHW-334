@@ -25,56 +25,6 @@
 #define arg_sink_from_aie_output 1
 #define arg_sink_from_aie_size 2
 
-struct Point
-{
-    float x;
-    float y;
-
-    Point(float x, float y)
-    {
-        this->x = x;
-        this->y = y;
-    }
-
-    Point()
-    {
-        this->x = 0;
-        this->y = 0;
-    }
-};
-
-struct Cluster
-{
-    float x;
-    float y;
-    int32_t numPoints;
-
-    Cluster(float x, float y)
-    {
-        this->x = x;
-        this->y = y;
-        this->numPoints = 1;
-    }
-
-    Cluster()
-    {
-        this->x = 0;
-        this->y = 0;
-        this->numPoints = 0;
-    }
-
-    void addPoint(Point point)
-    {
-        float x_accum = this->x * this->numPoints + point.x;
-        float y_accum = this->y * this->numPoints + point.y;
-
-        this->numPoints++;
-
-        this->x = x_accum / this->numPoints;
-        this->y = y_accum / this->numPoints;
-    }
-};
-
 bool get_xclbin_path(std::string &xclbin_file);
 std::ostream &bold_on(std::ostream &os);
 std::ostream &bold_off(std::ostream &os);
@@ -202,7 +152,7 @@ int main(int argc, char *argv[])
     int num_clusters, num_points;
 
     std::ofstream csv_file;
-    csv_file.open(".time.csv", std::ios_base::app);
+    csv_file.open("time.csv", std::ios_base::app);
     csv_file << "Number of clusters, Number of points, Software time (us), Hardware time (us)" << std::endl;
 
     for (size_t j = 0; j < clusters_vec.size(); j++)
@@ -239,8 +189,9 @@ int main(int argc, char *argv[])
             // Generate random coordinates for clusters
             for (size_t i = 0; i < num_clusters; i++)
             {
-                clusters_buffer[i * 2] = dist(rng);
-                clusters_buffer[i * 2 + 1] = dist(rng);
+                // Round the generated coordinates to 4 decimal places
+                clusters_buffer[i * 2] = std::round(dist(rng) * 10000.0) / 10000.0;
+                clusters_buffer[i * 2 + 1] = std::round(dist(rng) * 10000.0) / 10000.0;
                 // std::cout << "Cluster " << i << ": (" << clusters_buffer[i * 2] << ", " << clusters_buffer[i * 2 + 1] << ")\t";
 
                 // Copy the cluster coordinates to the input buffer

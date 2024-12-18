@@ -222,7 +222,7 @@ int main(int argc, char *argv[])
             }
 
             int input_size = (num_clusters + num_points) * 2;
-            int output_size = num_clusters * 2;
+            int output_size = (num_clusters * 2) >> 2;
 
             std::vector<int32_t> clusters_buffer(num_clusters * 2);
             std::vector<int32_t> points_buffer(num_points * 2);

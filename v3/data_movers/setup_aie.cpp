@@ -3,45 +3,47 @@
 #include <hls_math.h>
 #include <ap_axi_sdata.h>
 #include "../common/common.h"
+#include "ap_fixed.h"
 
 extern "C"
 {
-	void setup_aie(int32_t num_clusters, int32_t num_points, float *input, hls::stream<float> &s)
+	void setup_aie(int32_t num_clusters, int32_t num_points, float *input, hls::stream<ap_int<sizeof(float) * 8 * 8>> &s)
 	{
-		// PRAGMA for stream
+// PRAGMA for stream
 #pragma HLS interface axis port = s
 
-		// PRAGMA for memory interation - AXI master-slave
+// PRAGMA for memory interation - AXI master-slave
 #pragma HLS interface m_axi port = input depth = 100 offset = slave bundle = gmem0
 #pragma HLS interface s_axilite port = input bundle = control
 
-		// PRAGMA for AXI-LITE : required to move params from host to PL
+// PRAGMA for AXI-LITE : required to move params from host to PL
 #pragma HLS interface s_axilite port = num_clusters bundle = control
 #pragma HLS interface s_axilite port = num_points bundle = control
 #pragma HLS interface s_axilite port = return bundle = control
 
+		// Create a temporary variable to store the data (8 integers at a time = 4 points)
+		ap_int<sizeof(float) * 8 * 8> tmp;
+
 		// Write the number of clusters and the number of points
-		s.write(static_cast<float>(num_clusters));
-		s.write(static_cast<float>(num_points));
+		tmp.range(31, 0) = num_clusters;
+		tmp.range(63, 32) = num_points;
+		tmp.range(255, 64) = 0;
+		s.write(tmp);
 
-		// Padding for alignment or unused space (write zeros)
-		for (int i = 0; i < 6; ++i)
+		// Write the clusters and points coordinates, assuming that their number is a multiple of 4
+		for (int32_t i = 0; i < (num_clusters + num_points) * 2; i += 8)
 		{
-#pragma HLS pipeline
-			s.write(0.0f);
-		}
+#pragma HLS pipeline II = 1
+			// Clear the temporary variable
+			tmp.range(255, 0) = 0;
 
-		// Total iterations needed to process all input values in chunks of 8
-		const int32_t num_iterations = (num_clusters + num_points) * 2 / 8;
-
-		// Stream the input data in chunks of 8 floats
-		for (int i = 0; i < num_iterations; ++i)
-		{
-#pragma HLS pipeline
-			for (int j = 0; j < 8; ++j)
+			for (int j = 0; j < 8; j++)
 			{
-				s.write(input[i * 8 + j]);
+				int32_t val = *reinterpret_cast<int32_t *>(&input[i + j]);
+				tmp.range(j * 32 + 31, j * 32) = val;
 			}
+
+			s.write(tmp);
 		}
 	}
 }

@@ -4,131 +4,77 @@
 #include "aie_api/aie_adf.hpp"
 #include "aie_api/utils.hpp"
 
-struct Point
-{
-    int32_t x;
-    int32_t y;
-
-    Point(int32_t x, int32_t y)
-    {
-        this->x = x;
-        this->y = y;
-    }
-
-    Point()
-    {
-        this->x = 0;
-        this->y = 0;
-    }
-};
-
-struct Cluster
-{
-    int32_t x;
-    int32_t y;
-    int32_t numPoints;
-
-    Cluster(int32_t x, int32_t y)
-    {
-        this->x = x;
-        this->y = y;
-        this->numPoints = 1;
-    }
-
-    Cluster()
-    {
-        this->x = 0;
-        this->y = 0;
-        this->numPoints = 0;
-    }
-
-    void addPoint(Point point)
-    {
-        int32_t x_accum = this->x * this->numPoints + point.x;
-        int32_t y_accum = this->y * this->numPoints + point.y;
-
-        this->numPoints++;
-
-        this->x = x_accum / this->numPoints;
-        this->y = y_accum / this->numPoints;
-    }
-};
-
 aie::vector<int32_t, MAX_CLUSTERS> euclidean_distance(Cluster *clusters, int32_t num_clusters, Point point);
 int32_t assignment_function(aie::vector<int32_t, MAX_CLUSTERS> distances, int32_t num_clusters);
 
 void kmeans_function(input_stream<int32_t> *restrict input, output_stream<int32_t> *restrict output)
 {
-    aie::vector<int32_t, 8> val_in = aie::zeros<int32_t, 8>();
-
-    // Read the number of clusters and points
-    val_in = readincr_v<8>(input);
+    aie::vector<int32_t, 8> val_in = readincr_v<8>(input);
     int32_t num_clusters = val_in[0];
     int32_t num_points = val_in[1];
 
     Cluster clusters[MAX_CLUSTERS];
-    Point points[4];
+
+    // Number of clusters to read (num_clusters / 4)
+    int32_t clusters_in = num_clusters >> 2;
 
     // Read the coordinates of the clusters, assuming that the number of clusters is a multiple of 4
-    for (size_t i = 0; i < num_clusters / 4; i++)
+    for (size_t i = 0; i < clusters_in; i++)
     {
         val_in = readincr_v<8>(input);
-        clusters[i * 4] = Cluster(val_in[0], val_in[1]);
-        clusters[i * 4 + 1] = Cluster(val_in[2], val_in[3]);
-        clusters[i * 4 + 2] = Cluster(val_in[4], val_in[5]);
-        clusters[i * 4 + 3] = Cluster(val_in[6], val_in[7]);
 
-        // std::cout << "Cluster " << i * 4 << ": (" << clusters[i * 4].x << ", " << clusters[i * 4].y << ")" << std::endl;
-        // std::cout << "Cluster " << i * 4 + 1 << ": (" << clusters[i * 4 + 1].x << ", " << clusters[i * 4 + 1].y << ")" << std::endl;
-        // std::cout << "Cluster " << i * 4 + 2 << ": (" << clusters[i * 4 + 2].x << ", " << clusters[i * 4 + 2].y << ")" << std::endl;
-        // std::cout << "Cluster " << i * 4 + 3 << ": (" << clusters[i * 4 + 3].x << ", " << clusters[i * 4 + 3].y << ")" << std::endl;
+        for (size_t j = 0; j < 4; j++)
+        {
+            clusters[i * 4 + j] = Cluster(val_in[j * 2], val_in[j * 2 + 1]);
+            // std::cout << "Cluster " << i * 4 + j << ": (" << clusters[i * 4 + j].x << ", " << clusters[i * 4 + j].y << ")" << std::endl;
+        }
     }
 
-    aie::vector<int32_t, MAX_CLUSTERS> distances = aie::zeros<int32_t, MAX_CLUSTERS>();
+    aie::vector<int32_t, MAX_CLUSTERS> distances;
     int32_t cluster_index = -1;
 
     for (size_t i = 0; i < num_points; i += 4)
     {
         // Read the coordinates of the points, assuming that the number of points is a multiple of 4
         val_in = readincr_v<8>(input);
-        points[0] = Point(val_in[0], val_in[1]);
-        points[1] = Point(val_in[2], val_in[3]);
-        points[2] = Point(val_in[4], val_in[5]);
-        points[3] = Point(val_in[6], val_in[7]);
-
-        // std::cout << "Point " << i << ": (" << points[0].x << ", " << points[0].y << ")" << std::endl;
-        // std::cout << "Point " << i + 1 << ": (" << points[1].x << ", " << points[1].y << ")" << std::endl;
-        // std::cout << "Point " << i + 2 << ": (" << points[2].x << ", " << points[2].y << ")" << std::endl;
-        // std::cout << "Point " << i + 3 << ": (" << points[3].x << ", " << points[3].y << ")" << std::endl;
-
         size_t j = 0;
 
         // Compute the algorithm for each point
         while (j < 4) {
+            Point point = Point(val_in[j * 2], val_in[j * 2 + 1]);
+            // std::cout << "Point " << j << ": (" << point.x << ", " << point.y << ")" << std::endl;
+
             // Compute the euclidean distance between the point and all the clusters
-            distances = euclidean_distance(clusters, num_clusters, points[j]);
+            distances = euclidean_distance(clusters, num_clusters, point);
 
             // Assign the point to the closest cluster and update the cluster coordinates
             cluster_index = assignment_function(distances, num_clusters);
-            clusters[cluster_index].addPoint(points[j]);
+            clusters[cluster_index].addPoint(point);
 
             j++;
         }
     }
 
+    aie::vector<int32_t, 4> val_out;
+    int32_t clusters_out = num_clusters >> 1;
+
     // Write the coordinates of the clusters in the output stream
-    for (size_t i = 0; i < num_clusters; i++)
+    for (size_t i = 0; i < clusters_out; i++)
     {
-        writeincr(output, clusters[i].x);
-        writeincr(output, clusters[i].y);
+        for (size_t j = 0; j < 4; j += 2)
+        {
+            val_out[j + 0] = clusters[i * 2 + j].x;
+            val_out[j + 1] = clusters[i * 2 + j].y;
+        }
+
+        writeincr(output, val_out);        
     }
 }
 
 // Compute the euclidean distance between a point and all the clusters
 aie::vector<int32_t, MAX_CLUSTERS> euclidean_distance(Cluster *clusters, int32_t num_clusters, Point point)
 {
-    aie::vector<int32_t, MAX_CLUSTERS> clusters_x = aie::zeros<int32_t, MAX_CLUSTERS>();
-    aie::vector<int32_t, MAX_CLUSTERS> clusters_y = aie::zeros<int32_t, MAX_CLUSTERS>();
+    aie::vector<int32_t, MAX_CLUSTERS> clusters_x, clusters_y;
 
     for (size_t i = 0; i < num_clusters; i++)
     {

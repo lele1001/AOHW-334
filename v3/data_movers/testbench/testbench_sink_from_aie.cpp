@@ -37,6 +37,6 @@ int main(int argc, char *argv[])
     // Print the output of the AIE kernel
     for (size_t i = 0; i < buffer_size; i++)
     {
-        std::cout << buffer[i] << std::endl;
+        std::cout << "Output " << i << ": " << buffer[i] << std::endl;
     }
 }

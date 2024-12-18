@@ -8,7 +8,7 @@
 #include <stdlib.h>
 #include <time.h>
 
-void read_from_stream(float *buffer, hls::stream<float> &stream, size_t size)
+void read_from_stream(int32_t *buffer, hls::stream<int32_t> &stream, size_t size)
 {
     for (size_t i = 0; i < size; i++)
     {
@@ -18,7 +18,7 @@ void read_from_stream(float *buffer, hls::stream<float> &stream, size_t size)
 
 int main(int argc, char* argv[]) 
 {
-    hls::stream<float> s;
+    hls::stream<ap_uint<sizeof(float) * 8 * 8>> s;
     std::srand(time(nullptr));
 
     // size := clusters coordinates (x,y) + points coordinates (x,y)
@@ -26,9 +26,7 @@ int main(int argc, char* argv[])
     int32_t num_points = 8;
     int32_t input_size = (num_clusters + num_points) * 2;
 
-    std::vector<float> clusters_buffer = {3, -7, -8, 5, 10, -3, -4, -6};
-    std::vector<float> points_buffer = {7, 9, -2, 0, 5, 4, -10, -8, 6, -2, -3, 7, 1, -9, 9, 3};
-    std::vector<float> input_buffer = {3, -7, -8, 5, 10, -3, -4, -6, 7, 9, -2, 0, 5, 4, -10, -8, 6, -2, -3, 7, 1, -9, 9, 3}; 
+    std::vector<float> input_buffer = {3.0, -7.0, -8.5, 5.0, 10.0, -3.0, -4.0, -6.0, 7.0, 9.0, -2.0, 0.0, 5.0, 4.0, -10.0, -8.0, 6.0, -2.0, -3.0, 7.0, 1.0, -9.0, 9.0, 3.0};
 
     setup_aie(num_clusters, num_points, input_buffer.data(), s);
 
@@ -38,13 +36,22 @@ int main(int argc, char* argv[])
     
     if (file.is_open()) 
     {
-        for (size_t i = 0; i < input_size + 2; i++)
+        ap_uint<sizeof(float) * 8 * 8> tmp;
+
+        for (size_t i = 0; i < (input_size / 8); i++)
         {
-            float x = s.read();
-            file << x << std::endl;
-            std::cout << x << std::endl;
+            tmp = s.read();
+
+            for (size_t j = 0; j < 8; j++)
+            {
+                int32_t x = tmp.range(j * 32 + 31, j * 32);
+                file << x << std::endl;
+                std::cout << x << std::endl;
+            }
         }
 
+        // Read the last element
+        tmp = s.read();
         file.close();
     } 
     else 

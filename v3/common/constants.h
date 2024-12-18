@@ -9,4 +9,6 @@
 typedef float data_t;
 #define MAX_CLUSTERS 16
 
+#define OFFSET 10000
+
 #endif

@@ -15,7 +15,8 @@ PLATFORM := xilinx_vck5000_gen4x8_qdma_2_202220_1
 #PLATFORM := xilinx_vck5000_gen4x8_xdma_2_202210_1
 TARGET := hw
 
-XOCCLFLAGS := --kernel_frequency 200 --platform $(PLATFORM) -t $(TARGET)  -s -g
+# --kernel_frequency 300  check frequency at hw/_x/reports/link/overlay_hw.xclbin.info
+XOCCLFLAGS := --kernel_frequency 300 --platform $(PLATFORM) -t $(TARGET)  -s -g
 
 AIE_OBJ := ../aie/libadf.a
 XOS     := ../data_movers/setup_aie_$(TARGET).xo 

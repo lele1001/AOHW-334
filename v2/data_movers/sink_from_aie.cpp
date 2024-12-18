@@ -7,7 +7,7 @@
 
 extern "C"
 {
-    void sink_from_aie(hls::stream<int32_t> &input_stream, int32_t *output, int32_t size)
+    void sink_from_aie(hls::stream<ap_int<sizeof(int32_t) * 8 * 4>> &input_stream, ap_int<sizeof(int32_t) * 8 * 4> *output, int32_t size)
     {
 // PRAGMA for stream
 #pragma HLS interface axis port = input_stream
@@ -20,7 +20,8 @@ extern "C"
 #pragma HLS interface s_axilite port = size bundle = control
 #pragma HLS interface s_axilite port = return bundle = control
 
-        for (size_t i = 0; i < size * 2; i++)
+// il size che passi diventa il numero di volte che vuoi fare questo for, ovvero num_clusters/4
+        for (size_t i = 0; i < size; i++)
         {
             output[i] = input_stream.read();
             // std::cout << "Sink " << output[i] << std::endl;
