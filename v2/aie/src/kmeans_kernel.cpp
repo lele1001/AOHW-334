@@ -56,16 +56,15 @@ void kmeans_function(input_stream<int32_t> *restrict input, output_stream<int32_
     }
 
     aie::vector<int32_t, 4> val_out;
-    int32_t clusters_out = num_clusters >> 1;
+    int32_t clusters_out = (num_clusters * 2) >> 2;
 
     // Write the coordinates of the clusters in the output stream
     for (size_t i = 0; i < clusters_out; i++)
     {
-        for (size_t j = 0; j < 4; j += 2)
-        {
-            val_out[j + 0] = clusters[i * 2 + j].x;
-            val_out[j + 1] = clusters[i * 2 + j].y;
-        }
+        val_out[0] = clusters[i * 2].x;
+        val_out[1] = clusters[i * 2].y;
+        val_out[2] = clusters[i * 2 + 1].x;
+        val_out[3] = clusters[i * 2 + 1].y;
 
         writeincr(output, val_out);        
     }
