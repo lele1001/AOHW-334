@@ -35,7 +35,7 @@ int main(int argc, char *argv[])
     points_buffer = {7, 9, -2, 0, 5, 4, -10, -8, 6, -2, -3, 7, 1, -9, 9, 3};
     input_buffer = {3, -7, -8, 5, 10, -3, -4, -6, 7, 9, -2, 0, 5, 4, -10, -8, 6, -2, -3, 7, 1, -9, 9, 3};
 
-    int32_t write_size = input_size >> 3;
+    int32_t write_size = input_size >> 2;
 
     for (size_t i = 0; i < write_size; i++)
     {
@@ -55,7 +55,7 @@ int main(int argc, char *argv[])
     {
         ap_int<sizeof(int32_t) * 8 * 8> tmp;
 
-        for (int32_t i = 0; i < (input_size / 8); i++)
+        for (int32_t i = 0; i < (input_size / 8) + 1; i++)
         {
             tmp = s.read();
 
@@ -67,8 +67,6 @@ int main(int argc, char *argv[])
             }
         }
 
-        // Read the last element
-        tmp = s.read();
         file.close();
     }
     else
