@@ -21,7 +21,9 @@ extern "C"
 #pragma HLS interface s_axilite port = return bundle = control
 
 // il size che passi diventa il numero di volte che vuoi fare questo for, ovvero num_clusters/4
-        for (size_t i = 0; i < size; i++)
+        int32_t read_size = size * 2;
+
+        for (size_t i = 0; i < read_size; i++)
         {
             output[i] = input_stream.read();
             // std::cout << "Sink " << output[i] << std::endl;

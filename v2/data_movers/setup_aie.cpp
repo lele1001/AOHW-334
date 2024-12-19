@@ -17,8 +17,8 @@ void compute(int32_t num_clusters, int32_t num_points, ap_int<sizeof(int32_t) * 
 	s.write(tmp);
 
 	// Write the clusters and points coordinates, assuming that their number is a multiple of 4
-	int32_t tot_coords = (num_clusters + num_points) >> 2;
-	for (int32_t i = 0; i < tot_coords; i += 1)
+	int32_t read_size = (num_clusters + num_points) >> 2;
+	for (int32_t i = 0; i < read_size; i++)
 	{
 #pragma HLS pipeline II = 1
 		s.write(input[i]);
