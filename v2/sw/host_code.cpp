@@ -274,7 +274,6 @@ int main(int argc, char *argv[])
 
             for (size_t i = 0; i < num_clusters; i++)
             {
-                std::cout << "Cluster " << i << ": (" << output_buffer[i * 2] << ", " << output_buffer[i * 2 + 1] << ")\t";
                 hw_result[i] = Cluster(output_buffer[i * 2], output_buffer[i * 2 + 1]);
             }
 
