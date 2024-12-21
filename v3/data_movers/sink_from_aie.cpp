@@ -7,7 +7,7 @@
 
 extern "C"
 {
-    void sink_from_aie(hls::stream<float> &input_stream, float *output, int32_t size)
+    void sink_from_aie(hls::stream<float> &input_stream, float *output, int32_t num_clusters)
     {
 // PRAGMA for stream
 #pragma HLS interface axis port = input_stream
@@ -17,10 +17,13 @@ extern "C"
 #pragma HLS INTERFACE s_axilite port = output bundle = control
 
 // PRAGMA for AXI-LITE : required to move params from host to PL
-#pragma HLS interface s_axilite port = size bundle = control
+#pragma HLS interface s_axilite port = num_clusters bundle = control
 #pragma HLS interface s_axilite port = return bundle = control
 
-        for (size_t i = 0; i < size * 2; i++)
+        // Read size = num_clusters * 2
+        int32_t read_size = num_clusters << 1;
+
+        for (size_t i = 0; i < read_size; i++)
         {
 #pragma HLS pipeline II = 1
             output[i] = input_stream.read();

@@ -175,7 +175,8 @@ int main(int argc, char *argv[])
 
             std::vector<float> clusters_buffer(num_clusters * 2);
             std::vector<float> points_buffer(num_points * 2);
-            std::vector<float> input_buffer(input_size);
+            std::vector<u_int32_t> input_buffer_hw(input_size);
+            std::vector<float> input_buffer_sw(input_size);
             std::vector<float> output_buffer(output_size);
 
             std::vector<Cluster> sw_result(num_clusters);
@@ -194,9 +195,15 @@ int main(int argc, char *argv[])
                 clusters_buffer[i * 2 + 1] = std::round(dist(rng) * 10000.0) / 10000.0;
                 // std::cout << "Cluster " << i << ": (" << clusters_buffer[i * 2] << ", " << clusters_buffer[i * 2 + 1] << ")\t";
 
-                // Copy the cluster coordinates to the input buffer
-                input_buffer[i * 2] = clusters_buffer[i * 2];
-                input_buffer[i * 2 + 1] = clusters_buffer[i * 2 + 1];
+                // Copy the cluster coordinates to the input buffer as integers pointing to the float
+                u_int32_t val_x = *reinterpret_cast<u_int32_t *>(&clusters_buffer[i * 2 + 0]);
+                u_int32_t val_y = *reinterpret_cast<u_int32_t *>(&clusters_buffer[i * 2 + 1]);
+
+                input_buffer_hw[i * 2 + 0] = val_x;
+                input_buffer_hw[i * 2 + 1] = val_y;
+
+                input_buffer_sw[i * 2 + 0] = clusters_buffer[i * 2 + 0];
+                input_buffer_sw[i * 2 + 1] = clusters_buffer[i * 2 + 1];
             }
 
             // std::cout << std::endl;
@@ -208,9 +215,15 @@ int main(int argc, char *argv[])
                 points_buffer[i * 2 + 1] = dist(rng);
                 // std::cout << "Point " << i << ": (" << points_buffer[i * 2] << ", " << points_buffer[i * 2 + 1] << ")\t";
 
-                // Copy the point coordinates to the input buffer
-                input_buffer[(num_clusters + i) * 2] = points_buffer[i * 2];
-                input_buffer[(num_clusters + i) * 2 + 1] = points_buffer[i * 2 + 1];
+                // Copy the point coordinates to the input buffer as integers pointing to the float
+                int32_t val_x = *reinterpret_cast<int32_t *>(&points_buffer[i * 2 + 0]);
+                int32_t val_y = *reinterpret_cast<int32_t *>(&points_buffer[i * 2 + 1]);
+
+                input_buffer_hw[(num_clusters + i) * 2 + 0] = val_x;
+                input_buffer_hw[(num_clusters + i) * 2 + 1] = val_y;
+
+                input_buffer_sw[(num_clusters + i) * 2 + 0] = points_buffer[i * 2 + 0];
+                input_buffer_sw[(num_clusters + i) * 2 + 1] = points_buffer[i * 2 + 1];
             }
 
             // std::cout << std::endl;
@@ -255,7 +268,7 @@ int main(int argc, char *argv[])
             run_sink_from_aie.set_arg(arg_sink_from_aie_size, num_clusters);
 
             // write data into the buffer
-            buffer_setup_aie.write(input_buffer.data());
+            buffer_setup_aie.write(input_buffer_hw.data());
             buffer_setup_aie.sync(XCL_BO_SYNC_BO_TO_DEVICE);
 
             auto hw_start = std::chrono::high_resolution_clock::now();
@@ -287,7 +300,7 @@ int main(int argc, char *argv[])
 
             auto sw_start = std::chrono::high_resolution_clock::now();
             // run the kernel
-            sw_result = k_means(input_buffer, num_clusters, num_points);
+            sw_result = k_means(input_buffer_sw, num_clusters, num_points);
 
             auto sw_end = std::chrono::high_resolution_clock::now();
             auto sw_exec_ms = (sw_end - sw_start) / std::chrono::microseconds(1);

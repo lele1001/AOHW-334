@@ -6,7 +6,6 @@
 
 void compute(int32_t num_clusters, int32_t num_points, ap_int<sizeof(int32_t) * 8 * 8> *input, hls::stream<ap_int<sizeof(int32_t) * 8 * 8>> &s)
 {
-
 	// Create a temporary variable to store the data (8 integers at a time = 4 points)
 	ap_int<sizeof(int32_t) * 8 * 8> tmp;
 
@@ -25,9 +24,6 @@ void compute(int32_t num_clusters, int32_t num_points, ap_int<sizeof(int32_t) * 
 	}
 }
 
-// Opt2: utilizzare ap_int quando LEGGO da memoria
-
-// Nota: nel caso float, prova ad usare gli ap_uint
 extern "C"
 {
 	void setup_aie(int32_t num_clusters, int32_t num_points, ap_int<sizeof(int32_t) * 8 * 8> *input, hls::stream<ap_int<sizeof(int32_t) * 8 * 8>> &s)
@@ -46,7 +42,6 @@ extern "C"
 
 // PRAGMA for DATAFLOW
 #pragma DATAFLOW
-
 		compute(num_clusters, num_points, input, s);
 	}
 }

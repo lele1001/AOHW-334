@@ -20,14 +20,13 @@ extern "C"
 #pragma HLS interface s_axilite port = num_clusters bundle = control
 #pragma HLS interface s_axilite port = return bundle = control
 
-// il size che passi diventa il numero di volte che vuoi fare questo for, ovvero num_clusters/4
-        int32_t read_size = num_clusters * 2;
+        // Read size = num_clusters * 2 
+        int32_t read_size = num_clusters << 1;
 
         for (size_t i = 0; i < read_size; i++)
         {
 #pragma HLS pipeline II = 1
             output[i] = input_stream.read();
-            // std::cout << "Sink " << output[i] << std::endl;
         }
     }
 }

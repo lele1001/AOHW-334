@@ -16,8 +16,11 @@ void kmeans_function(input_stream<int32_t> *restrict input, output_stream<float>
     int32_t num_points = (int32_t) val_in[1];
     Cluster clusters[MAX_CLUSTERS];
 
+    // Number of clusters to read (num_clusters / 4)
+    int32_t clusters_in = num_clusters >> 2;
+
     // Read the coordinates of the clusters, assuming that the number of clusters is a multiple of 4
-    for (size_t i = 0; i < num_clusters / 4; i++)
+    for (size_t i = 0; i < clusters_in; i++)
     {
         val_in = readincr_v<8>(input);
         val_fl = aie::vector_cast<float>(val_in);
