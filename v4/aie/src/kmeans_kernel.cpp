@@ -7,7 +7,7 @@
 aie::vector<float, MAX_CLUSTERS> euclidean_distance(aie::vector<float, MAX_CLUSTERS> clusters_x, aie::vector<float, MAX_CLUSTERS> clusters_y, int32_t num_clusters, Point point);
 int32_t assignment_function(aie::vector<float, MAX_CLUSTERS> distances, int32_t num_clusters);
 
-void kmeans_function(input_stream<int32_t> *restrict input, output_stream<int32_t> *restrict output)
+void kmeans_function(input_stream<int32_t> *restrict input, output_stream<float> *restrict output)
 {
     // Read the number of clusters and points
     aie::vector<int32_t, 8> val_in = readincr_v<8>(input);
@@ -86,7 +86,7 @@ void kmeans_function(input_stream<int32_t> *restrict input, output_stream<int32_
         val_out[6] = clusters[i].y_accum;
         val_out[7] = 0;
 
-        writeincr(output, aie::vector_cast<int32_t>(val_out));
+        writeincr(output, val_out);
 
 /*         // Write the cluster coordinates to the output stream
         writeincr(output, clusters[i].x);
