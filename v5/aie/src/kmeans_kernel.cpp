@@ -90,7 +90,7 @@ void kmeans_function(input_stream<int32_t> *restrict input, output_stream<float>
 }
 
 // Compute the euclidean distance between a point and all the clusters
-aie::vector<float, MAX_CLUSTERS> euclidean_distance(Cluster *clusters, int32_t num_clusters, Point point)
+aie::vector<float, MAX_CLUSTERS> euclidean_distance(aie::vector<float, MAX_CLUSTERS> clusters_x, aie::vector<float, MAX_CLUSTERS> clusters_y, int32_t num_clusters, Point point);
 {
     aie::vector<float, MAX_CLUSTERS> diff_x = aie::sub(clusters_x, point.x);
     aie::vector<float, MAX_CLUSTERS> diff_y = aie::sub(clusters_y, point.y);

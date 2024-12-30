@@ -27,8 +27,8 @@ void compute(
 	out2.write(tmp);
 
 	// Write the clusters coordinates, assuming that their number is a multiple of 4
-	int32_t cluster_read = num_cluster >> 2;
-	for (int32_t j = 0; i < cluster_read; i++)
+	int32_t cluster_read = num_clusters >> 2;
+	for (int32_t i = 0; i < cluster_read; i++)
 	{
 #pragma HLS pipeline II = 1
 		out1.write(in[i]);

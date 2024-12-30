@@ -22,8 +22,10 @@ void compute(hls::stream<float> &in_1, hls::stream<float> &in_2, float *out, int
         // float x = data_1.range(31, 0);
         // float y = data_1.range(63, 32);
         // in_1 and in_2 should contain the same data for x and y coordinates
-        float x = (in_1.read() + in_2.read()) >> 1;
-        float y = (in_1.read() + in_2.read()) >> 1;
+        float x = in_1.read();
+        discard = in_2.read();
+        float y = in_1.read();
+        discard = in_2.read();
         discard = in_1.read() + in_2.read();
 
         // Sum the number of points assigned to the cluster
@@ -43,8 +45,8 @@ void compute(hls::stream<float> &in_1, hls::stream<float> &in_2, float *out, int
         float cluster_y = (y + y_accum) / num_points;
 
         // Write the updated cluster coordinates to the output stream
-        output[i * 2 + 0] = cluster_x;
-        output[i * 2 + 1] = cluster_y;
+        out[i * 2 + 0] = cluster_x;
+        out[i * 2 + 1] = cluster_y;
     }
 }
 
