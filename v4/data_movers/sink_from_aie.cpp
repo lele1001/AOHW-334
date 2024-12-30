@@ -7,6 +7,7 @@
 
 void compute(hls::stream<ap_uint<sizeof(float) * 8 * 8>> &in, float *out, int32_t num_clusters)
 {
+    float discard = 0;  
     // Merge the clusters from the two AIEs and update the cluster coordinates
     for (size_t i = 0; i < num_clusters; i++)
     {
@@ -16,14 +17,14 @@ void compute(hls::stream<ap_uint<sizeof(float) * 8 * 8>> &in, float *out, int32_
         ap_uint<sizeof(float) * 8 * 8> data = in.read();
 
         // Read the cluster coordinates from the first AIE
-        float x = data.range(31, 0);
-        float y = data.range(63, 32);
+        float x = *reinterpret_cast<float *>(&data.range(31, 0));
+        float y = *reinterpret_cast<float *>(&data.range(63, 32));
 
         // Sum the number of points assigned to the cluster 
         int32_t num_points = (int32_t) data.range(127, 96);
 
-        float x_accum = data.range(191, 160);
-        float y_accum = data.range(223, 192);
+        float x_accum = *reinterpret_cast<float *>(&data.range(191, 160));
+        float y_accum = *reinterpret_cast<float *>(&data.range(223, 192));
 
         // Update the cluster coordinates
         float cluster_x = (x + x_accum) / num_points;
