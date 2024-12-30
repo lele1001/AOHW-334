@@ -40,8 +40,8 @@ void compute(
 	for (int32_t i = 0; i < point_read; i += N_AIE)
 	{
 #pragma HLS pipeline II = 1
-		out1.write(in[i + 0]);
-		out2.write(in[i + 1]);
+		out1.write(in[cluster_read + i + 0]);
+		out2.write(in[cluster_read + i + 1]);
 	}
 }
 

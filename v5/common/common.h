@@ -34,6 +34,8 @@ struct Cluster
         this->x = x;
         this->y = y;
         this->numPoints = 1;
+        this->x_accum = 0;
+        this->y_accum = 0;
     }
 
     Cluster()
@@ -41,6 +43,8 @@ struct Cluster
         this->x = 0;
         this->y = 0;
         this->numPoints = 0;
+        this->x_accum = 0;
+        this->y_accum = 0;
     }
 
     void addPoint(Point point)

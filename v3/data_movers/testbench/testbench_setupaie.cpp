@@ -8,14 +8,6 @@
 #include <stdlib.h>
 #include <time.h>
 
-void read_from_stream(int32_t *buffer, hls::stream<int32_t> &stream, size_t size)
-{
-    for (size_t i = 0; i < size; i++)
-    {
-        buffer[i] = stream.read();
-    }
-}
-
 int main(int argc, char* argv[]) 
 {
     hls::stream<ap_uint<sizeof(float) * 8 * 8>> s;

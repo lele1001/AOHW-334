@@ -107,11 +107,9 @@ std::vector<Cluster> k_means(const std::vector<float> &input, int32_t num_cluste
     // Update the cluster coordinates
     for (size_t i = 0; i < num_clusters; i++)
     {
-        if (clusters[i].numPoints > 0)
-        {
-            clusters[i].x = (clusters[i].x + clusters[i].x_accum) / clusters[i].numPoints;
-            clusters[i].y = (clusters[i].y + clusters[i].y_accum) / clusters[i].numPoints;
-        }
+        // Each cluster has always at least one point (the cluster itself)
+        clusters[i].x = (clusters[i].x + clusters[i].x_accum) / clusters[i].numPoints;
+        clusters[i].y = (clusters[i].y + clusters[i].y_accum) / clusters[i].numPoints;
     }
 
     return clusters;
@@ -186,7 +184,7 @@ int main(int argc, char *argv[])
             {
                 input_buffer_sw[i * 2 + 0] = dist(rng);
                 input_buffer_sw[i * 2 + 1] = dist(rng);
-                std::cout << "Cluster " << i << ": (" << input_buffer_sw[i * 2 + 0] << ", " << input_buffer_sw[i * 2 + 1] << ")\t";
+                // std::cout << "Cluster " << i << ": (" << input_buffer_sw[i * 2 + 0] << ", " << input_buffer_sw[i * 2 + 1] << ")\t";
 
                 // Copy the cluster coordinates to the input buffer as integers pointing to the float
                 u_int32_t val_x = *reinterpret_cast<u_int32_t *>(&input_buffer_sw[i * 2 + 0]);
@@ -196,7 +194,7 @@ int main(int argc, char *argv[])
                 input_buffer_hw[i * 2 + 1] = val_y;
             }
 
-            std::cout << std::endl;
+            // std::cout << std::endl;
 
             // Generate random coordinates for points
             for (size_t i = 0; i < num_points; i++)
@@ -205,7 +203,7 @@ int main(int argc, char *argv[])
 
                 input_buffer_sw[idx + 0] = dist(rng);
                 input_buffer_sw[idx + 1] = dist(rng);
-                std::cout << "Point " << i << ": (" << input_buffer_sw[idx + 0] << ", " << input_buffer_sw[idx + 1] << ")\t";
+                // std::cout << "Point " << i << ": (" << input_buffer_sw[idx + 0] << ", " << input_buffer_sw[idx + 1] << ")\t";
 
                 // Copy the point coordinates to the input buffer as integers pointing to the float
                 int32_t val_x = *reinterpret_cast<int32_t *>(&input_buffer_sw[idx + 0]);
@@ -215,7 +213,7 @@ int main(int argc, char *argv[])
                 input_buffer_hw[idx + 1] = val_y;
             }
 
-            std::cout << std::endl;
+            // std::cout << std::endl;
 
             //------------------------------------------------LOADING XCLBIN------------------------------------------
             std::string xclbin_file;

@@ -107,11 +107,9 @@ std::vector<Cluster> k_means(const std::vector<float> &input, int32_t num_cluste
     // Update the cluster coordinates
     for (size_t i = 0; i < num_clusters; i++)
     {
-        if (clusters[i].numPoints > 0)
-        {
-            clusters[i].x = clusters[i].x_accum / clusters[i].numPoints;
-            clusters[i].y = clusters[i].y_accum / clusters[i].numPoints;
-        }
+        // Each cluster has always at least one point (the cluster itself)
+        clusters[i].x = (clusters[i].x + clusters[i].x_accum) / clusters[i].numPoints;
+        clusters[i].y = (clusters[i].y + clusters[i].y_accum) / clusters[i].numPoints;
     }
 
     return clusters;
@@ -144,7 +142,7 @@ int main(int argc, char *argv[])
 {
     int step = 4;
     int max_pow = 5;
-    std::vector<int32_t> clusters_vec = {4, 8};
+    std::vector<int32_t> clusters_vec = {4};
     int num_clusters, num_points;
 
     std::ofstream csv_file;
@@ -179,14 +177,13 @@ int main(int argc, char *argv[])
             // Generate random float coordinates for points and clusters using random number generator
             std::random_device rd;
             std::mt19937 rng(rd());
-            std::uniform_real_distribution<float> dist(-50.0, 50.0);
+            std::uniform_real_distribution<float> dist(-5.0, 5.0);
 
             // Generate random coordinates for clusters
             for (size_t i = 0; i < num_clusters; i++)
             {
-                // Round the generated coordinates to 4 decimal places
-                input_buffer_sw[i * 2 + 0] = std::round(dist(rng) * 10000.0) / 10000.0;
-                input_buffer_sw[i * 2 + 1] = std::round(dist(rng) * 10000.0) / 10000.0;
+                input_buffer_sw[i * 2 + 0] = dist(rng);
+                input_buffer_sw[i * 2 + 1] = dist(rng);
                 // std::cout << "Cluster " << i << ": (" << input_buffer_sw[i * 2 + 0] << ", " << input_buffer_sw[i * 2 + 1] << ")\t";
 
                 // Copy the cluster coordinates to the input buffer as integers pointing to the float
@@ -204,13 +201,13 @@ int main(int argc, char *argv[])
             {
                 int32_t idx = (num_clusters + i) * 2;
 
-                input_buffer_sw[idx + 0] = std::round(dist(rng) * 10000.0) / 10000.0;
-                input_buffer_sw[idx + 1] = std::round(dist(rng) * 10000.0) / 10000.0;
+                input_buffer_sw[idx + 0] = dist(rng);
+                input_buffer_sw[idx + 1] = dist(rng);
                 // std::cout << "Point " << i << ": (" << points_buffer[i * 2] << ", " << points_buffer[i * 2 + 1] << ")\t";
 
                 // Copy the point coordinates to the input buffer as integers pointing to the float
                 int32_t val_x = *reinterpret_cast<int32_t *>(&input_buffer_sw[idx + 0]);
-                int32_t val_y = *reinterpret_cast<int32_t *>(&input_buffer_sw[idx + 0]);
+                int32_t val_y = *reinterpret_cast<int32_t *>(&input_buffer_sw[idx + 1]);
 
                 input_buffer_hw[idx + 0] = val_x;
                 input_buffer_hw[idx + 1] = val_y;

@@ -20,6 +20,7 @@
 void compute(hls::stream</* ap_uint<sizeof(float) * 8 * 8> */float> &in, float *out, int32_t num_clusters)
 {
     float discard;
+
     // Merge the clusters from the two AIEs and update the cluster coordinates
     for (size_t i = 0; i < num_clusters; i++)
     {
