@@ -59,7 +59,7 @@ int main(int argc, char *argv[])
         // Write the clusters and points coordinates
         for (size_t i = 0; i < (input_size / 8); i++)
         {
-            ap_uint<sizeof(float) * 8 * 8> tmp = s.read();
+            tmp = s.read();
 
             for (size_t j = 0; j < 8; j++)
             {

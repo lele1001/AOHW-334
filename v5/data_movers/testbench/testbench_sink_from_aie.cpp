@@ -5,22 +5,25 @@
 #include "../sink_from_aie.cpp"
 #include <cmath>
 
-void read_file(char *file_name, hls::stream<float> &s, int32_t buffer_size) {
+void read_file(const char *filename, hls::stream<float> &s, int32_t buffer_size) {
     std::ifstream file;
-    file.open(file_name);
+    file.open(filename);
 
     if (!file)
     {
-        std::cerr << "Unable to open file " << file_name;
-        return 1;
+        std::cerr << "Unable to open file " << filename;
+        return;
     }
 
     for (size_t i = 0; i < buffer_size; i++)
     {
-        float x;
-        file >> x;
-        std::cout << "Read " << x << std::endl;
-        s.write(x);
+        for (size_t j = 0; j < 8; j++) 
+        {
+            float x;
+            file >> x;
+            std::cout << "Read " << x << std::endl;
+            s.write(x);
+        }
     }
 }
 
@@ -33,8 +36,8 @@ int main(int argc, char *argv[])
     std::vector<float> buffer(buffer_size, 0);
 
     // Read the output of the AIE kernels from their respective files
-    read_file("../../aie/x86simulator_output/data/out_plio_sink_1.txt", s1, buffer_size);
-    read_file("../../aie/x86simulator_output/data/out_plio_sink_2.txt", s2, buffer_size);
+    read_file("../../aie/x86simulator_output/data/out_plio_sink_1.txt", s1, num_clusters);
+    read_file("../../aie/x86simulator_output/data/out_plio_sink_2.txt", s2, num_clusters);
 
     std::cout << "Reading done" << std::endl;
     sink_from_aie(s1, s2, buffer.data(), num_clusters);

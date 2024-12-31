@@ -27,7 +27,7 @@ public:
 			// arguments: name of the port (for the block design), type of the PLIO that will be read/written, path to the file that will be read/written (for the simulation)
 			std::string idx = std::to_string(i + 1);
 			in_kmeans[i] = input_plio::create("in_plio_kmeans_" + idx, plio_32_bits, "data/in_plio_source_" + idx + ".txt");
-			out_kmeans[i] = output_plio::create("out_plio_kmeans_" + idx, plio_32_bits, "data/out_plio_source_" + idx + ".txt");
+			out_kmeans[i] = output_plio::create("out_plio_kmeans_" + idx, plio_32_bits, "data/out_plio_sink_" + idx + ".txt");
 
 			// ------kernel connection------
 			connect<stream>(in_kmeans[i].out[0], kmeans_kernels[i].in[0]);

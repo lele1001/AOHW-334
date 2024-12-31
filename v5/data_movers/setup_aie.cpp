@@ -15,7 +15,7 @@ void compute(
 {
 	// Create a temporary variable to store the data (8 integers at a time = 4 points)
 	ap_uint<sizeof(float) * 8 * 8> tmp;
-	int32_t num_points_updated = num_points << N_AIE_LOG;
+	int32_t num_points_updated = num_points >> N_AIE_LOG;
 
 	// Write the number of clusters and the number of points
 	tmp.range(31, 0) = num_clusters;
@@ -35,7 +35,7 @@ void compute(
 		out2.write(in[i]);
 	}
 
-	// Write the points coordinates, assuming that their number is a multiple of 4
+	// Write the points coordinates, assuming that their number is a multiple of 8 (4 points in each cluster)
 	int32_t point_read = num_points >> 2;
 	for (int32_t i = 0; i < point_read; i += N_AIE)
 	{
