@@ -22,8 +22,8 @@
 #define arg_setup_aie_input 2
 
 // args indexes for sink_from_aie kernel
-#define arg_sink_from_aie_output 1
-#define arg_sink_from_aie_size 2
+#define arg_sink_from_aie_output 2
+#define arg_sink_from_aie_size 3
 
 bool get_xclbin_path(std::string &xclbin_file);
 std::ostream &bold_on(std::ostream &os);
@@ -129,9 +129,9 @@ bool checkConstraints(int num_clusters, int num_points)
         return false;
     }
 
-    if (num_points % 4 != 0)
+    if (num_points % 4 != 0 || num_points < 8)
     {
-        std::cout << "Error: The number of points must be a multiple of 4" << std::endl;
+        std::cout << "Error: The number of points must be a multiple of 4 and greater than or equal to 8" << std::endl;
         return false;
     }
 
@@ -151,7 +151,7 @@ int main(int argc, char *argv[])
 
     for (size_t j = 0; j < clusters_vec.size(); j++)
     {
-        for (size_t pow = 2; pow < max_pow + 1; pow += step)
+        for (size_t pow = 3; pow < max_pow + 1; pow += step)
         {
             num_clusters = clusters_vec[j];
             num_points = std::pow(2, pow);
@@ -184,7 +184,7 @@ int main(int argc, char *argv[])
             {
                 input_buffer_sw[i * 2 + 0] = dist(rng);
                 input_buffer_sw[i * 2 + 1] = dist(rng);
-                // std::cout << "Cluster " << i << ": (" << input_buffer_sw[i * 2 + 0] << ", " << input_buffer_sw[i * 2 + 1] << ")\t";
+                std::cout << "Cluster " << i << ": (" << input_buffer_sw[i * 2 + 0] << ", " << input_buffer_sw[i * 2 + 1] << ")\t";
 
                 // Copy the cluster coordinates to the input buffer as integers pointing to the float
                 u_int32_t val_x = *reinterpret_cast<u_int32_t *>(&input_buffer_sw[i * 2 + 0]);
@@ -194,7 +194,7 @@ int main(int argc, char *argv[])
                 input_buffer_hw[i * 2 + 1] = val_y;
             }
 
-            // std::cout << std::endl;
+            std::cout << std::endl;
 
             // Generate random coordinates for points
             for (size_t i = 0; i < num_points; i++)
@@ -203,7 +203,7 @@ int main(int argc, char *argv[])
 
                 input_buffer_sw[idx + 0] = dist(rng);
                 input_buffer_sw[idx + 1] = dist(rng);
-                // std::cout << "Point " << i << ": (" << points_buffer[i * 2] << ", " << points_buffer[i * 2 + 1] << ")\t";
+                std::cout << "Point " << i << ": (" << input_buffer_sw[idx + 0] << ", " << input_buffer_sw[idx + 1] << ")\t";
 
                 // Copy the point coordinates to the input buffer as integers pointing to the float
                 int32_t val_x = *reinterpret_cast<int32_t *>(&input_buffer_sw[idx + 0]);
@@ -213,7 +213,7 @@ int main(int argc, char *argv[])
                 input_buffer_hw[idx + 1] = val_y;
             }
 
-            // std::cout << std::endl;
+            std::cout << std::endl;
 
             //------------------------------------------------LOADING XCLBIN------------------------------------------
             std::string xclbin_file;
@@ -232,14 +232,17 @@ int main(int argc, char *argv[])
             // create kernel objects
             xrt::kernel krnl_setup_aie = xrt::kernel(device, xclbin_uuid, "setup_aie");
             xrt::kernel krnl_sink_from_aie = xrt::kernel(device, xclbin_uuid, "sink_from_aie");
+            std::cout << "Created kernel objects" << std::endl;
 
             // get memory bank groups for device buffer - required for axi master input/ouput
             xrtMemoryGroup bank_output = krnl_sink_from_aie.group_id(arg_sink_from_aie_output);
             xrtMemoryGroup bank_input = krnl_setup_aie.group_id(arg_setup_aie_input);
+            std::cout << "Got memory bank groups" << std::endl;
 
             // create device buffers - if you have to load some data, here they are
             xrt::bo buffer_setup_aie = xrt::bo(device, input_size * sizeof(float), xrt::bo::flags::normal, bank_input);
             xrt::bo buffer_sink_from_aie = xrt::bo(device, output_size * sizeof(float), xrt::bo::flags::normal, bank_output);
+            std::cout << "Created buffers" << std::endl;
 
             // create runner instances
             xrt::run run_setup_aie = xrt::run(krnl_setup_aie);
@@ -249,10 +252,14 @@ int main(int argc, char *argv[])
             run_setup_aie.set_arg(arg_setup_aie_num_clusters, num_clusters);
             run_setup_aie.set_arg(arg_setup_aie_num_points, num_points);
             run_setup_aie.set_arg(arg_setup_aie_input, buffer_setup_aie);
+            std::cout << "Setted up setup_aie kernel arguments" << std::endl;
 
             // set sink_from_aie kernel arguments
             run_sink_from_aie.set_arg(arg_sink_from_aie_output, buffer_sink_from_aie);
             run_sink_from_aie.set_arg(arg_sink_from_aie_size, num_clusters);
+            std::cout << "Setted up sink_from_aie kernel arguments" << std::endl;
+
+            std::cout << "2. Running the kernel... " << std::endl;
 
             // write data into the buffer
             buffer_setup_aie.write(input_buffer_hw.data());
