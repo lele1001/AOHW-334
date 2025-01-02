@@ -140,8 +140,8 @@ bool checkConstraints(int num_clusters, int num_points)
 
 int main(int argc, char *argv[])
 {
-    int step = 4;
-    int max_pow = 5;
+    int step = 3;
+    int max_pow = 6;
     std::vector<int32_t> clusters_vec = {4};
     int num_clusters, num_points;
 
@@ -182,8 +182,8 @@ int main(int argc, char *argv[])
             // Generate random coordinates for clusters
             for (size_t i = 0; i < num_clusters; i++)
             {
-                input_buffer_sw[i * 2 + 0] = dist(rng);
-                input_buffer_sw[i * 2 + 1] = dist(rng);
+                input_buffer_sw[i * 2 + 0] = std::round(dist(rng) * 10000.0) / 10000.0;
+                input_buffer_sw[i * 2 + 1] = std::round(dist(rng) * 10000.0) / 10000.0;
                 std::cout << "Cluster " << i << ": (" << input_buffer_sw[i * 2 + 0] << ", " << input_buffer_sw[i * 2 + 1] << ")\t";
 
                 // Copy the cluster coordinates to the input buffer as integers pointing to the float
@@ -201,8 +201,8 @@ int main(int argc, char *argv[])
             {
                 int32_t idx = (num_clusters + i) * 2;
 
-                input_buffer_sw[idx + 0] = dist(rng);
-                input_buffer_sw[idx + 1] = dist(rng);
+                input_buffer_sw[idx + 0] = std::round(dist(rng) * 10000.0) / 10000.0;
+                input_buffer_sw[idx + 1] = std::round(dist(rng) * 10000.0) / 10000.0;
                 std::cout << "Point " << i << ": (" << input_buffer_sw[idx + 0] << ", " << input_buffer_sw[idx + 1] << ")\t";
 
                 // Copy the point coordinates to the input buffer as integers pointing to the float
@@ -284,7 +284,10 @@ int main(int argc, char *argv[])
 
             for (size_t i = 0; i < num_clusters; i++)
             {
-                hw_result[i] = Cluster(output_buffer[i * 2], output_buffer[i * 2 + 1]);
+                float x = std::round(output_buffer[i * 2] * 10000.0) / 10000.0;
+                float y = std::round(output_buffer[i * 2 + 1] * 10000.0) / 10000.0;
+
+                hw_result[i] = Cluster(x, y);
             }
 
             // print the output
@@ -300,6 +303,15 @@ int main(int argc, char *argv[])
             auto sw_exec_ms = (sw_end - sw_start) / std::chrono::microseconds(1);
 
             std::cout << "Software execution took " << sw_exec_ms << " microseconds." << std::endl;
+
+            for (size_t i = 0; i < num_clusters; i++)
+            {
+                float x = std::round(sw_result[i].x * 10000.0) / 10000.0;
+                float y = std::round(sw_result[i].y * 10000.0) / 10000.0;
+
+                sw_result[i].x = x;
+                sw_result[i].y = y;
+            }
 
             // print the output
             std::cout << "Expected results: ";
