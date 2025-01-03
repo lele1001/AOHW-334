@@ -35,11 +35,11 @@ std::ostream &bold_on(std::ostream &os);
 std::ostream &bold_off(std::ostream &os);
 
 // Print the output
-void printOutput(int32_t *output)
+void printOutput(int32_t *output, int32_t size) 
 {
     int32_t i = 0;
 
-    for (i = 0; i < output * 2; i++)
+    for (i = 0; i < size * 2; i++)
     {
         if (i % 2 == 0)
         {
@@ -55,11 +55,11 @@ void printOutput(int32_t *output)
 }
 
 // Print the output
-void printCluster(Cluster *output)
+void printCluster(Cluster *output, int32_t size)
 {
     int32_t i = 0;
 
-    for (i = 0; i < NUM_CLUSTERS * 2; i++)
+    for (i = 0; i < size * 2; i++)
     {
         if (i % 2 == 0)
         {
@@ -75,9 +75,9 @@ void printCluster(Cluster *output)
 }
 
 // Check the results
-int32_t checkResult(int32_t *sw_output, int32_t *output)
+int32_t checkResult(int32_t *sw_output, int32_t *output, int32_t size)
 {
-    for (int i = 0; i < NUM_CLUSTERS * 2; i++)
+    for (int i = 0; i < size * 2; i++)
     {
         if (sw_output[i] != output[i])
         {
@@ -90,34 +90,34 @@ int32_t checkResult(int32_t *sw_output, int32_t *output)
     return EXIT_SUCCESS;
 }
 
-void k_means(int32_t input[], int32_t result[])
+void k_means(int32_t input[], int32_t result[], int32_t num_points, int32_t num_clusters)
 {
-    Point points[NUM_POINTS];
-    Cluster clusters[NUM_CLUSTERS];
+    Point points[num_points];
+    Cluster clusters[num_clusters];
 
     int32_t i = 0, j = 0, c_idx = 0;
     int32_t x_diff = 0, y_diff = 0;
     int32_t min_distance = 0;
 
     // Initialize points and clusters
-    for (i = 0; i < NUM_POINTS; i++)
+    for (i = 0; i < num_points; i++)
     {
         points[i] = Point(input[i * 2], input[i * 2 + 1]);
     }
 
-    for (i = 0; i < NUM_CLUSTERS; i++)
+    for (i = 0; i < num_clusters; i++)
     {
-        c_idx = NUM_POINTS * 2 + i * 2;
+        c_idx = num_points * 2 + i * 2;
         clusters[i] = Cluster(input[c_idx], input[c_idx + 1]);
     }
 
     // K-Means algorithm
-    for (i = 0; i < NUM_POINTS; i++)
+    for (i = 0; i < num_points; i++)
     {
-        int32_t distances[NUM_CLUSTERS] = {0};
+        int32_t distances[num_clusters] = {0};
 
         // Calculate the distance between the point and each cluster
-        for (j = 0; j < NUM_CLUSTERS; j++)
+        for (j = 0; j < num_clusters; j++)
         {
             x_diff = clusters[j].getX() - points[i].getX();
             y_diff = clusters[j].getY() - points[i].getY();
@@ -129,7 +129,7 @@ void k_means(int32_t input[], int32_t result[])
         c_idx = -1;
         min_distance = INT32_MAX;
 
-        for (j = 0; j < NUM_CLUSTERS; j++)
+        for (j = 0; j < num_clusters; j++)
         {
             if (distances[j] < min_distance)
             {
@@ -147,7 +147,7 @@ void k_means(int32_t input[], int32_t result[])
         // std::cout << std::endl;
     }
 
-    for (i = 0; i < NUM_CLUSTERS; i++)
+    for (i = 0; i < num_clusters; i++)
     {
         result[i * 2] = clusters[i].getX();
         result[i * 2 + 1] = clusters[i].getY();
@@ -259,8 +259,8 @@ int main(int argc, char *argv[])
     xrt::run run_sink_from_aie = xrt::run(krnl_sink_from_aie);
 
     // set setup_aie kernel arguments
-    run_setup_aie.set_arg(arg_setup_aie_num_clusters, NUM_CLUSTERS);
-    run_setup_aie.set_arg(arg_setup_aie_num_points, NUM_POINTS);
+    run_setup_aie.set_arg(arg_setup_aie_num_clusters, num_clusters);
+    run_setup_aie.set_arg(arg_setup_aie_num_points, num_points);
     run_setup_aie.set_arg(arg_setup_aie_input, buffer_setup_aie);
 
     // set sink_from_aie kernel arguments
@@ -295,14 +295,14 @@ int main(int argc, char *argv[])
 
     // print the output
     std::cout << "Hardware output: ";
-    printOutput(output_buffer);
+    printOutput(output_buffer, num_clusters);
     std::cout << std::endl;
 
     auto sw_start = std::chrono::high_resolution_clock::now();
     // run the kernel
     for (i = 0; i < 25; i++)
     {
-        k_means(input_buffer, sw_result);
+        k_means(input_buffer, sw_result, num_points, num_clusters);
     }
 
     auto sw_end = std::chrono::high_resolution_clock::now();
@@ -312,11 +312,11 @@ int main(int argc, char *argv[])
 
     // print the output
     std::cout << "Expected results: ";
-    printOutput(sw_result);
+    printOutput(sw_result, num_clusters);
     std::cout << std::endl;
     
     // ------------------------------------------------CHECKING THE RESULTS------------------------------------------
-    return checkResult(sw_result, output_buffer);
+    return checkResult(sw_result, output_buffer, num_clusters);
 }
 
 bool get_xclbin_path(std::string &xclbin_file)

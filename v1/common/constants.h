@@ -6,7 +6,8 @@
 #ifndef CONSTANTS_H
 #define CONSTANTS_H
 
-typedef float data_t;
-#define CONSTANT_1 32
+// Define the maximum number of points and clusters
+#define MAX_POINTS 200
+#define MAX_CLUSTERS 8
 
 #endif

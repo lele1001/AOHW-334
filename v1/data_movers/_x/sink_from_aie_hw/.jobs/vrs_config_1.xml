@@ -1,5 +1,0 @@
-<?xml version="1.0"?>
-<Runs Version="1" Minor="0">
-	<Run Id="sink_from_aie" LaunchDir="/home/users/eleonora.cabai/Documents/K-Means-AIE/data_movers/_x/sink_from_aie_hw/sink_from_aie" FlowId="Build_IP" FromStepId="vitis_hls" ToStepId="vitis_hls"/>
-</Runs>
-

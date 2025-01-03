@@ -1,9 +1,0 @@
-digraph G { 
-"i0:kmeans_function\n CR(24,0)"[style=filled, fillcolor=aquamarine]; 
-"i1:PLIO(24)\ncol:24,ch:2"[shape=box, style=filled, fillcolor=lightgrey]; 
-"i2:PLIO(24)\ncol:24,ch:0"[shape=box, style=filled, fillcolor=lightgrey]; 
-"ps_i3:PS\nps_main"[shape=box, style=filled, fillcolor=snow]; 
-"i1:PLIO(24)\ncol:24,ch:2" -> "i0:kmeans_function\n CR(24,0)"[label=" Stream(ss0)"];
-"i0:kmeans_function\n CR(24,0)" -> "i2:PLIO(24)\ncol:24,ch:0"[label=" Stream(ms0)"];
-
- }

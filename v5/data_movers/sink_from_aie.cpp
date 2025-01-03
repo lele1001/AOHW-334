@@ -50,6 +50,13 @@ void compute(hls::stream<float> &in_1, hls::stream<float> &in_2, float *out, int
     }
 }
 
+/*
+hls::stream<ap_uint<INPUT_DATA_BITWIDTH_FETCHER>>& float_out,
+ap_uint<INPUT_DATA_BITWIDTH_FETCHER> pixel;
+        if (coord != -1) pixel = float_original.read();
+        else             pixel = 0;
+*/
+
 extern "C"
 {
     void sink_from_aie(hls::stream<float> &input_1, hls::stream<float> &input_2, float *output, int32_t num_clusters)

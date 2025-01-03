@@ -6,10 +6,6 @@
 #include "../common/point.h"
 #include "../common/cluster.h"
 
-// Define the maximum number of points and clusters
-#define MAX_POINTS 200
-#define MAX_CLUSTERS 8
-
 aie::vector<int32_t, 8> euclidean_distance(Cluster *clusters, int32_t num_clusters, Point point);
 int32_t assignment_function(aie::vector<int32_t, 8> distances, Point point, Cluster *clusters, int32_t num_clusters);
 

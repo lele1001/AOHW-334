@@ -30,12 +30,12 @@ public:
 
     int32_t getX()
     {
-        return x;
+        return this->x;
     }
 
     int32_t getY()
     {
-        return y;
+        return this->y;
     }
 
 private:

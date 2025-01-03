@@ -48,12 +48,17 @@ int32_t checkResult(const std::vector<Cluster> &sw_output, const std::vector<Clu
     // Check if the clusters of the software and hardware match
     for (size_t i = 0; i < num_clusters; i++)
     {
-        // Each cluster has 2 coordinates (x, y) in the output buffer
         for (size_t j = 0; j < num_clusters; j++)
         {
-            if (!matched[j] && (sw_output[i].x == hw_output[j].x && sw_output[i].y == hw_output[j].y))
+            if (!matched[j])
             {
-                matched[j] = true;
+                if (sw_output[i].numPoints == hw_output[j].numPoints)
+                {
+                    if (std::abs(sw_output[i].x - hw_output[j].x) <= 0.0001 && std::abs(sw_output[i].y - hw_output[j].y) <= 0.0001) 
+                    {
+                        matched[j] = true;
+                    }
+                }
             }
         }
     }
@@ -99,8 +104,8 @@ std::vector<Cluster> k_means(const std::vector<float> &input, int32_t num_cluste
         }
 
         // Assign the point to the nearest cluster
-        auto min_iter = std::min_element(distances.begin(), distances.end());
-        int cluster_index = std::distance(distances.begin(), min_iter);
+        auto min_distance = std::min_element(distances.begin(), distances.end());
+        int cluster_index = std::distance(distances.begin(), min_distance);
         clusters[cluster_index].addPoint(point);
     }
 
@@ -129,9 +134,9 @@ bool checkConstraints(int num_clusters, int num_points)
         return false;
     }
 
-    if (num_points % 4 != 0 || num_points < 8)
+    if (num_points % 8 != 0 || num_points < 8)
     {
-        std::cout << "Error: The number of points must be a multiple of 4 and greater than or equal to 8" << std::endl;
+        std::cout << "Error: The number of points must be a multiple of 8" << std::endl;
         return false;
     }
 
@@ -141,7 +146,7 @@ bool checkConstraints(int num_clusters, int num_points)
 int main(int argc, char *argv[])
 {
     int step = 3;
-    int max_pow = 6;
+    int max_pow = 7;
     std::vector<int32_t> clusters_vec = {4};
     int num_clusters, num_points;
 
@@ -184,7 +189,7 @@ int main(int argc, char *argv[])
             {
                 input_buffer_sw[i * 2 + 0] = std::round(dist(rng) * 10000.0) / 10000.0;
                 input_buffer_sw[i * 2 + 1] = std::round(dist(rng) * 10000.0) / 10000.0;
-                std::cout << "Cluster " << i << ": (" << input_buffer_sw[i * 2 + 0] << ", " << input_buffer_sw[i * 2 + 1] << ")\t";
+                // std::cout << "Cluster " << i << ": (" << input_buffer_sw[i * 2 + 0] << ", " << input_buffer_sw[i * 2 + 1] << ")\t";
 
                 // Copy the cluster coordinates to the input buffer as integers pointing to the float
                 u_int32_t val_x = *reinterpret_cast<u_int32_t *>(&input_buffer_sw[i * 2 + 0]);
@@ -194,7 +199,7 @@ int main(int argc, char *argv[])
                 input_buffer_hw[i * 2 + 1] = val_y;
             }
 
-            std::cout << std::endl;
+            // std::cout << std::endl;
 
             // Generate random coordinates for points
             for (size_t i = 0; i < num_points; i++)
@@ -203,7 +208,7 @@ int main(int argc, char *argv[])
 
                 input_buffer_sw[idx + 0] = std::round(dist(rng) * 10000.0) / 10000.0;
                 input_buffer_sw[idx + 1] = std::round(dist(rng) * 10000.0) / 10000.0;
-                std::cout << "Point " << i << ": (" << input_buffer_sw[idx + 0] << ", " << input_buffer_sw[idx + 1] << ")\t";
+                // std::cout << "Point " << i << ": (" << input_buffer_sw[idx + 0] << ", " << input_buffer_sw[idx + 1] << ")\t";
 
                 // Copy the point coordinates to the input buffer as integers pointing to the float
                 int32_t val_x = *reinterpret_cast<int32_t *>(&input_buffer_sw[idx + 0]);
@@ -213,7 +218,7 @@ int main(int argc, char *argv[])
                 input_buffer_hw[idx + 1] = val_y;
             }
 
-            std::cout << std::endl;
+            // std::cout << std::endl;
 
             //------------------------------------------------LOADING XCLBIN------------------------------------------
             std::string xclbin_file;
@@ -232,17 +237,14 @@ int main(int argc, char *argv[])
             // create kernel objects
             xrt::kernel krnl_setup_aie = xrt::kernel(device, xclbin_uuid, "setup_aie");
             xrt::kernel krnl_sink_from_aie = xrt::kernel(device, xclbin_uuid, "sink_from_aie");
-            std::cout << "Created kernel objects" << std::endl;
 
             // get memory bank groups for device buffer - required for axi master input/ouput
             xrtMemoryGroup bank_output = krnl_sink_from_aie.group_id(arg_sink_from_aie_output);
             xrtMemoryGroup bank_input = krnl_setup_aie.group_id(arg_setup_aie_input);
-            std::cout << "Got memory bank groups" << std::endl;
 
             // create device buffers - if you have to load some data, here they are
             xrt::bo buffer_setup_aie = xrt::bo(device, input_size * sizeof(float), xrt::bo::flags::normal, bank_input);
             xrt::bo buffer_sink_from_aie = xrt::bo(device, output_size * sizeof(float), xrt::bo::flags::normal, bank_output);
-            std::cout << "Created buffers" << std::endl;
 
             // create runner instances
             xrt::run run_setup_aie = xrt::run(krnl_setup_aie);
@@ -252,14 +254,10 @@ int main(int argc, char *argv[])
             run_setup_aie.set_arg(arg_setup_aie_num_clusters, num_clusters);
             run_setup_aie.set_arg(arg_setup_aie_num_points, num_points);
             run_setup_aie.set_arg(arg_setup_aie_input, buffer_setup_aie);
-            std::cout << "Setted up setup_aie kernel arguments" << std::endl;
 
             // set sink_from_aie kernel arguments
             run_sink_from_aie.set_arg(arg_sink_from_aie_output, buffer_sink_from_aie);
             run_sink_from_aie.set_arg(arg_sink_from_aie_size, num_clusters);
-            std::cout << "Setted up sink_from_aie kernel arguments" << std::endl;
-
-            std::cout << "2. Running the kernel... " << std::endl;
 
             // write data into the buffer
             buffer_setup_aie.write(input_buffer_hw.data());
@@ -284,16 +282,16 @@ int main(int argc, char *argv[])
 
             for (size_t i = 0; i < num_clusters; i++)
             {
-                float x = std::round(output_buffer[i * 2] * 10000.0) / 10000.0;
+                float x = std::round(output_buffer[i * 2 + 0] * 10000.0) / 10000.0;
                 float y = std::round(output_buffer[i * 2 + 1] * 10000.0) / 10000.0;
 
                 hw_result[i] = Cluster(x, y);
             }
 
             // print the output
-            std::cout << "Hardware output: ";
+            /* std::cout << "Hardware output: ";
             printCluster(hw_result);
-            std::cout << std::endl;
+            std::cout << std::endl; */
 
             auto sw_start = std::chrono::high_resolution_clock::now();
             // run the kernel
@@ -301,7 +299,6 @@ int main(int argc, char *argv[])
 
             auto sw_end = std::chrono::high_resolution_clock::now();
             auto sw_exec_ms = (sw_end - sw_start) / std::chrono::microseconds(1);
-
             std::cout << "Software execution took " << sw_exec_ms << " microseconds." << std::endl;
 
             for (size_t i = 0; i < num_clusters; i++)
@@ -314,9 +311,9 @@ int main(int argc, char *argv[])
             }
 
             // print the output
-            std::cout << "Expected results: ";
+            /* std::cout << "Expected results: ";
             printCluster(sw_result);
-            std::cout << std::endl;
+            std::cout << std::endl;*/
 
             // ------------------------------------------------CHECKING THE RESULTS------------------------------------------
             if (checkResult(sw_result, hw_result, num_clusters) == EXIT_SUCCESS)

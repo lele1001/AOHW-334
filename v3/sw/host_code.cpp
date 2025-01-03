@@ -48,12 +48,17 @@ int32_t checkResult(const std::vector<Cluster> &sw_output, const std::vector<Clu
     // Check if the clusters of the software and hardware match
     for (size_t i = 0; i < num_clusters; i++)
     {
-        // Each cluster has 2 coordinates (x, y) in the output buffer
         for (size_t j = 0; j < num_clusters; j++)
         {
-            if (!matched[j] && (sw_output[i].x == hw_output[j].x && sw_output[i].y == hw_output[j].y))
+            if (!matched[j])
             {
-                matched[j] = true;
+                if (sw_output[i].numPoints == hw_output[j].numPoints)
+                {
+                    if (std::abs(sw_output[i].x - hw_output[j].x) <= 0.0001 && std::abs(sw_output[i].y - hw_output[j].y) <= 0.0001)
+                    {
+                        matched[j] = true;
+                    }
+                }
             }
         }
     }
@@ -99,8 +104,8 @@ std::vector<Cluster> k_means(const std::vector<float> &input, int32_t num_cluste
         }
 
         // Assign the point to the nearest cluster
-        auto min_iter = std::min_element(distances.begin(), distances.end());
-        int cluster_index = std::distance(distances.begin(), min_iter);
+        auto min_distance = std::min_element(distances.begin(), distances.end());
+        int cluster_index = std::distance(distances.begin(), min_distance);
         clusters[cluster_index].addPoint(point);
     }
 
@@ -121,7 +126,7 @@ bool checkConstraints(int num_clusters, int num_points)
         return false;
     }
 
-    if (num_points % 4 != 0)
+    if (num_points % 4 != 0 || num_points < 4)
     {
         std::cout << "Error: The number of points must be a multiple of 4" << std::endl;
         return false;
@@ -132,9 +137,9 @@ bool checkConstraints(int num_clusters, int num_points)
 
 int main(int argc, char *argv[])
 {
-    int step = 4;
-    int max_pow = 5;
-    std::vector<int32_t> clusters_vec = {4, 8};
+    int step = 3;
+    int max_pow = 7;
+    std::vector<int32_t> clusters_vec = {4};
     int num_clusters, num_points;
 
     std::ofstream csv_file;
@@ -143,7 +148,7 @@ int main(int argc, char *argv[])
 
     for (size_t j = 0; j < clusters_vec.size(); j++)
     {
-        for (size_t pow = 2; pow < max_pow + 1; pow += step)
+        for (size_t pow = 3; pow < max_pow + 1; pow += step)
         {
             num_clusters = clusters_vec[j];
             num_points = std::pow(2, pow);
@@ -169,13 +174,13 @@ int main(int argc, char *argv[])
             // Generate random float coordinates for points and clusters using random number generator
             std::random_device rd;
             std::mt19937 rng(rd());
-            std::uniform_real_distribution<float> dist(-50.0, 50.0);
+            std::uniform_real_distribution<float> dist(-5.0, 5.0);
 
             // Generate random coordinates for clusters
             for (size_t i = 0; i < num_clusters; i++)
             {
                 // Round the generated coordinates to 4 decimal places
-                input_buffer_sw[i * 2] = std::round(dist(rng) * 10000.0) / 10000.0;
+                input_buffer_sw[i * 2 + 0] = std::round(dist(rng) * 10000.0) / 10000.0;
                 input_buffer_sw[i * 2 + 1] = std::round(dist(rng) * 10000.0) / 10000.0;
                 // std::cout << "Cluster " << i << ": (" << input_buffer_sw[i * 2] << ", " << input_buffer_sw[i * 2 + 1] << ")\t";
 
@@ -194,8 +199,8 @@ int main(int argc, char *argv[])
             {
                 int32_t idx = (num_clusters + i) * 2;
 
-                input_buffer_sw[idx + 0] = dist(rng);
-                input_buffer_sw[idx + 1] = dist(rng);
+                input_buffer_sw[idx + 0] = std::round(dist(rng) * 10000.0) / 10000.0;
+                input_buffer_sw[idx + 1] = std::round(dist(rng) * 10000.0) / 10000.0;
                 // std::cout << "Point " << i << ": (" << input_buffer_sw[i * 2] << ", " << input_buffer_sw[i * 2 + 1] << ")\t";
 
                 // Copy the point coordinates to the input buffer as integers pointing to the float
@@ -270,13 +275,16 @@ int main(int argc, char *argv[])
 
             for (size_t i = 0; i < num_clusters; i++)
             {
-                hw_result[i] = Cluster(output_buffer[i * 2], output_buffer[i * 2 + 1]);
+                float x = std::round(output_buffer[i * 2 + 0] * 10000.0) / 10000.0;
+                float y = std::round(output_buffer[i * 2 + 1] * 10000.0) / 10000.0;
+
+                hw_result[i] = Cluster(x, y);
             }
 
             // print the output
-            std::cout << "Hardware output: ";
+            /* std::cout << "Hardware output: ";
             printCluster(hw_result);
-            std::cout << std::endl;
+            std::cout << std::endl; */
 
             auto sw_start = std::chrono::high_resolution_clock::now();
             // run the kernel
@@ -287,10 +295,19 @@ int main(int argc, char *argv[])
 
             std::cout << "Software execution took " << sw_exec_ms << " microseconds." << std::endl;
 
+            for (size_t i = 0; i < num_clusters; i++)
+            {
+                float x = std::round(sw_result[i].x * 10000.0) / 10000.0;
+                float y = std::round(sw_result[i].y * 10000.0) / 10000.0;
+
+                sw_result[i].x = x;
+                sw_result[i].y = y;
+            }
+
             // print the output
-            std::cout << "Expected results: ";
+            /* std::cout << "Expected results: ";
             printCluster(sw_result);
-            std::cout << std::endl;
+            std::cout << std::endl;*/
 
             // ------------------------------------------------CHECKING THE RESULTS------------------------------------------
             if (checkResult(sw_result, hw_result, num_clusters) == EXIT_SUCCESS)

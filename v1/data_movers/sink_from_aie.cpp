@@ -19,12 +19,13 @@ extern "C"
 #pragma HLS interface s_axilite port = size bundle = control
 #pragma HLS interface s_axilite port = return bundle = control
 
-        int32_t i, x;
+        // Read size = num_clusters * 2
+        int32_t read_size = size << 1;
 
-        for (i = 0; i < size; i++)
+        for (size_t i = 0; i < read_size; i++)
         {
-            x = input_stream.read();
-            output[i] = x;
+#pragma HLS pipeline II = 1
+            output[i] = input_stream.read();
         }
     }
 }

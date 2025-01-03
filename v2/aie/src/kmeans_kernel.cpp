@@ -26,7 +26,6 @@ void kmeans_function(input_stream<int32_t> *restrict input, output_stream<int32_
         for (size_t j = 0; j < 4; j++)
         {
             clusters[i * 4 + j] = Cluster(val_in[j * 2], val_in[j * 2 + 1]);
-            // std::cout << "Cluster " << i * 4 + j << ": (" << clusters[i * 4 + j].x << ", " << clusters[i * 4 + j].y << ")" << std::endl;
         }
     }
 
@@ -42,7 +41,6 @@ void kmeans_function(input_stream<int32_t> *restrict input, output_stream<int32_
         // Compute the algorithm for each point
         while (j < 4) {
             Point point = Point(val_in[j * 2], val_in[j * 2 + 1]);
-            // std::cout << "Point " << j << ": (" << point.x << ", " << point.y << ")" << std::endl;
 
             // Compute the euclidean distance between the point and all the clusters
             distances = euclidean_distance(clusters, num_clusters, point);

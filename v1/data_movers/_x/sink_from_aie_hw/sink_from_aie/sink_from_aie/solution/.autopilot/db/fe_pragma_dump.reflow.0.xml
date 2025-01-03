@@ -1,9 +1,0 @@
-<pragmas>
-<pragma file="" line="0" pragmaType="inline" parentfunction="read" off="0" region="0" recursive="0"/>
-<pragma file="/home/users/eleonora.cabai/Documents/K-Means-AIE/data_movers/sink_from_aie.cpp" line="12" pragmaType="interface" parentfunction="sink_from_aie" mode="axis" port="input_stream" register="0" register_mode="both" name="" depth="-1"/>
-<pragma file="/home/users/eleonora.cabai/Documents/K-Means-AIE/data_movers/sink_from_aie.cpp" line="15" pragmaType="interface" parentfunction="sink_from_aie" mode="m_axi" port="output" bundle="gmem1" offset="slave" name="" depth="100" num_read_outstanding="-1" num_write_outstanding="-1" max_burst_read_length="-1" max_burst_write_length="-1" latency="-1" max_widen_bitwidth="-1" channel=""/>
-<pragma file="/home/users/eleonora.cabai/Documents/K-Means-AIE/data_movers/sink_from_aie.cpp" line="16" pragmaType="interface" parentfunction="sink_from_aie" mode="s_axilite" port="output" bundle="control" offset="-1" name="" clock="" impl="" register="0"/>
-<pragma file="/home/users/eleonora.cabai/Documents/K-Means-AIE/data_movers/sink_from_aie.cpp" line="19" pragmaType="interface" parentfunction="sink_from_aie" mode="s_axilite" port="size" bundle="control" offset="-1" name="" clock="" impl="" register="0"/>
-<pragma file="/home/users/eleonora.cabai/Documents/K-Means-AIE/data_movers/sink_from_aie.cpp" line="20" pragmaType="interface" parentfunction="sink_from_aie" mode="s_axilite" port="" bundle="control" offset="-1" name="" clock="" impl="" register="0"/>
-<pragma file="" line="0" pragmaType="inline" parentfunction="read" off="0" region="0" recursive="0"/>
-</pragmas>

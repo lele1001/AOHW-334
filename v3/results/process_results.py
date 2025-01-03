@@ -34,14 +34,14 @@ def plot_results(df_melted, num_clusters, figsize, num):
     
     plt.xscale("log")
     plt.yscale("log")
-    plt.xlabel("Number of Points (log 2 scale)")
-    plt.ylabel("Time (μs, log scale)")
+    plt.xlabel("Number of Points (log 2 scale)", fontsize=12)
+    plt.ylabel("Time (μs, log scale)", fontsize=12)
 
     # Set x-axis ticks to powers of 2
     x_ticks = [2**i for i in range(2, 27, 4)]
     plt.xticks(x_ticks, [f"$2^{{{i}}}$" for i in range(2, 27, 4)])
 
-    plt.title(f"Software and Hardware Time vs Number of Points, {num_clusters} Clusters")
+    plt.title(f"Software and Hardware Time vs Number of Points, {num_clusters} Clusters", fontsize=14)
     plt.legend()
 
     plt.grid(True, which="both", linestyle="--", lw=0.5)
