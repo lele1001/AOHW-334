@@ -6,6 +6,6 @@
 #ifndef CONSTANTS_H
 #define CONSTANTS_H
 
-#define MAX_CLUSTERS 16
+#define MAX_CLUSTERS 32
 
 #endif

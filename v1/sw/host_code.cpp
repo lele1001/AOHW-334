@@ -139,12 +139,8 @@ void k_means(int32_t input[], int32_t result[], int32_t num_points, int32_t num_
         }
 
         // Update the cluster coordinates
-        points[i].setCluster(c_idx);
         clusters[c_idx].addPoint(points[i]);
-        // std::cout << "Accumulated coordinates for cluster " << cluster_num << " are (" << clusters_accum[cluster_index] << ", " << clusters_accum[cluster_index + 1] << ") with " << cluster_points[cluster_num] << " points" << std::endl;
-
         clusters[c_idx].updateCoordinates();
-        // std::cout << std::endl;
     }
 
     for (i = 0; i < num_clusters; i++)

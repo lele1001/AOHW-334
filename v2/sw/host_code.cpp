@@ -116,7 +116,7 @@ bool checkConstraints(int num_clusters, int num_points)
 
     if (num_clusters > MAX_CLUSTERS)
     {
-        std::cout << "Error: The number of clusters must be less than or equal to 8" << std::endl;
+        std::cout << "Error: The number of clusters must be less than or equal to " << MAX_CLUSTERS << std::endl;
         return false;
     }
 
@@ -260,7 +260,7 @@ int main(int argc, char *argv[])
 
             auto sw_start = std::chrono::high_resolution_clock::now();
             // run the kernel
-            sw_result = k_means(clusters_buffer, points_buffer, num_clusters, num_points);
+            sw_result = k_means(input_buffer, num_clusters, num_points);
 
             auto sw_end = std::chrono::high_resolution_clock::now();
             auto sw_exec_ms = (sw_end - sw_start) / std::chrono::microseconds(1);

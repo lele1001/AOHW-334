@@ -8,24 +8,12 @@ public:
     {
         this->x = x;
         this->y = y;
-        this->clusterId = -1;
     }
 
     Point()
     {
         this->x = 0;
         this->y = 0;
-        this->clusterId = -1;
-    }
-
-    int32_t getCluster()
-    {
-        return clusterId;
-    }
-
-    void setCluster(int32_t id)
-    {
-        this->clusterId = id;
     }
 
     int32_t getX()
@@ -39,7 +27,7 @@ public:
     }
 
 private:
-    int32_t clusterId, x, y;
+    int32_t x, y;
 };
 
 #endif
