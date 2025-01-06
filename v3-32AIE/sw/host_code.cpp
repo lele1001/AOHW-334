@@ -130,10 +130,10 @@ bool checkConstraints(int num_clusters, int num_points)
         std::cout << "Error: The number of clusters must be less than or equal to 8" << std::endl;
         return false;
     }
-
-    if (num_points % 8 != 0 || num_points < 8)
+    
+    if (num_points % (N_AIE * 4) != 0 || num_points < (N_AIE * 4))
     {
-        std::cout << "Error: The number of points must be a multiple of 8" << std::endl;
+        std::cout << "Error: The number of points must be a multiple of " << (N_AIE * 4) << std::endl;
         return false;
     }
 
@@ -153,7 +153,7 @@ int main(int argc, char *argv[])
 
     for (size_t j = 0; j < clusters_vec.size(); j++)
     {
-        for (size_t pow = 3; pow < max_pow + 1; pow += step)
+        for (size_t pow = 6; pow < max_pow + 1; pow += step)
         {
             num_clusters = clusters_vec[j];
             num_points = std::pow(2, pow);

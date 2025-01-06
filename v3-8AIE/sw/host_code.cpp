@@ -22,8 +22,8 @@
 #define arg_setup_aie_input 2
 
 // args indexes for sink_from_aie kernel
-#define arg_sink_from_aie_output 2
-#define arg_sink_from_aie_size 3
+#define arg_sink_from_aie_output 8
+#define arg_sink_from_aie_size 9
 
 bool get_xclbin_path(std::string &xclbin_file);
 std::ostream &bold_on(std::ostream &os);
@@ -131,9 +131,9 @@ bool checkConstraints(int num_clusters, int num_points)
         return false;
     }
 
-    if (num_points % 8 != 0 || num_points < 8)
+    if (num_points % (N_AIE * 4) != 0 || num_points < (N_AIE * 4))
     {
-        std::cout << "Error: The number of points must be a multiple of 8" << std::endl;
+        std::cout << "Error: The number of points must be a multiple of " << (N_AIE * 4) << std::endl;
         return false;
     }
 
@@ -153,7 +153,7 @@ int main(int argc, char *argv[])
 
     for (size_t j = 0; j < clusters_vec.size(); j++)
     {
-        for (size_t pow = 3; pow < max_pow + 1; pow += step)
+        for (size_t pow = 6; pow < max_pow + 1; pow += step)
         {
             num_clusters = clusters_vec[j];
             num_points = std::pow(2, pow);

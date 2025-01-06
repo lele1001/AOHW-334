@@ -5,7 +5,18 @@
 #include "../common/common.h"
 #include <random> // Add this line for mt19937 and uniform distributions
 
-void compute(hls::stream<float> &in_1, hls::stream<float> &in_2, float *out, int32_t num_clusters)
+void compute(
+    hls::stream<float> &in_1, 
+    hls::stream<float> &in_2, 
+    hls::stream<float> &in_3,
+    hls::stream<float> &in_4,
+    hls::stream<float> &in_5,
+    hls::stream<float> &in_6,
+    hls::stream<float> &in_7,
+    hls::stream<float> &in_8,
+    float *out, 
+    int32_t num_clusters
+    )
 {
     float discard;
 
@@ -14,31 +25,22 @@ void compute(hls::stream<float> &in_1, hls::stream<float> &in_2, float *out, int
     {
 #pragma HLS pipeline II = 1
 
-        // Read the packed data from the input streams
-        // ap_uint<sizeof(float) * 8 * 8> data_1 = in_1.read();
-        // ap_uint<sizeof(float) * 8 * 8> data_2 = in_2.read();
-
         // Read the cluster coordinates from the first AIE
-        // float x = data_1.range(31, 0);
-        // float y = data_1.range(63, 32);
-        // in_1 and in_2 should contain the same data for x and y coordinates
+
         float x = in_1.read();
-        discard = in_2.read();
+        discard = in_2.read() + in_3.read() + in_4.read() + in_5.read() + in_6.read() + in_7.read() + in_8.read();
         float y = in_1.read();
-        discard = in_2.read();
-        discard = in_1.read() + in_2.read();
+        discard = in_2.read() + in_3.read() + in_4.read() + in_5.read() + in_6.read() + in_7.read() + in_8.read();
+        discard = in_1.read() + in_2.read() + in_3.read() + in_4.read() + in_5.read() + in_6.read() + in_7.read() + in_8.read();
 
         // Sum the number of points assigned to the cluster
-        // int32_t num_points = (int32_t) data_1.range(127, 96) + (int32_t) data_2.range(127, 96);
-        int32_t num_points = (int32_t) in_1.read() + (int32_t) in_2.read() - 1;
-        discard = in_1.read() + in_2.read();
+        int32_t num_points = (int32_t) (in_1.read() + in_2.read() + in_3.read() + in_4.read() + in_5.read() + in_6.read() + in_7.read() + in_8.read() - (N_AIE - 1));
+        discard = in_1.read() + in_2.read() + in_3.read() + in_4.read() + in_5.read() + in_6.read() + in_7.read() + in_8.read();
 
         // Sum the accumulated coordinates of the points in the cluster
-        // float x_accum = data_1.range(191, 160) + data_2.range(191, 160);
-        // float y_accum = data_1.range(223, 192) + data_2.range(223, 192);
-        float x_accum = in_1.read() + in_2.read();
-        float y_accum = in_1.read() + in_2.read();
-        discard = in_1.read() + in_2.read();
+        float x_accum = in_1.read() + in_2.read() + in_3.read() + in_4.read() + in_5.read() + in_6.read() + in_7.read() + in_8.read();
+        float y_accum = in_1.read() + in_2.read() + in_3.read() + in_4.read() + in_5.read() + in_6.read() + in_7.read() + in_8.read();
+        discard = in_1.read() + in_2.read() + in_3.read() + in_4.read() + in_5.read() + in_6.read() + in_7.read() + in_8.read();
 
         // Update the cluster coordinates
         float cluster_x = (x + x_accum) / num_points;
@@ -50,20 +52,30 @@ void compute(hls::stream<float> &in_1, hls::stream<float> &in_2, float *out, int
     }
 }
 
-/*
-hls::stream<ap_uint<INPUT_DATA_BITWIDTH_FETCHER>>& float_out,
-ap_uint<INPUT_DATA_BITWIDTH_FETCHER> pixel;
-        if (coord != -1) pixel = float_original.read();
-        else             pixel = 0;
-*/
-
 extern "C"
 {
-    void sink_from_aie(hls::stream<float> &input_1, hls::stream<float> &input_2, float *output, int32_t num_clusters)
+    void sink_from_aie(
+        hls::stream<float> &input_1, 
+        hls::stream<float> &input_2, 
+        hls::stream<float> &input_3,
+        hls::stream<float> &input_4,
+        hls::stream<float> &input_5,
+        hls::stream<float> &input_6,
+        hls::stream<float> &input_7,
+        hls::stream<float> &input_8,
+        float *output, 
+        int32_t num_clusters
+        )
     {
 // PRAGMA for stream
 #pragma HLS interface axis port = input_1
 #pragma HLS interface axis port = input_2
+#pragma HLS interface axis port = input_3
+#pragma HLS interface axis port = input_4
+#pragma HLS interface axis port = input_5
+#pragma HLS interface axis port = input_6
+#pragma HLS interface axis port = input_7
+#pragma HLS interface axis port = input_8
 
 // PRAGMA for memory interation - AXI master-slave
 #pragma HLS INTERFACE m_axi port = output depth = 100 offset = slave bundle = gmem1
@@ -76,6 +88,6 @@ extern "C"
 // PRAGMA for DATAFLOW
 #pragma DATAFLOW
 
-        compute(input_1, input_2, output, num_clusters);
+        compute(input_1, input_2, input_3, input_4, input_5, input_6, input_7, input_8, output, num_clusters);
     }
 }
