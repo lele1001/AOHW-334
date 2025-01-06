@@ -22,8 +22,8 @@
 #define arg_setup_aie_input 2
 
 // args indexes for sink_from_aie kernel
-#define arg_sink_from_aie_output 2
-#define arg_sink_from_aie_size 3
+#define arg_sink_from_aie_output 32
+#define arg_sink_from_aie_size 33
 
 bool get_xclbin_path(std::string &xclbin_file);
 std::ostream &bold_on(std::ostream &os);
