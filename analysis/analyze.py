@@ -5,12 +5,13 @@ import pandas as pd
 # List of results files to analyze
 versions = ['v2-floats', 'v2-integers', 'v3-1AIE', 'v3-2AIE', 'v3-4AIE', 'v3-8AIE', 'v3-16AIE', 'v3-32AIE']
 results = ['4_clusters_avg.csv', '8_clusters_avg.csv', '12_clusters_avg.csv', '16_clusters_avg.csv']
+names = ['4 Clusters', '8 Clusters', '12 Clusters', '16 Clusters']
 
 # List of colors for plotting
 colors = ['red', 'salmon', 'darkgreen', 'forestgreen', 'green', 'lime', 'lightgreen', 'lightseagreen']
 
 # Plots speedup for multiple versions from a single result file.
-def plot_speedup(data, result_file):
+def plot_speedup(data, result_file, title):
     plt.figure(figsize=(10, 6))
 
     for version, color in zip(versions, colors):
@@ -23,16 +24,18 @@ def plot_speedup(data, result_file):
             label=f'Version {version}'
         )
 
+    filename = result_file.split('.')[0]
+
     # Graph configuration
     plt.xscale('log')
     plt.xlabel('Number of Points (log scale)', fontsize=12)
     plt.ylabel('Speedup (sw_time / hw_time)', fontsize=12)
-    plt.title(f'Speedup vs Number of Points ({result_file})', fontsize=14)
+    plt.title(f'Speedup ({title})', fontsize=14)
     plt.legend()
     plt.grid(True, which="both", linestyle="--", linewidth=0.5)
     plt.tight_layout()
     plt.show()
-    plt.savefig(f"{result_file}.pdf")
+    plt.savefig(f"{filename}.pdf")
 
 
 def main():
@@ -56,7 +59,7 @@ def main():
             df['speedup'] = df['sw_time'] / df['hw_time']
             data[version] = df
 
-        plot_speedup(data, result_file)  
+        plot_speedup(data, result_file, names[results.index(result_file)])  
 
 
 if __name__ == '__main__':
