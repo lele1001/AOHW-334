@@ -3,12 +3,11 @@ import matplotlib.pyplot as plt
 import pandas as pd
 
 # List of results files to analyze
-versions = ['v3', 'v4', 'v5']
+versions = ['v2-floats', 'v2-integers', 'v3-1AIE', 'v3-2AIE', 'v3-4AIE', 'v3-8AIE', 'v3-16AIE']
 results = ['4_clusters_avg.csv', '8_clusters_avg.csv', '12_clusters_avg.csv', '16_clusters_avg.csv']
 
 # List of colors for plotting
-colors = ['blue', 'green', 'red', 'orange', 'purple']            
-
+colors = ['red', 'salmon', 'darkgreen', 'forestgreen', 'green', 'lime', 'lightgreen']
 
 # Plots speedup for multiple versions from a single result file.
 def plot_speedup(data, result_file):

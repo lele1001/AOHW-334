@@ -34,43 +34,24 @@ def plot_results(df_melted, num_clusters, figsize, num):
     
     plt.xscale("log")
     plt.yscale("log")
-    plt.xlabel("Number of Points (log 2 scale)")
-    plt.ylabel("Time (μs, log scale)")
+    plt.xlabel("Number of Points (log 2 scale)", fontsize=12)
+    plt.ylabel("Time (μs, log scale)", fontsize=12)
 
     # Set x-axis ticks to powers of 2
-    x_ticks = [2**i for i in range(2, 27, 4)]
-    plt.xticks(x_ticks, [f"$2^{{{i}}}$" for i in range(2, 27, 4)])
+    # x_ticks = [2**i for i in range(2, 27, 4)]
+    # plt.xticks(x_ticks, [f"$2^{{{i}}}$" for i in range(2, 27, 4)])
 
-    plt.title(f"Software and Hardware Time vs Number of Points, {num_clusters} Clusters")
+    plt.title(f"{num_clusters} Clusters", fontsize=14)
     plt.legend()
 
     plt.grid(True, which="both", linestyle="--", lw=0.5)
-    plt.savefig(f"{num_clusters}_clusters{num}.pdf")
+    plt.savefig(f"{num_clusters}_clusters{num}.png")
     plt.show()
     plt.close()
 
 
 def main():
-    files = ['time1.csv', 'time2.csv', 'time3.csv', 'time4.csv', 'time5.csv']
-
-    '''
-    for file in files:
-        # Read the CSV data into DataFrame
-        df = read_csv(file)
-
-        # Melt the DataFrame for plotting
-        df_melted = df.melt(id_vars=["num_clusters", "num_points"],
-                            value_vars=["sw_time", "hw_time"],
-                            var_name="Type", value_name="Time (μs)")
-
-        # Rename "Type" values for clearer labels
-        df_melted["Type"] = df_melted["Type"].replace({"sw_time": "Software time", "hw_time": "Hardware time"})
-        num = files.index(file) + 1
-
-        # Plot the results
-        for cluster in df_melted["num_clusters"].unique():
-            plot_results(df_melted[df_melted["num_clusters"] == cluster], cluster, figsize=(18, 10), num=num)
-    '''
+    files = ["time1.csv", "time2.csv", "time3.csv", "time4.csv", "time5.csv", "time6.csv"]
 
     # Make the average plot and concatenate all the csv files
     combined_df = pd.concat([read_csv(file) for file in files])
@@ -83,7 +64,7 @@ def main():
     combined_df_melted["Type"] = combined_df_melted["Type"].replace({"sw_time": "Software time", "hw_time": "Hardware time"})
     
     for cluster in combined_df_melted["num_clusters"].unique():
-        plot_results(combined_df_melted[combined_df_melted["num_clusters"] == cluster], cluster, figsize=(18, 10), num="avg")
+        plot_results(combined_df_melted[combined_df_melted["num_clusters"] == cluster], cluster, figsize=(10, 6), num="avg")
 
         # Create a CSV file with the average results
         combined_df[combined_df["num_clusters"] == cluster].to_csv(f"{cluster}_clusters_avg.csv", index=False)
