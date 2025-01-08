@@ -153,7 +153,7 @@ int main(int argc, char *argv[])
 
     for (size_t j = 0; j < clusters_vec.size(); j++)
     {
-        for (size_t pow = 6; pow < max_pow + 1; pow += step)
+        for (size_t pow = 9; pow < max_pow + 1; pow += step)
         {
             num_clusters = clusters_vec[j];
             num_points = std::pow(2, pow);

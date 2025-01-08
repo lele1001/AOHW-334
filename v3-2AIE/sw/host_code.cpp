@@ -131,9 +131,9 @@ bool checkConstraints(int num_clusters, int num_points)
         return false;
     }
 
-    if (num_points % 8 != 0 || num_points < 8)
+    if (num_points % (N_AIE * 4) != 0 || num_points < (N_AIE * 4))
     {
-        std::cout << "Error: The number of points must be a multiple of 8" << std::endl;
+        std::cout << "Error: The number of points must be a multiple of " << (N_AIE * 4) << std::endl;
         return false;
     }
 

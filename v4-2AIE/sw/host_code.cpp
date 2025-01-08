@@ -19,7 +19,9 @@
 // args indexes for setup_aie kernel
 #define arg_setup_aie_num_clusters 0
 #define arg_setup_aie_num_points 1
-#define arg_setup_aie_input 2
+#define arg_setup_aie_fake_clusters 2
+#define arg_setup_aie_fake_points 3
+#define arg_setup_aie_input 4
 
 // args indexes for sink_from_aie kernel
 #define arg_sink_from_aie_output 2
@@ -74,7 +76,7 @@ int32_t checkResult(const std::vector<Cluster> &sw_output, const std::vector<Clu
     return EXIT_SUCCESS;
 }
 
-std::vector<Cluster> k_means(const std::vector<float> &input, int32_t num_clusters, int32_t num_points)
+std::vector<Cluster> k_means(const std::vector<float> &input, int32_t num_clusters, int32_t num_points, int32_t fake_clusters, int32_t fake_points)
 {
     std::vector<Cluster> clusters(num_clusters);
 
@@ -84,7 +86,7 @@ std::vector<Cluster> k_means(const std::vector<float> &input, int32_t num_cluste
         clusters[i] = Cluster(input[i * 2], input[i * 2 + 1]);
     }
 
-    size_t start = num_clusters * 2;
+    size_t start = (num_clusters + fake_clusters) * 2;
 
     // K-Means algorithm
     for (size_t i = 0; i < num_points; i++)
@@ -131,9 +133,9 @@ bool checkConstraints(int num_clusters, int num_points)
         return false;
     }
 
-    if (num_points % 8 != 0 || num_points < 8)
+    if (num_points % (N_AIE * 4) != 0 || num_points < (N_AIE * 4))
     {
-        std::cout << "Error: The number of points must be a multiple of 8" << std::endl;
+        std::cout << "Error: The number of points must be a multiple of " << (N_AIE * 4) << std::endl;
         return false;
     }
 
@@ -142,10 +144,11 @@ bool checkConstraints(int num_clusters, int num_points)
 
 int main(int argc, char *argv[])
 {
-    int step = 3;
-    int max_pow = 7;
-    std::vector<int32_t> clusters_vec = {4};
-    int num_clusters, num_points;
+    int32_t step = 3;
+    int32_t max_pow = 7;
+    std::vector<int32_t> clusters_vec = {3, 4};
+    int32_t num_clusters, num_points;
+    int32_t fake_clusters, fake_points;
 
     std::ofstream csv_file;
     csv_file.open("time.csv", std::ios_base::app);
@@ -153,20 +156,41 @@ int main(int argc, char *argv[])
 
     for (size_t j = 0; j < clusters_vec.size(); j++)
     {
-        for (size_t pow = 3; pow < max_pow + 1; pow += step)
-        {
+        /* for (size_t pow = 9; pow < max_pow + 1; pow += step)
+        { */
             num_clusters = clusters_vec[j];
-            num_points = std::pow(2, pow);
+            num_points = 6;
 
             std::cout << "Number of clusters: " << num_clusters << std::endl;
             std::cout << "Number of points: " << num_points << std::endl;
 
-            if (!checkConstraints(num_clusters, num_points))
+            if (num_clusters > MAX_CLUSTERS)
             {
+                std::cout << "Error: The number of clusters must be less than or equal to 8" << std::endl;
                 return EXIT_FAILURE;
             }
+            else 
+            {
+                if (num_clusters % 4 != 0)
+                {
+                    fake_clusters = 4 - (num_clusters % 4);
+                }
+                else
+                {
+                    fake_clusters = 0;
+                }
+            }
 
-            int32_t input_size = (num_clusters + num_points) * 2;
+            if (num_points % (N_AIE * 4) != 0 || num_points < (N_AIE * 4))
+            {
+                fake_points = (N_AIE * 4) - (num_points % (N_AIE * 4));
+            }
+            else
+            {
+                fake_points = 0;
+            }
+
+            int32_t input_size = (num_clusters + num_points + fake_clusters + fake_points) * 2;
             int32_t output_size = num_clusters * 2;
 
             std::vector<u_int32_t> input_buffer_hw(input_size);
@@ -198,10 +222,26 @@ int main(int argc, char *argv[])
 
             // std::cout << std::endl;
 
+            // Generate fake clusters by repeating the last cluster
+            for (size_t i = 0; i < fake_clusters; i++)
+            {
+                int32_t idx = (num_clusters + i) * 2;
+
+                input_buffer_sw[idx + 0] = input_buffer_sw[(num_clusters - 1) * 2 + 0];
+                input_buffer_sw[idx + 1] = input_buffer_sw[(num_clusters - 1) * 2 + 1];
+
+                // Copy the cluster coordinates to the input buffer as integers pointing to the float
+                u_int32_t val_x = *reinterpret_cast<u_int32_t *>(&input_buffer_sw[idx + 0]);
+                u_int32_t val_y = *reinterpret_cast<u_int32_t *>(&input_buffer_sw[idx + 1]);
+
+                input_buffer_hw[idx + 0] = val_x;
+                input_buffer_hw[idx + 1] = val_y;
+            }
+
             // Generate random coordinates for points
             for (size_t i = 0; i < num_points; i++)
             {
-                int32_t idx = (num_clusters + i) * 2;
+                int32_t idx = (num_clusters + fake_clusters + i) * 2;
 
                 input_buffer_sw[idx + 0] = std::round(dist(rng) * 10000.0) / 10000.0;
                 input_buffer_sw[idx + 1] = std::round(dist(rng) * 10000.0) / 10000.0;
@@ -216,6 +256,22 @@ int main(int argc, char *argv[])
             }
 
             // std::cout << std::endl;
+
+            // Generate fake points by repeating the last point
+            for (size_t i = 0; i < fake_points; i++)
+            {
+                int32_t idx = (num_clusters + fake_clusters + num_points + i) * 2;
+
+                input_buffer_sw[idx + 0] = input_buffer_sw[(num_clusters + fake_clusters + num_points - 1) * 2 + 0];
+                input_buffer_sw[idx + 1] = input_buffer_sw[(num_clusters + fake_clusters + num_points - 1) * 2 + 1];
+
+                // Copy the point coordinates to the input buffer as integers pointing to the float
+                int32_t val_x = *reinterpret_cast<int32_t *>(&input_buffer_sw[idx + 0]);
+                int32_t val_y = *reinterpret_cast<int32_t *>(&input_buffer_sw[idx + 1]);
+
+                input_buffer_hw[idx + 0] = val_x;
+                input_buffer_hw[idx + 1] = val_y;
+            }
 
             //------------------------------------------------LOADING XCLBIN------------------------------------------
             std::string xclbin_file;
@@ -250,6 +306,8 @@ int main(int argc, char *argv[])
             // set setup_aie kernel arguments
             run_setup_aie.set_arg(arg_setup_aie_num_clusters, num_clusters);
             run_setup_aie.set_arg(arg_setup_aie_num_points, num_points);
+            run_setup_aie.set_arg(arg_setup_aie_fake_clusters, fake_clusters);
+            run_setup_aie.set_arg(arg_setup_aie_fake_points, fake_points);
             run_setup_aie.set_arg(arg_setup_aie_input, buffer_setup_aie);
 
             // set sink_from_aie kernel arguments
@@ -292,7 +350,7 @@ int main(int argc, char *argv[])
 
             auto sw_start = std::chrono::high_resolution_clock::now();
             // run the kernel
-            sw_result = k_means(input_buffer_sw, num_clusters, num_points);
+            sw_result = k_means(input_buffer_sw, num_clusters, num_points, fake_clusters, fake_points);
 
             auto sw_end = std::chrono::high_resolution_clock::now();
             auto sw_exec_ms = (sw_end - sw_start) / std::chrono::microseconds(1);
@@ -324,7 +382,7 @@ int main(int argc, char *argv[])
             {
                 std::cout << bold_on << "Test failed" << bold_off << std::endl;
             }
-        }
+        /* } */
     }
 
     csv_file.close();
