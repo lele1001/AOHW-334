@@ -119,29 +119,6 @@ std::vector<Cluster> k_means(const std::vector<float> &input, int32_t num_cluste
     return clusters;
 }
 
-bool checkConstraints(int num_clusters, int num_points)
-{
-    if (num_clusters % 4 != 0)
-    {
-        std::cout << "Error: The number of clusters must be a multiple of 4" << std::endl;
-        return false;
-    }
-
-    if (num_clusters > MAX_CLUSTERS)
-    {
-        std::cout << "Error: The number of clusters must be less than or equal to 8" << std::endl;
-        return false;
-    }
-
-    if (num_points % (N_AIE * 4) != 0 || num_points < (N_AIE * 4))
-    {
-        std::cout << "Error: The number of points must be a multiple of " << (N_AIE * 4) << std::endl;
-        return false;
-    }
-
-    return true;
-}
-
 int main(int argc, char *argv[])
 {
     int32_t step = 3;
@@ -156,39 +133,24 @@ int main(int argc, char *argv[])
 
     for (size_t j = 0; j < clusters_vec.size(); j++)
     {
-        /* for (size_t pow = 9; pow < max_pow + 1; pow += step)
-        { */
-            num_clusters = clusters_vec[j];
-            num_points = 6;
+        for (size_t pow = 6; pow < max_pow + 1; pow += step)
+        {
+            // Calculate the maximum number of fake points and fake clusters
+            int32_t max_fake_points = static_cast<int>(N_AIE * 4 - 1);
+            int32_t max_fake_clusters = 3;
 
-            std::cout << "Number of clusters: " << num_clusters << std::endl;
-            std::cout << "Number of points: " << num_points << std::endl;
+            // Initialize the random number generators
+            std::mt19937 generator(static_cast<unsigned>(std::time(nullptr)));
+            std::uniform_int_distribution<int> points_dist(0, max_fake_points);
+            std::uniform_int_distribution<int> clusters_dist(0, max_fake_clusters);
 
-            if (num_clusters > MAX_CLUSTERS)
-            {
-                std::cout << "Error: The number of clusters must be less than or equal to 8" << std::endl;
-                return EXIT_FAILURE;
-            }
-            else 
-            {
-                if (num_clusters % 4 != 0)
-                {
-                    fake_clusters = 4 - (num_clusters % 4);
-                }
-                else
-                {
-                    fake_clusters = 0;
-                }
-            }
+            fake_points = points_dist(generator);
+            fake_clusters = clusters_dist(generator);
+            num_clusters = clusters_vec[j] - fake_clusters;
+            num_points = std::pow(2, pow) - fake_points;
 
-            if (num_points % (N_AIE * 4) != 0 || num_points < (N_AIE * 4))
-            {
-                fake_points = (N_AIE * 4) - (num_points % (N_AIE * 4));
-            }
-            else
-            {
-                fake_points = 0;
-            }
+            std::cout << "Number of clusters: " << num_clusters << " \tNumber of fake clusters: " << fake_clusters << std::endl;
+            std::cout << "Number of points: " << num_points << " \tNumber of fake points: " << fake_points << std::endl;
 
             int32_t input_size = (num_clusters + num_points + fake_clusters + fake_points) * 2;
             int32_t output_size = num_clusters * 2;
@@ -382,7 +344,7 @@ int main(int argc, char *argv[])
             {
                 std::cout << bold_on << "Test failed" << bold_off << std::endl;
             }
-        /* } */
+        }
     }
 
     csv_file.close();
