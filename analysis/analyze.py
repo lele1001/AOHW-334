@@ -17,6 +17,7 @@ names = ['4 Clusters', '8 Clusters', '12 Clusters', '16 Clusters']
 # colors = ['pink', 'salmon']
 colors = ['pink', 'darkgreen']
 # colors = ['pink', 'salmon', 'darkgreen', 'forestgreen', 'green', 'lime', 'lightgreen', 'lightseagreen']
+colors_all = ['#FFB6C1', '#FF69B4', '#FF1493', '#DB7093', '#90EE90', '#3CB371', '#228B22', '#556B2F']
 
 # Plots speedup for multiple versions from a single result file.
 def plot_speedup(data, result_file, title):
@@ -73,6 +74,7 @@ def main():
             data[version] = df
 
         plot_speedup(data, result_file, names[results.index(result_file)])  
+
 
 
 if __name__ == '__main__':

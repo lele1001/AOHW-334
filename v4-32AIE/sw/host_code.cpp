@@ -24,8 +24,8 @@
 #define arg_setup_aie_input 4
 
 // args indexes for sink_from_aie kernel
-#define arg_sink_from_aie_output 2
-#define arg_sink_from_aie_size 3
+#define arg_sink_from_aie_output 32
+#define arg_sink_from_aie_size 33
 
 bool get_xclbin_path(std::string &xclbin_file);
 std::ostream &bold_on(std::ostream &os);
@@ -54,7 +54,7 @@ int32_t checkResult(const std::vector<Cluster> &sw_output, const std::vector<Clu
         {
             if (!matched[j])
             {
-                if (std::abs(sw_output[i].x - hw_output[j].x) <= 0.0001 && std::abs(sw_output[i].y - hw_output[j].y) <= 0.0001) 
+                if (std::abs(sw_output[i].x - hw_output[j].x) <= 0.0001 && std::abs(sw_output[i].y - hw_output[j].y) <= 0.0001)
                 {
                     matched[j] = true;
                 }
@@ -133,7 +133,7 @@ int main(int argc, char *argv[])
 
     for (size_t j = 0; j < clusters_vec.size(); j++)
     {
-        for (size_t pow = 6; pow < max_pow + 1; pow += step)
+        for (size_t pow = 9; pow < max_pow + 1; pow += step)
         {
             // Calculate the maximum number of fake points and fake clusters
             int32_t max_fake_points = static_cast<int>(N_AIE * 4 - 1);
@@ -203,7 +203,7 @@ int main(int argc, char *argv[])
             // Generate random coordinates for points
             for (size_t i = 0; i < num_points; i++)
             {
-                int32_t idx = (num_clusters + fake_clusters + i) * 2;
+                int32_t idx = (num_clusters + i) * 2;
 
                 input_buffer_sw[idx + 0] = std::round(dist(rng) * 10000.0) / 10000.0;
                 input_buffer_sw[idx + 1] = std::round(dist(rng) * 10000.0) / 10000.0;
@@ -306,13 +306,13 @@ int main(int argc, char *argv[])
             }
 
             // print the output
-            std::cout << "Hardware output: ";
+            /* std::cout << "Hardware output: ";
             printCluster(hw_result);
-            std::cout << std::endl;
+            std::cout << std::endl; */
 
             auto sw_start = std::chrono::high_resolution_clock::now();
             // run the kernel
-            sw_result = k_means(input_buffer_sw, num_clusters, num_points, fake_clusters, fake_points);
+            sw_result = k_means(input_buffer_sw, num_clusters, num_points);
 
             auto sw_end = std::chrono::high_resolution_clock::now();
             auto sw_exec_ms = (sw_end - sw_start) / std::chrono::microseconds(1);
@@ -328,9 +328,9 @@ int main(int argc, char *argv[])
             }
 
             // print the output
-            std::cout << "Expected results: ";
+            /* std::cout << "Expected results: ";
             printCluster(sw_result);
-            std::cout << std::endl;
+            std::cout << std::endl;*/
 
             // ------------------------------------------------CHECKING THE RESULTS------------------------------------------
             if (checkResult(sw_result, hw_result, num_clusters) == EXIT_SUCCESS)

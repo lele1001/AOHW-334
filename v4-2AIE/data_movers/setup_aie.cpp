@@ -16,42 +16,26 @@ void compute(
 	)
 {
 	// Create a temporary variable to store the data (8 integers at a time = 4 points)
-	ap_uint<sizeof(float) * 8 * 8> tmp1;
-	ap_uint<sizeof(float) * 8 * 8> tmp2;
+	ap_uint<sizeof(float) * 8 * 8> tmp;
 
 	// Number of points in each AIE
 	int32_t num_points_updated = (num_points + fake_points) >> N_AIE_LOG;
 
 	// Write the number of clusters and the number of points
-	tmp1.range(31, 0) = num_clusters;
-	tmp2.range(31, 0) = num_clusters;
-	tmp1.range(63, 32) = num_points_updated;
-	tmp2.range(63, 32) = num_points_updated;
-	tmp1.range(95, 64) = fake_clusters;
-	tmp2.range(95, 64) = fake_clusters;
+	tmp.range(31, 0) = num_clusters;
+	tmp.range(63, 32) = num_points_updated;
+	tmp.range(95, 64) = fake_clusters;
+	tmp.range(255, 128) = 0;
 
-	if (fake_points > 0) {
-		if (fake_points <= 4) {
-			tmp1.range(127, 96) = 0;
-			tmp2.range(127, 96) = fake_points;
-		} else {
-			tmp1.range(127, 96) = fake_points - 4;
-			tmp2.range(127, 96) = 4;
-		}
-	}
-	else {
-		tmp1.range(127, 96) = 0;
-		tmp2.range(127, 96) = 0;
-	}
 
-	tmp1.range(255, 128) = 0;
-	tmp2.range(255, 128) = 0;
+	// Write the number of fake points for the first AIE
+	tmp.range(127, 96) = hls::max(0, fake_points - 4);
+	out1.write(tmp);
 
-	// Core Initialization
-	out1.write(tmp1);
-	out2.write(tmp2);
+	// Write the number of fake points for the second AIE
+	tmp.range(127, 96) = hls::min(4, fake_points);
+	out2.write(tmp);
 
-	ap_uint<sizeof(float) * 8 * 8> tmp;
 
 	// Write the clusters coordinates, assuming that their number is a multiple of 4
 	int32_t cluster_read = (num_clusters + fake_clusters) >> 2;
