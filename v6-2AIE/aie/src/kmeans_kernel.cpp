@@ -23,6 +23,8 @@ void kmeans_function(input_stream<int32_t> *restrict input, output_stream<float>
 
     // Read the coordinates of the clusters, assuming that the number of clusters is a multiple of 4
     for (size_t i = 0; i < clusters_in; i++)
+    chess_loop_range(1,)
+    chess_prepare_for_pipelining
     {
         val_in = readincr_v<8>(input);
         val_fl = aie::vector_cast<float>(val_in);
@@ -40,6 +42,8 @@ void kmeans_function(input_stream<int32_t> *restrict input, output_stream<float>
     aie::vector<float, MAX_CLUSTERS> clusters_x, clusters_y;
 
     for (size_t i = 0; i < num_clusters; i++)
+    chess_loop_range(1,)
+    chess_prepare_for_pipelining
     {
         clusters_x[i] = clusters[i].x;
         clusters_y[i] = clusters[i].y;
@@ -49,7 +53,9 @@ void kmeans_function(input_stream<int32_t> *restrict input, output_stream<float>
     int32_t cluster_index = -1;
     int32_t num_points = points - fake_points;
 
-    for (size_t i = 0; i < num_points; i += 4)
+    for (size_t i = 0; i < points; i += 4)
+    chess_loop_range(1,)
+    chess_prepare_for_pipelining
     {
         // Read the coordinates of the points, assuming that the number of points is a multiple of 4
         val_in = readincr_v<8>(input);
@@ -57,6 +63,8 @@ void kmeans_function(input_stream<int32_t> *restrict input, output_stream<float>
 
         // Compute the algorithm for each of the 4 points
         for (size_t j = 0; j < 4; j++)
+        chess_loop_range(4,)
+        chess_prepare_for_pipelining
         {
             if (i + j < num_points)
             {
@@ -77,6 +85,8 @@ void kmeans_function(input_stream<int32_t> *restrict input, output_stream<float>
 
     // Write the clusters to the output stream
     for (size_t i = 0; i < num_clusters; i++)
+    chess_loop_range(1,)
+    chess_prepare_for_pipelining
     {
         // Write the cluster coordinates to the output stream
         val_out[0] = clusters[i].x;
@@ -114,6 +124,7 @@ int32_t assignment_function(aie::vector<float, MAX_CLUSTERS> distances, int32_t 
 {
     // Fill the remaining distances with INT32_MAX
     for (size_t i = num_clusters; i < MAX_CLUSTERS; i++)
+    chess_prepare_for_pipelining
     {
         distances[i] = std::numeric_limits<float>::max();
     }
@@ -121,6 +132,8 @@ int32_t assignment_function(aie::vector<float, MAX_CLUSTERS> distances, int32_t 
     float min_dist = aie::reduce_min(distances);
 
     for (size_t i = 0; i < num_clusters; i++)
+    chess_loop_range(1,)
+    chess_prepare_for_pipelining
     {
         if (distances[i] == min_dist)
         {

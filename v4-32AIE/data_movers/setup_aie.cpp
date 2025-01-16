@@ -328,10 +328,12 @@ void compute(
 extern "C"
 {
 	void setup_aie(
-		int32_t num_clusters, 
-		int32_t num_points, 
-		ap_uint<sizeof(float) * 8 * 8> *input, 
-		hls::stream<ap_uint<sizeof(float) * 8 * 8>> &s_1, 
+		int32_t num_clusters,
+		int32_t num_points,
+		int32_t fake_clusters,
+		int32_t fake_points,
+		ap_uint<sizeof(float) * 8 * 8> *input,
+		hls::stream<ap_uint<sizeof(float) * 8 * 8>> &s_1,
 		hls::stream<ap_uint<sizeof(float) * 8 * 8>> &s_2,
 		hls::stream<ap_uint<sizeof(float) * 8 * 8>> &s_3,
 		hls::stream<ap_uint<sizeof(float) * 8 * 8>> &s_4,
@@ -362,8 +364,7 @@ extern "C"
 		hls::stream<ap_uint<sizeof(float) * 8 * 8>> &s_29,
 		hls::stream<ap_uint<sizeof(float) * 8 * 8>> &s_30,
 		hls::stream<ap_uint<sizeof(float) * 8 * 8>> &s_31,
-		hls::stream<ap_uint<sizeof(float) * 8 * 8>> &s_32
-		)
+		hls::stream<ap_uint<sizeof(float) * 8 * 8>> &s_32)
 	{
 // PRAGMA for stream
 #pragma HLS interface axis port = s_1
@@ -406,11 +407,13 @@ extern "C"
 // PRAGMA for AXI-LITE : required to move params from host to PL
 #pragma HLS interface s_axilite port = num_clusters bundle = control
 #pragma HLS interface s_axilite port = num_points bundle = control
+#pragma HLS interface s_axilite port = fake_clusters bundle = control
+#pragma HLS interface s_axilite port = fake_points bundle = control
 #pragma HLS interface s_axilite port = return bundle = control
 
 // PRAGMA for DATAFLOW
 #pragma DATAFLOW
 
-		compute(num_clusters, num_points, input, s_1, s_2, s_3, s_4, s_5, s_6, s_7, s_8, s_9, s_10, s_11, s_12, s_13, s_14, s_15, s_16, s_17, s_18, s_19, s_20, s_21, s_22, s_23, s_24, s_25, s_26, s_27, s_28, s_29, s_30, s_31, s_32);
+		compute(num_clusters, num_points, fake_clusters, fake_points, input, s_1, s_2, s_3, s_4, s_5, s_6, s_7, s_8, s_9, s_10, s_11, s_12, s_13, s_14, s_15, s_16, s_17, s_18, s_19, s_20, s_21, s_22, s_23, s_24, s_25, s_26, s_27, s_28, s_29, s_30, s_31, s_32);
 	}
 }
