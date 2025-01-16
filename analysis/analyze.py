@@ -6,7 +6,8 @@ import pandas as pd
 # versions = ['v2-floats', 'v2-integers', 'v3-1AIE', 'v3-2AIE', 'v3-4AIE', 'v3-8AIE', 'v3-16AIE', 'v3-32AIE', 'v4-2AIE']
 # versions = ['v3-2AIE', 'v4-2AIE']
 # versions = ['v2-floats', 'v2-integers']
-versions = ['v2-floats', 'v3-1AIE']
+# versions = ['v2-floats', 'v3-1AIE']
+versions = ['v4-2AIE', 'v5-2AIE', 'v6-2AIE']
 # versions = ['v2-floats', 'v2-integers', 'v3-1AIE', 'v3-2AIE', 'v3-4AIE', 'v3-8AIE', 'v3-16AIE', 'v3-32AIE']
 results = ['4_clusters_avg.csv', '8_clusters_avg.csv', '12_clusters_avg.csv', '16_clusters_avg.csv']
 names = ['4 Clusters', '8 Clusters', '12 Clusters', '16 Clusters']
@@ -15,7 +16,8 @@ names = ['4 Clusters', '8 Clusters', '12 Clusters', '16 Clusters']
 # colors = ['pink', 'salmon', 'darkgreen', 'forestgreen', 'green', 'lime', 'lightgreen', 'lightseagreen', 'blue']
 # colors = ['forestgreen', 'blue']
 # colors = ['pink', 'salmon']
-colors = ['pink', 'darkgreen']
+# colors = ['pink', 'darkgreen']
+colors = ['blue', 'orange', 'purple']
 # colors = ['pink', 'salmon', 'darkgreen', 'forestgreen', 'green', 'lime', 'lightgreen', 'lightseagreen']
 colors_all = ['#FFB6C1', '#FF69B4', '#FF1493', '#DB7093', '#90EE90', '#3CB371', '#228B22', '#556B2F']
 
@@ -37,7 +39,7 @@ def plot_speedup(data, result_file, title):
     # filename = result_file.split('.')[0].replace("_avg", "_v3-v4")
     # filename = result_file.split('.')[0].replace("_avg", "_v2")
     # filename = result_file.split('.')[0].replace("_avg", "_v3")
-    filename = result_file.split('.')[0].replace("_avg", "_v2-v3")
+    filename = result_file.split('.')[0].replace("_avg", "_v4-v5-v6")
 
     # Draw an horizontal line at y=1
     plt.axhline(y=1, color='red', linestyle='--', linewidth=0.5)
