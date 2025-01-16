@@ -312,7 +312,7 @@ int main(int argc, char *argv[])
 
             auto sw_start = std::chrono::high_resolution_clock::now();
             // run the kernel
-            sw_result = k_means(input_buffer_sw, num_clusters, num_points);
+            sw_result = k_means(input_buffer_sw, num_clusters, num_points, fake_clusters, fake_points);
 
             auto sw_end = std::chrono::high_resolution_clock::now();
             auto sw_exec_ms = (sw_end - sw_start) / std::chrono::microseconds(1);
@@ -338,7 +338,7 @@ int main(int argc, char *argv[])
                 std::cout << bold_on << "Test passed" << bold_off << std::endl;
 
                 // Write the time and the timestamp to the csv
-                csv_file << num_clusters << ", " << num_points << ", " << sw_exec_ms << ", " << hw_exec_ms << std::endl;
+                csv_file << (num_clusters + fake_clusters) << ", " << (num_points + fake_points) << ", " << sw_exec_ms << ", " << hw_exec_ms << std::endl;
             }
             else
             {

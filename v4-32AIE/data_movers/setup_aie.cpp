@@ -46,7 +46,7 @@ void compute(
 {
 	// Create a temporary variable to store the data (8 integers at a time = 4 points)
 	ap_uint<sizeof(float) * 8 * 8> tmp;
-	int32_t num_points_updated = num_points >> N_AIE_LOG;
+	int32_t num_points_updated = (num_points + fake_points) >> N_AIE_LOG;
 
 	// Write the number of clusters and the number of points
 	tmp.range(31, 0) = num_clusters;

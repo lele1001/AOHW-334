@@ -306,9 +306,9 @@ int main(int argc, char *argv[])
             }
 
             // print the output
-            std::cout << "Hardware output: ";
+            /* std::cout << "Hardware output: ";
             printCluster(hw_result);
-            std::cout << std::endl;
+            std::cout << std::endl; */
 
             auto sw_start = std::chrono::high_resolution_clock::now();
             // run the kernel
@@ -328,9 +328,9 @@ int main(int argc, char *argv[])
             }
 
             // print the output
-            std::cout << "Expected results: ";
+            /* std::cout << "Expected results: ";
             printCluster(sw_result);
-            std::cout << std::endl;
+            std::cout << std::endl; */
 
             // ------------------------------------------------CHECKING THE RESULTS------------------------------------------
             if (checkResult(sw_result, hw_result, num_clusters) == EXIT_SUCCESS)
@@ -338,7 +338,7 @@ int main(int argc, char *argv[])
                 std::cout << bold_on << "Test passed" << bold_off << std::endl;
 
                 // Write the time and the timestamp to the csv
-                csv_file << num_clusters << ", " << num_points << ", " << sw_exec_ms << ", " << hw_exec_ms << std::endl;
+                csv_file << (num_clusters + fake_clusters) << ", " << (num_points + fake_points) << ", " << sw_exec_ms << ", " << hw_exec_ms << std::endl;
             }
             else
             {
