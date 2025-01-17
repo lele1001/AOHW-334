@@ -51,7 +51,7 @@ def plot_speedup(data, result_file, title):
     plt.title(f'Speedup ({title})', fontsize=14)
     plt.legend()
     plt.show()
-    plt.savefig(f"{filename}.pdf")
+    plt.savefig(f"{filename}.png")
 
 
 def main():

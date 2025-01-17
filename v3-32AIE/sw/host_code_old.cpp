@@ -140,36 +140,12 @@ bool checkConstraints(int num_clusters, int num_points)
     return true;
 }
 
-
-std::vector<std::pair<float, float>> read_data(std::string filename)
-{
-    std::ifstream file(filename);
-    std::vector<std::pair<float, float>> data;
-
-    // Check if the file exists and can be opened
-    if (!file.is_open())
-    {
-        std::cerr << "Error: Could not open the file " << filename << std::endl;
-        exit(EXIT_FAILURE);
-    }
-
-    // Read the data from the file
-    float x, y;
-    while (file >> x >> y)
-    {
-        data.push_back(std::make_pair(x, y));
-    }
-
-    return data;
-}
-
 int main(int argc, char *argv[])
 {
-    int step = 512;
-    std::vector<int32_t> clusters_vec = {4, 8, 12, 16, 32};
+    int step = 3;
+    int max_pow = 7;
+    std::vector<int32_t> clusters_vec = {4};
     int num_clusters, num_points;
-
-    std::vector<std::pair<float, float>> data = read_data("points.json");
 
     std::ofstream csv_file;
     csv_file.open("time.csv", std::ios_base::app);
@@ -177,14 +153,10 @@ int main(int argc, char *argv[])
 
     for (size_t j = 0; j < clusters_vec.size(); j++)
     {
-        num_clusters = clusters_vec[j];
-
-        // Set max_p as the largest multiple of 512 that is less than the number of points in the data array
-        int max_p = ((data.size() - num_clusters) / 512) * 512;
-
-        for (size_t p = 512; p < max_p + 1; p += step)
+        for (size_t pow = 9; pow < max_pow + 1; pow += step)
         {
-            num_points = p;
+            num_clusters = clusters_vec[j];
+            num_points = std::pow(2, pow);
 
             std::cout << "Number of clusters: " << num_clusters << std::endl;
             std::cout << "Number of points: " << num_points << std::endl;
@@ -204,11 +176,16 @@ int main(int argc, char *argv[])
             std::vector<Cluster> sw_result(num_clusters);
             std::vector<Cluster> hw_result(num_clusters);
 
-            // Read coordinates for clusters from the data array
+            // Generate random float coordinates for points and clusters using random number generator
+            std::random_device rd;
+            std::mt19937 rng(rd());
+            std::uniform_real_distribution<float> dist(-5.0, 5.0);
+
+            // Generate random coordinates for clusters
             for (size_t i = 0; i < num_clusters; i++)
             {
-                input_buffer_sw[i * 2 + 0] = std::round(data[i].first * 10000.0) / 10000.0;
-                input_buffer_sw[i * 2 + 1] = std::round(data[i].second * 10000.0) / 10000.0;
+                input_buffer_sw[i * 2 + 0] = std::round(dist(rng) * 10000.0) / 10000.0;
+                input_buffer_sw[i * 2 + 1] = std::round(dist(rng) * 10000.0) / 10000.0;
                 // std::cout << "Cluster " << i << ": (" << input_buffer_sw[i * 2 + 0] << ", " << input_buffer_sw[i * 2 + 1] << ")\t";
 
                 // Copy the cluster coordinates to the input buffer as integers pointing to the float
@@ -221,13 +198,13 @@ int main(int argc, char *argv[])
 
             // std::cout << std::endl;
 
-            // Read coordinates for points from the data array
+            // Generate random coordinates for points
             for (size_t i = 0; i < num_points; i++)
             {
                 int32_t idx = (num_clusters + i) * 2;
 
-                input_buffer_sw[idx + 0] = std::round(data[num_clusters + i].first * 10000.0) / 10000.0;
-                input_buffer_sw[idx + 1] = std::round(data[num_clusters + i].second * 10000.0) / 10000.0;
+                input_buffer_sw[idx + 0] = std::round(dist(rng) * 10000.0) / 10000.0;
+                input_buffer_sw[idx + 1] = std::round(dist(rng) * 10000.0) / 10000.0;
                 // std::cout << "Point " << i << ": (" << input_buffer_sw[idx + 0] << ", " << input_buffer_sw[idx + 1] << ")\t";
 
                 // Copy the point coordinates to the input buffer as integers pointing to the float

@@ -203,7 +203,7 @@ int main(int argc, char *argv[])
             // Generate random coordinates for points
             for (size_t i = 0; i < num_points; i++)
             {
-                int32_t idx = (num_clusters + i) * 2;
+                int32_t idx = (num_clusters + fake_clusters + i) * 2;
 
                 input_buffer_sw[idx + 0] = std::round(dist(rng) * 10000.0) / 10000.0;
                 input_buffer_sw[idx + 1] = std::round(dist(rng) * 10000.0) / 10000.0;
