@@ -68,6 +68,15 @@ int32_t checkResult(const std::vector<Cluster> &sw_output, const std::vector<Clu
             std::cout << "Error: The cluster " << i << " does not match" << std::endl;
             return EXIT_FAILURE;
         }
+        else 
+        {
+            std::ofstream file;
+            file.open("output.txt");
+            for (size_t i = 0; i < num_clusters; i++)
+            {
+                file << sw_output[i].x << " " << sw_output[i].y << "\t" << hw_output[i].x << " " << hw_output[i].y << std::endl;
+            }
+        }
     }
 
     std::cout << "All the clusters match" << std::endl;

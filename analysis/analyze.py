@@ -4,22 +4,34 @@ import pandas as pd
 
 # List of results files to analyze
 # versions = ['v2-floats', 'v2-integers', 'v3-1AIE', 'v3-2AIE', 'v3-4AIE', 'v3-8AIE', 'v3-16AIE', 'v3-32AIE', 'v4-2AIE']
+# colors = ['#fee391', '#df65b0', '#a1d99b', '#74c476', '#41ab5d', '#238b45', '#006d2c', '#00441b', '#6baed6'] 
+# all versions
+
 # versions = ['v3-2AIE', 'v4-2AIE']
+# colors = ['#74c476','#6baed6']
+# v3 - v4
+
 # versions = ['v2-floats', 'v2-integers']
+# colors = ['#fee391', '#df65b0']
+# v2
+
 # versions = ['v2-floats', 'v3-1AIE']
-versions = ['v4-2AIE', 'v5-2AIE', 'v6-2AIE']
-# versions = ['v2-floats', 'v2-integers', 'v3-1AIE', 'v3-2AIE', 'v3-4AIE', 'v3-8AIE', 'v3-16AIE', 'v3-32AIE']
+# colors = ['#fee391', '#a1d99b']
+# v2 - v3
+
+# versions = ['v4-2AIE', 'v5-2AIE', 'v6-2AIE']
+# colors = ['#6baed6', '#fd8d3c', '#9e9ac8']
+# v4 - v5 - v6
+
+versions = ['v2-floats', 'v2-integers', 'v3-1AIE', 'v3-2AIE', 'v3-4AIE', 'v3-8AIE', 'v3-16AIE', 'v3-32AIE']
+colors = ['#fee391', '#df65b0', '#a1d99b', '#74c476', '#41ab5d', '#238b45', '#006d2c', '#00441b']
+# v3
+
 results = ['4_clusters_avg.csv', '8_clusters_avg.csv', '12_clusters_avg.csv', '16_clusters_avg.csv']
 names = ['4 Clusters', '8 Clusters', '12 Clusters', '16 Clusters']
 
 # List of colors for plotting
-# colors = ['pink', 'salmon', 'darkgreen', 'forestgreen', 'green', 'lime', 'lightgreen', 'lightseagreen', 'blue']
-# colors = ['forestgreen', 'blue']
-# colors = ['pink', 'salmon']
-# colors = ['pink', 'darkgreen']
-colors = ['blue', 'orange', 'purple']
-# colors = ['pink', 'salmon', 'darkgreen', 'forestgreen', 'green', 'lime', 'lightgreen', 'lightseagreen']
-colors_all = ['#FFB6C1', '#FF69B4', '#FF1493', '#DB7093', '#90EE90', '#3CB371', '#228B22', '#556B2F']
+
 
 # Plots speedup for multiple versions from a single result file.
 def plot_speedup(data, result_file, title):
@@ -38,20 +50,21 @@ def plot_speedup(data, result_file, title):
     # filename = result_file.split('.')[0]
     # filename = result_file.split('.')[0].replace("_avg", "_v3-v4")
     # filename = result_file.split('.')[0].replace("_avg", "_v2")
-    # filename = result_file.split('.')[0].replace("_avg", "_v3")
-    filename = result_file.split('.')[0].replace("_avg", "_v4-v5-v6")
+    # filename = result_file.split('.')[0].replace("_avg", "_v2-v3")
+    # filename = result_file.split('.')[0].replace("_avg", "_v4-v5-v6")
+    filename = result_file.split('.')[0].replace("_avg", "_v3")
 
     # Draw an horizontal line at y=1
-    plt.axhline(y=1, color='red', linestyle='--', linewidth=0.5)
+    plt.axhline(y=1, color='red', linestyle='--', linewidth=0.6)
 
     # Graph configuration
     plt.xscale('log')
-    plt.xlabel('Number of Points (log scale)', fontsize=12)
-    plt.ylabel('Speedup (sw_time / hw_time)', fontsize=12)
-    plt.title(f'Speedup ({title})', fontsize=14)
-    plt.legend()
+    plt.xlabel('Number of Points (log scale)', fontsize=14)
+    plt.ylabel('Speedup (sw_time / hw_time)', fontsize=14)
+    plt.title(f'Speedup ({title})', fontsize=16)
+    plt.legend(fontsize=12)
     plt.show()
-    plt.savefig(f"{filename}.png")
+    plt.savefig(f"{filename}.pdf")
 
 
 def main():

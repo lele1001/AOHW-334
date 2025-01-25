@@ -5,13 +5,14 @@ import pandas as pd
 # List of results files to analyze
 # versions = ['v3-2AIE', 'v4-2AIE']
 versions = ['v2-floats', 'v3-2AIE']
+# versions = ['v2-floats']
 results = ['4_clusters_avg.csv', '8_clusters_avg.csv', '12_clusters_avg.csv', '16_clusters_avg.csv']
 names = ['4 Clusters', '8 Clusters', '12 Clusters', '16 Clusters']
 
 # List of colors for plotting
-# colors_all = ['#98FB98', '#98BF64', '#228B22', '#234F1E', '#D1EAF0', '#82EEFD', '#0077B6', '#023E8A']
-colors_all = ['#FFB6C1', '#FF69B4', '#FF1493', '#DB7093', '#98FB98', '#98BF64', '#228B22', '#234F1E']
-
+# colors_all = ['#b2e2e2','#66c2a4','#2ca25f','#006d2c', '#bdd7e7','#6baed6','#3182bd','#08519c']
+colors_all = ['#d7b5d8','#df65b0','#ce1256','#980043', '#b2e2e2','#66c2a4','#2ca25f','#006d2c']
+# colors_all = ['#d7b5d8','#df65b0','#ce1256','#980043']
 
 def plot_combined_speedup(data, title):
     plt.figure(figsize=(10, 6))
@@ -19,6 +20,7 @@ def plot_combined_speedup(data, title):
     for (version, cluster_name), cluster_data in data.items():
         # color_idx = 0 if version == 'v3-2AIE' else 1
         color_idx = 0 if version == 'v2-floats' else 1
+        # color_idx = 0
 
         # Plot each version-cluster pair
         plt.plot(
@@ -34,10 +36,10 @@ def plot_combined_speedup(data, title):
 
     # Graph configuration
     plt.xscale('log')
-    plt.xlabel('Number of Points (log scale)', fontsize=12)
-    plt.ylabel('Speedup (sw_time / hw_time)', fontsize=12)
-    plt.title(f'Speedup Comparison ({title})', fontsize=14)
-    plt.legend()
+    plt.xlabel('Number of Points (log scale)', fontsize=14)
+    plt.ylabel('Speedup (sw_time / hw_time)', fontsize=14)
+    plt.title(f'Speedup Comparison ({title})', fontsize=16)
+    plt.legend(fontsize=12)
     plt.savefig(f"combined_speedup.pdf")
     plt.show()
 
@@ -64,7 +66,7 @@ def main():
             combined_data[(version, cluster_name)] = df
 
     # Plot combined data
-    plot_combined_speedup(combined_data, 'v2 - v3 and All Clusters')
+    plot_combined_speedup(combined_data, 'v2')
 
 
 if __name__ == '__main__':
