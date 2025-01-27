@@ -119,7 +119,7 @@ std::vector<Cluster> k_means(const std::vector<float> &input, int32_t num_cluste
 
 bool checkConstraints(int num_clusters, int num_points)
 {
-    if (num_clusters % 4 != 0)
+    if (num_clusters % 16 != 0)
     {
         std::cout << "Error: The number of clusters must be a multiple of 4" << std::endl;
         return false;
@@ -127,13 +127,13 @@ bool checkConstraints(int num_clusters, int num_points)
 
     if (num_clusters > MAX_CLUSTERS)
     {
-        std::cout << "Error: The number of clusters must be less than or equal to 8" << std::endl;
+        std::cout << "Error: The number of clusters must be less than or equal to " << MAX_CLUSTERS << std::endl;
         return false;
     }
 
-    if (num_points % (N_AIE * 4) != 0 || num_points < (N_AIE * 4))
+    if (num_points % (N_AIE * 16) != 0 || num_points < (N_AIE * 16))
     {
-        std::cout << "Error: The number of points must be a multiple of " << (N_AIE * 4) << std::endl;
+        std::cout << "Error: The number of points must be a multiple of " << (N_AIE * 16) << std::endl;
         return false;
     }
 
@@ -144,7 +144,7 @@ int main(int argc, char *argv[])
 {
     int step = 3;
     int max_pow = 7;
-    std::vector<int32_t> clusters_vec = {4};
+    std::vector<int32_t> clusters_vec = {16};
     int num_clusters, num_points;
 
     std::ofstream csv_file;
@@ -153,7 +153,7 @@ int main(int argc, char *argv[])
 
     for (size_t j = 0; j < clusters_vec.size(); j++)
     {
-        for (size_t pow = 3; pow < max_pow + 1; pow += step)
+        for (size_t pow = 6; pow < max_pow + 1; pow += step)
         {
             num_clusters = clusters_vec[j];
             num_points = std::pow(2, pow);

@@ -7,7 +7,7 @@
 
 #define CONSTANTS_H
 
-#define MAX_CLUSTERS 16
+#define MAX_CLUSTERS 32
 #define N_AIE 1
 #define N_AIE_LOG 0
 

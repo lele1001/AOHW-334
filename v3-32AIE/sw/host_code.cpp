@@ -344,6 +344,8 @@ int main(int argc, char *argv[])
             printCluster(sw_result);
             std::cout << std::endl;*/
 
+            
+
             // ------------------------------------------------CHECKING THE RESULTS------------------------------------------
             if (checkResult(sw_result, hw_result, num_clusters) == EXIT_SUCCESS)
             {

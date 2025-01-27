@@ -10,25 +10,24 @@ int32_t assignment_function(aie::vector<float, MAX_CLUSTERS> distances, int32_t 
 void kmeans_function(input_stream<int32_t> *restrict input, output_stream<float> *restrict output)
 {
     // Read the number of clusters and points
-    aie::vector<int32_t, 8> val_in = readincr_v<8>(input);
-    aie::vector<float, 8> val_fl;
+    aie::vector<int32_t, 32> val_in = readincr_v<32>(input);
+    aie::vector<float, 32> val_fl;
     int32_t num_clusters = (int32_t) val_in[0];
     int32_t num_points = (int32_t) val_in[1];
     Cluster clusters[MAX_CLUSTERS];
 
-    // Number of clusters to read (num_clusters / 4)
-    int32_t clusters_in = num_clusters >> 2;
+    // Number of clusters to read (num_clusters / 16)
+    int32_t clusters_in = num_clusters >> 4;
 
-    // Read the coordinates of the clusters, assuming that the number of clusters is a multiple of 4
+    // Read the coordinates of the clusters, assuming that the number of clusters is a multiple of 16
     for (size_t i = 0; i < clusters_in; i++)
     {
-        val_in = readincr_v<8>(input);
+        val_in = readincr_v<32>(input);
         val_fl = aie::vector_cast<float>(val_in);
 
-        for (size_t j = 0; j < 4; j++)
+        for (size_t j = 0; j < 16; j++)
         {
-            clusters[i * 4 + j] = Cluster(val_fl[j * 2], val_fl[j * 2 + 1]);
-            // std::cout << "Cluster " << i * 4 + j << ": (" << clusters[i * 4 + j].x << ", " << clusters[i * 4 + j].y << ")" << std::endl;
+            clusters[i * 16 + j] = Cluster(val_fl[j * 2], val_fl[j * 2 + 1]);
         }
     }
 
@@ -43,17 +42,15 @@ void kmeans_function(input_stream<int32_t> *restrict input, output_stream<float>
     aie::vector<float, MAX_CLUSTERS> distances;
     int32_t cluster_index = -1;
 
-    for (size_t i = 0; i < num_points; i += 4)
+    for (size_t i = 0; i < num_points; i += 16)
     {
-        // Read the coordinates of the points, assuming that the number of points is a multiple of 4
-        val_in = readincr_v<8>(input);
+        // Read the coordinates of the points, assuming that the number of points is a multiple of 16
+        val_in = readincr_v<32>(input);
         val_fl = aie::vector_cast<float>(val_in);
-        size_t j = 0;
 
         // Compute the algorithm for each of the 4 points
-        while (j < 4) {
+        for (size_t j = 0; j < 16; j++) {
             Point point = Point(val_fl[j * 2], val_fl[j * 2 + 1]);
-            // std::cout << "Point " << j << ": (" << point.x << ", " << point.y << ")" << std::endl;
 
             // Compute the euclidean distance between the point and all the clusters
             distances = euclidean_distance(clusters_x, clusters_y, num_clusters, point);
@@ -61,8 +58,6 @@ void kmeans_function(input_stream<int32_t> *restrict input, output_stream<float>
             // Assign the point to the closest cluster
             cluster_index = assignment_function(distances, num_clusters);
             clusters[cluster_index].addPoint(point);
-
-            j++;
         }
     }
 

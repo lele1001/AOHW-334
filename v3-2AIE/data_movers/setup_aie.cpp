@@ -8,26 +8,26 @@
 void compute(
 	int32_t num_clusters, 
 	int32_t num_points, 
-	ap_uint<sizeof(float) * 8 * 8> *in, 
-	hls::stream<ap_uint<sizeof(float) * 8 * 8>> &out1, 
-	hls::stream<ap_uint<sizeof(float) * 8 * 8>> &out2
+	ap_uint<sizeof(float) * 8 * 32> *in, 
+	hls::stream<ap_uint<sizeof(float) * 8 * 32>> &out1, 
+	hls::stream<ap_uint<sizeof(float) * 8 * 32>> &out2
 	)
 {
-	// Create a temporary variable to store the data (8 integers at a time = 4 points)
-	ap_uint<sizeof(float) * 8 * 8> tmp;
+	// Create a temporary variable to store the data (32 floating point at a time = 16 points/clusters)
+	ap_uint<sizeof(float) * 8 * 32> tmp;
 	int32_t num_points_updated = num_points >> N_AIE_LOG;
 
 	// Write the number of clusters and the number of points
 	tmp.range(31, 0) = num_clusters;
 	tmp.range(63, 32) = num_points_updated;
-	tmp.range(255, 64) = 0;
+	tmp.range(1023, 64) = 0;
 
 	// Core Initialization
 	out1.write(tmp);
 	out2.write(tmp);
 
-	// Write the clusters coordinates, assuming that their number is a multiple of 4
-	int32_t cluster_read = num_clusters >> 2;
+	// Write the clusters coordinates, assuming that their number is a multiple of 16
+	int32_t cluster_read = num_clusters >> 4;
 	for (int32_t i = 0; i < cluster_read; i++)
 	{
 #pragma HLS pipeline II = 1
@@ -35,8 +35,8 @@ void compute(
 		out2.write(in[i]);
 	}
 
-	// Write the points coordinates, assuming that their number is a multiple of 8 (4 points in each cluster)
-	int32_t point_read = num_points >> 2;
+	// Write the points coordinates, assuming that their number is a multiple of 16
+	int32_t point_read = num_points >> 4;
 	for (int32_t i = 0; i < point_read; i += N_AIE)
 	{
 #pragma HLS pipeline II = 1
@@ -50,9 +50,9 @@ extern "C"
 	void setup_aie(
 		int32_t num_clusters, 
 		int32_t num_points, 
-		ap_uint<sizeof(float) * 8 * 8> *input, 
-		hls::stream<ap_uint<sizeof(float) * 8 * 8>> &s_1, 
-		hls::stream<ap_uint<sizeof(float) * 8 * 8>> &s_2
+		ap_uint<sizeof(float) * 8 * 32> *input, 
+		hls::stream<ap_uint<sizeof(float) * 8 * 32>> &s_1, 
+		hls::stream<ap_uint<sizeof(float) * 8 * 32>> &s_2
 		)
 	{
 // PRAGMA for stream

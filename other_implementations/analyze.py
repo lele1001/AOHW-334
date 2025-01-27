@@ -5,7 +5,7 @@ import numpy as np
 import seaborn as sns
 import pandas as pd
 
-versions = ["4", "8", "12", "16", "32"]
+versions = ["4", "8", "16", "32"]
 
 # Read the results from the csv file
 def read_csv(file_path):
@@ -110,107 +110,114 @@ def combine_results(output_file, csv_file):
 
     data = []
     for i, line in enumerate(output_lines):
-        values = line.strip().split('\t')
+        values = output_lines[i].strip().strip().split(',')
         num_clusters = int(values[0])
         num_points = int(values[1])
-        sw_result = [float(values[2]), float(values[3])]
-        hw_result = [float(values[4]), float(values[5])]
+        hw_result = [float(values[2]), float(values[3])]
 
         # Append the cluster data from the csv file
         csv_data = csv_lines[i].strip().split(',')
-        if int(csv_data[0]) == num_clusters and int(csv_data[1]) == num_points:
+        if int(csv_data[0]) == num_clusters:
             faiss_x, faiss_y = csv_data[2].replace('[', '').replace(']', '').split()
             scikit_x, scikit_y = csv_data[4].replace('[', '').replace(']', '').split()
 
             faiss_cpu = [float(faiss_x), float(faiss_y)]
             scikit = [float(scikit_x), float(scikit_y)]
 
-            data.append([num_clusters, num_points, sw_result, hw_result, faiss_cpu, scikit])
+            data.append([num_clusters, num_points, hw_result, faiss_cpu, scikit])
 
 
     # Create DataFrame with column names
-    df = pd.DataFrame(data, columns=['num_clusters', 'num_points', 'sw', 'hw', 'faiss', 'scikit'])
+    df = pd.DataFrame(data, columns=['num_clusters', 'num_points', 'hw', 'faiss', 'scikit'])
     df.to_csv("combined_results.csv", index=False)
 
+# Function to calculate absolute difference for each dimension
+def absolute_difference(coord1, coord2):
+    return np.abs(np.array(coord1) - np.array(coord2))
+
+
+def euclidean_distance(x1, x2, y1, y2):
+    return np.sqrt((x1 - x2) ** 2 + (y1 - y2) ** 2)
 
 def check_results(file):
-    df = pd.read_csv(file)
-    
-    sw = np.array([np.fromstring(x.strip('[]'), sep=',') for x in df["sw"]])
-    hw = np.array([np.fromstring(x.strip('[]'), sep=',') for x in df["hw"]])
-    faiss = np.array([np.fromstring(x.strip('[]'), sep=',') for x in df["faiss"]])
-    scikit = np.array([np.fromstring(x.strip('[]'), sep=',') for x in df["scikit"]])
+    # Initialize accumulators for differences
+    differences_hw_faiss = []
+    differences_hw_scikit = []
+    differences_faiss_scikit = []
+    euclidean_distances_hw_faiss = []
+    euclidean_distances_hw_scikit = []
+    euclidean_distances_faiss_scikit = []
+    configs = []
 
-    # Calculate the percentage difference between the software and faiss_cpu results
-    diff_sw_faiss = np.abs(sw - faiss) / faiss * 100
-    mean_sw_faiss = np.mean(diff_sw_faiss, axis=1)
+    with open(file, 'r') as file:
+        reader = csv.DictReader(file)
+        for row in reader:
+            # Parse coordinates
+            hw = eval(row["hw"])
+            faiss = eval(row["faiss"])
+            scikit = eval(row["scikit"])
 
-    # Calculate the percentage difference between the hardware and faiss_cpu results
-    diff_hw_faiss = np.abs(hw - faiss) / faiss * 100
-    mean_hw_faiss = np.mean(diff_hw_faiss, axis=1)
+            # Compute differences for each dimension
+            differences_hw_faiss.append(absolute_difference(hw, faiss))
+            differences_hw_scikit.append(absolute_difference(hw, scikit))
+            differences_faiss_scikit.append(absolute_difference(faiss, scikit))
 
-    # Calculate the percentage difference between the software and scikit results
-    diff_sw_scikit = np.abs(sw - scikit) / scikit * 100
-    mean_sw_scikit = np.mean(diff_sw_scikit, axis=1)
+            # Compute euclidean distances
+            euclidean_distances_hw_faiss.append(euclidean_distance(hw[0], faiss[0], hw[1], faiss[1]))
+            euclidean_distances_hw_scikit.append(euclidean_distance(hw[0], scikit[0], hw[1], scikit[1]))
+            euclidean_distances_faiss_scikit.append(euclidean_distance(faiss[0], scikit[0], faiss[1], scikit[1]))
 
-    # Calculate the percentage difference between the hardware and scikit results
-    diff_hw_scikit = np.abs(hw - scikit) / scikit * 100
-    mean_hw_scikit = np.mean(diff_hw_scikit, axis=1)
+            # Store configuration for tracking
+            configs.append({
+                "num_clusters": row["num_clusters"],
+                "num_points": row["num_points"],
+                "hw": hw,
+                "faiss": faiss,
+                "scikit": scikit,
+            })
 
-    # Calculate the percentage difference between the faiss_cpu and scikit results
-    diff_faiss_scikit = np.abs(faiss - scikit) / scikit * 100
-    mean_faiss_scikit = np.mean(diff_faiss_scikit, axis=1)
+    # Find max differences and their configurations
+    max_hw_faiss_idx = np.argmax([sum(diff) for diff in differences_hw_faiss])
+    max_hw_scikit_idx = np.argmax([sum(diff) for diff in differences_hw_scikit])
+    max_faiss_scikit_idx = np.argmax([sum(diff) for diff in differences_faiss_scikit])
 
-    # Find the indices of the maximum differences
-    max_sw_faiss_index = np.argmax(mean_sw_faiss)
-    max_hw_faiss_index = np.argmax(mean_hw_faiss)
-    max_hw_scikit_index = np.argmax(mean_hw_scikit)
-    max_sw_scikit_index = np.argmax(mean_sw_scikit)
-    max_faiss_scikit_index = np.argmax(mean_faiss_scikit)
+    max_hw_faiss_diff = differences_hw_faiss[max_hw_faiss_idx]
+    max_hw_scikit_diff = differences_hw_scikit[max_hw_scikit_idx]
+    max_faiss_scikit_diff = differences_faiss_scikit[max_faiss_scikit_idx]
 
-    # Retrieve the rows corresponding to the maximum errors
-    max_sw_faiss_row = df.iloc[max_sw_faiss_index]
-    max_hw_faiss_row = df.iloc[max_hw_faiss_index]
-    max_hw_scikit_row = df.iloc[max_hw_scikit_index]
-    max_sw_scikit_row = df.iloc[max_sw_scikit_index]
-    max_faiss_scikit_row = df.iloc[max_faiss_scikit_index]
+     # Calculate averages
+    avg_hw_faiss = sum(differences_hw_faiss) / len(differences_hw_faiss)
+    avg_hw_scikit = sum(differences_hw_scikit) / len(differences_hw_scikit)
+    avg_faiss_scikit = sum(differences_faiss_scikit) / len(differences_faiss_scikit)
 
-    # Print results
-    print(f"Average percentage difference (software vs. faiss_cpu): {np.mean(mean_sw_faiss):.2f}%")
-    print(f"Average percentage difference (hardware vs. faiss_cpu): {np.mean(mean_hw_faiss):.2f}%")
-    print(f"Average percentage difference (hardware vs. scikit): {np.mean(mean_hw_scikit):.2f}%")
-    print(f"Average percentage difference (software vs. scikit): {np.mean(mean_sw_scikit):.2f}%")
-    print(f"Average percentage difference (faiss_cpu vs. scikit): {np.mean(mean_faiss_scikit):.2f}%")
+    #Average euclidean distances
+    avg_euclidean_hw_faiss = sum(euclidean_distances_hw_faiss) / len(euclidean_distances_hw_faiss)
+    avg_euclidean_hw_scikit = sum(euclidean_distances_hw_scikit) / len(euclidean_distances_hw_scikit)
+    avg_euclidean_faiss_scikit = sum(euclidean_distances_faiss_scikit) / len(euclidean_distances_faiss_scikit)
 
-    print(f"Maximum percentage difference (software vs. faiss_cpu): {mean_sw_faiss[max_sw_faiss_index]:.2f}%")
-    print(f"Maximum percentage difference (hardware vs. faiss_cpu): {mean_hw_faiss[max_hw_faiss_index]:.2f}%")
-    print(f"Maximum percentage difference (hardware vs. scikit): {mean_hw_scikit[max_hw_scikit_index]:.2f}%")
-    print(f"Maximum percentage difference (software vs. scikit): {mean_sw_scikit[max_sw_scikit_index]:.2f}%")
-    print(f"Maximum percentage difference (faiss_cpu vs. scikit): {mean_faiss_scikit[max_faiss_scikit_index]:.2f}%")
+    print(f"Average Euclidean Distance HW-FAISS: {avg_euclidean_hw_faiss}")
+    print(f"Max Euclidean Distance HW-FAISS: {max(euclidean_distances_hw_faiss)}\n")
+    print(f"Average Euclidean Distance HW-SCIKIT: {avg_euclidean_hw_scikit}")
+    print(f"Max Euclidean Distance HW-SCIKIT: {max(euclidean_distances_hw_scikit)}\n")
+    print(f"Average Euclidean Distance FAISS-SCIKIT: {avg_euclidean_faiss_scikit}")
+    print(f"Max Euclidean Distance FAISS-SCIKIT: {max(euclidean_distances_faiss_scikit)}\n")
 
-    print("\nConfiguration with maximum software error (faiss):")
-    print(max_sw_faiss_row)
-    print("\nConfiguration with maximum hardware error (faiss):")
-    print(max_hw_faiss_row)
-    print("\nConfiguration with maximum hardware error (scikit):")
-    print(max_hw_scikit_row)
-    print("\nConfiguration with maximum software error (scikit):")
-    print(max_sw_scikit_row)
-    print("\nConfiguration with maximum faiss_cpu error (scikit):")
-    print(max_faiss_scikit_row)
 
-    with open("max_errors.txt", "w") as f:
-        f.write(f"Average percentage difference (software vs. faiss_cpu): {np.mean(mean_sw_faiss):.2f}%\n")
-        f.write(f"Average percentage difference (hardware vs. faiss_cpu): {np.mean(mean_hw_faiss):.2f}%\n")
-        f.write(f"Average percentage difference (hardware vs. scikit): {np.mean(mean_hw_scikit):.2f}%\n")
-        f.write(f"Average percentage difference (software vs. scikit): {np.mean(mean_sw_scikit):.2f}%\n")
-        f.write(f"Average percentage difference (faiss_cpu vs. scikit): {np.mean(mean_faiss_scikit):.2f}%\n\n")
+    print(f"Configuration with Max HW-FAISS Difference:")
+    print(f"HW: {configs[max_hw_faiss_idx]['hw']}, FAISS: {configs[max_hw_faiss_idx]['faiss']}")
+    print(f"Max Difference (x1, x2): {max_hw_faiss_diff}\n")
+    print(f"Average Difference: {avg_hw_faiss}\n")
 
-        f.write(f"Configuration with maximum software error (faiss):\n{max_sw_faiss_row}\n\n")
-        f.write(f"Configuration with maximum hardware error (faiss):\n{max_hw_faiss_row}\n\n")
-        f.write(f"Configuration with maximum hardware error (scikit):\n{max_hw_scikit_row}\n\n")
-        f.write(f"Configuration with maximum software error (scikit):\n{max_sw_scikit_row}\n\n")
-        f.write(f"Configuration with maximum faiss_cpu error (scikit):\n{max_faiss_scikit_row}\n\n")
+    print(f"Configuration with Max HW-SCIKIT Difference:")
+    print(f"HW: {configs[max_hw_scikit_idx]['hw']}, SCIKIT: {configs[max_hw_scikit_idx]['scikit']}")
+    print(f"Difference (x1, x2): {max_hw_scikit_diff}\n")
+    print(f"Average Difference: {avg_hw_scikit}\n")
+
+    print(f"Configuration with Max FAISS-SCIKIT Difference:")
+    print(f"FAISS: {configs[max_faiss_scikit_idx]['faiss']}, SCIKIT: {configs[max_faiss_scikit_idx]['scikit']}")
+    print(f"Max Difference (x1, x2): {max_faiss_scikit_diff}\n")
+    print(f"Average Difference: {avg_faiss_scikit}\n")        
+        
 
 def main():
     # Read results of other implementations from file and compute average time for each number of clusters
@@ -218,19 +225,19 @@ def main():
     average_time(results)
 
     # Read AIE results from file and compute average time for each number of clusters
-    aie_files = ["results_aie_1.csv", "results_aie_2.csv"]
+    aie_files = ["time.csv"]
     average_aie_time(aie_files)
 
     # Plot average results
     for cluster in versions:
         concat_files(f"{cluster}_clusters_avg.csv", f"{cluster}_clusters_avg_aie.csv")
-        plot_results(f"{cluster}_clusters_avg_combined.csv", cluster)
+        # plot_results(f"{cluster}_clusters_avg_combined.csv", cluster)
 
         os.remove(f"{cluster}_clusters_avg.csv")
         os.remove(f"{cluster}_clusters_avg_aie.csv")
     
     # Read the output file and combine it with the json file
-    output_file = "output.txt"
+    output_file = "output.csv"
     csv_file = "clusters.csv"
     combine_results(output_file, csv_file)
 

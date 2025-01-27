@@ -15,27 +15,21 @@ void compute(hls::stream<float> &in_1, hls::stream<float> &in_2, float *out, int
 #pragma HLS pipeline II = 1
 
         // Read the packed data from the input streams
-        // ap_uint<sizeof(float) * 8 * 8> data_1 = in_1.read();
-        // ap_uint<sizeof(float) * 8 * 8> data_2 = in_2.read();
 
         // Read the cluster coordinates from the first AIE
-        // float x = data_1.range(31, 0);
-        // float y = data_1.range(63, 32);
-        // in_1 and in_2 should contain the same data for x and y coordinates
+        // All the streams should contain the same data for x and y coordinates
         float x = in_1.read();
         discard = in_2.read();
+
         float y = in_1.read();
         discard = in_2.read();
         discard = in_1.read() + in_2.read();
 
         // Sum the number of points assigned to the cluster
-        // int32_t num_points = (int32_t) data_1.range(127, 96) + (int32_t) data_2.range(127, 96);
         int32_t num_points = (int32_t) in_1.read() + (int32_t) in_2.read() - 1;
         discard = in_1.read() + in_2.read();
 
         // Sum the accumulated coordinates of the points in the cluster
-        // float x_accum = data_1.range(191, 160) + data_2.range(191, 160);
-        // float y_accum = data_1.range(223, 192) + data_2.range(223, 192);
         float x_accum = in_1.read() + in_2.read();
         float y_accum = in_1.read() + in_2.read();
         discard = in_1.read() + in_2.read();
@@ -49,13 +43,6 @@ void compute(hls::stream<float> &in_1, hls::stream<float> &in_2, float *out, int
         out[i * 2 + 1] = cluster_y;
     }
 }
-
-/*
-hls::stream<ap_uint<INPUT_DATA_BITWIDTH_FETCHER>>& float_out,
-ap_uint<INPUT_DATA_BITWIDTH_FETCHER> pixel;
-        if (coord != -1) pixel = float_original.read();
-        else             pixel = 0;
-*/
 
 extern "C"
 {

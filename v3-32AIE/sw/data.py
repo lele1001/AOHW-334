@@ -1,27 +1,31 @@
-import json
+import random
 
-def json_to_txt(json_filename, txt_filename):
-    try:
-        # Read the JSON file
-        with open(json_filename, 'r') as json_file:
-            data = json.load(json_file)
+NPOINTS = 1000000
+x_val = []
+y_val = []
 
-        # Open the text file for writing
-        with open(txt_filename, 'w') as txt_file:
-            for point in data:
-                if len(point) == 2:  # Ensure the point has exactly two values
-                    txt_file.write(f"{point[0]} {point[1]}\n")
-                else:
-                    print(f"Warning: Skipping invalid point {point}")
 
-        print(f"Transformed {json_filename} to {txt_filename} successfully.")
+with open("points2.txt", "w") as file:
+    for i in range(NPOINTS):
+
+        # generate random float values
+        x = random.uniform(-100, 100)
+        y = random.uniform(-100, 100)
+
+        x_val.append(x)
+        y_val.append(y)
+
+        file.write(f"{x} {y}\n")
     
-    except FileNotFoundError:
-        print(f"Error: {json_filename} not found.")
-    except json.JSONDecodeError:
-        print(f"Error: Failed to parse {json_filename} as JSON.")
-    except Exception as e:
-        print(f"An unexpected error occurred: {e}")
 
-# Example usage
-json_to_txt("points.json", "points.txt")
+with open("points2.json", "w") as file:
+    file.write("[")
+    for i in range(NPOINTS):
+
+        x = x_val[i]
+        y = y_val[i]
+
+        file.write(f"[{x}, {y}]")
+        if i < NPOINTS - 1:
+            file.write(",\n")
+    file.write("]")

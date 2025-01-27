@@ -31,7 +31,6 @@ void compute(
         discard = in_1.read() + in_2.read() + in_3.read() + in_4.read();
 
         // Sum the number of points assigned to the cluster
-        // int32_t num_points = (int32_t) data_1.range(127, 96) + (int32_t) data_2.range(127, 96);
         int32_t num_points = (int32_t)in_1.read() + (int32_t)in_2.read() + (int32_t)in_3.read() + (int32_t)in_4.read() - (N_AIE - 1);
         discard = in_1.read() + in_2.read() + in_3.read() + in_4.read();
 
