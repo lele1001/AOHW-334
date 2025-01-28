@@ -55,11 +55,11 @@ void kmeans_function(input_stream<int32_t> *restrict input, output_stream<float>
             Point point = Point(val_fl[j * 2], val_fl[j * 2 + 1]);
 
             // Compute the euclidean distance between the point and all the clusters
-            distances = euclidean_distance(clusters, num_clusters, point);
+            distances = euclidean_distance(clusters_x, clusters_y, num_clusters, point);
 
             // Get the index of the nearest cluster
-            cluster_index = assignment_function(distances, num_clusters);
-            
+            cluster_index = nearest_cluster(distances, num_clusters);
+
             // Assign the point to the nearest cluster and update the cluster coordinates
             clusters[cluster_index].addPoint(point);
         }
@@ -90,7 +90,7 @@ aie::vector<float, MAX_CLUSTERS> euclidean_distance(aie::vector<float, MAX_CLUST
 }
 
 // Return the index of the cluster with the minimum distance from the point
-int32_t assignment_function(aie::vector<float, MAX_CLUSTERS> distances, int32_t num_clusters)
+int32_t nearest_cluster(aie::vector<float, MAX_CLUSTERS> distances, int32_t num_clusters)
 {
     // Fill the remaining distances with INT32_MAX
     for (size_t i = num_clusters; i < MAX_CLUSTERS; i++)

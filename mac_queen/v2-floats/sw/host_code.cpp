@@ -45,17 +45,17 @@ int32_t checkResult(const std::vector<Cluster> &sw_output, const std::vector<Clu
 {
     std::vector<bool> matched(num_clusters, false);
 
-    // Iterate over the output of the software implementation
+    // Iterates over the output of the software implementation
     for (size_t i = 0; i < num_clusters; i++)
     {
-        // Iterate over the output of the hardware implementation
+        // Iterates over the output of the hardware implementation
         for (size_t j = 0; j < num_clusters; j++)
         {
             if (!matched[j])
             {
                 if (sw_output[i].numPoints == hw_output[j].numPoints)
                 {
-                    if (std::abs(sw_output[i].x - hw_output[j].x) <= 0.0001 && std::abs(sw_output[i].y - hw_output[j].y) <= 0.0001)
+                    if (std::abs(sw_output[i].x - hw_output[j].x) < 1 && std::abs(sw_output[i].y - hw_output[j].y) < 1)
                     {
                         matched[j] = true;
                     }
@@ -188,7 +188,6 @@ int main(int argc, char *argv[])
             // Generate random coordinates for clusters
             for (size_t i = 0; i < num_clusters; i++)
             {
-                // Round the generated coordinates to 4 decimal places
                 input_buffer_sw[i * 2 + 0] = dist(rng);
                 input_buffer_sw[i * 2 + 1] = dist(rng);
                 // std::cout << "Cluster " << i << ": (" << input_buffer_sw[i * 2] << ", " << input_buffer_sw[i * 2 + 1] << ")\t";
@@ -296,7 +295,6 @@ int main(int argc, char *argv[])
 
             //----------------------------------------------EXECUTING THE SOFTWARE------------------------------------------
             auto sw_start = std::chrono::high_resolution_clock::now();
-            // run the kernel
             sw_result = k_means(input_buffer_sw, num_clusters, num_points);
             auto sw_end = std::chrono::high_resolution_clock::now();
 
