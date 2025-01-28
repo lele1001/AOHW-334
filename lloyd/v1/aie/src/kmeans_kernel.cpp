@@ -5,15 +5,15 @@
 #include "aie_api/utils.hpp"
 
 aie::vector<float, MAX_CLUSTERS> euclidean_distance(aie::vector<float, MAX_CLUSTERS> clusters_x, aie::vector<float, MAX_CLUSTERS> clusters_y, int32_t num_clusters, Point point);
-int32_t assignment_function(aie::vector<float, MAX_CLUSTERS> distances, int32_t num_clusters);
+int32_t nearest_cluster(aie::vector<float, MAX_CLUSTERS> distances, int32_t num_clusters);
 
 void kmeans_function(input_stream<int32_t> *restrict input, output_stream<float> *restrict output)
 {
     // Read the number of clusters and points
     aie::vector<int32_t, 8> val_in = readincr_v<8>(input);
     aie::vector<float, 8> val_fl;
-    int32_t num_clusters = (int32_t) val_in[0];
-    int32_t num_points = (int32_t) val_in[1];
+    int32_t num_clusters = (int32_t)val_in[0];
+    int32_t num_points = (int32_t)val_in[1];
     Cluster clusters[MAX_CLUSTERS];
 
     // Number of clusters to read (num_clusters / 4)
@@ -51,7 +51,8 @@ void kmeans_function(input_stream<int32_t> *restrict input, output_stream<float>
         size_t j = 0;
 
         // Compute the algorithm for each of the 4 points
-        while (j < 4) {
+        while (j < 4)
+        {
             Point point = Point(val_fl[j * 2], val_fl[j * 2 + 1]);
             // std::cout << "Point " << j << ": (" << point.x << ", " << point.y << ")" << std::endl;
 

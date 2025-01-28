@@ -7,7 +7,7 @@
 #include "../common/cluster.h"
 
 aie::vector<int32_t, 8> euclidean_distance(Cluster *clusters, int32_t num_clusters, Point point);
-int32_t assignment_function(aie::vector<int32_t, 8> distances, Point point, Cluster *clusters, int32_t num_clusters);
+int32_t nearest_cluster(aie::vector<int32_t, 8> distances, Point point, Cluster *clusters, int32_t num_clusters);
 
 void kmeans_function(input_stream<int32_t> *restrict input, output_stream<int32_t> *restrict output)
 {
