@@ -5,16 +5,17 @@
 #include "../common/common.h"
 #include "ap_fixed.h"
 
+// Move the data from the host to the AIE
 void compute(
 	int32_t num_clusters, 
 	int32_t num_points, 
-	ap_uint<sizeof(float) * 8 * 32> *in, 
-	hls::stream<ap_uint<sizeof(float) * 8 * 32>> &out1, 
-	hls::stream<ap_uint<sizeof(float) * 8 * 32>> &out2
+	ap_uint<sizeof(float) * 8 * COORDS_IN> *in, 
+	hls::stream<ap_uint<sizeof(float) * 8 * COORDS_IN>> &out1, 
+	hls::stream<ap_uint<sizeof(float) * 8 * COORDS_IN>> &out2
 	)
 {
-	// Create a temporary variable to store the data (32 floating point at a time = 16 points/clusters)
-	ap_uint<sizeof(float) * 8 * 32> tmp;
+	// Create a temporary variable to store the data
+	ap_uint<sizeof(float) * 8 * COORDS_IN> tmp;
 	int32_t num_points_updated = num_points >> N_AIE_LOG;
 
 	// Write the number of clusters and the number of points
@@ -22,12 +23,11 @@ void compute(
 	tmp.range(63, 32) = num_points_updated;
 	tmp.range(1023, 64) = 0;
 
-	// Core Initialization
 	out1.write(tmp);
 	out2.write(tmp);
 
-	// Write the clusters coordinates, assuming that their number is a multiple of 16
-	int32_t cluster_read = num_clusters >> 4;
+	// Write the clusters coordinates, assuming that each vector can be completely filled
+	int32_t cluster_read = num_clusters >> POINTS_LOG;
 	for (int32_t i = 0; i < cluster_read; i++)
 	{
 #pragma HLS pipeline II = 1
@@ -35,8 +35,8 @@ void compute(
 		out2.write(in[i]);
 	}
 
-	// Write the points coordinates, assuming that their number is a multiple of 16
-	int32_t point_read = num_points >> 4;
+	// Write the points coordinates, assuming that each vector can be completely filled
+	int32_t point_read = num_points >> POINTS_LOG;
 	for (int32_t i = 0; i < point_read; i += N_AIE)
 	{
 #pragma HLS pipeline II = 1
@@ -50,9 +50,9 @@ extern "C"
 	void setup_aie(
 		int32_t num_clusters, 
 		int32_t num_points, 
-		ap_uint<sizeof(float) * 8 * 32> *input, 
-		hls::stream<ap_uint<sizeof(float) * 8 * 32>> &s_1, 
-		hls::stream<ap_uint<sizeof(float) * 8 * 32>> &s_2
+		ap_uint<sizeof(float) * 8 * COORDS_IN> *input, 
+		hls::stream<ap_uint<sizeof(float) * 8 * COORDS_IN>> &s_1, 
+		hls::stream<ap_uint<sizeof(float) * 8 * COORDS_IN>> &s_2
 		)
 	{
 // PRAGMA for stream
@@ -70,7 +70,6 @@ extern "C"
 
 // PRAGMA for DATAFLOW
 #pragma DATAFLOW
-
 		compute(num_clusters, num_points, input, s_1, s_2);
 	}
 }

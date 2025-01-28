@@ -10,26 +10,26 @@ int32_t nearest_cluster(aie::vector<float, MAX_CLUSTERS> distances, int32_t num_
 // Lloyd's implementation of K-Means algorithm
 void kmeans_function(input_stream<int32_t> *restrict input, output_stream<float> *restrict output)
 {
-    aie::vector<int32_t, 32> val_in = readincr_v<32>(input);
-    aie::vector<float, 32> val_fl;
+    aie::vector<int32_t, COORDS_IN> val_in = readincr_v<COORDS_IN>(input);
+    aie::vector<float, COORDS_IN> val_fl;
     Cluster clusters[MAX_CLUSTERS];
 
     // Read the number of clusters and points
-    int32_t num_clusters = (int32_t)val_in[0];
+    int32_t num_clusters = (int32_t)c[0];
     int32_t num_points = (int32_t)val_in[1];
 
-    // Number of clusters to read (num_clusters / 16)
-    int32_t clusters_in = num_clusters >> 4;
+    // Number of cycles to read all clusters
+    int32_t clusters_in = num_clusters >> POINTS_LOG;
 
-    // Read the coordinates of the clusters, assuming that the number of clusters is a multiple of 16
+    // Read the coordinates of clusters, assuming that each vector read is completely filled
     for (size_t i = 0; i < clusters_in; i++)
     {
-        val_in = readincr_v<32>(input);
+        val_in = readincr_v<COORDS_IN>(input);
         val_fl = aie::vector_cast<float>(val_in);
 
-        for (size_t j = 0; j < 16; j++)
+        for (size_t j = 0; j < POINTS; j++)
         {
-            clusters[i * 16 + j] = Cluster(val_fl[j * 2], val_fl[j * 2 + 1]);
+            clusters[i * POINTS + j] = Cluster(val_fl[j * 2], val_fl[j * 2 + 1]);
         }
     }
 
@@ -44,14 +44,14 @@ void kmeans_function(input_stream<int32_t> *restrict input, output_stream<float>
     aie::vector<float, MAX_CLUSTERS> distances;
     int32_t cluster_index = -1;
 
-    for (size_t i = 0; i < num_points; i += 16)
+    for (size_t i = 0; i < num_points; i += POINTS)
     {
-        // Read the coordinates of the points, assuming that the number of points is a multiple of 16
-        val_in = readincr_v<32>(input);
+        // Read the coordinates of the points, assuming that each vector read is completely filled
+        val_in = readincr_v<COORDS_IN>(input);
         val_fl = aie::vector_cast<float>(val_in);
 
-        // Compute the algorithm for each of the 4 points
-        for (size_t j = 0; j < 16; j++)
+        // Compute the algorithm for each point
+        for (size_t j = 0; j < POINTS; j++)
         {
             Point point = Point(val_fl[j * 2], val_fl[j * 2 + 1]);
 

@@ -4,7 +4,7 @@
 #include "aie_api/aie_adf.hpp"
 #include "aie_api/utils.hpp"
 
-aie::vector<float, MAX_CLUSTERS> euclidean_distance(aie::vector<float, MAX_CLUSTERS> clusters_x, aie::vector<float, MAX_CLUSTERS> clusters_y, int32_t num_clusters, Point point);
+aie::vector<int32_t, MAX_CLUSTERS> euclidean_distance(aie::vector<int32_t, MAX_CLUSTERS> clusters_x, aie::vector<int32_t, MAX_CLUSTERS> clusters_y, int32_t num_clusters, Point point);
 int32_t nearest_cluster(aie::vector<int32_t, MAX_CLUSTERS> distances, int32_t num_clusters);
 
 // MacQueen's implementation of K-Means algorithm
@@ -31,7 +31,7 @@ void kmeans_function(input_stream<int32_t> *restrict input, output_stream<int32_
         }
     }
 
-    aie::vector<float, MAX_CLUSTERS> clusters_x, clusters_y;
+    aie::vector<int32_t, MAX_CLUSTERS> clusters_x, clusters_y;
 
     for (size_t i = 0; i < num_clusters; i++)
     {
@@ -56,8 +56,9 @@ void kmeans_function(input_stream<int32_t> *restrict input, output_stream<int32_
             distances = euclidean_distance(clusters_x, clusters_y, num_clusters, point);
 
             // Get the index of the nearest cluster
-            // Assign the point to the closest cluster and update the cluster coordinates
             cluster_index = nearest_cluster(distances, num_clusters);
+
+            // Assign the point to the closest cluster and update the cluster coordinates
             clusters[cluster_index].addPoint(point);
         }
     }
@@ -71,7 +72,7 @@ void kmeans_function(input_stream<int32_t> *restrict input, output_stream<int32_
 }
 
 // Compute the euclidean distance between a point and all the clusters
-aie::vector<int32_t, MAX_CLUSTERS> euclidean_distance(aie::vector<float, MAX_CLUSTERS> clusters_x, aie::vector<float, MAX_CLUSTERS> clusters_y, int32_t num_clusters, Point point)
+aie::vector<int32_t, MAX_CLUSTERS> euclidean_distance(aie::vector<int32_t, MAX_CLUSTERS> clusters_x, aie::vector<int32_t, MAX_CLUSTERS> clusters_y, int32_t num_clusters, Point point)
 {
     // Compute the differences between the point and the clusters
     aie::vector<int32_t, MAX_CLUSTERS> diff_x = aie::sub(clusters_x, point.x);
