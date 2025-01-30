@@ -1,11 +1,6 @@
-# Fourth Version: last update 22 December 2024
-Performs k-means clustering on floats - first assign all the points to a cluster and then updates the coordinates
-The number of clusters and points should be a mutiple of 4, and there is a maximum of 32 clusters. 
-There is no limit on the number of points but, for testing purposes, the values have been calculated up to 2^22 points.
-
 # Lloyd's Implementation - floats
 
-This implementation performs Lloyd's version of K-means clustering by randomly generating floating point input coordinates for points and clusters. The maximum number of cluster is 32 and this implementation uses 32 AIEs.
+This implementation performs Lloyd's version of K-means clustering by randomly generating floating point input coordinates for points and clusters. The number of generated data attains to the constraint of being a multiple of the "POINTS" constant defined in ```common/constants.h``` and the maximum number of cluster is 32. This implementation uses 8 AIEs.
 
 ## Main Structure
 

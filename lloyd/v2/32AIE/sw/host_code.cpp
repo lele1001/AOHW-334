@@ -19,13 +19,11 @@
 // args indexes for setup_aie kernel
 #define arg_setup_aie_num_clusters 0
 #define arg_setup_aie_num_points 1
-#define arg_setup_aie_fake_clusters 2
-#define arg_setup_aie_fake_points 3
-#define arg_setup_aie_input 4
+#define arg_setup_aie_input 2
 
 // args indexes for sink_from_aie kernel
-#define arg_sink_from_aie_output 2
-#define arg_sink_from_aie_size 3
+#define arg_sink_from_aie_output 32
+#define arg_sink_from_aie_size 33
 
 bool get_xclbin_path(std::string &xclbin_file);
 std::ostream &bold_on(std::ostream &os);
@@ -55,7 +53,7 @@ int32_t checkResult(const std::vector<Cluster> &sw_output, const std::vector<Clu
         {
             if (!matched[j])
             {
-                if (std::abs(sw_output[i].x - hw_output[j].x) < 1 && std::abs(sw_output[i].y - hw_output[j].y) <= 1) 
+                if (std::abs(sw_output[i].x - hw_output[j].x) <= 0.0001 && std::abs(sw_output[i].y - hw_output[j].y) <= 0.0001)
                 {
                     matched[j] = true;
                 }
@@ -71,6 +69,15 @@ int32_t checkResult(const std::vector<Cluster> &sw_output, const std::vector<Clu
             std::cout << "Error: The cluster " << i << " does not match" << std::endl;
             return EXIT_FAILURE;
         }
+        else 
+        {
+            std::ofstream file;
+            file.open("output.txt");
+            for (size_t i = 0; i < num_clusters; i++)
+            {
+                file << sw_output[i].x << " " << sw_output[i].y << "\t" << hw_output[i].x << " " << hw_output[i].y << std::endl;
+            }
+        }
     }
 
     std::cout << "All the clusters match" << std::endl;
@@ -78,7 +85,7 @@ int32_t checkResult(const std::vector<Cluster> &sw_output, const std::vector<Clu
 }
 
 // Lloyd's implementation of the K-Means algorithm
-std::vector<Cluster> k_means(const std::vector<float> &input, int32_t num_clusters, int32_t num_points, int32_t fake_clusters, int32_t fake_points)
+std::vector<Cluster> k_means(const std::vector<float> &input, int32_t num_clusters, int32_t num_points)
 {
     std::vector<Cluster> clusters(num_clusters);
 
@@ -88,7 +95,7 @@ std::vector<Cluster> k_means(const std::vector<float> &input, int32_t num_cluste
         clusters[i] = Cluster(input[i * 2], input[i * 2 + 1]);
     }
 
-    size_t start = (num_clusters + fake_clusters) * 2;
+    size_t start = num_clusters * 2;
 
     // Read the coordinates of the points
     for (size_t i = 0; i < num_points; i++)
@@ -123,15 +130,59 @@ std::vector<Cluster> k_means(const std::vector<float> &input, int32_t num_cluste
     return clusters;
 }
 
+// Checks if the constraints are satisfied
+bool checkConstraints(int num_clusters, int num_points)
+{
+    if (num_clusters % POINTS != 0)
+    {
+        std::cout << "Error: The number of clusters must be a multiple of " << POINTS << std::endl;
+        return false;
+    }
+
+    if (num_clusters > MAX_CLUSTERS)
+    {
+        std::cout << "Error: The number of clusters must be less than or equal to " << MAX_CLUSTERS << std::endl;
+        return false;
+    }
+
+    if (num_points % (N_AIE * POINTS) != 0 || num_points < (N_AIE * POINTS))
+    {
+        std::cout << "Error: The number of points must be a multiple of " << (N_AIE * POINTS) << std::endl;
+        return false;
+    }
+
+    return true;
+}
+
+std::vector<std::pair<float, float>> read_data(std::string filename)
+{
+    std::ifstream file(filename);
+    std::vector<std::pair<float, float>> data;
+
+    // Check if the file exists and can be opened
+    if (!file.is_open())
+    {
+        std::cerr << "Error: Could not open the file " << filename << std::endl;
+        exit(EXIT_FAILURE);
+    }
+
+    // Read the data from the file
+    float x, y;
+    while (file >> x >> y)
+    {
+        data.push_back(std::make_pair(x, y));
+    }
+
+    return data;
+}
+
 int main(int argc, char *argv[])
 {
-    // Step and maximum power of 2 for the number of points
-    int step = 2;
-    int max_pow = 22;
-
-    std::vector<int32_t> clusters_vec = {4, 8, 12, 16, 20, 24, 28, 32};
+    int step = 512;
+    std::vector<int32_t> clusters_vec = {4, 8, 12, 16, 32};
     int num_clusters, num_points;
-    int32_t fake_clusters, fake_points;
+
+    std::vector<std::pair<float, float>> data = read_data("points.json");
 
     std::ofstream csv_file;
     csv_file.open("time.csv", std::ios_base::app);
@@ -139,27 +190,25 @@ int main(int argc, char *argv[])
 
     for (size_t j = 0; j < clusters_vec.size(); j++)
     {
-        for (size_t pow = 9; pow < max_pow + 1; pow += step)
+        num_clusters = clusters_vec[j];
+
+        // Set max_p as the largest multiple of 512 that is less than the number of points in the data array
+        int max_p = ((data.size() - num_clusters) / 512) * 512;
+
+        for (size_t p = 512; p < max_p + 1; p += step)
         {
-            // Calculate the maximum number of fake points and fake clusters
-            int32_t max_fake_points = static_cast<int>(N_AIE * 4 - 1);
-            int32_t max_fake_clusters = 3;
+            num_points = p;
 
-            // Initialize the random number generators
-            std::mt19937 generator(static_cast<unsigned>(std::time(nullptr)));
-            std::uniform_int_distribution<int> points_dist(0, max_fake_points);
-            std::uniform_int_distribution<int> clusters_dist(0, max_fake_clusters);
+            std::cout << "Number of clusters: " << num_clusters << std::endl;
+            std::cout << "Number of points: " << num_points << std::endl;
 
-            fake_points = points_dist(generator);
-            fake_clusters = clusters_dist(generator);
-            num_clusters = clusters_vec[j] - fake_clusters;
-            num_points = std::pow(2, pow) - fake_points;
-
-            std::cout << "Number of clusters: " << num_clusters << " \tNumber of fake clusters: " << fake_clusters << std::endl;
-            std::cout << "Number of points: " << num_points << " \tNumber of fake points: " << fake_points << std::endl;
+            if (!checkConstraints(num_clusters, num_points))
+            {
+                return EXIT_FAILURE;
+            }
 
             // ------------------------------------------------INITIALIZING THE BUFFERS------------------------------------------
-            int32_t input_size = (num_clusters + num_points + fake_clusters + fake_points) * 2;
+            int32_t input_size = (num_clusters + num_points) * 2;
             int32_t output_size = num_clusters * 2;
 
             std::vector<u_int32_t> input_buffer_hw(input_size);
@@ -169,16 +218,11 @@ int main(int argc, char *argv[])
             std::vector<Cluster> sw_result(num_clusters);
             std::vector<Cluster> hw_result(num_clusters);
 
-            // Generate random float coordinates for points and clusters using random number generator
-            std::random_device rd;
-            std::mt19937 rng(rd());
-            std::uniform_real_distribution<float> dist(-500.0, 500.0);
-
-            // Generate random coordinates for clusters
+            // Read coordinates for clusters from the data array
             for (size_t i = 0; i < num_clusters; i++)
             {
-                input_buffer_sw[i * 2 + 0] = dist(rng);
-                input_buffer_sw[i * 2 + 1] = dist(rng); 
+                input_buffer_sw[i * 2 + 0] = data[i].first;
+                input_buffer_sw[i * 2 + 1] = data[i].second;
                 // std::cout << "Cluster " << i << ": (" << input_buffer_sw[i * 2 + 0] << ", " << input_buffer_sw[i * 2 + 1] << ")\t";
 
                 // Copy the cluster coordinates to the input buffer as integers pointing to the float
@@ -191,29 +235,13 @@ int main(int argc, char *argv[])
 
             // std::cout << std::endl;
 
-            // Generate fake clusters by repeating the last cluster
-            for (size_t i = 0; i < fake_clusters; i++)
+            // Read coordinates for points from the data array
+            for (size_t i = 0; i < num_points; i++)
             {
                 int32_t idx = (num_clusters + i) * 2;
 
-                input_buffer_sw[idx + 0] = input_buffer_sw[(num_clusters - 1) * 2 + 0];
-                input_buffer_sw[idx + 1] = input_buffer_sw[(num_clusters - 1) * 2 + 1];
-
-                // Copy the cluster coordinates to the input buffer as integers pointing to the float
-                u_int32_t val_x = *reinterpret_cast<u_int32_t *>(&input_buffer_sw[idx + 0]);
-                u_int32_t val_y = *reinterpret_cast<u_int32_t *>(&input_buffer_sw[idx + 1]);
-
-                input_buffer_hw[idx + 0] = val_x;
-                input_buffer_hw[idx + 1] = val_y;
-            }
-
-            // Generate random coordinates for points
-            for (size_t i = 0; i < num_points; i++)
-            {
-                int32_t idx = (num_clusters + fake_clusters + i) * 2;
-
-                input_buffer_sw[idx + 0] = dist(rng);
-                input_buffer_sw[idx + 1] = dist(rng);
+                input_buffer_sw[idx + 0] = data[num_clusters + i].first;
+                input_buffer_sw[idx + 1] = data[num_clusters + i].second;
                 // std::cout << "Point " << i << ": (" << input_buffer_sw[idx + 0] << ", " << input_buffer_sw[idx + 1] << ")\t";
 
                 // Copy the point coordinates to the input buffer as integers pointing to the float
@@ -225,22 +253,6 @@ int main(int argc, char *argv[])
             }
 
             // std::cout << std::endl;
-
-            // Generate fake points by repeating the last point
-            for (size_t i = 0; i < fake_points; i++)
-            {
-                int32_t idx = (num_clusters + fake_clusters + num_points + i) * 2;
-
-                input_buffer_sw[idx + 0] = input_buffer_sw[(num_clusters + fake_clusters + num_points - 1) * 2 + 0];
-                input_buffer_sw[idx + 1] = input_buffer_sw[(num_clusters + fake_clusters + num_points - 1) * 2 + 1];
-
-                // Copy the point coordinates to the input buffer as integers pointing to the float
-                int32_t val_x = *reinterpret_cast<int32_t *>(&input_buffer_sw[idx + 0]);
-                int32_t val_y = *reinterpret_cast<int32_t *>(&input_buffer_sw[idx + 1]);
-
-                input_buffer_hw[idx + 0] = val_x;
-                input_buffer_hw[idx + 1] = val_y;
-            }
 
             //------------------------------------------------LOADING XCLBIN------------------------------------------
             std::string xclbin_file;
@@ -275,8 +287,6 @@ int main(int argc, char *argv[])
             // set setup_aie kernel arguments
             run_setup_aie.set_arg(arg_setup_aie_num_clusters, num_clusters);
             run_setup_aie.set_arg(arg_setup_aie_num_points, num_points);
-            run_setup_aie.set_arg(arg_setup_aie_fake_clusters, fake_clusters);
-            run_setup_aie.set_arg(arg_setup_aie_fake_points, fake_points);
             run_setup_aie.set_arg(arg_setup_aie_input, buffer_setup_aie);
 
             // set sink_from_aie kernel arguments
@@ -296,7 +306,7 @@ int main(int argc, char *argv[])
             run_setup_aie.wait();
             run_sink_from_aie.wait();
             auto hw_end = std::chrono::high_resolution_clock::now();
-            
+
             // Calculate the execution time of the hardware
             auto hw_exec_us = std::chrono::duration_cast<std::chrono::microseconds>(hw_end - hw_start).count();
             std::cout << "Hardware execution took " << hw_exec_us << " microseconds." << std::endl;
@@ -318,10 +328,9 @@ int main(int argc, char *argv[])
 
             // -----------------------------------------------EXECUTING THE SOFTWARE-----------------------------------------
             auto sw_start = std::chrono::high_resolution_clock::now();
-            // run the kernel
-            sw_result = k_means(input_buffer_sw, num_clusters, num_points, fake_clusters, fake_points);
+            sw_result = k_means(input_buffer_sw, num_clusters, num_points);
             auto sw_end = std::chrono::high_resolution_clock::now();
-            
+
             // Calculate the execution time of the software
             auto sw_exec_us = std::chrono::duration_cast<std::chrono::microseconds>(sw_end - sw_start).count();
             std::cout << "Software execution took " << sw_exec_us << " microseconds." << std::endl;
@@ -329,7 +338,7 @@ int main(int argc, char *argv[])
             // print the output
             /* std::cout << "Expected results: ";
             printCluster(sw_result);
-            std::cout << std::endl;*/
+            std::cout << std::endl;*/    
 
             // ------------------------------------------------CHECKING THE RESULTS------------------------------------------
             if (checkResult(sw_result, hw_result, num_clusters) == EXIT_SUCCESS)

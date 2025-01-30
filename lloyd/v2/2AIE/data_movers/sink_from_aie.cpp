@@ -17,9 +17,11 @@ void compute(
     {
 #pragma HLS pipeline II = 1
 
-        // Read the packed data from the input streams
+        // Read the cluster coordinates from the first AIE
+        // All the streams should contain the same data for x and y coordinates
         float x = in_1.read();
         discard = in_2.read();
+
         float y = in_1.read();
         discard = in_2.read();
         discard = in_1.read() + in_2.read();
